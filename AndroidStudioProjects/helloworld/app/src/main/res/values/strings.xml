@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">应用程序一</string>
+    <string name="personl_center_title">个人中心</string>
+    <string name="title_activity_start_other">StartOtherActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ic_drawer_open">open drawer</string>
+    <string name="ic_drawer_close">close drawer</string>
+
+</resources>

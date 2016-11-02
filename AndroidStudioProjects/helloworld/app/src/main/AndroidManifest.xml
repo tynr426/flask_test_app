@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tyn.helloworld">
+
+    <permission android:name="com.tyn.helloworld.permission.check" />
+
+    <uses-permission android:name="com.tyn.helloworld.permission.check" />
+
+    <permission android:name="com.tyn.helloworld.permission.PermissionActivity" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <!-- <uses-permission android:name="com.tyn.helloworld.permission.PermissionActivity"></uses-permission> -->
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/title_style"></activity>
+        <activity android:name=".OtherActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.tyn.helloworld.OtherActivity" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DialogActivity" />
+        <activity android:name=".Login" />
+        <activity
+            android:name=".LaunchModeA"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".LaunchModeB"
+            android:launchMode="singleTask" />
+        <activity android:name=".ImageActivity" />
+
+        <service
+            android:name=".MyFirstService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".RemoteService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ServiceActivity" />
+
+        <!-- <receiver -->
+        <!-- android:name=".MyFirstReceiver" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" /> -->
+
+        <activity android:name=".ReceiverActivity" />
+        <activity
+            android:name=".PermissionActivity"
+            android:permission="com.tyn.helloworld.permission.PermissionActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.tyn.helloworld.intent.action.PermissionActivity" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".DefinedMenuActivity" />
+        <activity android:name=".GuidActivity" />
+        <activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DrawerLayout"
+            android:theme="@style/CustomWindowTitleBackground"
+
+            ></activity>
+        <activity android:name=".CustomListView"
+            android:theme="@style/CustomWindowTitleBackground"
+
+            ></activity>
+
+    </application>
+
+</manifest>
