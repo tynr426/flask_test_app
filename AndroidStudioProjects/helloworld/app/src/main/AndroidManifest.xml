@@ -7,7 +7,9 @@
     <uses-permission android:name="com.tyn.helloworld.permission.check" />
 
     <permission android:name="com.tyn.helloworld.permission.PermissionActivity" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <!-- <uses-permission android:name="com.tyn.helloworld.permission.PermissionActivity"></uses-permission> -->
     <application
         android:name=".App"
@@ -18,7 +20,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/title_style"></activity>
+            android:theme="@style/title_style" />
         <activity android:name=".OtherActivity">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -72,15 +74,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DrawerLayout"
-            android:theme="@style/CustomWindowTitleBackground"
-
-            ></activity>
-        <activity android:name=".CustomListView"
-            android:theme="@style/CustomWindowTitleBackground"
-
-            ></activity>
-
+        <activity
+            android:name=".DrawerLayout"
+            android:theme="@style/CustomWindowTitleBackground" />
+        <activity
+            android:name=".CustomListView"
+            android:theme="@style/CustomWindowTitleBackground" />
+        <activity android:name=".AnimationPage"></activity>
     </application>
 
 </manifest>

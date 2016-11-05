@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/animationPage"
+    tools:context="com.tyn.helloworld.AnimationPage"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="透明动画效果"
+        android:id="@+id/btnAlph" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="旋转动画效果"
+        android:id="@+id/btnRotate" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="移动动画效果"
+        android:id="@+id/btnTranslate" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="缩放动画效果"
+        android:id="@+id/btnScale" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动画效果混合"
+        android:id="@+id/btnAnimateSet" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动画效果侦听"
+        android:id="@+id/btnCustomAnimate" />
+    <!--android:layoutAnimation 是针对布局动画(layoutAnimation)-->
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layoutAnimation="@anim/listitem_anim"
+        ></ListView>
+</LinearLayout>

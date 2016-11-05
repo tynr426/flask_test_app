@@ -12,6 +12,7 @@ import android.widget.Scroller;
 
 /**
  * Created by apple on 16/9/6.
+ * 自定义左右菜单
  */
 public class DefinedMenu extends RelativeLayout {
     private Context context;

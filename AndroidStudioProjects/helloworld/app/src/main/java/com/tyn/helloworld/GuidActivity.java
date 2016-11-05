@@ -15,11 +15,11 @@ import java.util.List;
 
 /**
  * Created by apple on 16/9/7.
- * 引导页
+ * 引导页,实现左右两个屏幕平滑地切换
  */
 public class GuidActivity extends Activity implements ViewPager.OnPageChangeListener {
     private ViewPager vp;
-    private ViewPageAdapter viewPageAdapter;
+    private CustomPageAdapter viewPageAdapter;
     private List<View> views;
     private ImageView[] droits;
 
@@ -39,7 +39,7 @@ public class GuidActivity extends Activity implements ViewPager.OnPageChangeList
         views.add(layoutInflater.inflate(R.layout.tab1, null));
         views.add(layoutInflater.inflate(R.layout.tab2, null));
         views.add(layoutInflater.inflate(R.layout.tab3, null));
-        viewPageAdapter = new ViewPageAdapter(views, this);
+        viewPageAdapter = new CustomPageAdapter(views, this);
         vp = (ViewPager) findViewById(R.id.viewPager);
         vp.setAdapter(viewPageAdapter);
         vp.addOnPageChangeListener(this);

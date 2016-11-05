@@ -12,10 +12,10 @@ import java.util.List;
  * PagerAdapter就是ViewPager提供的一个适配器，方便我们对各个View进行控制
  * 它是实现左右两个屏幕平滑地切换的一个类
  */
-public class ViewPageAdapter extends PagerAdapter {
+public class CustomPageAdapter extends PagerAdapter {
     private List<View> views;
     private Context context;
-    public  ViewPageAdapter(List<View> views,Context context){
+    public CustomPageAdapter(List<View> views, Context context){
         this.views=views;
         this.context=context;
     }
