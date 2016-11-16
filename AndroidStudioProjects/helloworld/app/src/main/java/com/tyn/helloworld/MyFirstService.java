@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MyFirstService extends Service {
     private boolean serviceRunning = false;
     private String data = "服务正在运行";
@@ -37,29 +40,63 @@ public class MyFirstService extends Service {
         void onDataChange(String data);
     }
 
+    private int i = 0;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        startTimer();
         serviceRunning = true;
-        System.out.println("service created");
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                int i = 1;
-                while (serviceRunning) {
-                    String str = (i++) + data;
+//        System.out.println("service created");
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                super.run();
+//                // int i = 1;
+//                while (serviceRunning) {
+//                    anynExcute();
+//                    try {
+//                        sleep(1000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//
+//
+//        }.start();
+    }
+    private void anynExcute() {
+        String str = (i++) + data;
 
-                    if (callBack != null)
-                        callBack.onDataChange(str);
-                    try {
-                        sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        if (callBack != null)
+            callBack.onDataChange(str);
+
+    }
+    private Timer timer;
+    private TimerTask timerTask;
+
+    public void startTimer() {
+        if (timer == null) {
+            timer = new Timer();
+            timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    anynExcute();
                 }
-            }
-        }.start();
+            };
+            timer.schedule(timerTask, 1000, 1000);
+
+        }
+    }
+
+    public void stopTimer() {
+        if (timer != null) {
+            timer.cancel();
+            timerTask.cancel();
+            timerTask = null;
+            timer = null;
+        }
     }
 
     @Override
@@ -74,6 +111,7 @@ public class MyFirstService extends Service {
         super.onDestroy();
         System.out.println("service destroy");
         serviceRunning = false;
+        stopTimer();
     }
 
 }

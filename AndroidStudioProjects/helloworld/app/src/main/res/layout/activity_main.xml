@@ -4,27 +4,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:weightSum="1">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-    <Button
-        android:id="@+id/btLogin"
-        android:layout_width="157dp"
-        android:layout_height="wrap_content"
-
-        android:text="登录"
-        android:layout_marginLeft="10dp" />
-    <Button
-        android:id="@+id/openWeb"
-        android:layout_width="157dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:layout_marginLeft="10dp"
-        android:text="打开一个web网页" />
-</LinearLayout>
-
 
     <com.tyn.helloworld.FixGridLayout
         android:id="@+id/fgl"
@@ -32,7 +11,20 @@
 
         android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
 
+            android:text="登录"
+            android:layout_marginLeft="10dp" />
+        <Button
+            android:id="@+id/openWeb"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.03"
+            android:layout_marginLeft="10dp"
+            android:text="打开一个web网页" />
 
         <Button
             android:id="@+id/openDialog"
@@ -101,6 +93,11 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="抽屉之BaseAdapter" />
+        <Button
+            android:id="@+id/btnNavigation"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="抽屉NavigateDrawer" />
         <Button
             android:id="@+id/btnAnimation"
             android:layout_width="157dp"

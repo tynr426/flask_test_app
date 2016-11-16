@@ -6,15 +6,15 @@ import android.support.v4.app.FragmentActivity;
 /**
  * Created by apple on 16/9/6.
  */
-public class DefinedMenuActivity extends FragmentActivity {
-    private DefinedMenu definedMenu;
+public class CustomMenuActivity extends FragmentActivity {
+    private CustomMenuLayout definedMenu;
     private RightMenuFragment rightMenuFragment;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        definedMenu=new DefinedMenu(this);
+        definedMenu=new CustomMenuLayout(this);
         setContentView(definedMenu);
         rightMenuFragment=new RightMenuFragment();
-        getSupportFragmentManager().beginTransaction().add(DefinedMenu.RIGHT_ID,rightMenuFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(CustomMenuLayout.RIGHT_ID,rightMenuFragment).commit();
     }
 }

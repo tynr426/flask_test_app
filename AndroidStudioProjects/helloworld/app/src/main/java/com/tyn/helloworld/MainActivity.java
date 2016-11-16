@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -34,7 +32,9 @@ public class MainActivity extends Activity {
         findViewById(R.id.btnDefinedMenu).setOnClickListener(listener);
         findViewById(R.id.btnPageAdapter).setOnClickListener(listener);
         findViewById(R.id.btnDrawerLayout).setOnClickListener(listener);
+        findViewById(R.id.btnDrawerLayout2).setOnClickListener(listener);
         findViewById(R.id.btnAnimation).setOnClickListener(listener);
+        findViewById(R.id.btnNavigation).setOnClickListener(listener);
         tvWelcome = (TextView) findViewById(R.id.tbartxt);
 //自定义换行布局
         FixGridLayout fixGridLayout = (FixGridLayout) findViewById(R.id.fgl);
@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
                     startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
                     break;
                 case R.id.btnDefinedMenu://自定义左右菜单
-                    startActivity(new Intent(MainActivity.this, DefinedMenuActivity.class));
+                    startActivity(new Intent(MainActivity.this, CustomMenuActivity.class));
                     break;
                 case R.id.btnPageAdapter://引导页,实现左右两个屏幕平滑地切换
                     startActivity(new Intent(MainActivity.this, GuidActivity.class));
@@ -91,9 +91,15 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btnDrawerLayout2://抽屉之自定义适配器
                     startActivity(new Intent(MainActivity.this, CustomListView.class));
+
+                    break;
+                case R.id.btnNavigation://navigation btnNavigation
+                    startActivity(new Intent(MainActivity.this, SliderActivity.class));
                     break;
                 case R.id.btnAnimation://动画
                     startActivity(new Intent(MainActivity.this, AnimationPage.class));
+                    break;
+
             }
         }
     };

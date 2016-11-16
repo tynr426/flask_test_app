@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
+/*Fragment 是 Android 中在同一个应用内部用于替换 Activity 界面跳转的机制，她高效灵活
+*
+* */
 public class DrawerContentFragment extends Fragment {
     private TextView textView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

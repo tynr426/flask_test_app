@@ -14,7 +14,7 @@ import android.widget.Scroller;
  * Created by apple on 16/9/6.
  * 自定义左右菜单
  */
-public class DefinedMenu extends RelativeLayout {
+public class CustomMenuLayout extends RelativeLayout {
     private Context context;
     private FrameLayout leftMenu;
     private FrameLayout midMenu;
@@ -25,12 +25,12 @@ public class DefinedMenu extends RelativeLayout {
     public static int MID_ID=0xaaccbb;
     public static int RIGHT_ID=0xccaabb;
 
-    public DefinedMenu(Context context) {
+    public CustomMenuLayout(Context context) {
         super(context);
         initView(context);
     }
 
-    public DefinedMenu(Context context, AttributeSet attributeSet) {
+    public CustomMenuLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         initView(context);
     }

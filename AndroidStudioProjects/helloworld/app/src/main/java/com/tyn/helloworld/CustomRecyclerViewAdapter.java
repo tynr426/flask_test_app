@@ -49,7 +49,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        return new CustomViewHolder(new TextView(parent.getContext()));
-        //使用资源文件自定义列表项
+        //使用资源文件自定义列表项,用布局解析器来解析一个布局
         return new CustomViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_cell, null));
     }
 

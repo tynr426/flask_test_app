@@ -65,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RecyclerViewActivity" />
-        <activity android:name=".DefinedMenuActivity" />
+        <activity android:name=".CustomMenuActivity" />
         <activity android:name=".GuidActivity" />
         <activity android:name=".WelcomeActivity">
             <intent-filter>
@@ -80,7 +80,11 @@
         <activity
             android:name=".CustomListView"
             android:theme="@style/CustomWindowTitleBackground" />
-        <activity android:name=".AnimationPage"></activity>
+        <activity android:name=".AnimationPage" />
+        <activity
+            android:name=".SliderActivity"
+            android:label="@string/title_activity_slider"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
