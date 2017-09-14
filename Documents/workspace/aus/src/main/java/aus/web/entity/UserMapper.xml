@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="aus.web.dao.UserDAO">
+	<select id="findByUserName" parameterType="String" resultType="aus.web.entity.User">
+		SELECT * FROM aus_user WHERE UserName = #{UserName} limit 1
+	</select>
+	<select id="findByEmail" resultType="aus.web.entity.User">
+		SELECT * FROM aus_user WHERE Email = #{email} AND Id!=#{Id} limit 1
+	</select>
+	<select id="findByMobile" resultType="aus.web.entity.User">
+		SELECT * FROM aus_user WHERE Mobile = #{mobile} AND Id!=#{Id} limit 1
+	</select>
+	<select id="findById" parameterType="int" resultType="aus.web.entity.User">
+		SELECT * FROM aus_user WHERE Id = #{Id}
+	</select>
+	<select id="findAll" resultType="aus.web.entity.User">
+		SELECT * FROM aus_user
+	</select>
+	<update id="updateUser" parameterType="aus.web.entity.User">
+		UPDATE aus_user SET 
+			NickName = #{NickName}, 
+			Email = #{Email},
+			Status=#{Status},
+			Mobile = #{Mobile}
+			WHERE Id = #{Id}
+	</update>
+	<insert id="addUser" parameterType="aus.web.entity.User">
+		insert into aus_user(
+		UserName,
+		Password,
+		NickName,
+		Email,
+		Mobile,
+		Status)
+		values(
+		#{UserName},#{Password},#{NickName},#{Email},#{Mobile},#{Status})		
+	</insert>
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from aus_user where Id = #{Id}
+	</delete>
+	<select id="findUserCount" resultType="int">
+		select count(*) from aus_user
+	</select>
+	<select id="findByLimit" resultType="aus.web.entity.User">
+		select * from aus_user limit #{begin},#{size}
+	</select>
+	<update id="updateStatus" parameterType="aus.web.entity.User">
+		UPDATE aus_user SET
+			status = #{status}
+		WHERE Id = #{id}
+	</update>
+</mapper>

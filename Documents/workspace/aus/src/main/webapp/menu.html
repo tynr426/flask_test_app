@@ -1,0 +1,48 @@
+ <script id="topMenuTemplate" type="text/template" >
+   {@each _ as first,index}
+                <li salemenu="list" class="${first.CssClass}">
+                    <!--标题按钮-->
+                    <a class="name" href="javascript:void(0);">
+                        <i class="icon"></i>
+                        <em class="tips">${first.MenuName}</em>
+                        <i class="cover"></i>
+                    </a>
+                    <!--//标题按钮-->
+                    <!--展示层-->
+                    <div class="show" salemenu="showbox">
+                        <ol>
+                            {@each first.children as second, sindex}
+                            <li salemenu="showlist" class="{@if first.children.length==1}select{@/if}">
+                                {@if first.children.length>1}
+                                <!--二级菜单-->
+                                <div class="list-menu">
+                                    <a href="javascript:void(0);" class="level-2-btn">
+                                        <i class="arrow"></i>
+                                        <em>${second.MenuName}</em>
+                                    </a>
+                                </div>
+                                <!--//二级菜单-->
+                                {@/if}
+                                <!--三级菜单-->
+                                <div class="item-box" salemenu-level="box">
+                                    {@each second.children as third, tindex}
+                                    {@if third.Target == '_bank'}
+                                    <div class="item-list" salemenu-level-list="list">
+                                        <a href="$${third.Link}" class="level-3-btn" target="${third.Target}" savename="${first.MenuName}-${second.MenuName}-${third.MenuName}-${tindex}">${third.MenuName}</a>
+                                    </div>
+                                    {@else}
+                                    <div class="item-list" salemenu-level-list="list">
+                                        <a href="javascript:frame.go('$${third.Link}');" class="level-3-btn" savename="${first.MenuName}-${second.MenuName}-${third.MenuName}-${tindex}">${third.MenuName}</a>
+                                    </div>
+                                    {@/if}
+                                    {@/each}
+                                </div>
+                                <!--//三级菜单-->
+                            </li>
+                            {@/each}
+                        </ol>
+                    </div>
+                    <!--//展示层-->
+                </li>
+                {@/each}             
+</script>

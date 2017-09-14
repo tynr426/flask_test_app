@@ -1,0 +1,42 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* 清除浮动 */
+.clear {display:block;clear:both;font-size:0;line-height:0;visibility:hidden;width:0px;}
+
+.box {font-size:12px;overflow: hidden;zoom:1;}
+.box_top_left,.box_top_center,.box_top_right,.box_title_left,.box_title_right,.box_title_info,.box_main_left,.box_main_right,.box_bottom_left,.box_bottom_center,.box_bottom_right,.box_bottom_left,.box_bottom_center,.box_bottom_right,.box_buttons_right,.box_buttons_left {overflow:hidden;zoom:1;}
+
+/* 顶部阴影 */
+.box_top_left {background: url(../SmallFresh/images/ubg.png) 0 0 no-repeat;font-size:0px;width:6px;height:6px;float:left;}
+.box_top_center {background: url(../SmallFresh/images/body_top_center.png) 0 0 repeat-x ;font-size:0px;height:6px;float:left;}
+.box_top_right {background: url(../SmallFresh/images/ubg.png) -11px 0 no-repeat;font-size:0px;width:6px;height:6px;float:left;}
+
+/*title style*/
+.box_title_left {background: url(../SmallFresh/images/ubg.png) 0 -11px no-repeat;width:6px;height:36px;float:left}
+.box_title {background: url(../SmallFresh/images/body_down_center.png) 0 0 repeat-x ;height:36px;float:left;}/* 弹出层的标题框 */
+.box_title .box_title_info {height:32px;line-height:32px;font-size:14px;color:#333;float:left;padding-left:10px;font-weight: bold;font-family: 'Microsoft YaHei';}
+.box_title .box_title_buttons {float:right;height:30px;overflow: hidden;zoom:1;display: block;}
+.box_title .box_title_buttons a.box_title_close {background: url(../SmallFresh/images/ubg.png) -22px 0 no-repeat;overflow:hidden;width:30px;height:30px;float:right;}
+.box_title_right {background: url(../SmallFresh/images/ubg.png) -11px -11px no-repeat;font-size:0px;width:6px;height:36px;float:left;}
+
+/* 中间部分 */
+.box_main_left {background-color: #fff;float:left;width:5px;font-size:0px;height:auto;border-left: #e0e5e8 solid 1px;}
+.box_main{background-color:#FFFFFF;float:left; padding:0px; overflow-y:auto;}/*  中间部分 此处的结构margin是在程序中写定的,指定后也不会生效 */
+.box_main .box_content{background-color:#fff;font-size: 12px;cursor: default;overflow: hidden;}/* 中间内容部分 */
+.box_main_right{background-color: #fff;float:left; width:5px; font-size:0px;border-right: #e0e5e8 solid 1px;}
+
+/* 下面按钮部分 */
+.box_buttons_left {background: url(../SmallFresh/images/ubg.png) -57px 0 no-repeat;float:left;width:6px;font-size:0px;}
+.box_buttons{background: url(../SmallFresh/images/body_btn_center.png) 0 0 repeat-x;height:32px;text-align:center;white-space:nowrap;bottom:0px;float:left;padding-top: 10px;}
+/* 按钮部分 */
+.box_buttons button {width:80px;height:30px;text-align:center;line-height:30px;border:none;cursor:pointer;color:#fff;margin:0;background-color: #ed5466;border: #e24254 solid 1px;border-radius: 2px;margin: 0 5px 0 5px;font-size: 12px;-webkit-transition: box-shadow .2s linear 0.0s;-moz-transition: box-shadow .2s linear 0.0s;transition: box-shadow .2s linear 0.0s;}
+.box_buttons button.box_button_focus {background-color: #009fe1;border: #029ec8 solid 1px;}
+.box_buttons button:hover {-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.15);-moz-box-shadow: 0 0 5px rgba(0,0,0,0.15);box-shadow: 0 0 5px rgba(0,0,0,0.15);}
+.box_buttons_right{background: url(../SmallFresh/images/ubg.png) -68px 0 no-repeat;float:left;width:6px;font-size:0px;}
+.box_loading{width:96px; height:32px; text-align:left; padding-left:20px; padding-top:15px; overflow:hidden; background:url(icons/loading.gif) no-repeat left center;}
+
+/* 底部阴影 */
+.box_bottom_left {background: url(../SmallFresh/images/ubg.png) 0 -52px no-repeat;width:6px;height:6px;float:left}
+.box_bottom_center {background: url(../SmallFresh/images/body_down_center2.png) 0 0 repeat-x;font-size:0;height:6px;float:left}
+.box_bottom_right {background: url(../SmallFresh/images/ubg.png) -11px -52px no-repeat;width:6px;height:6px;cursor:se-resize;float:left;}

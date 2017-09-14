@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>系统角色</title>
+    <$include templatename="Meta.html" />
+</head>
+<body>
+
+
+    <!--内容-->
+    <div class="content-area">
+        <!--面包屑-->
+        <div class="content-title">系统角色</div>
+        <!--//面包屑-->
+        <!--内容盒-->
+        <div class="custom-area" id="scroll-box">
+            <!--内盒-->
+            <div class="custom-box" scrollarea="box">
+                <!--滚动用盒层-->
+                <div class="custom-scroll" scrollroom="box" lazyscroll="box">
+                   
+
+                    <!--表格组件-->
+                    <div class="custom-table">
+                        <!--表格内盒-->
+                        <div class="form" id="customChangeTable">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+
+                                    <col style="width: 150px;" />
+                                    <col style="width: auto;" />
+                                </colgroup>
+
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <p class="name center">角色名称</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">角色描述</p>
+                                        </td>
+                                        
+                                    </tr>
+                                </thead>
+
+                                <tbody id="pageBody"></tbody>
+                            </table>
+                        </div>
+                        <!--//表格内盒-->
+                        <!--通用分页-->
+                        <div class="page" id="PageBarList"></div>
+                        <!--//通用分页-->
+                    </div>
+                    <!--//表格组件-->
+                </div>
+                <!--//滚动用盒层-->
+            </div>
+            <!--//内盒-->
+        </div>
+        <!--//内容盒-->
+    </div>
+    <!--//内容-->
+
+
+</body>
+</html>
+
+<script type="text/template" id="bodyListTemplate">
+    {@each _ as f,index}
+    <tr>
+        <td><div class="string">${f.Name}</div></td>
+        <td><div class="string">${f.Description}</div></td>
+
+    </tr>
+    {@/each}
+</script>
+
+<script type="text/template" id="FormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="FormTemplate">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>应用程序：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <select name="AppId" id="AppId">
+
+                                    <$loop id="Application" datasourceid="Application">
+                                        <option value="<$var Application.Id />"><$var Application.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>字段描述：
+                            </p>
+                        </th>
+                        <td colspan="3">
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <input type="text" id="Description" name="Description" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>>
+
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>字段名称：
+                            </p>
+                        </th>
+                        <td colspan="3">
+                            <div class="inputbox">
+
+                                <input type="text" id="KeyWord" name="KeyWord" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>分组名称：
+                            </p>
+                        </th>
+                        <td colspan="3">
+                            <div class="inputbox">
+                                <input type="text" id="GroupName" name="GroupName" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>字段类型：
+                            </p>
+                        </th>
+                        <td colspan="3">
+                            <div class="selectbox">
+                                <select id="EditorType" name="EditorType" validate="isnull" onchange="config.editorTypeChange(this)">
+                                    <option value='text'>text</option>
+                                    <option value='textarea'>textarea</option>
+                                    <option value='select'>select</option>
+                                    <option value='radio'>radio</option>
+                                    <option value='checkbox'>checkbox</option>
+                                    <option value='editor'>editor</option>
+                                    <option value='upload'>upload</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="display:none" id="tr_Candidate">
+                        <th>
+                            <p class="name">
+                                表达式：
+                            </p>
+                        </th>
+                        <td colspan="3">
+                            <div class="button">
+                                <a href="javascript:void(0);" class="btn" onclick="config.addRule()"> 新增</a>
+
+                            </div>
+
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <colgroup>
+                                    <col style="width: 80px;" />
+                                    <col style="width: 180px;" />
+                                    <col style="width: 80px;" />
+                                    <col style="width: auto;" />
+                                </colgroup>
+                                <tbody id="ul_body"></tbody>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                默认值：
+                            </p>
+                        </th>
+                        <td colspan="3">
+                            <div class="inputbox">
+                                <textarea id="KeyValue" name="KeyValue" style="width:550px;"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="rowTemplate">
+
+    <tr>
+        <th>
+            <p class="name">
+                描述：
+            </p>
+        </th>
+        <td>
+            <div class="extend">
+                <div class="inputbox">
+                    <input type="text" id="Field" name="Field" value="" error="输入格式不正确" validate="isnull" />
+
+                </div>
+            </div>
+        </td>
+        <th>
+            <p class="name">
+                值：
+            </p>
+        </th>
+        <td>
+            <div class="extend">
+                <div class="inputbox">
+                    <input type="text" id="Value" name="Value" value="" error="输入格式不正确" validate="isnull" />
+
+                    <p class="name">
+                        <a href="javascript:void(0);" class="btn" onclick="config.delRule(this)">删除</a>
+                    </p>
+                </div>
+            </div>
+        </td>
+    </tr>
+</script>
+<script language="javascript" type="text/javascript">
+    (window.loadData = function (status) {
+        $e("#pageBody").loadPage("bodyListTemplate", "PageBarList", "", 1, 15);
+    })();
+</script>

@@ -1,0 +1,1028 @@
+﻿<!DOCTYPE html>
+<htm>
+    <head>
+        <title>客户列表页面</title>
+        <$include templatename="Meta.html" />
+    </head>
+
+    <body>
+        <!--内容-->
+        <div class="content-area">
+            <!--面包屑-->
+            <div class="content-title">【<$var customer.Name />】客户详情</div>
+            <!--//面包屑-->
+            <div class="custom-area">
+                <!--表单组件-->
+                <div class="custom-table martop">
+                    <!--表单内盒-->
+                    <div class="form" id="ApplyBox">
+
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <colgroup>
+                                <col style="width: 150px;" />
+                                <col style="width: auto;" />
+                                <col style="width: 150px;" />
+                                <col style="width: auto;" />
+                            </colgroup>
+
+                            <tbody>
+                                <tr>
+                                    <th colspan="4">
+                                        <p class="name left">基本信息</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p class="name">客户名称：</p>
+                                    </th>
+                                    <td>
+                                        <!--字符串类型-->
+                                        <div class="string">
+                                            <input type="hidden" value="<$Var customer.Id />" id="Id" name="Id" />
+                                            <$var customer.name />
+                                        </div>
+                                        <!--//字符串类型-->
+                                    </td>
+                                    <th>
+                                        <p class="name">优先级：</p>
+                                    </th>
+                                    <td>
+                                        <!--文本输入-->
+                                        <div class="string">
+                                            <$var customer.Priority />
+                                        </div>
+                                        <!--//文本输入-->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>
+                                        <p class="name">地区：</p>
+                                    </th>
+                                    <td>
+                                        <!--字符串类型-->
+                                        <div class="string">
+                                            <$Var customer.Province />省-<$Var customer.City />市-<$Var customer.Area />区/县
+                                        </div>
+                                        <!--//字符串类型-->
+                                    </td>
+                                    <th>
+                                        <p class="name">详细地址：</p>
+                                    </th>
+                                    <td>
+                                        <!--文本输入-->
+                                        <div class="string">
+                                            <$Var customer.Address />
+                                        </div>
+                                        <!--//文本输入-->
+                                    </td>
+                                </tr>
+                                <!--<tr>
+                                    <th>
+                                        <p class="name">联系人：</p>
+                                    </th>
+                                    <td>
+                                        <div class="inputbox">
+                                            <input type="text" value="<$Var customer.Responsible />" id="Responsible" name="Responsible" validate="isnull" />
+                                        </div>
+                                    </td>
+
+                                    <th>
+                                        <p class="name">手机号码：</p>
+                                    </th>
+                                    <td>
+                                        <div class="inputbox">
+                                            <input type="text" value="<$Var customer.Tel />" id="Tel" name="Tel" validate="isnull|Tel" />
+                                        </div>
+                                    </td>
+                                </tr>-->
+                                <tr>
+                                    <th></th>
+                                    <td colspan="3">
+                                        <!--按钮组-->
+                                        <div class="button">
+
+                                            <a href="javascript:void(0);" class="btn" onclick="frm.add({ title: '添加产品', formId: 'InsertCustomerProductFormTemplate', action: 'insert', url: '/webadmin/Custom/CustomerProduct.aspx?customerId=<$var customer.Id/>', width: 700, height: 420 });">添加产品</a>
+                                            <a href="javascript:void(0);" class="btn" onclick="frm.add({ title: '添加服务器', formId: 'InsertCustomerServerFormTemplate', action: 'insert', url: '/webadmin/Custom/CustomerServer.aspx?customerId=<$var customer.Id/>', completed: top.customServer.addCompleted, completes: ['<$var customer.Id/>'], width: 700, height: 420, finish: function () { var dlg = arguments[arguments.length - 1]; customServer.updateFinish.apply(dlg, ['<$var customer.Id/>']) } });">添加服务器</a>
+                                        </div>
+                                        <!--//按钮组-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <!--//表单内盒-->
+                </div>
+                <!--//表单组件-->
+                <fieldset>
+                    <legend style="color:red;font-size:14px">【服务器信息】</legend>
+                    <div class="custom-table martop">
+
+                        <!--表单内盒-->
+                        <div class="form">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col style="width: auto;" />
+                                    <col style="width: 150px;" />
+                                    <col style="width: 150px;" />
+                                    <col style="width: 150px;" />
+                                    <col style="width: 150px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width:100px;" />
+                                    <col style="width:60px;" />
+                                    <col style="width:60px;" />
+                                </colgroup>
+
+                                <thead>
+                                    <tr>
+                                        <td><p class="name center">名称</p></td>
+                                        <td><p class="name center">别名</p></td>
+                                        <td><p class="name center">IP</p></td>
+                                        <td><p class="name center">服务器费</p></td>
+                                        <td><p class="name center">服务年费</p></td>
+                                        <td><p class="name center">购买时间</p></td>
+                                        <td><p class="name center">到期时间</p></td>
+                                        <td><p class="name center">状态</p></td>
+                                        <td><p class="name center">操作</p></td>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody id="ServerList"></tbody>
+                            </table>
+
+                        </div>
+                        <!--//表单内盒-->
+                    </div>
+
+
+                    <legend style="color:red;font-size:14px">【产品信息】</legend>
+                    <!--表单组件-->
+                    <div class="custom-table">
+                        <!--表单内盒-->
+                        <div class="form" pageBody>
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col style="width:120px;" />
+                                    <col style="width:auto;" />
+                                    <col style="width:120px;" />
+                                    <col style="width:auto;" />
+                                </colgroup>
+                                <tbody id="pageBody"></tbody>
+                            </table>
+
+                        </div>
+                        <!--//表单内盒-->
+
+                    </div>
+                    <!--//表单组件-->
+                </fieldset>
+
+
+            </div>
+        </div>
+    </body>
+</htm>
+
+<!--添加产品模板-->
+<script type="text/template" id="InsertCustomerProductFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="InsertCustomerProductForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>产品名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <select name="ProductId" id="ProductId" onchange="customDetail.productChange(this)">
+                                    <option value="-1">请选择</option>
+                                    <$loop id="Product" datasourceid="Product">
+                                        <option value="<$var Product.Id />"><$var Product.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务器费：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Amount" name="Amount" value="" validate="isnull|decimal7" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务年费：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Annuity" name="Annuity" value="" validate="isnull|decimal7" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>购买时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="BeginTime" name="BeginTime" class="time" readonly=readonly value="" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd'});" validate="isnull" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>到期时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="EndTime" name="EndTime" class="time" readonly=readonly value="" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd'});" validate="isnull" />
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加产品-->
+<!--产品列表-->
+<script type="text/template" id="CustomerProductListTemplate">
+    {@each _ as r,index}
+    <tr>
+        <th><p class="name">产品名称</p></th>
+        <td><div class="string">${r.Product_Name}</div></td>
+        <th><p class="name">序列号</p></th>
+        <td><div class="string">${r.SN}</div></td>
+    </tr>
+    <tr>
+        <th><p class="name">费用</p></th>
+        <td>
+            <div class="string">￥${r.Amount}</div>
+        </td>
+        <th><p class="name">年费</p></th>
+        <td><div class="string">￥${r.Annuity}</div></td>
+    </tr>
+    <tr>
+        <th><p class="name">有效期</p></th>
+        <td colspan="1">
+            <div class="string">${r.BeginTime|formatDate}~ ${r.EndTime|formatDate}</div>
+        </td>
+        <th></th>
+        <td></td>
+    </tr>
+    <tr>
+        <th><p class="name">产品应用</p></th>
+        <td colspan="3">
+            <div class="button">
+                <a href="javascript:void(0);" class="btn" onclick="frm.add({ title: '添加应用', formId: 'InsertAppFormTemplate', action: 'insert.app', url: '/webadmin/Custom/CustomerProduct.aspx', completed: top.customDetail.addCompleted, completes: ['${r.CustomerId}', '${r.ProductId}'], width: 400, height: 200 });">添加应用</a>
+                <a href="javascript:void(0);" class="btn" onclick="frm.update({ title: '修改产品', formId: 'InsertCustomerProductFormTemplate', action: 'update', id: '${r.Id}', url: '/webadmin/Custom/CustomerProduct.aspx?customerId=<$var customer.Id/>', width: 700, height: 420 });">修改产品</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <table>
+                {@each r.Application as f,index}
+                <tr>
+
+                    <td><div class="string">${f.appName}${f.FKWay|formatArray,dict.fkway}</div></td>
+
+                    <td>
+                        <div class="button">
+                            {@if f.PrimaryId==0}
+                            <a href="javascript:void(0);" onclick="customDetail.openConfig('${f.CustomerId}', '${f.AppId}', '${f.ProductId}')" class="btn">基础配置</a>
+                            <a href="javascript:void(0);" onclick="frm.add({ title: '添加数据库', formId: 'DBaseInsertFormTemplate', action: 'insert', url: 'Custom/DBase.aspx', completed: top.dbase.addCompleted, completes: ['${f.CustomerId}', '${f.AppId}', '${f.ProductId}'], width: 700, height: 420 });" class="btn">添加数据库</a>
+                            {@/if}
+                            {@if f.SchemaMode==1}
+                            <a href="javascript:void(0);" onclick="customDetail.openMenu('${f.CustomerId}', '${f.AppId}', '${f.ProductId}')" class="btn">菜单授权</a>
+                            <a href="javascript:void(0);" onclick="frm.add({ title: '添加站点', formId: 'WebsiteInsertFormTemplate', action: 'insert', url: 'Custom/Website.aspx', completed: top.website.addCompleted, completes: ['${f.CustomerId}', '${f.AppId}', '${f.ProductId}','${r.SN}'], width: 750, height: 420 });" class="btn">添加站点</a>
+                            {@/if}
+                        </div>
+                    </td>
+                </tr>
+                {@if f.SchemaMode==1}
+                <tr>
+                    <td colspan="2">
+                        <div class="label-box" label-box="group1">
+                            <div class="mt" label-btncom="group1">
+                                <ul>
+                                    <li label-btn="group1|click|key1" class="select" onclick="">关联的站点</li>
+                                    {@if f.PrimaryId==0}
+                                    <li label-btn="group1|click|key2" class="" onclick="customConfig.loadConfig('${f.CustomerId}', '${f.AppId}', '${f.ProductId}')">基础配置</li>
+                                    <li label-btn="group1|click|key3" class="" onclick="dbase.loadDBase('${f.CustomerId}', '${f.AppId}', '${f.ProductId}')">数据库</li>
+                                    {@/if}
+                                </ul>
+                            </div>
+
+                            <div class="mc" label-limitarea="group1">
+                                <div class="for select" label-area="group1|key1">
+
+                                    <!--表单组件-->
+                                    <div class="custom-table">
+                                        <!--表单内盒-->
+                                        <div class="form">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <colgroup>
+                                                    <col style="width: auto;" />
+                                                    <col style="width: auto;" />
+                                                    <col style="width: auto;" />
+                                                    <col style="width: 15%;" />
+                                                    <col style="width: 5%;" />
+                                                    <col style="width: 15%;" />
+                                                </colgroup>
+                                                <tbody id="WebsiteList">
+                                                    {@each f.Website as ff,index}
+                                                    <tr>
+                                                        <td><div class="string">站点名：${ff.SiteName}</div></td>
+                                                        <td><div class="string">程序池：${ff.PoolName}</div></td>
+                                                        <td><div class="string">路径：${ff.Path}</div></td>
+                                                        <td><div class="string">服务器：${ff.ServerName}</div></td>
+                                                        <td>
+                                                            <div class="string">
+                                                                <a href="javascript:void(0);" onclick="frm.update({ title: '修改', formId: 'WebsiteInsertFormTemplate', action: 'update', url: '/webadmin/Custom/Website.aspx', id:'${ff.Id}', width: 700, height: 420 });" class="btn">修改</a>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="extend fold">
+
+                                                                <div class="title">
+                                                                    <a href="javascript:void(0);" onmousemove="siteDomain.loadDomain('${ff.Id}');" class="title-btn">关联的域名<i></i></a>
+                                                                    &nbsp;<a href="javascript:void(0);" onclick="frm.add({ title: '添加域名', formId: 'DomainInsertFormTemplate', action: 'insert', url: 'Custom/Domain.aspx?siteid=${ff.Id}', completed: top.siteDomain.addCompleted, completes: ['${ff.Id}'], width: 700, height: 300 });" class="btn">添加域名</a>
+                                                                    <div class="detail" id="domainlist_${ff.Id}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    {@/each}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--//表单内盒-->
+                                    </div>
+                                    <!--//表单组件-->
+                                </div>
+                                <div class="for" label-area="group1|key2">
+                                    <!--表格组件-->
+                                    <div class="box_content">
+                                        <!--表格内盒-->
+                                        <div id="configList_${f.AppId}_${f.ProductId}" class="model_box">
+
+                                        </div>
+
+                                    </div>
+                                    <!--//表格组件-->
+                                </div>
+                                <div class="for" label-area="group1|key3">
+                                    <!--表格组件-->
+                                    <div class="box_content">
+                                        <!--表格内盒-->
+                                        <div id="dbaseList_${f.AppId}_${f.ProductId}" class="model_box">
+
+                                        </div>
+
+                                    </div>
+                                    <!--//表格组件-->
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {@/if}
+                {@/each}
+            </table>
+        </td>
+    </tr>
+    {@/each}
+</script>
+<!--产品列表-->
+<!--添加站点-->
+<script type="text/template" id="WebsiteInsertFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="SiteForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>站点名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" />
+                                <input type="hidden" id="CustomerId" />
+                                <input type="hidden" id="ProductId" />
+                                <input type="hidden" id="AppId" />
+                                <input type="text" id="SiteName" name="SiteName" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>站点索引：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="SiteIndex" name="SiteIndex" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务器：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+
+                                <select id="ServerId" name="ServerId" validate="isnull">
+                                    <$loop id="Server" datasourceid="Server">
+                                        <option value="<$var Server.Id />"><$var Server.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                应用池名：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="PoolName" name="PoolName" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                路径：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Path" name="Path" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                序列号：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="string"><var id="SN" name="SN"></var></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                站点类型：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="SiteType" name="SiteType" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加站点-->
+<!--添加域名-->
+<script type="text/template" id="DomainInsertFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="DomainForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+
+
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>域名名称：
+                            </p>
+                        </th>
+                        <td>
+                            <input type="hidden" id="Id" />
+                            <input type="hidden" id="SiteId" />
+                            <input type="hidden" id="PrimaryDomain" />
+                            <div class="inputbox">
+                                <input type="text" id="Domain" name="Domain" value="" validate="isnull|url" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>域名等级：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Layer" name="Layer" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加域名-->
+<!--配置列表-->
+<script type="text/template" id="CustomerConfigListTemplate">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <colgroup>
+
+            <col style="width: 150px;" />
+            <col style="width: 150px;" />
+
+            <col style="width: 100px;" />
+            <col style="width: 100px;" />
+
+            <col style="width: auto;" />
+
+            <col style="width: 61px;" />
+        </colgroup>
+        {@each _ as f,index}
+        <tr>
+            <td><div class="string">${f.Description}</div></td>
+            <td><div class="string">${f.KeyWord}</div></td>
+
+            <td><div class="string">${f.EditorType}</div></td>
+
+            <td><div class="string center">${f.GroupName}</div></td>
+
+            <td>
+                <div class="string">
+                    ${f.DefaultValue}
+                </div>
+            </td>
+
+
+            <td>
+                <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                    <!--标题栏-->
+                    <p class="name">操作</p>
+                    <!--//标题栏-->
+
+                    <div class="tool-menu">
+                        <ul>
+                            <li><a href="javascript:" onclick="customConfig.del('${f.ConfigId}', this)">删除</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {@/each}
+    </table>
+</script>
+<!--配置列表-->
+<!--添加数据库-->
+<script type="text/template" id="DBaseInsertFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="DbaseForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>库名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" />
+                                <input type="hidden" id="CustomerId" />
+                                <input type="hidden" id="ProductId" />
+                                <input type="hidden" id="PrimaryAppId" />
+                                <input type="text" id="DBName" name="DBName" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>编码方式：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Charset" name="Charset" value="" validate="isnull" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务器：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+
+                                <select id="ServerId" name="ServerId" validate="isnull">
+                                    <$loop id="Server1" datasourceid="Server">
+                                        <option value="<$var Server.Id />"><$var Server.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em> 对应的IP：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="IP" name="IP" value="" validate="isnull" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>连接用户：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="UserName" name="UserName" value="" validate="isnull" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>连接密码：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Password" name="Password" validate="isnull" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>库类型：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+
+                                <select id="SqlType" name="SqlType" validate="isnull">
+
+                                    <$loop id="SqlTypeList" datasourceid="SqlTypeList">
+                                        <option value="<$var SqlTypeList.EnumValue />"><$var SqlTypeList.EnumDisplayText /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加数据库-->
+<!--数据库列表-->
+<script type="text/template" id="DBaseListTemplate">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <colgroup>
+
+            <col style="width: 200px;" />
+            <col style="width: 150px;" />
+
+            <col style="width: 100px;" />
+            <col style="width: 100px;" />
+            <col style="width: 100px;" />
+
+            <col style="width: 61px;" />
+        </colgroup>
+        {@each _ as f,index}
+        <tr>
+            <td><div class="string">库名称：${f.DBName}(${f.Charset})</div></td>
+
+            <td><div class="string">${f.Name}(${f.IP})</div></td>
+
+
+            <td><div class="string">用户：${f.UserName}</div></td>
+            <td><div class="string">密码：${f.Password}</div></td>
+            <td><div class="string">${f.SqlType|formatArray,dict.sqltype}</div></td>
+            <td>
+                <div class="string">
+                    <a href="javascript:void(0);" onclick="frm.update({ title: '修改', formId: 'DBaseInsertFormTemplate', action: 'update', url: '/webadmin/Custom/DBase.aspx', id: '${f.Id}', width: 700, height: 420, finish: function () { var dlg = arguments[arguments.length - 1]; dbase.updateFinish.apply(dlg, ['${f.CustomerId}', '${f.PrimaryAppId}', '${f.ProductId}']) } });" class="btn">修改</a>
+                </div>
+            </td>
+        </tr>
+        {@/each}
+    </table>
+</script>
+<!--数据库列表-->
+<!--添加应用-->
+<script type="text/template" id="InsertAppFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="InsertAppForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>应用名称：
+                            </p>
+                        </th>
+                        <td>
+                            <input type="hidden" id="CustomerId" />
+                            <input type="hidden" id="ProductId" />
+                            <div class="selectbox">
+
+                                <select id="AppId" name="AppId" validate="isnull"></select>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加应用-->
+<!--域名列表-->
+<script type="text/template" id="DomainListTemplate">
+    <!--表单组件-->
+    <div class="custom-table">
+        <!--表单内盒-->
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <colgroup>
+                    <col style="width:70%;" />
+                    <col style="width:30%;" />
+                </colgroup>
+                <tbody id="domainlist">
+                    {@each _ as fff,index}
+                    <tr>
+                        <td>
+                            <div class="string">
+                                ${fff.Domain}
+                                {@if fff.PrimaryDomain}
+                                (主域名)
+                                {@/if}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="string">
+                                <a class="btn" onclick="frm.update({ title: '修改', formId: 'DomainInsertFormTemplate', action: 'update',id:'${fff.Id}', url: '/webadmin/Custom/Domain.aspx?siteid=${fff.SiteId}', width: 700, height: 300 });">修改</a>
+                                &nbsp;&nbsp;
+                                <a class="btn" onclick="frm.post('set.primarydomain', '<Id>${fff.Id}</Id>','Domain.aspx');">主域名</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {@/each}
+                </tbody>
+            </table>
+        </div>
+        <!--//表单内盒-->
+    </div>
+    <!--//表单组件-->
+</script>
+<!--域名列表-->
+<!--添加服务器-->
+<script type="text/template" id="InsertCustomerServerFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="InsertCustomerServerForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务器：
+                            </p>
+                        </th>
+                        <td>
+                            <input type="hidden" id="Id" />
+                            <input type="hidden" id="CustomerId" />
+                            <div class="selectbox">
+
+                                <select id="ServerId" name="ServerId" validate="isnull"></select>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务器费：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Amount" name="Amount" value="" validate="isnull|decimal7" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务年费：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Annuity" name="Annuity" value="" validate="isnull|decimal7" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>购买时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="BuyTime" name="BuyTime" class="time" readonly=readonly value="" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd'});" validate="isnull" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>到期时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="ExpireTime" name="ExpireTime" class="time" readonly=readonly value="" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd'});" validate="isnull" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加服务器-->
+<!--服务器列表-->
+<script type="text/template" id="CustomerServerListTemplate">
+    {@each _ as f,index}
+    <tr>
+
+        <td><div class="string">${f.Name}</div></td>
+        <td><div class="string">${f.Alias}</div></td>
+        <td><div class="string">${f.PublicIP}</div></td>
+        <td><div class="string">￥${f.Amount}</div></td>
+        <td><div class="string">￥${f.Annuity}</div></td>
+        <td><div class="date">${f.BuyTime|formatDate}</div></td>
+        <td><div class="date">${f.ExpireTime|formatDate}</div></td>
+
+        <td>
+            <div class="string">
+                {@if f.Online}
+                <span style="color:forestgreen;">在线</span>
+                {@else}
+                <span style="color:red;">离线</span>
+                {@/if}
+            </div>
+        </td>
+        <td>
+            <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                <!--标题栏-->
+                <p class="name">操作</p>
+                <!--//标题栏-->
+                <div class="tool-menu">
+                    <ul>
+                        <li>
+                            <a href="javascript:frm.post('physicdel','<Id>${f.customerserverId}</Id>','/webadmin/custom/CustomerServer.aspx',function(){customServer.loadData('${f.CustomerId}');});">删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {@/each}
+</script>
+<!--服务器列表-->
+
+<script type="text/javascript">
+    top.customDetail.productList = ECF.parseJSON('<$var ProductJson/>');
+    (window.loadData = function (status) {
+        $e("#pageBody").loadList("CustomerProductListTemplate", null, null, function () {
+            $e.getScript('/Static/Js/changeTableUI.js', function () {
+            }, true);
+        });
+
+    })();
+    customServer.loadData('<$var customer.Id/>');
+</script>

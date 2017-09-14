@@ -1,0 +1,237 @@
+﻿<script type="text/template" id="ServerFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="ServerForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <input type="text" id="Name" name="Name" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>IDC名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="IDCName" name="IDCName" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                机房节点：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="RoomNode" name="RoomNode" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                别名：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox"> <input type="text" id="Alias" name="Alias" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                CPU：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="CPU" name="CPU" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                内存：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Memory" name="Memory" value="" maxlength="250" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                数据盘：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="HD" name="HD" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                Mac地址：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Mac" name="Mac" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                带宽：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="BandWidth" name="BandWidth" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                操作系统：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="OS" name="OS" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                内网IP：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="InnerIP" name="InnerIP" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                外网IP：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="PublicIP" name="PublicIP" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                服务器类型：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="ServerType" name="ServerType" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                使用区：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="UseArea" name="UseArea" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                购买时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="BuyTime" class="Wdate success" readonly="readonly" name="BuyTime" value="" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                到期时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="ExpireTime" name="ExpireTime" value="" class="Wdate success" readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                显示顺序：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Reorder" name="Reorder" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                状态：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Status" name="Status" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                合同：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Contract" name="Contract"></textarea>
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>

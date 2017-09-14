@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>系统菜单</title>
+    <$include templatename="Meta.html" />
+</head>
+<body>
+
+
+    <!--内容-->
+    <div class="content-area">
+        <!--面包屑-->
+        <div class="content-title">系统菜单</div>
+        <!--//面包屑-->
+        <!--内容盒-->
+        <div class="custom-area" id="scroll-box">
+            <!--内盒-->
+            <div class="custom-box" scrollarea="box">
+                <!--滚动用盒层-->
+                <div class="custom-scroll" scrollroom="box" lazyscroll="box">
+                    <div class="label-box" label-box="group1">
+                        <div class="mt" label-btncom="group1">
+                            <ul id="GroupList">
+                                <$loop id="Roles" datasourceid="Roles">
+                                    <li label-btn="group1|click|key<$var Roles.RoleId/>" onclick="loadData(<$var Roles.RoleId/>);"><$var Roles.Name /></li>
+                                </$loop>
+
+
+                            </ul>
+                        </div>
+
+                        <div class="mc" label-limitarea="group1">
+                            <div class="for select" label-area="group1|key1">
+                                <div class="extend-button">
+
+
+                                    <div class="button">
+                                        <a href="javascript:void(0);" onclick="frm.add({title: '添加顶级', formId: 'UpdateFormTemplate',action: 'insert',url:'', completed: menu.addCompleted,completes:['0','顶级',0]});" class="btn">添加顶级</a>
+                                        <a href="javascript:void(0);" onclick='frm.post("regenerate.menuid", "<FKFlag>" + menu.roleId + "</FKFlag>", "")' class="btn">菜单顺序同步</a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--表格组件-->
+                    <div class="custom-table">
+                        <!--表格内盒-->
+                        <div class="form" id="customChangeTable">
+                            <table border="0" cellspacing="0" cellpadding="0" id="EGrid1_body">
+                                <colgroup>
+                                    <col style="width: 200px;" />
+                                    <col style="width: auto;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 61px;" />
+                                    <col style="width: 61px;" />
+                                </colgroup>
+
+                                <thead>
+                                    <tr>
+                                        <td><p class="name center">菜单名称</p></td>
+                                        <td><p class="name center">菜单链接</p></td>
+                                        <td><p class="name center">经营模式</p></td>
+                                        <td><p class="name center">菜单编号</p></td>
+
+                                        <td><p class="name center">显示顺序</p></td>
+                                        <td><p class="name center">状态</p></td>
+                                        <td><p class="name center">操作</p></td>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="MenuList"></tbody>
+                            </table>
+                        </div>
+                        <!--//表格内盒-->
+                        <!--通用分页-->
+                        <div class="page" id="PageBarList"></div>
+                        <!--//通用分页-->
+                    </div>
+                    <!--//表格组件-->
+                </div>
+                <!--//滚动用盒层-->
+            </div>
+            <!--//内盒-->
+        </div>
+        <!--//内容盒-->
+    </div>
+    <!--//内容-->
+
+
+</body>
+</html>
+
+
+
+<script type="text/template" id="ListTemplate">
+    <tr class="child-[#i] {@if it[#i].isChild==true} close {@else}nochild{@/if}" tree="${index0}" treenum="[#i]" treeindex="[#index]" parentindex="[#parent]" [#style]>
+        <td>
+            <div class="extend">
+
+                <div class="grid_cell"><i class="icon" onclick="treeGrid.toggle(this);"></i><p onclick="treeGrid.toggle(this);">${it[#i].MenuName}</p></div>
+            </div>
+        </td>
+        <td><div class="number">${it[#i].Link}</div></td>
+        <td><div class="number center">${it[#i].FKWay|formatArray,dict.fkway}</div></td>
+        <td><div class="number center">${it[#i].RealMenuId}</div></td>
+        <td><div class="number center">${it[#i].Reorder}</div></td>
+        <td>
+            <!--自定义开关-->
+            {@if it[#i].Status==0}
+            <div class="extend">
+                <div class="target target-off">
+                    <span onclick="javascript:frm.switchStatus(this,'${it[#i].Id}',${it[#i].Status});"></span>
+                </div>
+            </div>
+            {@else}
+            <div class="extend">
+                <div class="target target-on">
+                    <span onclick="javascript:frm.switchStatus(this,'${it[#i].Id}',${it[#i].Status});"></span>
+                </div>
+            </div>
+            {@/if}
+            <!--//自定义开关-->
+        </td>
+        <td>
+            <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                <!--标题栏-->
+                <p class="name">操作</p>
+                <!--//标题栏-->
+
+                <div class="tool-menu">
+                    <ul>
+                        {@if it[#i].Layer< 3}
+                        <li>
+                            <a href="javascript:void(0);" onclick="frm.add({title: '添加子级', formId: 'UpdateFormTemplate',action: 'insert', completed: menu.addCompleted,completes:['${it[#i].RealMenuId}','${it[#i].MenuName}','${it[#i].Layer}','${it[#i].FKWay}']});" class="btn">添加子级</a>
+
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="javascript:frm.add({title:'移动子级',formId:'MoveFormTemplate',action: 'move.children', completed: menu.moveCompleted,completes:['${it[#i].Id}','${it[#i].RealMenuId}','${it[#i].AppId}','${it[#i].MenuName}','1','${it[#i].ParentId}']});">移动子级</a>
+                        </li>
+                        {@/if}
+                        <li>
+                            <a href="javascript:void(0);" onclick="javascript:frm.update('修改菜单','UpdateFormTemplate','${it[#i].Id}');">修改</a>
+                        </li>
+                        {@if (it[#i].Layer>1 || it[#i].ChildCount==0)}
+                        <li>
+                            <a href="javascript:void(0);" onclick="javascript:frm.add({title:'移动',formId:'MoveFormTemplate',action: 'move', completed: menu.moveCompleted,completes:['${it[#i].Id}','${it[#i].RealMenuId}','${it[#i].AppId}','${it[#i].MenuName}','0','${it[#i].ParentId}']});">移动</a>
+                        </li>
+                       
+                        {@/if}
+                        <li>
+                            <a href="javascript:void(0);" onclick="javascript:frm.del(${it[#i].RealMenuId});">删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+</script>
+
+<script type="text/template" id="UpdateFormTemplate">
+    <div class="custom-table" id="FormTemplate">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <colgroup>
+                    <col style="width: 150px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>应用程序：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <select name="AppId" id="AppId">
+
+                                    <$loop id="Application" datasourceid="Application">
+                                        <option value="<$var Application.Id />"><$var Application.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>经营模式：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <select name="FKWay" id="FKWay">
+
+                                    <option value="1">仅零售</option>
+                                    <option value="2">仅批发</option>
+                                    <option value="3" selected>混合模式</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>菜单名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <input type="text" id="MenuName" name="MenuName" validate="isnull" value="" maxlength="100" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                菜单样式：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="CssClass" name="CssClass" value="" maxlength="100" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                菜单连接：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Link" name="Link" value="" maxlength="100" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>打开方式：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <select name="Target" id="Target">
+
+                                    <option value="_self">当前页面</option>
+                                    <option value="_blank">新页面</option>
+                                 
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                所属父级：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="string">
+                                <var id="ParentName" />
+
+                            </div>
+                            <input type="hidden" Id="RoleId" value="0" />
+                            <input type="hidden" Id="ParentId" value="0" />
+                            <input type="hidden" Id="Layer" value="1" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>显示顺序：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input id="Reorder" name="Reorder" type="text" value="0" error="输入格式不正确！" validate="isnull|intege3" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/template" id="MoveFormTemplate">
+    <div class="custom-table" id="MoveForm">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <colgroup>
+                    <col style="width: 150px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>菜单名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" Id="Id" value="0" />
+                                <input type="hidden" id="RealMenuId" />
+                                <input type="hidden" id="AppId" />
+                                <input type="hidden" Id="RoleId" value="0" />
+                                <input type="text" id="MenuName" name="MenuName" validate="isnull" value="" maxlength="100" />
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <th>
+                            <p class="name">
+                                移动到父级：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <select name="ParentId" id="ParentId">
+                                   
+                                </select>
+                            </div>
+
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script language="javascript" type="text/javascript">
+
+    (window.loadData = function (fkflag) {
+        //window.parent.main.autoSize
+        if(fkflag==undefined){
+            fkflag=menu.roleId;
+        }
+        //console.log(fkflag);
+        menu.roleId=fkflag;
+        $e("#GroupList li").removeClass("select");
+        $e("#GroupList [label-btn='group1|click|key"+fkflag+"']").addClass("select");
+        treeGrid.initTreeGrid("ListTemplate", "MenuList",null,"<FKFlag>"+fkflag+"</FKFlag>");
+
+    })();
+
+
+</script>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>客户菜单</title>
+    <$include templatename="Meta.html" />
+</head>
+<body>
+
+
+    <!--内容-->
+    <div class="content-area">
+        <!--面包屑-->
+        <div class="content-title">客户菜单</div>
+        <!--//面包屑-->
+        <!--内容盒-->
+        <div class="custom-area" id="scroll-box">
+            <!--内盒-->
+            <div class="custom-box" scrollarea="box">
+                <!--滚动用盒层-->
+                <div class="custom-scroll" scrollroom="box" lazyscroll="box">
+                    <div class="label-box" label-box="group1">
+                        <div class="mt" label-btncom="group1">
+                            <ul id="GroupList">
+                                <$loop id="GroupList" datasourceid="GroupList">
+                                    <li  data-value="<$var GroupList.key/>"  label-btn="group1|click|key<$var GroupList.key/>" onclick="loadData(<$var GroupList.key/>);"><$var GroupList.value /></li>
+                                </$loop>
+
+
+                            </ul>
+                        </div>
+
+                 
+                    </div>
+
+                    <!--表格组件-->
+                    <div class="box_content">
+                        <!--表格内盒-->
+                        <div id="MenuList" class="model_box">
+
+                        </div>
+                   
+                    </div>
+                    <!--//表格组件-->
+                </div>
+                <!--//滚动用盒层-->
+            </div>
+            <!--//内盒-->
+        </div>
+        <!--//内容盒-->
+    </div>
+    <!--//内容-->
+
+
+</body>
+</html>
+
+<script type="text/template" id="FirstLayerMenuTemplate">
+    <div class="model-box">
+        <a onclick="check.openMenu(this,'{$Id$}');" href="javascript:void(0);" class="btn">
+            <img src="{$ImgPath$}" nolazy="0" alt="" tips="open" />
+        </a>
+        <input type="checkbox" {$IsChecked$} onclick="check.checkAll(this,'divChild_{$Id$}','checkAll_{$Id$}');" value="{$Id$}" id="checkAll_{$Id$}"  />
+        <label>{$MenuName$}</label>
+    </div>
+    <div class="child-model-box" style="display: none;" id="divChild_{$Id$}">
+
+        {$Html1$}
+    </div>
+</script>
+<script type="text/template" id="SecondLayerMenuTemplate">
+    <div class="model-box">
+
+        <input type="checkbox" {$IsChecked$} onclick="check.checkAll(this,'divChild_{$Id$}','checkAll_{$Index_i$}', 'divChild_{$Index_i$}');" value="{$Id$}" id="checkAll_{$Id$}" checklist="{$Index_i$}" />
+        <label>{$MenuName$}</label>
+    </div>
+    <div class="child_box" id="divChild_{$Id$}">
+
+        <div>
+
+            {$Html2$}
+        </div>
+    </div>
+</script>
+<script type="text/template" id="ThirdLayerMenuTemplate">
+    <div class="child-box">
+        
+        <input type="checkbox" {$IsChecked$} onclick="check.checkChildBox('checkAll_{$Index_j$}','divChild_{$Index_j$}','checkAll_{$Index_i$}', 'divChild_{$Index_i$}');" value="{$Id$}" id="checkMenu_{$Id$}" />
+        <label>{$MenuName$}</label>
+    </div>
+</script>
+<script language="javascript" type="text/javascript">
+
+    (window.loadData = function (fkflag) {
+        if (fkflag == undefined) {
+            fkflag = $e("#GroupList li").eq(0).attr("data-value");
+        }
+        customMenu.roleId=fkflag;
+        $e("#GroupList li").removeClass("select");
+        $e("#GroupList [label-btn='group1|click|key"+fkflag+"']").addClass("select");
+        customMenu.showCheckBoxToMenu('<$var CustomId/>','<$var AppId/>',fkflag, '<$var ProductId/>');
+    })();
+
+</script>

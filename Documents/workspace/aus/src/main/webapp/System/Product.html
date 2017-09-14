@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>产品管理</title>
+    <$include templatename="Meta.html" />
+</head>
+<body>
+
+
+    <!--内容-->
+    <div class="content-area">
+        <!--面包屑-->
+        <div class="content-title">产品管理</div>
+        <!--//面包屑-->
+        <!--内容盒-->
+        <div class="custom-area" id="scroll-box">
+            <!--内盒-->
+            <div class="custom-box" scrollarea="box">
+                <!--滚动用盒层-->
+                <div class="custom-scroll" scrollroom="box" lazyscroll="box">
+                    <div class="label-box" label-box="group1">
+
+                        <div class="mc" label-limitarea="group1">
+                            <div class="for select" label-area="group1|key1">
+                                <div class="extend-button">
+
+                                    <div class="button">
+                                        <a href="javascript:void(0);" onclick="frm.add({ title: '添加产品', formId: 'ProductFormTemplate', action: 'insert', width: 700, height: 500 });" class="btn">添加产品</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!--表格组件-->
+                    <div class="custom-table">
+                        <!--表格内盒-->
+                        <div class="form" id="customChangeTable">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col style="width: 25px;" />
+                                    <col style="width: 150px;" />
+                                    <col style="width: 180px;" />
+
+                                    <col style="width: 100px;" />
+         
+
+                                    <col style="width: 61px;" />
+                                    <col style="width: 61px;" />
+                                </colgroup>
+
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <!--自定义复选按钮-->
+                                            <input type="checkbox" value="" name="" checkall="1">
+                                            <!--//自定义复选按钮-->
+                                        </td>
+
+                                        <td>
+                                            <p class="name center">产品名称</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">产品描述</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">业务模式</p>
+                                        </td>
+
+                                        <td>
+                                            <p class="name center">状态</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">操作</p>
+                                        </td>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="pageBody"></tbody>
+                            </table>
+                        </div>
+                        <!--//表格内盒-->
+                        <!--通用分页-->
+                        <div class="page" id="PageBarList"></div>
+                        <!--//通用分页-->
+                    </div>
+                    <!--//表格组件-->
+                </div>
+                <!--//滚动用盒层-->
+            </div>
+            <!--//内盒-->
+        </div>
+        <!--//内容盒-->
+    </div>
+    <!--//内容-->
+
+
+</body>
+</html>
+
+<script type="text/template" id="bodyListTemplate">
+    {@each _ as f,index}
+    <tr>
+        <td>
+            <input type="checkbox" value="${f.Id}" name="Id" id="Id">
+        </td>
+        <td><div class="string">${f.Name}</div></td>
+        <td><div class="string">${f.Description}</div></td>
+
+
+        <td>
+            <div class="string">
+                ${f.FKWay|formatArray,dict.fkway}
+            </div>
+        </td>
+
+        
+
+        <td>
+            {@if f.Status==0}
+            <div class="extend">
+                <div class="target target-off">
+                    <span onclick="frm.switchStatus(this, '${f.Id}', '${f.Status}', function () { var li = $e(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } });"></span>
+                </div>
+            </div>
+            {@else if f.Status>0}
+            <div class="extend">
+                <div class="target target-on">
+                    <span onclick="frm.switchStatus(this, '${f.Id}', '${f.Status}', function () { var li = $e(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } });"></span>
+                </div>
+            </div>
+            {@else}
+            <div class="center string">已删除</div>
+            {@/if}
+        </td>
+        <td>
+            <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                <!--标题栏-->
+                <p class="name">操作</p>
+                <!--//标题栏-->
+
+                <div class="tool-menu">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" onclick="frm.update({ title: '修改产品', formId: 'ProductFormTemplate', id: '${f.Id}', action: 'update', width: 700, height: 500 });" class="btn">修改</a>
+                        </li>
+                        {@each f.Application as ff,index}
+                        <li>
+                            <a href="javascript:void(0);" onclick="product.openMenu('${f.Id}', '${ff.AppId}', '${ff.AppName}')" class="btn">产品菜单</a>
+
+                        </li>
+                        {@/each}
+                        <li>
+                            <a href="javascript:void(0);" onclick="product.openConfig('${f.Id}', '${f.PrimaryAppId}', '${f.AppName}','${f.FKWay}')" class="btn">基础配置</a>
+
+                        </li>
+                        <li>
+                            <a href="javascript:frm.physicalDel(${f.Id},function(){window.loadData(-1);});">删除</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {@/each}
+</script>
+
+<script type="text/template" id="ProductFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="ProductForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>应用程序：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <select name="PrimaryAppId" id="PrimaryAppId">
+
+                                    <$loop id="Application" datasourceid="Application">
+                                        <option value="<$var Application.Id />"><$var Application.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>产品名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+
+                                <input type="text" id="Name" name="Name" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>产品描述：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+
+                                <input type="text" id="Description" name="Description" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>系统角色：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                    <$loop id="Role" datasourceid="Role">
+                                        <input type="checkbox" name="Roles" id="Roles_<$var Role.Id/>" value="<$var Role.Id/>" /><label for="Roles_<$var Role.Id/>"><$var Role.Name /></label>
+                                    </$loop>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>经营模式：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+                                <select name="FKWay" id="FKWay">
+
+                                    <option value="1">仅零售</option>
+                                    <option value="2">仅批发</option>
+                                    <option value="3" selected>混合模式</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+
+
+<script language="javascript" type="text/javascript">
+    (window.loadData = function (status) {
+        $e("#pageBody").loadList("bodyListTemplate", null, null, function () {
+          
+        });
+
+    })();
+</script>

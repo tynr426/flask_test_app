@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>后台管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Shaipe" />
+<!--关于ie9的处理开始-->
+<meta name="application-name" content="IE9 Test" />
+<meta name="msapplication-task"
+	content="name=<$Var Site.SiteName />;action-uri=/;icon-uri=/favicon.ico" />
+<meta name="msapplication-task"
+	content="name=<$Var Site.SiteName />;action-uri=/guestbook;icon-uri=/favicon.ico" />
+<meta name="msapplication-task"
+	content="name=<$Var Site.SiteName />;action-uri=about;icon-uri=/favicon.ico" />
+<meta name="msapplication-navbutton-color" content="#0000ff" />
+<meta name="msapplication-starturl" content="/" />
+<!--关于ie9的处理结束-->
+<link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon" />
+<link rel="canonical" href="/" />
+
+<!--框架样式-->
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<!--框架皮肤-->
+<link rel="stylesheet" type="text/css" href="css/skin/Default/skin.css" />
+
+
+<!--弹出层样式-->
+<link type="text/css" rel="stylesheet"
+	href="Static/dialog/Metro/Dialog.css" />
+<script language="javascript" type="text/javascript"
+	src="Static/Js/jquery-1.8.2.js?v=2.0.14.715">
+</script>
+<script language="javascript" type="text/javascript"
+	src="Static/Js/jquery.tmpl.js">
+</script>
+<script type="text/javascript" src="js/basevalue.js">
+</script>
+<script type="text/javascript" src="js/cookie_util.js">
+</script>
+<script type="text/javascript" src="js/login.js">
+</script>
+<script type="text/javascript" src="js/admin.js">
+</script>
+</head>
+
+<body>
+	<!--外框-->
+	<div class="wrap">
+		<!--头部-->
+		<div class="heads" init="head">
+			<!--Logo-->
+			<div class="logo">
+				<a href="#"> AUS </a>
+			</div>
+			<!--//Logo-->
+			<!--副LOGO-->
+			<div class="s-logo">
+				<a href="javascript:void(0);"> 平台管理中心 </a>
+			</div>
+			<!--//副LOGO-->
+			<!--工具-->
+			<div class="operate-head">
+				<ul>
+					<!--<li>
+                        <a href="<$Var Site.SiteDomain/>" target="_blank" class="btn site" title="查看首页"></a>
+                    </li>-->
+					<li><a href="javascript:void(0);" class="btn admin">admin</a>
+
+						<!--扩展显示-->
+						<div class="extend">
+							<ol>
+								<li><a href="javascript:void(0);"
+									onclick="frm.update({ title: '管理员信息完善', formId: 'AccountFormTemplate', id: '<$var AdminId/>', width: '500px', height: 'auto', completed: pub.top.user.updateCompleted, action: 'update', url: '/webadmin/Passport/User.html' });">完善信息</a>
+								</li>
+								<li><a href="javascript:void(0);"
+									onclick='pub.html({ content: ECF("#PasswordTemplate").html(), width: 500, height: 300, title: "修改密码", buttons: [{ focus: true, name: "确认", callback: user.updPwd }] })'>修改密码</a>
+								</li>
+							</ol>
+						</div> <!--//扩展显示--></li>
+					<li><a href="javascript:void(0);" class="btn clean"
+						title="清理缓存" onclick="main.clearCache();"></a></li>
+					<li><a href="javascript:void(0);" class="btn main" title="主界面"
+						onclick="frame.go('SysIndex.html');"></a></li>
+					<li><a href="javascript:void(0);" class="btn loginout"
+						title="退出" onclick="login.loginOut();"></a></li>
+				</ul>
+			</div>
+			<!--//工具-->
+		</div>
+		<!--//头部-->
+		<!--体部-->
+		<div class="bodys" init="body" salemenu="box">
+			<!--左侧菜单-->
+			<div class="menu menu-close" salemenu="menu" iscroll="box">
+				<div class="list iscroll-wrapper">
+					<ul id="topMenu"></ul>
+				</div>
+
+				<!--展开收缩-->
+				<div class="menu-btn">
+					<i class="btn" salemenu="sliderbar"></i>
+				</div>
+				<!--//展开收缩-->
+			</div>
+			<!--//左侧菜单-->
+
+
+
+			<!--右侧内容-->
+			<div class="content-box">
+				<iframe title="" salemenu="area" name="contentIframe"
+					id="contentIframe" src="index.html" class="iframe" width="100%"
+					height="100%" frameborder="0" scrolling="no"></iframe>
+			</div>
+			<!--//右侧内容-->
+		</div>
+		<!--//体部-->
+	</div>
+	<!--//外框-->
+
+</body>
+</html>
+
+<script type="text/javascript">
+                var menuList = [
+                    {
+                        "Id": 17, "ParentId": 0, "MenuName": "基础信息", "CssClass": "sys", "children": [
+                            {
+                                "Id": 1701, "ParentId": 17, "MenuName": "基础信息", "children": [
+                                    { "Id": 170101, "ParentId": 1701, "MenuName": "应用管理", "Link": "System/Application.html" },
+                                    { "Id": 170102, "ParentId": 1701, "MenuName": "基础配置", "Link": "System/Config.html" },
+                                    { "Id": 170103, "ParentId": 1701, "MenuName": "角色管理", "Link": "System/Role.html" },
+                                    { "Id": 170104, "ParentId": 1701, "MenuName": "系统菜单", "Link": "System/Menu.html" },
+                                    { "Id": 170105, "ParentId": 1701, "MenuName": "产品管理", "Link": "System/Product.html" },
+                                    { "Id": 170106, "ParentId": 1701, "MenuName": "管理员", "Link": "Passport/User.html" },
+                                    { "Id": 170107, "ParentId": 1701, "MenuName": "接口管理", "Link": "System/Api.html" }
+                                ]
+                            }
+                            ]
+                    },
+                    {
+                        "Id": 18, "ParentId": 0, "MenuName": "系统客户", "CssClass": "member", "children": [
+                            {
+                                "Id": 1801, "ParentId": 18, "MenuName": "系统客户", "children": [
+                                    { "Id": 180101, "ParentId": 1801, "MenuName": "客户管理", "Link": "Custom/Customer.html" },
+                                    { "Id": 180102, "ParentId": 1801, "MenuName": "服务器管理", "Link": "Custom/Server.html" },
+                                    { "Id": 180103, "ParentId": 1801, "MenuName": "站点管理", "Link": "Custom/Website.html" },
+                                    { "Id": 180104, "ParentId": 1801, "MenuName": "域名管理", "Link": "Custom/Domain.html" }]
+                            }]
+                    }
+                ];
+
+                $(function () {
+                    var template = $('#topMenuTemplate').html();
+                   
+                    $.tmpl( template, menuList ).appendTo( "#topMenu" );
+                    menuAction();
+                });
+                
+            </script>
+<script id="topMenuTemplate" type="text/x-jquery-tmpl">
+
+                <li salemenu="list" class="${CssClass}">
+                    <!--标题按钮-->
+                    <a class="name" href="javascript:void(0);">
+                        <i class="icon"></i>
+                        <em class="tips">${MenuName}</em>
+                        <i class="cover"></i>
+                    </a>
+                    <!--//标题按钮-->
+                    <!--展示层-->
+                    <div class="show" salemenu="showbox">
+                        <ol>
+						{{each(j,second) children}}
+                            <li salemenu="showlist" >
+                               
+                                <!--二级菜单-->
+                                <div class="list-menu">
+                                    <a href="javascript:void(0);" class="level-2-btn">
+                                        <i class="arrow"></i>
+                                        <em>${second.MenuName}</em>
+                                    </a>
+                                </div>
+                                <!--//二级菜单-->
+                              
+                                <!--三级菜单-->
+                                <div class="item-box" salemenu-level="box">
+								{{each(k,third) second.children}}
+                                   {{if third.Target == '_bank'}}
+                                    <div class="item-list" salemenu-level-list="list">
+                                        <a href="${third.Link}" class="level-3-btn" target="${third.Target}" >${third.MenuName}</a>
+                                    </div>
+                                    {{else}}
+                                    <div class="item-list" salemenu-level-list="list">
+                                        <a href="javascript:frame.go('${third.Link}');" >${third.MenuName}</a>
+                                    </div>
+                                   	{{/if}}
+                                   {{/each}}
+                                </div>
+                                <!--//三级菜单-->
+                            </li>
+                          {{/each}}
+                        </ol>
+                    </div>
+                    <!--//展示层-->
+                </li>
+                   
+</script>

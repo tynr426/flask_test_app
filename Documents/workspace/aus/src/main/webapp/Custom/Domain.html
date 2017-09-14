@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<htm>
+    <head>
+        <title>服务器列表页面</title>
+        <$include templatename="Meta.html" />
+
+        <!--主页面专用-->
+        <script language="javascript" type="text/javascript" src="~/js/admin.js"></script>
+    </head>
+
+    <body>
+        <!--内容-->
+        <div class="content-area">
+            <!--内容盒-->
+            <div class="custom-area" id="scroll-box">
+                <!--内盒-->
+                <div class="custom-box" scrollarea="box">
+                    <!--滚动用盒层-->
+                    <div class="custom-scroll" scrollroom="box">
+
+                        <!--表格组件-->
+                        <div class="custom-table">
+                            <!--表格内盒-->
+                            <div class="form" id="customChangeTable">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <colgroup>
+                                        <col style="width: 60px;" />
+                                        <col style="width: auto;" />
+                                        
+                                        <col style="width: 150px;" />
+                                        <col style="width: 150px;" />
+                                        <col style="width: 150px;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: 100px;" />
+                                        <col style="width: 60px;" />
+                                    </colgroup>
+
+                                    <thead>
+                                        <tr>
+                                            <td><p class="name center">域名级别</p></td>
+                                            <td><p class="name center">域名</p></td>
+                                            <td><p class="name center">服务器</p></td>
+                                            <td><p class="name center">服务器IP</p></td>
+                                            <td><p class="name center">站点</p></td>
+                                            <td><p class="name center">绑定时间</p></td>
+                                            
+                                           
+                                            <td><p class="name center">状态</p></td>
+                                            <td><p class="name center">操作</p></td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="pageBody"></tbody>
+                                </table>
+                            </div>
+                            <!--//表格内盒-->
+                            <!--通用分页-->
+                            <div class="page" id="PageBarList"></div>
+                            <!--//通用分页-->
+                        </div>
+                        <!--//表格组件-->
+                    </div>
+                    <!--//滚动用盒层-->
+                </div>
+                <!--//内盒-->
+            </div>
+            <!--//内容盒-->
+        </div>
+        <!--//内容-->
+      
+    </body>
+</htm>
+
+
+<!--添加域名-->
+<script type="text/template" id="DomainInsertFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="DomainForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+
+
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>域名名称：
+                            </p>
+                        </th>
+                        <td>
+                            <input type="hidden" id="Id" />
+                            <input type="hidden" id="SiteId" />
+                            <input type="hidden" id="PrimaryDomain" />
+                            <div class="inputbox">
+                                <input type="text" id="Domain" name="Domain" value="" validate="isnull|url" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>域名等级：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Layer" name="Layer" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--添加域名-->
+
+
+<script type="text/template" id="bodyListTemplate">
+    {@each _ as f,index}
+    <tr>
+        <td><div class="string">${f.Layer}</div></td>
+        <td><div class="string">${f.Domain}</div></td>
+        <td><div class="string">${f.ServerName}</div></td>
+        <td><div class="string">${f.PublicIP}</div></td>
+        <td><div class="string">${f.SiteName}</div></td>
+        <td><div class="string">${f.BindTime}</div></td>
+ 
+       
+        <td>
+            <!--自定义开关-->
+            {@if f.Status==0}
+            <div class="extend">
+                <div class="target target-off">
+                    <span onclick="frm.switchStatus(this, '${f.Id}', '${f.Status}', function () { var li = $e(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } });"></span>
+                </div>
+            </div>
+            {@else if f.Status==1}
+            <div class="extend">
+                <div class="target target-on">
+                    <span onclick="frm.switchStatus(this, '${f.Id}', '${f.Status}', function () { var li = $e(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } });"></span>
+                </div>
+            </div>
+            {@else}
+            <div class="string center">已删除</div>
+            {@/if}
+            <!--//自定义开关-->
+        </td>
+        <td>
+            <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                <!--标题栏-->
+                <p class="name">操作</p>
+                <!--//标题栏-->
+                <div class="tool-menu">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" onclick="frm.update('修改域名', 'DomainInsertFormTemplate', '${f.Id}', null, null, null, null, 500, 330);">修改</a>
+                        </li>
+                        <li>
+                            <a href="javascript:frm.physicalDel(${f.Id},function(){window.loadData(-1);});">删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {@/each}
+</script>
+
+<script type="text/javascript">
+
+    function loadData() {
+        var siteid = $e("#siteid").value();
+        $e("#pageBody").loadPage("bodyListTemplate", "PageBarList", "<Condition></Condition><SortField>Id</SortField><SortDirect>desc</SortDirect>", "", 20);
+    }
+    ECF(document).ready(function () {
+        loadData();
+    });
+</script>

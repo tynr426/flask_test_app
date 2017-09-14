@@ -1,0 +1,80 @@
+﻿"use strict"; 
+
+var dict = {
+  "status": {
+    "1": "开启",
+    "0": "关闭",
+    "-1": "删除"
+  },
+  "priority": {
+    "1": "高",
+    "2": "中",
+    "3": "低"
+  },
+    "fkway": {
+    "1": "仅零售",
+    "2": "仅批发",
+    "3": "供应链"
+  },
+  "sqltype": {
+    "1": "MYSQL",
+    "2": "SQL SERVER",
+    "3": "ORACLE"
+  },
+  "validateRegExp": {
+    "decimal": "浮点数",
+    "decimal1": "正浮点数",
+    "decimal2": "负浮点数",
+    "decimal3": "浮点数",
+    "decimal4": "非负浮点数（正浮点数 + 0）",
+    "decimal5": "非正浮点数（负浮点数 + 0）",
+    "decimal6": "正浮点数与正数",
+    "decimal7": "正浮点数与正数 (包括0)",
+    "decimal8": "正浮点数与正数 (包括0)",
+    "discount": "折扣",
+    "intege": "整数",
+    "intege1": "正整数",
+    "intege2": "负整数",
+    "intege3": "负整数(包括0)",
+    "intege4": "正整数(包括0)",
+    "intordec": "正整数或者正浮点数",
+    "num": "数字",
+    "num1": "正数（正整数 + 0）",
+    "num2": "负数（负整数 + 0）",
+    "ascii": "仅ACSII字符",
+    "english": "仅英文",
+    "chinese": "仅中文",
+    "color": "颜色",
+    "date": "日期",
+    "email": "邮件",
+    "idcard": "身份证",
+    "ip4": "ip地址",
+    "letter": "字母",
+    "letter_l": "小写字母",
+    "letter_u": "大写字母",
+    "mobile": "手机",
+    "password": "匹配由数字、26个英文字母或者下划线组成的字符串",
+    "fullNumber": "数字",
+    "picture": "图片格式",
+    "qq": "QQ号码",
+    "rar": "压缩文件格式",
+    "tel": "电话号码的函数(包括验证国内区号,国际区号,分机号)",
+    "url": "url",
+    "domain": "domain",
+    "username": "用户名",
+    "zipcode": "邮编",
+    "script": "script"
+  },
+  "fkflag": {
+    "0": "平台",
+    "3": "区域",
+    "2": "供应",
+    "1": "经销"
+
+  },
+  /* 架构模式 */
+  "schemaMode": {
+    "1": "站点展示",
+    "2": "应用展示"
+  }
+};

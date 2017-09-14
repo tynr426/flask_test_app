@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>产品菜单配置</title>
+    <$include templatename="Meta.html" />
+</head>
+<body>
+
+
+    <!--内容-->
+    <div class="content-area">
+        <!--面包屑-->
+        <div class="content-title">产品菜单配置</div>
+        <!--//面包屑-->
+        <!--内容盒-->
+        <div class="custom-area" id="scroll-box">
+            <!--内盒-->
+            <div class="custom-box" scrollarea="box">
+                <!--滚动用盒层-->
+                <div class="custom-scroll" scrollroom="box" lazyscroll="box">
+                    <div class="label-box" label-box="group1">
+                        <div class="mt" label-btncom="group1">
+                            <ul id="GroupList">
+                                <$loop id="GroupList" datasourceid="GroupList">
+                                    <li data-value="<$var GroupList.key/>"  label-btn="group1|click|key<$var GroupList.key/>" onclick="loadData(<$var GroupList.key/>);"><$var GroupList.value /></li>
+                                </$loop>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                    <!--表格组件-->
+                    <div class="box_content">
+                        <!--表格内盒-->
+                        <div id="MenuList" class="model_box">
+
+                        </div>
+
+                    </div>
+                    <!--//表格组件-->
+
+
+                </div>
+                <!--//滚动用盒层-->
+            </div>
+            <!--//内盒-->
+        </div>
+        <!--//内容盒-->
+    </div>
+    <!--//内容-->
+
+
+</body>
+</html>
+
+
+<script type="text/template" id="FirstLayerMenuTemplate">
+    <div class="model-box" id="outer_{$Id$}">
+        <a onclick="check.openMenu(this,'{$Id$}');" href="javascript:void(0);" class="btn">
+            <img src="{$ImgPath$}" nolazy="0" alt="" tips="open" />
+        </a>
+        <input type="checkbox" name="menu" {$IsChecked$} onclick="check.checkAll(this,'divChild_{$Id$}','checkAll_{$Id$}');" value="{$Id$}" id="checkAll_{$Id$}" />
+        <label id="MenuName">{$MenuName$}</label>
+        <input type="hidden" value="0" id="IsUpdated" />
+        <a href="javascript:productMenu.openMenuDialog('outer_{$Id$}','{$MenuName$}')" style="font-size:12px; width:100px; float:right; " class="btn">重命名</a>
+    </div>
+    <div class="child-model-box" style="display: none;" id="divChild_{$Id$}">
+
+        {$Html1$}
+    </div>
+</script>
+<script type="text/template" id="SecondLayerMenuTemplate">
+    <div class="model-box" id="outer_{$Id$}">
+
+        <input type="checkbox" name="menu" {$IsChecked$} onclick="check.checkAll(this,'divChild_{$Id$}','checkAll_{$Index_i$}', 'divChild_{$Index_i$}');" value="{$Id$}" id="checkAll_{$Id$}" checklist="{$Index_i$}" />
+        <label id="MenuName">{$MenuName$}</label>
+        <input type="hidden" value="0" id="IsUpdated" />
+        <a href="javascript:productMenu.openMenuDialog('outer_{$Id$}','{$MenuName$}')" style="font-size:12px; width:100px; float:right; " class="btn">重命名</a>
+    </div>
+    <div class="child_box" id="divChild_{$Id$}">
+
+        <div>
+
+            {$Html2$}
+        </div>
+    </div>
+</script>
+<script type="text/template" id="ThirdLayerMenuTemplate">
+    <div class="child-box" id="outer_{$Id$}">
+
+        <input type="checkbox" name="menu" {$IsChecked$} onclick="check.checkChildBox('checkAll_{$Index_j$}','divChild_{$Index_j$}','checkAll_{$Index_i$}', 'divChild_{$Index_i$}');" value="{$Id$}" id="checkMenu_{$Id$}" />
+        <label id="MenuName">{$MenuName$}</label>
+        <input type="hidden" value="0" id="IsUpdated" />
+        <a href="javascript:productMenu.openMenuDialog('outer_{$Id$}','{$MenuName$}')" style="font-size:12px; width:100px; float:right; " class="btn">重命名</a>
+    </div>
+</script>
+
+<!-- 修改名称 -->
+<script type="text/template" id="UpdateMenuNameFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="UpdateMenuNameForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+
+
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>原名：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="string">
+                                <var class="notice-inline" name="MenuName" style="font-size:14px;"></var>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>重命名：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="ReMenuName" name="ReMenuName" value="" validate="isnull" />
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!--修改名称-->
+
+<!--菜单展示模板-->
+<script type="text/template" id="ListTemplate">
+    <tr class="child-[#i] {@if it[#i].isChild==true} close {@else}nochild{@/if}" tree="${index0}" treenum="[#i]" treeindex="[#index]" parentindex="[#parent]" [#style]>
+        <td>
+            <div class="extend">
+
+                <div class="grid_cell">
+                    <i class="icon" onclick="treeGrid.toggle(this);"></i>
+                    <p>
+                        
+                        <label id="MenuName${it[#i].Id}">${it[#i].MenuName}</label>
+                    </p>
+                </div>
+            </div>
+        </td>
+        <td>
+          
+        </td>
+    </tr>
+</script>
+<script language="javascript" type="text/javascript">
+
+    (window.loadData = function (fkflag) {
+        if (fkflag == undefined) {
+            fkflag = $e("#GroupList li").eq(0).attr("data-value");
+        }
+        productMenu.roleId=fkflag;
+        $e("#GroupList li").removeClass("select");
+        $e("#GroupList [label-btn='group1|click|key"+fkflag+"']").addClass("select");
+        productMenu.showCheckBoxToMenu('<$var ProductId/>','<$var AppId/>',fkflag);
+    })();
+
+</script>

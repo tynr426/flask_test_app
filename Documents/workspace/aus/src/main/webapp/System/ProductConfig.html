@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>产品基础配置</title>
+    <$include templatename="Meta.html" />
+</head>
+<body>
+
+
+    <!--内容-->
+    <div class="content-area">
+        <!--面包屑-->
+        <div class="content-title">产品基础配置</div>
+        <!--//面包屑-->
+        <!--内容盒-->
+        <div class="custom-area" id="scroll-box">
+            <!--内盒-->
+            <div class="custom-box" scrollarea="box">
+                <!--滚动用盒层-->
+                <div class="custom-scroll" scrollroom="box" lazyscroll="box">
+
+                    <!--表格组件-->
+                    <div class="custom-table">
+                        <!--表格内盒-->
+                        <div class="form" id="customChangeTable">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col style="width: 25px;" />
+                                    <col style="width: 150px;" />
+                                    <col style="width: 180px;" />
+
+                                    <col style="width: 100px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: 100px;" />
+                                    <col style="width: auto;" />
+
+                                </colgroup>
+
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <!--自定义复选按钮-->
+                                            <input type="checkbox" value="" name="" checkall="1">
+                                            <!--//自定义复选按钮-->
+                                        </td>
+                                        <td>
+                                            <p class="name center">字段描述</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">字段名称</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">字段类型</p>
+                                        </td>
+
+                                        <td>
+                                            <p class="name center">所属分组</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">所属模块</p>
+                                        </td>
+                                        <td>
+                                            <p class="name center">字段值</p>
+                                        </td>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="pageBody"></tbody>
+                            </table>
+                        </div>
+                        <!--//表格内盒-->
+                        <!--通用分页-->
+                        <div class="page" id="PageBarList"></div>
+                        <!--//通用分页-->
+                    </div>
+                    <!--//表格组件-->
+                </div>
+                <!--//滚动用盒层-->
+            </div>
+            <!--//内盒-->
+        </div>
+        <!--//内容盒-->
+    </div>
+    <!--//内容-->
+
+
+</body>
+</html>
+
+<script type="text/template" id="bodyListTemplate">
+    {@each _ as f,index}
+    <tr>
+        <td>
+            {@if f.ConfigId>0}
+            <input type="checkbox" value="${f.Id}" name="Id" id="Id"  checklist="1" checked="checked">
+            {@else}
+            <input type="checkbox" value="${f.Id}" name="Id" id="Id"  checklist="1">
+            {@/if}
+        </td>
+        <td><div class="string">${f.Description}</div></td>
+        <td><div class="string">${f.KeyWord}</div></td>
+
+        <td><div class="string">${f.EditorType}</div></td>
+
+        <td><div class="string center">${f.GroupName}</div></td>
+        <td><div class="string center">${f.ModuleName}</div></td>
+        <td>
+            <div class="extend">
+                <div class="settle-price" id="keyValueShow_${f.Id}" onclick="config.showSettleInput('keyValueShow_${f.Id}', 'keyValueEdit_${f.Id}', true)">
+
+                    ${f.DefaultValue}
+                </div>
+
+                <div class="settle-price-extend" id="keyValueEdit_${f.Id}" style="display:none;">
+                    <div class="inputbox">
+                        <input id="DefaultValue" name="DefaultValue" type="text" value="${f.DefaultValue}" error="输入格式不正确！" validate="isnull" onblur="config.showSettleInput('keyValueShow_${f.Id}', 'keyValueEdit_${f.Id}', false, this.value)" />
+                    </div>
+                </div>
+            </div>
+        </td>
+
+
+
+    </tr>
+    {@/each}
+</script>
+
+
+<script language="javascript" type="text/javascript">
+    (window.loadData = function (status) {
+        productConfig.loadAppConfig('<$var ProductId/>', '<$var AppId/>','<$var FKWay/>');
+    })();
+</script>

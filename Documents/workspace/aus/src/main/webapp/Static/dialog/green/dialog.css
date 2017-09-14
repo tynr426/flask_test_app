@@ -1,0 +1,49 @@
+@charset "gb2312";
+/* CSS Document */
+
+.box{font-size:12px; }
+.box_top_left,.box_top_center,.box_top_right,.box_title_left,.box_title,.box_title_right,.box_title_info,.box_main_left,.box_main_right,.box_bottom_left,.box_bottom_center,.box_bottom_right,.box_bottom_left,.box_bottom_center,.box_bottom_right,.box_buttons_right,.box_buttons_left {overflow:hidden;_behavior:url("../js/iepngfix.htc");}
+
+/* 顶部阴影 */
+.box_top_left {background:url(images/top_left.png) no-repeat 0 0;_background:url(images/top_left.gif) no-repeat 0 0;font-size:0px;width:6px;height:6px;float:left;}
+.box_top_center {background:url(images/top_bg.png) repeat-x 0 0;_background:url(images/top_bg.gif) repeat-x 0 0;font-size:0px;width:1px;height:6px;float:left;}
+.box_top_right {background:url(images/top_right.png) no-repeat 0 0;_background:url(images/top_right.gif) no-repeat 0 0;font-size:0px;width:6px;height:6px;float:left;}
+
+/*title style*/
+.box_title_left {background:url(images/title_left.png) no-repeat;_background:url(images/title_left.gif) no-repeat;width:6px;height:29px;float:left}
+.box_title {background:url(images/title_bg.png) repeat-x 0 0;_background:url(images/title_bg.gif) repeat-x 0 0;height:29px;float:left;}/* 弹出层的标题框 */
+.box_title .box_title_info {background:url(images/grid.png) 0px 3px no-repeat;_background:url(images/grid.gif) 0px 3px no-repeat;height:25px;line-height:23px;font-size:12px;color:#000; display:block;float:left;padding-left:18px;margin-left:10px;color:#FFFFFF;}
+.box_title .box_title_buttons {float:right; width:auto;height:21px;}
+.box_title .box_title_buttons a.box_title_min{background:url(images/abtn.png) 0px 0px no-repeat;_background:url(images/abtn.gif) 0px 0px no-repeat;overflow:hidden;width:31px;float:right;height:21px;}
+.box_title .box_title_buttons a.box_title_max{background:url(images/abtn.png) -31px 0px no-repeat;_background:url(images/abtn.gif) -31px 0px no-repeat;overflow:hidden;width:31px;height:21px;float:right;}
+.box_title .box_title_buttons a.box_title_close{background:url(images/abtn.png) -62px 0px no-repeat;_background:url(images/abtn.gif) -62px 0px no-repeat;overflow:hidden;width:34px;height:21px;float:right;}
+.box_title .box_title_buttons a.box_title_min:hover{background:url(images/abtn_hover.png) 0px 0px no-repeat;_background:url(images/abtn_hover.gif) 0px 0px no-repeat;overflow:hidden;width:31px;float:right;height:21px;}
+.box_title .box_title_buttons a.box_title_max:hover{background:url(images/abtn_hover.png) -31px 0px no-repeat;_background:url(images/abtn_hover.gif) -31px 0px no-repeat;overflow:hidden;width:31px;height:21px;float:right;}
+.box_title .box_title_buttons a.box_title_close:hover{background:url(images/abtn_hover.png) -62px 0px no-repeat;_background:url(images/abtn_hover.gif) -62px 0px no-repeat;overflow:hidden;width:34px;height:21px;float:right;}
+.box_title .box_title_buttons a, .box_title .box_title_buttons  a:link,.box_title .box_title_buttons  a:visited{display:block;float:right;text-decoration:none;cursor:pointer;}
+.box_title_right {background:url(images/title_right.png) no-repeat;_background:url(images/title_right.gif) no-repeat;font-size:0px;width:6px;height:29px;float:left;}
+
+
+/* 中间部分 */
+.box_main_left {background:url(images/body_left.png) left repeat-y;_background:url(images/body_left.gif) left repeat-y;float:left;width:6px; font-size:0px; height:auto;}
+.box_main{background-color:#FFFFFF;float:left; padding:0px; margin:0px; overflow-y:auto; overflow-x:hidden;}/*  中间部分 此处的结构margin是在程序中写定的,指定后也不会生效 */
+.box_main .box_content{background-color:#FFFFFF; margin:5px;}/* 中间内容部分 */
+.box_main_right{background:url(images/body_right.png) repeat-y right;_background:url(images/body_right.gif) repeat-y right;float:left; width:6px; font-size:0px;}
+
+
+/* 下面按钮部分 */
+.box_buttons_left {float:left; width:5px;background:url(images/body_left.png) left repeat-y;_background:url(images/body_left.gif) left repeat-y;font-size:0px;}
+.box_buttons { text-align:right; white-space:nowrap; bottom:0px; float:left;background-color:#FFFFFF; text-align:center;}/* 按钮部分 */
+.box_buttons button {color: #FFF;background:url(images/btn.png) no-repeat;_background:url(images/btn.gif) no-repeat;width:64px;height:24px; text-align:center;line-height:24px; border:none; margin:6px 3px 3px 3px;}
+.box_buttons button:hover {background:url(images/btn_hover.png) no-repeat;_background:url(images/btn_hover.gif) no-repeat;cursor:pointer;}
+.box_buttons button .box_button_focus {color: #FFF;background:url(images/btn.png) no-repeat;_background:url(images/btn.gif) no-repeat;}
+.box_buttons button.box_button_cancel{color: #FFF;background:url(images/btn.png) no-repeat;_background:url(images/btn.gif) no-repeat;}
+.box_buttons_right{float:left; width:5px; background:url(images/body_right.png) repeat-y right;_background:url(images/body_right.gif) repeat-y right;font-size:0px;}
+
+.box_loading{width:96px; height:32px; text-align:left; padding-left:20px; padding-top:15px; overflow:hidden; background:url(icons/loading.gif) no-repeat left center;}
+
+/* 底部阴影 */
+.box_bottom_left {background:url(images/bottom_left.png) no-repeat;_background:url(images/bottom_left.gif) no-repeat;width:6px;height:6px;float:left}
+.box_bottom_center {background:url(images/bottom_bg.png) repeat-x;_background:url(images/bottom_bg.gif) repeat-x;font-size:0;height:6px;float:left}
+.box_bottom_right {background:url(images/bottom_right.png) no-repeat;_background:url(images/bottom_right.gif) no-repeat;width:6px;height:6px;cursor:se-resize;float:left;}
+

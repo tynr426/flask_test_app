@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<htm>
+    <head>
+        <title>服务器列表页面</title>
+        <$include templatename="Meta.html" />
+
+      
+    </head>
+
+    <body>
+        <!--内容-->
+        <div class="content-area">
+            <!--面包屑-->
+            <div class="content-title">服务器列表</div>
+            <!--//面包屑-->
+            <!--内容盒-->
+            <div class="custom-area" id="scroll-box">
+                <!--内盒-->
+                <div class="custom-box" scrollarea="box">
+                    <!--滚动用盒层-->
+                    <div class="custom-scroll" scrollroom="box">
+
+
+                        <!--表格组件-->
+                        <div class="custom-table">
+                            <!--表格内盒-->
+                            <div class="form" id="customChangeTable">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <colgroup>
+                                        <col style="width: 25px;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: 80px;" />
+                                        <col style="width: 80px;" />
+                                        <col style="width:150px;" />
+                                        <col style="width:61px;" />
+                                        <col style="width:61px;" />
+                                    </colgroup>
+
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <div><input type="checkbox" value="" name="" checkall="1" /></div>
+                                            </td>
+                                            <td><p class="name center">客户</p></td>
+                                            <td><p class="name center">服务器</p></td>
+                                            <td><p class="name center">应用</p></td>
+                                            <td><p class="name center">产品</p></td>
+                                            <td><p class="name center">站点名</p></td>
+                                            <td><p class="name center">应用池</p></td>
+                                            <td><p class="name center">序列号</p></td>
+
+                                            <td><p class="name center">运行状态</p></td>
+                                            <td><p class="name center">创建时间</p></td>
+                                            <td><p class="name center">状态</p></td>
+                                            <td><p class="name center">域名管理</p></td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="pageBody"></tbody>
+                                </table>
+                            </div>
+                            <!--//表格内盒-->
+                            <!--通用分页-->
+                            <div class="page" id="PageBarList"></div>
+                            <!--//通用分页-->
+                        </div>
+                        <!--//表格组件-->
+                    </div>
+                    <!--//滚动用盒层-->
+                </div>
+                <!--//内盒-->
+            </div>
+            <!--//内容盒-->
+        </div>
+        <!--//内容-->
+
+    </body>
+</htm>
+
+<script type="text/template" id="bodyListTemplate">
+    {@each _ as f,index}
+    <tr>
+        <td>
+            <div class="string"><input type="checkbox" /></div>
+        </td>
+        <td><div class="string">${f.CustomerName}</div></td>
+        <td><div class="string">${f.ServerName}</div></td>
+        <td><div class="string">${f.AppName}</div></td>
+        <td><div class="string">${f.ProductName}</div></td>
+        <td><div class="string">${f.SiteName}</div></td>
+        <td><div class="string">${f.PoolName}</div></td>
+        <td><div class="date">${f.SN}</div></td>
+    
+        <td><div class="string">${f.RunState}</div></td>
+        <td><div class="string">${f.AddTime}</div></td>
+        <td>
+
+            <!--自定义开关-->
+            {@if f.Status==0}
+            <div class="extend">
+                <div class="target target-off">
+                    <span onclick="frm.switchStatus(this, '${f.Id}', '${f.Status}', function () { var li = $e(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } });"></span>
+                </div>
+            </div>
+            {@else if f.Status==1}
+            <div class="extend">
+                <div class="target target-on">
+                    <span onclick="frm.switchStatus(this, '${f.Id}', '${f.Status}', function () { var li = $e(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } });"></span>
+                </div>
+            </div>
+            {@else}
+            <div class="string center">已删除</div>
+            {@/if}
+            <!--//自定义开关-->
+        </td>
+        <td>
+            <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                <!--标题栏-->
+                <p class="name">操作</p>
+                <!--//标题栏-->
+                <div class="tool-menu">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" onclick="frm.update({ title: '修改', formId: 'WebsiteInsertFormTemplate', action: 'update', url: '/webadmin/Custom/Website.aspx', id:'${f.Id}', width: 700, height: 420 });" class="btn">修改</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {@/each}
+</script>
+
+<script type="text/template" id="WebsiteInsertFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="SiteForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>站点名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" />
+                                <input type="hidden" id="CustomerId" />
+                                <input type="hidden" id="FKWay" />
+                                <input type="hidden" id="AppId" />
+                                <input type="text" id="SiteName" name="SiteName" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>站点索引：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="SiteIndex" name="SiteIndex" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>服务器：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="selectbox">
+
+                                <select id="ServerId" name="ServerId" validate="isnull">
+                                    <$loop id="Server" datasourceid="Server">
+                                        <option value="<$var Server.Id />"><$var Server.Name /></option>
+                                    </$loop>
+                                </select>
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                应用池名：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="PoolName" name="PoolName" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                路径：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Path" name="Path" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                序列号：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox"> <input type="text" id="SN" name="SN" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                站点类型：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="SiteType" name="SiteType" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+
+    $e(function loadData() {
+        $e("#pageBody").loadPage("bodyListTemplate", "PageBarList", "<Condition></Condition><SortField>Id</SortField><SortDirect>desc</SortDirect>", "", 20);
+    })();
+</script>

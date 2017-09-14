@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>应用软件</title>
+<link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon" />
+<link rel="canonical" href="/" />
+
+<!--框架样式-->
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<!--框架皮肤-->
+<link rel="stylesheet" type="text/css"
+	href="../css/skin/Default/skin.css" />
+
+
+<!--弹出层样式-->
+<link type="text/css" rel="stylesheet" href="../css/jquery-ui.css" />
+<link type="text/css" rel="stylesheet"
+	href="../Static/dialog/Metro/Dialog.css" />
+<script language="javascript" type="text/javascript"
+	src="../Static/Js/jquery-1.8.2.js?v=2.0.14.715">
+</script>
+<script language="javascript" type="text/javascript"
+	src="../Static/Js/jquery.tmpl.js">
+</script>
+<script type="text/javascript" src="../js/basevalue.js">
+</script>
+<script type="text/javascript" src="../js/cookie_util.js">
+</script>
+</script>
+<script type="text/javascript" src="../js/frameUI.js">
+</script>
+<script type="text/javascript" src="../Static/Js/jquery-ui.js">
+</script>
+<script type="text/javascript" src="../Static/Js/page.js">
+</script>
+<script type="text/javascript" src="../Static/Js/Public.js">
+</script>
+</head>
+<body>
+
+
+	<!--内容-->
+	<div class="content-area">
+		<!--面包屑-->
+		<div class="content-title">应用软件</div>
+		<!--//面包屑-->
+		<!--内容盒-->
+		<div class="custom-area" id="scroll-box">
+			<!--内盒-->
+			<div class="custom-box" scrollarea="box">
+				<!--滚动用盒层-->
+				<div class="custom-scroll" scrollroom="box" lazyscroll="box">
+					<div class="label-box" label-box="group1">
+
+
+						<div class="mc" label-limitarea="group1">
+							<div class="for select" label-area="group1|key1">
+								<div class="extend-button">
+
+
+									<div class="button">
+										<a href="javascript:void(0);"
+											onclick="frm.add({ title: '添加主应用程序', formId: 'ApplicationInsertFormTemplate', action: 'insert', callback: null, width: 900, height: 300 });"
+											class="btn">添加主应用程序</a>
+									</div>
+
+
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+
+					<!--表格组件-->
+					<div class="custom-table">
+						<!--表格内盒-->
+						<div class="form" id="customChangeTable">
+							<table border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col style="width: auto;" />
+									<col style="width: auto;" />
+									<col style="width: 180px;" />
+									<col style="width: 80px;" />
+									<col style="width: 80px;" />
+									<col style="width: 61px;" />
+									<col style="width: 61px;" />
+								</colgroup>
+
+								<thead>
+									<tr>
+										<td>
+											<p class="name center">应用名称</p>
+										</td>
+										<td>
+											<p class="name center">开发代号</p>
+										</td>
+										<td>
+											<p class="name center">开发商</p>
+										</td>
+										<td>
+											<p class="name center">开发语言</p>
+										</td>
+										<td>
+											<p class="name center">架构模式</p>
+										</td>
+										<td>
+											<p class="name center">状态</p>
+										</td>
+										<td>
+											<p class="name center">操作</p>
+										</td>
+									</tr>
+								</thead>
+
+								<tbody id="pageBody"></tbody>
+							</table>
+						</div>
+						<!--//表格内盒-->
+						<!--通用分页-->
+						<div class="page" id="PageBarList"></div>
+						<!--//通用分页-->
+					</div>
+					<!--//表格组件-->
+				</div>
+				<!--//滚动用盒层-->
+			</div>
+			<!--//内盒-->
+		</div>
+		<!--//内容盒-->
+	</div>
+	<!--//内容-->
+	<script type="text/template" id="bodyListTemplate">
+        <tr>
+            <td><div class="string center">${cc(name)}</div></td>
+            <td><div class="string center">${codeMark}</div></td>
+            <td><div class="string center">${company}</div></td>
+            <td><div class="string center">${language}</div></td>
+            <td><div class="string center">${schemaMode}</div></td>
+            <td>
+                <!--自定义开关-->
+                {{if status==0}}
+                <div class="extend">
+                    <div class="target target-off">
+                        <span onclick="frm.switchStatus(this, '${id}', '${status}', function () { var li = $(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } },'/user/switchStatus.do');"></span>
+                    </div>
+                </div>
+                {{else status==1}}
+                <div class="extend">
+                    <div class="target target-on">
+                        <span onclick="frm.switchStatus(this, '${id}', '${status}', function () { var li = $(this).parent('li'); if (li.hasClass('close')) { li.removeClass('close'); } else { li.addClass('close'); } },'/user/switchStatus.do');"></span>
+                    </div>
+                </div>
+                {{else}}
+                <div class="string center">已删除</div>
+                {{/if}}
+                <!--//自定义开关-->
+            </td>
+            <td>
+                <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                    <!--标题栏-->
+                    <p class="name">操作</p>
+                    <!--//标题栏-->
+
+                    <div class="tool-menu">
+                        <ul>
+                            
+                            <li>
+                                <a href="javascript:void(0);" onclick="user.getUser(${id});">修改</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" onclick="user.openDeleteDialog(${id});">删除</a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+    </script>
+
+	<script type="text/template" id="ApplicationInsertFormTemplate">
+        <div class="custom-table">
+            <div class="form">
+                <table border="0" cellpadding="0" cellspacing="0" id="ApplicationInsertForm">
+                    <colgroup>
+                        <col style="width: 100px;" />
+                        <col style="width: auto;" />
+                        <col style="width: 100px;" />
+                        <col style="width: auto;" />
+                    </colgroup>
+
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em>应用名称：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="hidden" id="Id" />
+                                    <input type="hidden" id="PrimaryApp" value="1" />
+                                    <input type="hidden" id="PrimaryId" value="0" />
+                                    <input type="text" id="Name" name="Name" value="" validate="isnull" maxlength="50" />
+                                </div>
+                            </td>>
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em>开发代号：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="text" id="CodeMark" name="CodeMark" value="" validate="isnull"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em>运行系统：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="text" id="System" name="System" value="" validate="isnull"/>
+                                </div>
+                            </td>
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em> 系统版本：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="text" id="OSVersion" name="OSVersion" value="" validate="isnull"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em>开发商：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="text" id="Company" name="Company" value="" validate="isnull"/>
+                                </div>
+                            </td>
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em>开发语言：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="inputbox">
+                                    <input type="text" id="Language" name="Language" value="" validate="isnull"/>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                <p class="name">
+                                    <em class="red">*</em>是否有菜单：
+                                </p>
+                            </th>
+                            <td>
+                                <div class="selectbox">
+                                    <select name="AloneMenu" id="AloneMenu">
+
+                                        <option value="0">无菜单设置</option>
+                                        <option value="1">有菜单设置</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <th>
+                                <p class="name">
+                                   应用框架：
+                                </p>
+                            </th>
+                            <td>
+                                <select id="SchemaMode" name="SchemaMode">
+                                    <option value="1">站点展示</option>
+                                    <option value="2">应用展示</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+</body>
+</html>
+
+
+<script language="javascript" type="text/javascript">
+ $(function(){
+	 load();
+	 debugger;
+  }); 
+ function cc(msg){
+	 console.log(msg);
+	 return msg;
+ }
+ function load(){
+	  var config={
+				url:path+"/app/showApplicationPage.do",
+	  			pageSize:3,
+	  			pageIndex:1,
+	  			barSize:3,
+	  			pageBarId:"PageBarList",
+	  			templateId:"bodyListTemplate",
+	  			container:"pageBody"
+	  			};
+	  var pageInfo=new ecPage.fn._init(config);
+ }
+</script>

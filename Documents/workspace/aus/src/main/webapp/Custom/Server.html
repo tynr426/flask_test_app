@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<htm>
+    <head>
+        <title>服务器列表页面</title>
+        <$include templatename="Meta.html" />
+
+        <!--主页面专用-->
+        <script language="javascript" type="text/javascript" src="~/js/admin.js"></script>
+    </head>
+
+    <body>
+        <!--内容-->
+        <div class="content-area">
+            <!--面包屑-->
+            <div class="content-title">服务器列表</div>
+            <!--//面包屑-->
+            <!--内容盒-->
+            <div class="custom-area" id="scroll-box">
+                <!--内盒-->
+                <div class="custom-box" scrollarea="box">
+                    <!--滚动用盒层-->
+                    <div class="custom-scroll" scrollroom="box">
+
+                        <div class="label-box" label-box="group1">
+                            <div class="mc" label-limitarea="group1">
+                                <div class="for select">
+                                    <div class="extend-button">
+                                        <div class="button expert-close">
+                                            <!--<input type="text" name="Customer" style="height:20px;" id="Customer" value="" placeholder="用户名称">-->
+                                            <!--<a href="javascript:void(0);" onclick="expert(this);" class="btn">添加客户</a>-->
+                                            <a href="javascript:void(0);" onclick="frm.add({ title: '添加服务器', formId: 'ServerInsertFormTemplate', action: 'insert', completed: null, callback: saveserverinfo, width: 900, height: 500 });" class="btn">添加服务器</a>
+                                            <div class="expert-list">
+                                                <div class="list">
+                                                    <div class="custom-table">
+                                                        <div class="form">
+                                                            <table border="0" cellspacing="0" cellpadding="0">
+                                                                <colgroup>
+                                                                    <col style="width: 100px;" />
+                                                                    <col style="width: auto;" />
+                                                                </colgroup>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--表格组件-->
+                        <div class="custom-table">
+                            <!--表格内盒-->
+                            <div class="form" id="customChangeTable">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <colgroup>
+                                        <col style="width: 25px;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: 80px;" />
+                                        <col style="width: 60px;" />
+                                        <col style="width: 60px;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width: auto;" />
+                                        <col style="width:100px;" />
+                                        <col style="width:60px;" />
+                                        <col style="width:60px;" />
+                                    </colgroup>
+
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                <div><input type="checkbox" value="" name="" checkall="1" /></div>
+                                            </td>
+                                            <td><p class="name center">名称</p></td>
+                                            <td><p class="name center">别名</p></td>
+                                            <td><p class="name center">CPU</p></td>
+                                            <td><p class="name center">内存</p></td>
+                                            <td><p class="name center">数据盘</p></td>
+                                            <td><p class="name center">带宽</p></td>
+                                            <td><p class="name center">内网IP</p></td>
+                                            <td><p class="name center">公网IP</p></td>
+                                            <td><p class="name center">操作系统</p></td>
+                                            <td><p class="name center">到期时间</p></td>
+                                            <td><p class="name center">状态</p></td>
+                                            <td><p class="name center">操作</p></td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="pageBody"></tbody>
+                                </table>
+                            </div>
+                            <!--//表格内盒-->
+                            <!--通用分页-->
+                            <div class="page" id="PageBarList"></div>
+                            <!--//通用分页-->
+                        </div>
+                        <!--//表格组件-->
+                    </div>
+                    <!--//滚动用盒层-->
+                </div>
+                <!--//内盒-->
+            </div>
+            <!--//内容盒-->
+        </div>
+        <!--//内容-->
+        <div id="CustomAccredit" style="display: none;" class="dilog-address"></div>
+    </body>
+</htm>
+
+<script type="text/template" id="ServerInsertFormTemplate">
+    <div class="custom-table">
+        <div class="form">
+            <table border="0" cellpadding="0" cellspacing="0" id="ServerForm">
+                <colgroup>
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                    <col style="width: 100px;" />
+                    <col style="width: auto;" />
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="hidden" id="Id" name="Id" value="" />
+                                <input type="text" id="Name" name="Name" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>>
+                        <th>
+                            <p class="name">
+                                <em class="red">*</em>IDC名称：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="IDCName" name="IDCName" value="" validate="isnull" maxlength="50" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                机房节点：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="RoomNode" name="RoomNode" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                别名：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox"> <input type="text" id="Alias" name="Alias" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                CPU：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="CPU" name="CPU" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                内存：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Memory" name="Memory" value="" maxlength="250" />
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                数据盘：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="HD" name="HD" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                Mac地址：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Mac" name="Mac" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                带宽：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="BandWidth" name="BandWidth" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                操作系统：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="OS" name="OS" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                内网IP：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="InnerIP" name="InnerIP" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                外网IP：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="PublicIP" name="PublicIP" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                服务器类型：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="ServerType" name="ServerType" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                使用区：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="UseArea" name="UseArea" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                购买时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="BuyTime" class="Wdate success"  readonly="readonly" name="BuyTime" value="" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                到期时间：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="ExpireTime" name="ExpireTime" value=""  class="Wdate success" readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                显示顺序：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Reorder" name="Reorder" value="" maxlength="250" />
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                状态：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <input type="text" id="Status" name="Status" value="" maxlength="250" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p class="name">
+                                合同：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Contract" name="Contract"></textarea>
+                            </div>
+                        </td>
+                        <th>
+                            <p class="name">
+                                备注：
+                            </p>
+                        </th>
+                        <td>
+                            <div class="inputbox">
+                                <textarea id="Remark" name="Remark"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="bodyListTemplate">
+    {@each _ as f,index}
+    <tr>
+        <td>
+            <div class="string"><input type="checkbox" /></div>
+        </td>
+        <td><div class="string">${f.Name}</div></td>
+        <td><div class="string">${f.Alias}</div></td>
+        <td><div class="string">${f.CPU}</div></td>
+        <td><div class="string">${f.Memory}</div></td>
+        <td><div class="string">${f.HD}</div></td>
+        <td><div class="date">${f.BandWidth}</div></td>
+        <td><div class="string">${f.InnerIP}</div></td>
+        <td><div class="string">${f.PublicIP}</div></td>
+        <td><div class="string">${f.OS}</div></td>
+        <td><div class="string">${f.ExpireTime}</div></td>
+        <td><div class="string">${f.Status}</div></td>
+        <!--,,,,UseArea,ServerType,Contract,BuyTime,,Reorder,AddTime,Status,Remark-->
+        <td>
+            <div class="tool" onmouseover="tableTool.over(this);" onmouseout="tableTool.out(this);">
+                <!--标题栏-->
+                <p class="name">操作</p>
+                <!--//标题栏-->
+                <div class="tool-menu">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" onclick="frm.update('修改行业', 'FormTemplate', '${f.Id}', null, null, null, null, 500, 330);">修改</a>
+                        </li>
+                        <li>
+                            <a href="javascript:ord.orderDetail(${f.Id},{@if f.OpeName=='确认付款'}true{@else}false{@/if},'0');">查看</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {@/each}
+</script>
+
+
+
+<script type="text/javascript">
+    function loadData() {
+        $e("#pageBody").loadPage("bodyListTemplate", "PageBarList", "<Condition></Condition><SortField>Name</SortField><SortDirect>DESC</SortDirect>", "", 20);
+    }
+
+    function saveserverinfo() {
+        var dlg = this;
+        var shop = top.$e("#ServerForm");
+        if (!shop.formValidate()) return;
+
+        $e.ajax({
+            data: '<action>insert</action>' + shop.getValues("xml"),
+            dataType: "xml",
+            loading: function () {
+                tip.show("数据加载中 ...");
+            },
+            success: function () {
+                tip.hide();
+                if (arguments[1].text > 0) {
+                    top.pub.tips("服务器添加成功！", 3);
+                    dlg.close();
+                    if (typeof (window.loadData) == "function") {
+                        window.loadData.apply(this, null);
+                    }
+                }
+                else {
+                    top.pub.tips("服务器添加失败！", 3);
+                }
+            },
+            error: function () {
+                tip.hide();
+                pub.tips("数据处理错误,错误代码: " + arguments[0] + ";错误信息: " + arguments[1], 1.5);
+            }
+        });
+    }
+    ECF(document).ready(function () {
+        loadData();
+    });
+</script>
