@@ -1,0 +1,545 @@
+2013-12-15 22:24:53[]: <-------------new log------------->
+2013-12-15 22:24:53[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2013-12-15 22:24:53[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2013-12-15 22:24:56[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2013-12-15 22:24:56[]: 从服务器获取课程列表成功
+2013-12-15 22:24:58[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+2013-12-15 22:26:26[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M7G9OSRDP/getMovies4Ipad.htm 
+2013-12-15 22:26:26[task]: task 2 CANetTransformTask onHttpEngineResult fail errCode=-3003
+2013-12-15 22:26:26[task]: onHttpError printStr: 
+2013-12-15 22:26:26[task]: onHttpError code = -3003 reqCommand = singleProgramDetail desc = 网络连接失败 
+2013-12-15 22:26:26[]: OCRspBase error package:  req command = (null) rspRetCode = -3003  
+2013-12-15 22:26:26[]: 从服务器获取课程详情失败: -3003, 网络连接失败
+2013-12-15 22:26:26[]: 获取课程详情失败
+2013-12-15 22:26:51[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M7G9OSRDP/getMovies4Ipad.htm 
+2013-12-15 22:26:52[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M7G9OSRDP/getMovies4Ipad.htm 
+2013-12-15 22:26:52[]: 从服务器获取课程详情成功
+2013-12-15 22:26:52[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/7G9P2DCM008535RB 
+2013-12-15 22:26:52[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/7/C/M/M7G9OSRDP_M7G9P2DCM.html.html 
+2013-12-15 22:26:52[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/7/C/M/M7G9OSRDP_M7G9P2DCM.html.html 
+2013-12-15 22:26:52[]: 从服务器获取短链接成功
+2013-12-15 22:26:52[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/7G9P2DCM008535RB 
+2013-12-15 22:48:08[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6SL23BRS/getMovies4Ipad.htm 
+2013-12-15 22:48:09[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6SL23BRS/getMovies4Ipad.htm 
+2013-12-15 22:48:09[]: 从服务器获取课程详情成功
+2013-12-15 22:48:09[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6SL2J9Q9008535RB 
+2013-12-15 22:48:09[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2008/1/Q/9/M6SL23BRS_M6SL2J9Q9.html.html 
+2013-12-15 22:48:10[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6SL2J9Q9008535RB 
+2013-12-15 22:48:10[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2008/1/Q/9/M6SL23BRS_M6SL2J9Q9.html.html 
+2013-12-15 22:48:10[]: 从服务器获取短链接成功
+2013-12-17 07:16:20[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6HV755O6/getMovies4Ipad.htm 
+2013-12-17 07:16:20[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6HV755O6/getMovies4Ipad.htm 
+2013-12-17 07:16:20[]: 从服务器获取课程详情成功
+2013-12-17 07:16:21[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6HV8DF19008535RB 
+2013-12-17 07:16:21[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2006/1/1/9/M6HV755O6_M6HV8DF19.html.html 
+2013-12-17 07:16:21[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6HV8DF19008535RB 
+2013-12-17 07:16:21[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2006/1/1/9/M6HV755O6_M6HV8DF19.html.html 
+2013-12-17 07:16:21[]: 从服务器获取短链接成功
+2013-12-17 07:16:28[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40IEFG008535RB 
+2013-12-17 07:16:28[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40IEFG008535RB 
+2013-12-17 07:18:52[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40GRDR008535RB 
+2013-12-17 07:18:52[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40GRDR008535RB 
+2013-12-17 07:18:53[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40IEFG008535RB 
+2013-12-17 07:18:53[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40IEFG008535RB 
+2013-12-17 07:23:39[]: 视频文件大小0不正确(real: 257991695)
+2013-12-17 07:23:54[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I42J6Q1008535RB 
+2013-12-17 07:23:54[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I42J6Q1008535RB 
+2013-12-17 07:30:29[]: 视频文件大小0不正确(real: 252172009)
+2013-12-17 07:59:31[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6HV755O6/getMovies4Ipad.htm 
+2013-12-17 07:59:31[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6HV755O6/getMovies4Ipad.htm 
+2013-12-17 07:59:31[]: 从服务器获取课程详情成功
+2013-12-17 07:59:32[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40IEFG008535RB 
+2013-12-17 07:59:32[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2006/1/1/9/M6HV755O6_M6HV8DF19.html.html 
+2013-12-17 07:59:32[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I40IEFG008535RB 
+2013-12-17 07:59:32[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2006/1/1/9/M6HV755O6_M6HV8DF19.html.html 
+2013-12-17 07:59:32[]: 从服务器获取短链接成功
+2013-12-19 18:55:35[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I42J6Q1008535RB 
+2013-12-19 18:55:35[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6I42J6Q1008535RB 
+
+2013-12-28 23:55:26[]: <-------------new log------------->
+2013-12-28 23:55:26[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2013-12-28 23:55:26[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2013-12-28 23:55:30[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2013-12-28 23:55:30[]: 从服务器获取课程列表成功
+2013-12-28 23:55:32[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+
+2014-01-03 23:16:19[]: <-------------new log------------->
+2014-01-03 23:16:19[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-01-03 23:16:19[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+
+2014-01-12 22:55:09[]: <-------------new log------------->
+2014-01-12 22:55:09[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-01-12 22:55:09[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-01-12 22:55:13[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-01-12 22:55:13[]: 从服务器获取课程列表成功
+2014-01-12 22:55:14[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+2014-01-12 22:55:35[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M9H7S9F1H/getMovies4Ipad.htm 
+2014-01-12 22:55:36[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M9H7S9F1H/getMovies4Ipad.htm 
+2014-01-12 22:55:36[]: 从服务器获取课程详情成功
+2014-01-12 22:55:36[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7TMJM7008535RB 
+2014-01-12 22:55:36[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/1/M/7/M9H7S9F1H_M9H7TMJM7.html.html 
+2014-01-12 22:55:36[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7TMJM7008535RB 
+2014-01-12 22:55:36[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/1/M/7/M9H7S9F1H_M9H7TMJM7.html.html 
+2014-01-12 22:55:36[]: 从服务器获取短链接成功
+
+2014-01-21 21:57:20[]: <-------------new log------------->
+2014-01-21 21:57:20[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-01-21 21:57:20[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-01-21 21:57:22[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-01-21 21:57:22[]: 从服务器获取课程列表成功
+2014-01-21 21:57:25[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+2014-01-21 21:58:02[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8IR6FRH5/getMovies4Ipad.htm 
+2014-01-21 21:58:02[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8IR6FRH5/getMovies4Ipad.htm 
+2014-01-21 21:58:02[]: 从服务器获取课程详情成功
+2014-01-21 21:58:02[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8IR6R1EC008535RB 
+2014-01-21 21:58:02[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2012/12/E/C/M8IR6FRH5_M8IR6R1EC.html.html 
+2014-01-21 21:58:02[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8IR6R1EC008535RB 
+2014-01-21 21:58:02[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2012/12/E/C/M8IR6FRH5_M8IR6R1EC.html.html 
+2014-01-21 21:58:02[]: 从服务器获取短链接成功
+2014-01-21 22:25:07[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2014-01-21 22:25:08[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2014-01-21 22:25:08[]: 从服务器获取课程详情成功
+2014-01-21 22:25:08[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F02TP008535RB 
+2014-01-21 22:25:08[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2014-01-21 22:25:08[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F02TP008535RB 
+2014-01-21 22:25:08[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2014-01-21 22:25:08[]: 从服务器获取短链接成功
+2014-01-21 22:25:44[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6GOEJOME/getMovies4Ipad.htm 
+2014-01-21 22:25:44[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6GOEJOME/getMovies4Ipad.htm 
+2014-01-21 22:25:44[]: 从服务器获取课程详情成功
+2014-01-21 22:25:45[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/7KDCISOB008535RB 
+2014-01-21 22:25:45[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2007/7/O/B/M6GOEJOME_M7KDCISOB.html.html 
+2014-01-21 22:25:45[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2007/7/O/B/M6GOEJOME_M7KDCISOB.html.html 
+2014-01-21 22:25:45[]: 从服务器获取短链接成功
+2014-01-21 22:25:45[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/7KDCISOB008535RB 
+2014-01-21 23:24:23[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/7KDCJ3H6008535RB 
+2014-01-21 23:24:23[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/7KDCJ3H6008535RB 
+2014-01-24 02:05:28[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/7KDCJ8TL008535RB 
+2014-01-24 02:05:28[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/7KDCJ8TL008535RB 
+
+2014-02-01 21:36:36[]: <-------------new log------------->
+2014-02-01 21:36:36[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-02-01 21:36:36[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-02-01 21:36:38[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-02-01 21:36:38[]: 从服务器获取课程列表成功
+2014-02-01 21:36:41[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+2014-02-01 21:36:46[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8SDM5PHL/getMovies4Ipad.htm 
+2014-02-01 21:36:46[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8SDM5PHL/getMovies4Ipad.htm 
+2014-02-01 21:36:46[]: 从服务器获取课程详情成功
+2014-02-01 21:36:46[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8SDNGR23008535RB 
+2014-02-01 21:36:46[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/4/2/3/M8SDM5PHL_M8SDNGR23.html.html 
+2014-02-01 21:36:46[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8SDNGR23008535RB 
+2014-02-01 21:36:46[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/4/2/3/M8SDM5PHL_M8SDNGR23.html.html 
+2014-02-01 21:36:46[]: 从服务器获取短链接成功
+2014-02-02 22:05:58[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8SDM5PHL/getMovies4Ipad.htm 
+2014-02-02 22:05:58[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8SDM5PHL/getMovies4Ipad.htm 
+2014-02-02 22:05:58[]: 从服务器获取课程详情成功
+2014-02-02 22:05:59[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8SDNGR23008535RB 
+2014-02-02 22:05:59[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/4/2/3/M8SDM5PHL_M8SDNGR23.html.html 
+2014-02-02 22:05:59[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8SDNGR23008535RB 
+2014-02-02 22:05:59[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/4/2/3/M8SDM5PHL_M8SDNGR23.html.html 
+2014-02-02 22:05:59[]: 从服务器获取短链接成功
+2014-02-06 13:34:11[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8SDM5PHL/getMovies4Ipad.htm 
+2014-02-06 13:34:11[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8SDM5PHL/getMovies4Ipad.htm 
+2014-02-06 13:34:11[]: 从服务器获取课程详情成功
+2014-02-06 13:34:12[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8SDNGR23008535RB 
+2014-02-06 13:34:12[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/4/2/3/M8SDM5PHL_M8SDNGR23.html.html 
+2014-02-06 13:34:12[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8SDNGR23008535RB 
+2014-02-06 13:34:12[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/4/2/3/M8SDM5PHL_M8SDNGR23.html.html 
+2014-02-06 13:34:12[]: 从服务器获取短链接成功
+
+2014-07-12 22:03:05[]: <-------------new log------------->
+2014-07-12 22:03:05[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-07-12 22:03:05[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-07-12 22:03:08[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-07-12 22:03:08[]: 从服务器获取课程列表成功
+2014-07-12 22:03:10[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+2014-07-12 22:05:46[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6G3LQ31K/getMovies4Ipad.htm 
+2014-07-12 22:05:47[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6G3LQ31K/getMovies4Ipad.htm 
+2014-07-12 22:05:47[]: 从服务器获取课程详情成功
+2014-07-12 22:05:47[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6G3R64J1008535RB 
+2014-07-12 22:05:47[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2009/1/J/1/M6G3LQ31K_M6G3R64J1.html.html 
+2014-07-12 22:05:47[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6G3R64J1008535RB 
+2014-07-12 22:05:47[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2009/1/J/1/M6G3LQ31K_M6G3R64J1.html.html 
+2014-07-12 22:05:47[]: 从服务器获取短链接成功
+2014-07-12 22:07:49[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6G3S3FKN008535RB 
+2014-07-12 22:07:49[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6G3S3FKN008535RB 
+2014-07-12 22:09:15[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6LDTAPTU/getMovies4Ipad.htm 
+2014-07-12 22:09:15[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6LDTAPTU/getMovies4Ipad.htm 
+2014-07-12 22:09:15[]: 从服务器获取课程详情成功
+2014-07-12 22:09:15[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6LDTVGH0008535RB 
+2014-07-12 22:09:15[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2010/1/H/0/M6LDTAPTU_M6LDTVGH0.html.html 
+2014-07-12 22:09:16[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6LDTVGH0008535RB 
+2014-07-12 22:09:16[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2010/1/H/0/M6LDTAPTU_M6LDTVGH0.html.html 
+2014-07-12 22:09:16[]: 从服务器获取短链接成功
+
+2014-07-28 22:41:33[]: <-------------new log------------->
+2014-07-28 22:41:33[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-07-28 22:41:33[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-07-28 22:41:36[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-07-28 22:41:36[]: 从服务器获取课程列表成功
+2014-07-28 22:41:38[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+2014-07-28 22:42:24[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8IR6FRH5/getMovies4Ipad.htm 
+2014-07-28 22:42:24[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8IR6FRH5/getMovies4Ipad.htm 
+2014-07-28 22:42:24[]: 从服务器获取课程详情成功
+2014-07-28 22:42:25[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8IR6R1EC008535RB 
+2014-07-28 22:42:25[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2012/12/E/C/M8IR6FRH5_M8IR6R1EC.html.html 
+2014-07-28 22:42:25[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8IR6R1EC008535RB 
+2014-07-28 22:42:25[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2012/12/E/C/M8IR6FRH5_M8IR6R1EC.html.html 
+2014-07-28 22:42:26[]: 从服务器获取短链接成功
+2014-07-28 23:06:02[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M9H7S9F1H/getMovies4Ipad.htm 
+2014-07-28 23:06:02[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M9H7S9F1H/getMovies4Ipad.htm 
+2014-07-28 23:06:02[]: 从服务器获取课程详情成功
+2014-07-28 23:06:03[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7TMJM7008535RB 
+2014-07-28 23:06:03[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/1/M/7/M9H7S9F1H_M9H7TMJM7.html.html 
+2014-07-28 23:06:03[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7TMJM7008535RB 
+2014-07-28 23:06:03[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/1/M/7/M9H7S9F1H_M9H7TMJM7.html.html 
+2014-07-28 23:06:03[]: 从服务器获取短链接成功
+2014-08-02 14:49:39[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7V38HR008535RB 
+2014-08-02 14:49:40[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7V38HR008535RB 
+2014-08-02 16:51:57[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7VNFHU008535RB 
+2014-08-02 16:51:57[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7VNFHU008535RB 
+2014-08-02 16:51:58[]: 字幕内容为空，错误码:261, 错误描述:The operation couldn’t be completed. (Cocoa error 261.)
+2014-08-02 16:52:08[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7V38HR008535RB 
+2014-08-02 16:52:08[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7V38HR008535RB 
+2014-08-02 18:29:59[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M9PEG3P9U/getMovies4Ipad.htm 
+2014-08-02 18:29:59[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M9PEG3P9U/getMovies4Ipad.htm 
+2014-08-02 18:29:59[]: 从服务器获取课程详情成功
+2014-08-02 18:29:59[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9PJF4ESD008535RB 
+2014-08-02 18:29:59[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/5/S/D/M9PEG3P9U_M9PJF4ESD.html.html 
+2014-08-02 18:30:00[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/5/S/D/M9PEG3P9U_M9PJF4ESD.html.html 
+2014-08-02 18:30:00[]: 从服务器获取短链接成功
+2014-08-02 18:30:04[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9PJF4ESD008535RB 
+2014-08-02 18:43:51[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2014-08-02 18:43:51[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2014-08-02 18:43:51[]: 从服务器获取课程详情成功
+2014-08-02 18:43:52[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F02TP008535RB 
+2014-08-02 18:43:52[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2014-08-02 18:43:52[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F02TP008535RB 
+2014-08-02 18:43:52[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2014-08-02 18:43:52[]: 从服务器获取短链接成功
+2014-08-02 18:44:03[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2014-08-02 18:44:03[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2014-08-02 18:46:17[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M7543LR4J/getMovies4Ipad.htm 
+2014-08-02 18:46:18[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M7543LR4J/getMovies4Ipad.htm 
+2014-08-02 18:46:18[]: 从服务器获取课程详情成功
+2014-08-02 18:46:18[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/75440MQ7008535RB 
+2014-08-02 18:46:18[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2010/1/Q/7/M7543LR4J_M75440MQ7.html.html 
+2014-08-02 18:46:18[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/75440MQ7008535RB 
+2014-08-02 18:46:18[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2010/1/Q/7/M7543LR4J_M75440MQ7.html.html 
+2014-08-02 18:46:18[]: 从服务器获取短链接成功
+2014-08-02 18:48:27[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/75446PDN008535RB 
+2014-08-02 18:48:27[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/75446PDN008535RB 
+2014-08-02 18:54:48[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M6U6LS8CV/getMovies4Ipad.htm 
+2014-08-02 18:54:55[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M6U6LS8CV/getMovies4Ipad.htm 
+2014-08-02 18:54:55[]: 从服务器获取课程详情成功
+2014-08-02 18:54:55[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MHDUR008535RB 
+2014-08-02 18:54:55[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2010/3/U/R/M6U6LS8CV_M6U6MHDUR.html.html 
+2014-08-02 18:54:55[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MHDUR008535RB 
+2014-08-02 18:54:55[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2010/3/U/R/M6U6LS8CV_M6U6MHDUR.html.html 
+2014-08-02 18:54:55[]: 从服务器获取短链接成功
+2014-08-02 18:55:12[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6O02QJ008535RB 
+2014-08-02 18:55:12[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6O02QJ008535RB 
+2014-08-02 18:55:27[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MHDUR008535RB 
+2014-08-02 18:55:27[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MHDUR008535RB 
+2014-08-02 19:19:35[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MIN2M008535RB 
+2014-08-02 19:19:35[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MIN2M008535RB 
+2014-08-03 21:32:18[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MIFJV008535RB 
+2014-08-03 21:32:19[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6MIFJV008535RB 
+2014-08-03 21:33:18[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6NIIRO008535RB 
+2014-08-03 21:33:19[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6NIIRO008535RB 
+2014-08-03 22:24:19[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6NQJLF008535RB 
+2014-08-03 22:24:26[task]: task 38 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:24:26[task]: onHttpError printStr: 
+2014-08-03 22:24:26[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:24:26[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OS8ET008535RB 
+2014-08-03 22:24:26[]: 视频播放失败
+2014-08-03 22:24:33[task]: task 39 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:24:33[task]: onHttpError printStr: 
+2014-08-03 22:24:33[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:24:33[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OS8ET008535RB 
+2014-08-03 22:24:34[]: 视频播放失败
+2014-08-03 22:24:40[task]: task 40 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:24:40[task]: onHttpError printStr: 
+2014-08-03 22:24:40[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:24:40[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OP3KI008535RB 
+2014-08-03 22:24:41[]: 视频播放失败
+2014-08-03 22:24:43[task]: task 41 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:24:43[task]: onHttpError printStr: 
+2014-08-03 22:24:43[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:24:44[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OP3KI008535RB 
+2014-08-03 22:24:44[]: 视频播放失败
+2014-08-03 22:24:51[task]: task 42 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:24:51[task]: onHttpError printStr: 
+2014-08-03 22:24:51[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:24:51[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OS8ET008535RB 
+2014-08-03 22:24:52[]: 视频播放失败
+2014-08-03 22:24:54[task]: task 43 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:24:54[task]: onHttpError printStr: 
+2014-08-03 22:24:54[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:24:54[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OK97A008535RB 
+2014-08-03 22:25:24[task]: task 44 CANetTransformTask onHttpEngineResult fail errCode=-3002
+2014-08-03 22:25:24[task]: onHttpError printStr: 
+2014-08-03 22:25:24[task]: onHttpError code = -3002 reqCommand = getCommentsCount desc = 网络连接超时 
+2014-08-03 22:25:24[]: OCRspBase error package:  req command = (null) rspRetCode = -3002  
+2014-08-03 22:25:50[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6OP3KI008535RB 
+2014-08-03 22:25:50[]: 视频播放失败
+2014-08-03 22:25:54[task]: task 45 CANetTransformTask onHttpEngineResult fail errCode=-6
+2014-08-03 22:25:54[task]: onHttpError printStr: 
+2014-08-03 22:25:54[task]: onHttpError code = -6 reqCommand = getCommentsCount desc = 操作被取消 
+2014-08-03 22:25:54[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/6U6O6LKE008535RB 
+2014-08-03 22:26:24[task]: task 46 CANetTransformTask onHttpEngineResult fail errCode=-3002
+2014-08-03 22:26:24[task]: onHttpError printStr: 
+2014-08-03 22:26:24[task]: onHttpError code = -3002 reqCommand = getCommentsCount desc = 网络连接超时 
+2014-08-03 22:26:24[]: OCRspBase error package:  req command = (null) rspRetCode = -3002  
+
+2014-08-31 22:07:53[]: <-------------new log------------->
+2014-08-31 22:07:53[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-08-31 22:07:53[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-08-31 22:07:56[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-08-31 22:07:56[]: 从服务器获取课程列表成功
+2014-08-31 22:07:58[]: Cheat apple server returns: {"version":"3.2.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"修复了已下载视频的播放与跟帖显示问题！"}
+
+2014-09-20 23:11:50[]: <-------------new log------------->
+2014-09-20 23:11:50[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-09-20 23:11:51[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-09-20 23:11:53[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-09-20 23:11:53[]: 从服务器获取课程列表成功
+2014-09-20 23:11:56[]: Cheat apple server returns: {"version":"4.0.0","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.0.0版发布，全新设计、全新体验，快来升级吧！"}
+2014-09-20 23:14:35[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M9H7S9F1H/getMovies4Ipad.htm 
+2014-09-20 23:14:36[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M9H7S9F1H/getMovies4Ipad.htm 
+2014-09-20 23:14:36[]: 从服务器获取课程详情成功
+2014-09-20 23:14:36[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7V38HR008535RB 
+2014-09-20 23:14:36[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/1/M/7/M9H7S9F1H_M9H7TMJM7.html.html 
+2014-09-20 23:14:36[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7V38HR008535RB 
+2014-09-20 23:14:37[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2014/1/M/7/M9H7S9F1H_M9H7TMJM7.html.html 
+2014-09-20 23:14:37[]: 从服务器获取短链接成功
+2014-09-20 23:14:39[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7VNFHU008535RB 
+2014-09-20 23:14:39[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9H7VNFHU008535RB 
+2014-09-20 23:14:56[]: 字幕内容为空，错误码:261, 错误描述:The operation couldn’t be completed. (Cocoa error 261.)
+2014-09-20 23:15:17[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2014-09-20 23:15:19[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2014-09-20 23:15:19[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2014-09-20 23:15:19[]: 从服务器获取课程详情成功
+2014-09-20 23:15:20[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2014-09-20 23:15:20[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2014-09-20 23:15:20[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2014-09-20 23:15:20[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2014-09-20 23:15:20[]: 从服务器获取短链接成功
+
+2014-10-04 21:55:00[]: <-------------new log------------->
+2014-10-04 21:55:00[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-10-04 21:55:00[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-10-04 21:55:01[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-10-04 21:55:01[]: 从服务器获取课程列表成功
+2014-10-04 21:56:43[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MA44T3RUB/getMovies4Ipad.htm 
+2014-10-04 21:56:43[task]: task 2 CANetTransformTask onHttpEngineResult fail errCode=-3003
+2014-10-04 21:56:43[task]: onHttpError printStr: 
+2014-10-04 21:56:43[task]: onHttpError code = -3003 reqCommand = singleProgramDetail desc = 网络连接失败 
+2014-10-04 21:56:43[]: OCRspBase error package:  req command = (null) rspRetCode = -3003  
+2014-10-04 21:56:43[]: 从服务器获取课程详情失败: -3003, 网络连接失败
+2014-10-04 21:56:43[]: 获取课程详情失败
+2014-10-04 21:57:12[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M83EO6IRQ/getMovies4Ipad.htm 
+2014-10-04 21:57:12[task]: task 3 CANetTransformTask onHttpEngineResult fail errCode=-3003
+2014-10-04 21:57:12[task]: onHttpError printStr: 
+2014-10-04 21:57:12[task]: onHttpError code = -3003 reqCommand = singleProgramDetail desc = 网络连接失败 
+2014-10-04 21:57:12[]: OCRspBase error package:  req command = (null) rspRetCode = -3003  
+2014-10-04 21:57:12[]: 从服务器获取课程详情失败: -3003, 网络连接失败
+2014-10-04 21:57:12[]: 获取课程详情失败
+
+2014-11-20 23:00:23[]: <-------------new log------------->
+2014-11-20 23:00:23[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2014-11-20 23:00:24[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-11-20 23:00:27[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2014-11-20 23:00:27[]: 从服务器获取课程列表成功
+2014-11-20 23:00:29[]: Cheat apple server returns: {"version":"4.0.0","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.0.0版发布，全新设计、全新体验，快来升级吧！"}
+2014-11-20 23:02:47[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M92389L06/getMovies4Ipad.htm 
+2014-11-20 23:02:47[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M92389L06/getMovies4Ipad.htm 
+2014-11-20 23:02:47[]: 从服务器获取课程详情成功
+2014-11-20 23:02:48[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/9238GTHI008535RB 
+2014-11-20 23:02:48[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/3/H/I/M92389L06_M9238GTHI.html.html 
+2014-11-20 23:02:48[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/9238GTHI008535RB 
+2014-11-20 23:02:48[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://v.163.com/movie/2013/3/H/I/M92389L06_M9238GTHI.html.html 
+2014-11-20 23:02:48[]: 从服务器获取短链接成功
+2014-11-22 00:43:20[]: -[OCHDTabBarController didReceiveMemoryWarning]
+
+2015-03-07 10:30:11[]: <-------------new log------------->
+2015-03-07 10:30:11[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2015-03-07 10:30:11[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-03-07 10:30:16[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-03-07 10:30:16[]: 从服务器获取课程列表成功
+2015-03-07 10:30:17[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-03-07 10:30:18[]: Cheat apple server returns: {"version":"4.1.1","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.1.1版发布，修复了下载视频删除等问题，快来升级吧！"}
+2015-03-07 10:30:46[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MAIKHN60A/getMovies4Ipad.htm 
+2015-03-07 10:30:46[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/MAIKHN60A/getMovies4Ipad.htm 
+2015-03-07 10:30:47[]: 从服务器获取课程详情成功
+2015-03-07 10:30:47[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/AIKILOLC008535RB 
+2015-03-07 10:30:47[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/2/L/C/MAIKHN60A_MAIKILOLC.html.html 
+2015-03-07 10:30:47[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/AIKILOLC008535RB 
+2015-03-07 10:30:48[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/2/L/C/MAIKHN60A_MAIKILOLC.html.html 
+2015-03-07 10:30:48[]: 从服务器获取短链接成功
+2015-03-07 10:31:22[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/AIKJBI34008535RB 
+2015-03-07 10:31:22[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/AIKJBI34008535RB 
+2015-03-07 10:31:23[]: 字幕内容为空，错误码:261, 错误描述:The operation couldn’t be completed. (Cocoa error 261.)
+2015-03-07 10:34:22[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2015-03-07 10:34:22[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2015-03-07 10:34:22[]: 从服务器获取课程详情成功
+2015-03-07 10:34:22[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2015-03-07 10:34:22[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2015-03-07 10:34:23[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2015-03-07 10:34:23[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2015-03-07 10:34:23[]: 从服务器获取短链接成功
+
+2015-05-24 22:57:57[]: <-------------new log------------->
+2015-05-24 22:57:57[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2015-05-24 22:57:57[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-05-24 22:58:00[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-05-24 22:58:00[]: 从服务器获取课程列表成功
+2015-05-24 22:58:03[]: Cheat apple server returns: {"version":"4.2.5","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.2.5版发布，优化了首页课程信息，快来升级吧！"}
+2015-05-24 22:58:29[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2015-05-24 22:58:29[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M807AH0S5/getMovies4Ipad.htm 
+2015-05-24 22:58:29[]: 从服务器获取课程详情成功
+2015-05-24 22:58:30[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2015-05-24 22:58:30[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2015-05-24 22:58:31[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2011/11/T/P/M807AH0S5_M807F02TP.html.html 
+2015-05-24 22:58:31[]: 从服务器获取短链接成功
+2015-05-24 22:58:31[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/807F04UO008535RB 
+2015-05-24 22:58:47[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-05-24 23:19:18[]: -[OCHDTabBarController didReceiveMemoryWarning]
+
+2015-09-03 10:58:49[]: <-------------new log------------->
+2015-09-03 10:58:49[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2015-09-03 10:58:50[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-09-03 10:58:52[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-09-03 10:58:52[]: 从服务器获取课程列表成功
+2015-09-03 10:58:55[]: Cheat apple server returns: {"version":"4.2.5","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.2.5版发布，优化了首页课程信息，快来升级吧！"}
+
+2015-09-30 22:39:37[]: <-------------new log------------->
+2015-09-30 22:39:37[]: Device: iPad; OS: 6.1.3; appVersion: 3.2.1
+2015-09-30 22:39:38[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-09-30 22:39:42[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-09-30 22:39:42[]: 从服务器获取课程列表成功
+2015-09-30 22:39:44[]: Cheat apple server returns: {"version":"4.2.5","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.2.5版发布，优化了首页课程信息，快来升级吧！"}
+2015-09-30 22:39:57[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB16205V2/getMovies4Ipad.htm 
+2015-09-30 22:39:57[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/MB16205V2/getMovies4Ipad.htm 
+2015-09-30 22:39:57[]: 从服务器获取课程详情成功
+2015-09-30 22:39:58[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B162L3GG008535RB 
+2015-09-30 22:39:58[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/8/G/G/MB16205V2_MB162L3GG.html.html 
+2015-09-30 22:39:58[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B162L3GG008535RB 
+2015-09-30 22:39:58[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/8/G/G/MB16205V2_MB162L3GG.html.html 
+2015-09-30 22:39:58[]: 从服务器获取短链接成功
+
+2015-10-16 23:24:22[]: <-------------new log------------->
+2015-10-16 23:24:22[]: Device: iPad; OS: 8.4.1; appVersion: 3.2.1
+2015-10-16 23:24:22[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-10-16 23:24:25[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-10-16 23:24:25[]: 从服务器获取课程列表成功
+2015-10-16 23:24:28[]: Cheat apple server returns: {"version":"4.2.5","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.2.5版发布，优化了首页课程信息，快来升级吧！"}
+2015-10-16 23:24:33[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M7G9OSRDP/getMovies4Ipad.htm 
+2015-10-16 23:24:33[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M7G9OSRDP/getMovies4Ipad.htm 
+2015-10-16 23:24:35[]: 从服务器获取课程详情成功
+2015-10-16 23:24:35[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/7G9P2DCM008535RB 
+2015-10-16 23:24:35[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2011/7/C/M/M7G9OSRDP_M7G9P2DCM.html.html 
+2015-10-16 23:24:36[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/7G9P2DCM008535RB 
+2015-10-16 23:24:36[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2011/7/C/M/M7G9OSRDP_M7G9P2DCM.html.html 
+2015-10-16 23:24:36[]: 从服务器获取短链接成功
+2015-10-16 23:24:42[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-16 23:44:35[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB1460F3R/getMovies4Ipad.htm 
+2015-10-16 23:44:35[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/MB1460F3R/getMovies4Ipad.htm 
+2015-10-16 23:44:35[]: 从服务器获取课程详情成功
+2015-10-16 23:44:36[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B147KJ0E008535RB 
+2015-10-16 23:44:36[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/8/0/E/MB1460F3R_MB147KJ0E.html.html 
+2015-10-16 23:44:36[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B147KJ0E008535RB 
+2015-10-16 23:44:36[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/8/0/E/MB1460F3R_MB147KJ0E.html.html 
+2015-10-16 23:44:36[]: 从服务器获取短链接成功
+
+2015-10-18 23:21:43[]: <-------------new log------------->
+2015-10-18 23:21:43[]: Device: iPad; OS: 8.4.1; appVersion: 3.2.1
+2015-10-18 23:21:43[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-10-18 23:21:45[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2015-10-18 23:21:46[]: 从服务器获取课程列表成功
+2015-10-18 23:21:48[]: Cheat apple server returns: {"version":"4.2.5","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.2.5版发布，优化了首页课程信息，快来升级吧！"}
+2015-10-18 23:22:10[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8NNM7QU4/getMovies4Ipad.htm 
+2015-10-18 23:22:10[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8NNM7QU4/getMovies4Ipad.htm 
+2015-10-18 23:22:11[]: 从服务器获取课程详情成功
+2015-10-18 23:22:12[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8NNP1SP6008535RB 
+2015-10-18 23:22:12[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2012/1/P/6/M8NNM7QU4_M8NNP1SP6.html.html 
+2015-10-18 23:22:12[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8NNP1SP6008535RB 
+2015-10-18 23:22:12[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2012/1/P/6/M8NNM7QU4_M8NNP1SP6.html.html 
+2015-10-18 23:22:12[]: 从服务器获取短链接成功
+2015-10-18 23:23:16[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB4QEVJRJ/getMovies4Ipad.htm 
+2015-10-18 23:23:17[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/MB4QEVJRJ/getMovies4Ipad.htm 
+2015-10-18 23:23:17[]: 从服务器获取课程详情成功
+2015-10-18 23:23:17[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4T7N2FS008535RB 
+2015-10-18 23:23:17[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/10/F/S/MB4QEVJRJ_MB4T7N2FS.html.html 
+2015-10-18 23:23:17[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4T7N2FS008535RB 
+2015-10-18 23:23:17[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/10/F/S/MB4QEVJRJ_MB4T7N2FS.html.html 
+2015-10-18 23:23:17[]: 从服务器获取短链接成功
+2015-10-18 23:23:17[]: 字幕内容为空，错误码:261, 错误描述:未能完成操作。（“Cocoa”错误 261。）
+2015-10-18 23:23:43[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/M8UFMK9R8/getMovies4Ipad.htm 
+2015-10-18 23:23:43[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/M8UFMK9R8/getMovies4Ipad.htm 
+2015-10-18 23:23:43[]: 从服务器获取课程详情成功
+2015-10-18 23:23:44[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/8UHVGF2H008535RB 
+2015-10-18 23:23:44[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2013/2/2/H/M8UFMK9R8_M8UHVGF2H.html.html 
+2015-10-18 23:23:44[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2013/2/2/H/M8UFMK9R8_M8UHVGF2H.html.html 
+2015-10-18 23:23:44[]: 从服务器获取短链接成功
+2015-10-18 23:23:44[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/8UHVGF2H008535RB 
+2015-10-18 23:23:48[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:48[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:49[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:49[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:49[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:49[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:49[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2015-10-18 23:23:49[]: -[OCHDTabBarController didReceiveMemoryWarning]
+
+2016-01-24 15:50:20[]: <-------------new log------------->
+2016-01-24 15:50:20[]: Device: iPad; OS: 8.4.1; appVersion: 3.2.1
+2016-01-24 15:50:20[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2016-01-24 15:50:50[task]: task 1 CANetTransformTask onHttpEngineResult fail errCode=-3002
+2016-01-24 15:50:50[task]: onHttpError printStr: 
+2016-01-24 15:50:50[task]: onHttpError code = -3002 reqCommand = videoProgram desc = 网络连接超时 
+2016-01-24 15:50:50[]: OCRspBase error package:  req command = (null) rspRetCode = -3002  
+2016-01-24 15:50:50[]: 从服务器获取课程列表失败: -3002, 网络连接超时
+2016-01-24 15:52:50[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB4USQDM5/getMovies4Ipad.htm 
+2016-01-24 15:53:20[task]: task 2 CANetTransformTask onHttpEngineResult fail errCode=-3002
+2016-01-24 15:53:20[task]: onHttpError printStr: 
+2016-01-24 15:53:20[task]: onHttpError code = -3002 reqCommand = singleProgramDetail desc = 网络连接超时 
+2016-01-24 15:53:20[]: OCRspBase error package:  req command = (null) rspRetCode = -3002  
+2016-01-24 15:53:20[]: 从服务器获取课程详情失败: -3002, 网络连接超时
+2016-01-24 15:53:20[]: 获取课程详情失败
+2016-01-24 15:53:26[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB4USQDM5/getMovies4Ipad.htm 
+2016-01-24 15:54:11[task]: task 3 CANetTransformTask onHttpEngineResult fail errCode=-3002
+2016-01-24 15:54:11[task]: onHttpError printStr: 
+2016-01-24 15:54:11[task]: onHttpError code = -3002 reqCommand = singleProgramDetail desc = 网络连接超时 
+2016-01-24 15:54:11[]: OCRspBase error package:  req command = (null) rspRetCode = -3002  
+2016-01-24 15:54:11[]: 从服务器获取课程详情失败: -3002, 网络连接超时
+2016-01-24 15:54:11[]: 获取课程详情失败
+2016-01-24 15:54:15[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB4USQDM5/getMovies4Ipad.htm 
+2016-01-24 15:54:15[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/MB4USQDM5/getMovies4Ipad.htm 
+2016-01-24 15:54:15[]: 从服务器获取课程详情成功
+2016-01-24 15:54:15[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4UT5A0S008535RB 
+2016-01-24 15:54:15[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/10/0/S/MB4USQDM5_MB4UT5A0S.html.html 
+2016-01-24 15:54:15[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/10/0/S/MB4USQDM5_MB4UT5A0S.html.html 
+2016-01-24 15:54:16[]: 从服务器获取短链接成功
+2016-01-24 15:54:16[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4UT5A0S008535RB 
+2016-01-24 15:54:31[]: -[OCHDTabBarController didReceiveMemoryWarning]
+2016-01-24 16:15:41[task]: request command code = singleProgramDetail url = http://so.open.163.com/movie/MB4FSTCID/getMovies4Ipad.htm 
+2016-01-24 16:15:42[task]: onHttpSuccess req command = singleProgramDetail rspRetCode = 1 url = http://so.open.163.com/movie/MB4FSTCID/getMovies4Ipad.htm 
+2016-01-24 16:15:42[]: 从服务器获取课程详情成功
+2016-01-24 16:15:42[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4FU4CGG008535RB 
+2016-01-24 16:15:42[task]: request command code = getShortUrl url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/10/G/G/MB4FSTCID_MB4FU4CGG.html.html 
+2016-01-24 16:15:42[task]: onHttpSuccess req command = getShortUrl rspRetCode = 1 url = http://c.3g.163.com/nc/shorturl/getShort/wwwo/http://open.163.com/movie/2015/10/G/G/MB4FSTCID_MB4FU4CGG.html.html 
+2016-01-24 16:15:42[]: 从服务器获取短链接成功
+2016-01-24 16:15:42[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4FU4CGG008535RB 
+2016-01-24 16:43:43[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4FU6504008535RB 
+2016-01-24 16:43:44[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4FU6504008535RB 
+2016-01-24 17:11:45[task]: request command code = getCommentsCount url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4FUD76N008535RB 
+2016-01-24 17:11:45[task]: onHttpSuccess req command = getCommentsCount rspRetCode = 1 url = http://comment.api.163.com/api/json/thread/total/video_bbs/B4FUD76N008535RB 
+
+2016-03-13 23:03:27[]: <-------------new log------------->
+2016-03-13 23:03:27[]: Device: iPad; OS: 8.4.1; appVersion: 3.2.1
+2016-03-13 23:03:27[task]: request command code = videoProgram url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2016-03-13 23:03:30[task]: onHttpSuccess req command = videoProgram rspRetCode = 1 url = http://so.open.163.com/movie/2/getPlays4Ipad.htm 
+2016-03-13 23:03:30[]: 从服务器获取课程列表成功
+2016-03-13 23:03:33[]: Cheat apple server returns: {"version":"4.2.5","popshow":"yes","3gwatch2":"yes","3gwatch":"yes","title":"网易公开课升级啦","content":"网易公开课v4.2.5版发布，优化了首页课程信息，快来升级吧！"}

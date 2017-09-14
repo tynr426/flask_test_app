@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0056E5510E312DF946562EFFC2FBDED1</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/97EE1A371B6C8FE621935358607CF7E7.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/21471938E6C38176E19DE5F2CA12A649.srt</string>
+	</array>
+	<key>216AC70C44C90A38750AF0E3AAE8AFA6</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/352C5D08914904C47D3E73F863D13D38.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/E6A9E5B01181DF05F89EE0D88D3488E4.srt</string>
+	</array>
+	<key>2F1F1610324B3BED3010300F116A8AE8</key>
+	<array>
+		<string>/var/mobile/Containers/Data/Application/A614EAF3-890D-4F0E-8CDF-115046C0B09E/Library/OnlineSubtitle/20610CFB7E700C8838EDF9FCC96E8020.srt</string>
+		<string>/var/mobile/Containers/Data/Application/A614EAF3-890D-4F0E-8CDF-115046C0B09E/Library/OnlineSubtitle/E947237EC871E01ED31087CB069AD959.srt</string>
+	</array>
+	<key>68328C09F23440F573D9F331F4FA1292</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/59CE7791CA9BBDA7128659F2C5961500.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/F80BFD12960B5A8FD4AB396F11F93018.srt</string>
+	</array>
+	<key>ABE0BB07ACAE6DAC552A8EE003FDBB9A</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/BC1240921FC3E06D826263DF64DFCE28.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/B7B7D78C43F056AC44F6B31332218BB9.srt</string>
+	</array>
+	<key>BF74E9E15349EC546CB0E8F6FCC76636</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/A5C8B88B160BD38C078A422F25A72AF7.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/95FE63680B2AF5FB08B1913418E04F32.srt</string>
+	</array>
+	<key>C323F5F446100291614A9CE3B7AA4172</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/011DC570AC2C9D5F69D7583BCCB8B210.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/01864B683A403F56EE7608125BBC5B59.srt</string>
+	</array>
+	<key>EC2E9546CB3627C2B5313967A4C02F6D</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/29F438EA94D75AA038105D4990C82240.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/F905986B79D1A6428C534A70CD8FFEE2.srt</string>
+	</array>
+	<key>EDAA6EB9B15DDF6E2BA6733A8937132B</key>
+	<array>
+		<string>/var/mobile/Containers/Data/Application/A614EAF3-890D-4F0E-8CDF-115046C0B09E/Library/OnlineSubtitle/30F4E4B21343B32701A8C060D2C171A0.srt</string>
+	</array>
+	<key>EE20F0C8914EC6A4954A042DCADAFDBD</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/8FA9793705D4E43963FB3F44FF3C8392.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/B8B7FB0B9ED4BF58E7255C489D9BEDC5.srt</string>
+	</array>
+	<key>F7A2BB783515C4B9D9536834172D1539</key>
+	<array>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/55F7C5EEEDA95761A0241E54D84BB47B.srt</string>
+		<string>/var/mobile/Applications/2F144AA5-4644-4573-9141-4612F3F33B3F/Library/OnlineSubtitle/EE733F83421DEC5EED991D43309840F5.srt</string>
+	</array>
+	<key>FA710657CF78C2A6BDAD03292B1ACD0A</key>
+	<array>
+		<string>/var/mobile/Applications/B5D646E1-7C2E-49EB-870E-A044A6FE032C/Library/OnlineSubtitle/3CBA051E82872B4273E2CCA5DEA7C56B.srt</string>
+		<string>/var/mobile/Applications/B5D646E1-7C2E-49EB-870E-A044A6FE032C/Library/OnlineSubtitle/248766EAF3CF6BD860DB2A4408EA70BC.srt</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SWForecastMsg</key>
+	<array>
+		<dict>
+			<key>text</key>
+			<string>内江 多云转中雨 29℃~21℃，雨天驾驶，应保持良好视野，打开雨刷器，天色暗时开近光灯和防雾灯。(来自@天气通 免费下载http://t.cn/zYaipUu )</string>
+		</dict>
+	</array>
+	<key>citycode</key>
+	<string>CHXX0103</string>
+	<key>code</key>
+	<string>200</string>
+	<key>result</key>
+	<string>success</string>
+	<key>timestamp</key>
+	<string>1404308403</string>
+</dict>
+</plist>

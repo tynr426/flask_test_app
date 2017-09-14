@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Recomments</key>
+	<array/>
+	<key>citycode</key>
+	<string>CHXX0103</string>
+	<key>code</key>
+	<string>200</string>
+	<key>icon</key>
+	<string>http://u1.sinaimg.cn/upload/tqt/resource/life_index/9010/d_i_2_8.jpg?v=0</string>
+	<key>id</key>
+	<string>2</string>
+	<key>img_l</key>
+	<string>http://u1.sinaimg.cn/upload/tqt/resource/life_index/9010/d_i_2_8.jpg?v=0</string>
+	<key>img_p</key>
+	<string>http://u1.sinaimg.cn/upload/tqt/resource/life_index/9010/d_i_2_8.jpg?v=0</string>
+	<key>intro</key>
+	<string>单层棉麻面料的T恤衫、牛仔裤是不错的选择。注意昼夜温差，适当增减衣物哦~</string>
+	<key>level</key>
+	<string>长袖T恤</string>
+	<key>level_id</key>
+	<string>8</string>
+	<key>name</key>
+	<string>穿衣</string>
+	<key>result</key>
+	<string>success</string>
+	<key>tpl</key>
+	<string>1</string>
+	<key>ts</key>
+	<string>1426689742</string>
+	<key>vote</key>
+	<dict>
+		<key>bad</key>
+		<string>15</string>
+		<key>bad_comment</key>
+		<string>世事难料，忍忍就好。</string>
+		<key>bad_txt</key>
+		<string>没法出门啊</string>
+		<key>good</key>
+		<string>85</string>
+		<key>good_comment</key>
+		<string>天气通的穿衣建议真贴心~以后出门就靠它啦~</string>
+		<key>good_txt</key>
+		<string>这么穿正合适</string>
+	</dict>
+</dict>
+</plist>

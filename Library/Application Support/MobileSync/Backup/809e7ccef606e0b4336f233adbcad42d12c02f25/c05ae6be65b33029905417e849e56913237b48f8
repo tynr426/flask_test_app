@@ -1,0 +1,12 @@
+16/10/22 下午4:00: Application Launched
+16/10/22 下午4:00: FOLDER_WATCHER: folderPath length is 86
+16/10/22 下午4:00: FOLDER_WATCHER: folderPath length is 86
+16/10/22 下午4:00: Presenting ARFileBrowserSourceSwitcher(ARFileBrowserSourceSwitcher.mm:145) from ARRotationForwardingViewController:
+16/10/22 下午4:00: ARDCMAnalytics: Dropbox:Funnel IPM Shown:Source Dropdown {"adb.event.eventInfo.acrobatdc.cohortGroup":"21","adb.event.eventInfo.dropboxFunnelIPMAction":"Dropbox:Funnel IPM Shown:Source Dropdown","adb.user.profile.attributes.candidateStatus":"Candidate 0","adb.user.profile.attributes.subscriptionStatus":"Non-Paid"}
+16/10/22 下午4:00: Presenting ARFileBrowserSourceSwitcher(ARFileBrowserSourceSwitcher.mm:145) from ARRotationForwardingViewController:
+16/10/22 下午4:00: ARDCMAnalytics: Dropbox:Funnel IPM Shown:Source Dropdown {"adb.event.eventInfo.acrobatdc.cohortGroup":"21","adb.event.eventInfo.dropboxFunnelIPMAction":"Dropbox:Funnel IPM Shown:Source Dropdown","adb.user.profile.attributes.candidateStatus":"Candidate 0","adb.user.profile.attributes.subscriptionStatus":"Non-Paid"}
+16/10/22 下午4:00: Presenting UIAlertController(PARFileListViewController.m:1149) from ARRotationForwardingViewController:
+16/10/22 下午4:03: Presenting ARFileBrowserSourceSwitcher(ARFileBrowserSourceSwitcher.mm:145) from ARRotationForwardingViewController:
+16/10/22 下午4:04: ARDCMAnalytics: Dropbox:Account Link Started:from Acrobat without IPM Shown {"adb.event.eventInfo.acrobatdc.cohortGroup":"21","adb.event.eventInfo.dropboxAccountLinkAction":"Dropbox:Account Link Started:from Acrobat without IPM Shown","adb.user.profile.attributes.candidateStatus":"Candidate 0","adb.user.profile.attributes.subscriptionStatus":"Non-Paid"}
+16/10/22 下午4:04: Presenting Dropbox linkWithPreviouslyAuthedUids from ARRotationForwardingViewController
+16/10/22 下午4:04: ARDCMAnalytics: Dropbox:Account Link Canceled:from Acrobat without IPM Shown {"adb.event.eventInfo.acrobatdc.cohortGroup":"21","adb.event.eventInfo.dropboxAccountLinkAction":"Dropbox:Account Link Canceled:from Acrobat without IPM Shown","adb.user.profile.attributes.candidateStatus":"Candidate 0","adb.user.profile.attributes.subscriptionStatus":"Non-Paid"}

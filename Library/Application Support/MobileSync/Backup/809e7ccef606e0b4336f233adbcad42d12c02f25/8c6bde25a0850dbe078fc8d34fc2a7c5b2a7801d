@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEVID</key>
+	<data>
+	mVPSj/M9qCc7Bdmaz11u8w==
+	</data>
+	<key>GUID</key>
+	<data>
+	3hdpFLfJorzj48aSesB80g==
+	</data>
+	<key>WtloginSigTime</key>
+	<dict>
+		<key>258</key>
+		<integer>86400</integer>
+		<key>259</key>
+		<integer>7200</integer>
+		<key>262</key>
+		<integer>2592000</integer>
+		<key>266</key>
+		<integer>2419200</integer>
+		<key>284</key>
+		<integer>1728000</integer>
+		<key>288</key>
+		<integer>2880</integer>
+		<key>310</key>
+		<integer>1814400</integer>
+		<key>323</key>
+		<integer>1814400</integer>
+		<key>356</key>
+		<integer>1814400</integer>
+	</dict>
+	<key>WtloginUserPwdSig</key>
+	<dict>
+		<key>121347419</key>
+		<data>
+		2fPDY64zFN4fF6ECNIXeAL9AuF5mYCbbN3+dgVmXZpjfhoKqvro/K2o5ytrX
+		IgR16u26OVtD+y5yPzry3pYRzaAhJXmN6qtUrqsCrTwIeh350YFwvbhOIPTy
+		sgoKhN33fv+R2t1Mf1SBRHtowUEIdUpf63t2W6RovY9tMfF/zBbFslqOeLFb
+		Mq9UQbP50bKni6AnbUW3TtA=
+		</data>
+	</dict>
+</dict>
+</plist>

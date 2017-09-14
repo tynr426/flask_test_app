@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SWForecastMsg</key>
+	<array>
+		<dict>
+			<key>text</key>
+			<string>成都 阴转小雨 21℃~13℃，突然的下雨天是我们爱情最好的天气，悄悄种下我的承诺在你的手心，等待一个下雨撑伞的拥抱。(来自@天气通 免费下载http://t.cn/zYaipUu )</string>
+		</dict>
+	</array>
+	<key>citycode</key>
+	<string>CHXX0016</string>
+	<key>code</key>
+	<string>200</string>
+	<key>result</key>
+	<string>success</string>
+	<key>timestamp</key>
+	<string>1426687802</string>
+</dict>
+</plist>

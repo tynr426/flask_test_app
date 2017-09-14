@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>歌手信息</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<style type="text/css">
+html{
+  -webkit-text-size-adjust:100%;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+body,div,ul,li,h1,h2,p{margin:0;padding:0}
+fieldset,img{border:0}
+table{border-collapse:collapse;border-spacing:0}
+li{list-style:none}
+a,a:hover{text-decoration:none}
+body{font:12px/1.5 "hiragino sans gb",Arial;-webkit-tap-highlight-color:rgba(0,0,0,0);color:#808080;background-color:#FFFFFF}
+.wrap{padding-top:30px;}
+.mod_info{margin:0 20px 15px;overflow:hidden;position: relative;}
+.tit{font-size:14px;font-weight:normal;color:#000000;line-height:46px;height:46px;margin:4px 0 0;overflow:hidden;}
+.mod_info ul,.mod_info p{font-size:13px;line-height:21px;}
+.mod_info:before{
+   content:"";
+   position: absolute;
+   top:0px;
+   left:0px;
+   right:0px;
+   border-bottom:1px solid #EEF2F4;
+   -webkit-transform:scaleY(.5);
+   -webkit-transform-origin:0 0;
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+	
+	<div id="content">
+	</div>	
+
+</div>
+<script>
+(function(){
+	function getParameter(url, name) {
+		var r = new RegExp("(\\?|#|&)" + name + "=([^&#]*)(&|#|$)");
+		var m = url.match(r);
+		if ((!m || m == ""))
+			m = top.location.href.match(r);
+		return (!m ? "" : m[2]);
+	}
+	
+	function myEncode(s){
+		return s.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\'/g,"´").replace(/\"/g,"“").replace(/&#39;/g,"´").replace(/&quot;/g,"“").replace(/\(/g,"（").replace(/\)/g,"）");
+	};
+	
+	function entityReplace(s) {
+		s = s || "";
+		return !s ? "" : s.replace(/&#38;?/g,"&amp;").replace(/&amp;/g,"&").replace(/&#(\d+);?/g,function(a,b){return String.fromCharCode(b)}).replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,"\"").replace(/&nbsp;/g," ").replace(/&#13;/g,"\n").replace(/(&#10;)|(&#x\w*;)/g,"").replace(/&amp;/g,"&");
+	};
+	
+	function formatSosoString(str){
+		try {
+			str = (!str || typeof(str) != "string")? "" : str.replace(/\[表格数据暂时无法显示\]/g, "").trim();
+			if (str == "") {
+				return "";
+			}
+			
+			var r = new RegExp('^(<p>)(.*)(<\\/p>)$'), 
+				test = r.test(str), 
+				tmp = "<p>" + entityReplace(test ? str.replace(r, RegExp.$2) : str) + "</p>";
+				
+			tmp = tmp.replace(/\<img.*?\/?\>/ig, "");
+			tmp = tmp.replace(/\<a\s*href=\"lid\:(\d*)\"\s*\>([^\<]*)\<\/a\>/ig, function(src, p1, p2){
+				return '<a target="_blank" href="http://baike.soso.com/v'+p1+'.htm?ch=qqmusic">'+myEncode(entityReplace(p2.trim()))+'</a>';
+			});
+			tmp = tmp.replace(/\<br\/\>/ig, "</p><p>");
+			return tmp || "";
+		} catch (exp) {
+			return "";
+		}
+	}
+	
+	function ajaxGetXML(url, successCallback, errorCallback){
+		var xmlhttp = new XMLHttpRequest();
+		
+		xmlhttp.onreadystatechange = function(){
+			if (xmlhttp.readyState == 4){
+			   if (xmlhttp.status == 200){
+				  var result;
+				  try{
+					  result = xmlhttp.responseXML;//(new DOMParser()).parseFromString(xmlhttp.responseText, 'text/xml');
+				  }catch(err){
+					  result = xmlhttp.responseText;
+				  }
+				  !!successCallback && successCallback(result);
+			   }else{
+				  !!errorCallback && errorCallback(xmlhttp.responseText);
+			   }
+			}
+		};
+		
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send(null);
+	}
+
+	function showSingerDetail(singerData){
+		var tpl = [
+				'<div class="mod_info">',
+					'<h2 class="tit"><%title%></h2>',
+					'<%content%>',
+				'</div>'
+			].join(""),
+			htmlDom = [];
+			
+		if (!!singerData) {
+			////desc
+			if(!!singerData.desc){
+				var desc = tpl.replace("<%title%>", "简介").replace("<%content%>", "<p>" + formatSosoString(singerData.desc) + "</p>");
+				htmlDom.push(desc);
+			}
+		
+			////basic
+			if(singerData.basic.length > 0){
+				var basic = [];
+				for(var i=0, len = singerData.basic.length; i<len; i++){
+					var obj = singerData.basic[i];
+					basic.push([
+						'<li>',
+							obj.key,
+							"： ",
+							obj.value,
+						'</li>'
+					].join(""));
+					
+					//if(i == 0){
+					//	document.getElementById("singer_name").innerText = obj.value;
+					//}
+				}
+				
+				var basicInfo = tpl.replace("<%title%>", "基本资料").replace("<%content%>", "<ul>" + basic.join("") + "</ul>");
+				htmlDom.push(basicInfo);
+			}
+			
+			////group
+			if (singerData.group.length > 0) {
+				var group = [];
+				for(var g_idx = 0, len = singerData.group.length; g_idx < len; g_idx++){
+					var g_obj = singerData.group[g_idx],
+						groupLi = [];
+
+					if(!!g_obj){
+						for(var idx = 0, len = g_obj.length; idx < len; idx++){
+							var obj = g_obj[idx];
+							if (idx == 0) {
+								//插入第g_idx个团队成员的名字行
+								groupLi.push([
+									'<li>',
+										obj.key,
+										"： <strong>",
+										myEncode(entityReplace(obj.value.trim())),
+									'</strong></li><li></li>'
+								].join(""));
+							} else {
+								groupLi.push([
+									'<li>',
+										obj.key,
+										"： ",
+										myEncode(entityReplace(obj.value.trim())),
+									'</li>'
+								].join(""));
+							}
+						}
+						
+						group.push('<ul>' + groupLi.join("") + '</ul>');
+					}
+				}
+				
+				htmlDom.push(tpl.replace("<%title%>", "团队成员").replace("<%content%>", group.join("")));
+			}
+
+			////other
+			if (singerData.other.length > 0) {
+				var other = [];
+				for(var idx = 0, len = singerData.other.length; idx < len; idx++){
+					var obj = singerData.other[idx],
+						v = formatSosoString(obj.value).replace(new RegExp("&lt;br\\s*\\/&gt;", "gi"), "</p><p>").replace(/\n/ig, "</p><p>");
+					other.push(tpl.replace("<%title%>", obj.key).replace("<%content%>", ['<p>', v, '</p>'].join("")));
+				}
+				
+				htmlDom.push(other.join(""));
+			}
+			
+			document.getElementById("content").innerHTML = htmlDom.join("");
+		}else{
+			var desc = tpl.replace("<%title%>", "简介").replace("<%content%>", "<p>此歌手暂无简介！</p>");
+			document.getElementById("content").innerHTML = desc;
+		}
+	}
+	
+	function parseSingerData(xmlDom, callback){
+		var elems = xmlDom.getElementsByTagName("info");
+		if (!!elems && elems.length > 0) {
+			var data = {
+				id : 0,
+				desc : '',
+				basic : [],
+				group : [],
+				other : []
+			};
+			
+			var info = elems[0];
+			if (typeof(info) == 'undeifned') {
+				return;
+			}
+			
+			elems = info.getElementsByTagName("id");
+			if (elems.length > 0) {
+				data.id = elems[0].textContent||elems[0].text||"";
+			}
+			elems = info.getElementsByTagName("desc");
+			if (elems.length > 0) {
+				data.desc = elems[0].textContent||elems[0].text||"";
+			}
+			elems = info.getElementsByTagName("basic");
+			if(elems.length < 1) {
+				elems = [];
+			} else {
+				elems = elems[0].getElementsByTagName("item");
+			}
+
+			for (var i = 0, elem; (elem = elems[i ++]); ){
+				var keys = elem.getElementsByTagName("key"), 
+					values = elem.getElementsByTagName("value");
+				if (keys.length < 1 || values.length < 1) {
+					continue;
+				}
+				for(var idx = 0, len = keys.length; idx < len; idx++){
+					var key = keys[idx].textContent || keys[idx].text || "", 
+						value = values[idx].textContent || values[idx].text || "";
+						
+					if (key.trim() != "" && value.trim() != "") {
+						data.basic.push({
+							key : key,
+							value : value
+						});
+					}
+				}
+			}
+
+			elems = info.getElementsByTagName("group");
+			if(elems.length < 1) {
+				elems = [];
+			} else {
+				elems = elems[0].getElementsByTagName("member");
+			}
+
+			for (var i = 0, elem; (elem = elems[i ++]); ) {
+				var items = elem.getElementsByTagName("item"), 
+					arr = [];
+					
+				for (var j = 0, item; (item = items[j ++]); ) {
+					var keys = item.getElementsByTagName("key"),
+						values = item.getElementsByTagName("value");
+					if (keys.length < 1 || values.length < 1) {
+						continue;
+					}
+					var key = keys[0].textContent || keys[0].text || "",
+						value = values[0].textContent || values[0].text || "";
+					if (key.trim() == "" || value.trim() == "") {
+						continue;
+					}
+
+					arr.push({
+						key : key,
+						value : value
+					});
+				}
+
+				data.group.push(arr);
+			}
+
+			elems = info.getElementsByTagName("other");
+			for (var i = 0, elem; (elem = elems[i ++]); ) {
+				var keys = elem.getElementsByTagName("key"),
+					values = elem.getElementsByTagName("value");
+
+				if (keys.length < 1 || values.length < 1) {
+					continue;
+				}
+				for(var idx = 0, len = keys.length; idx < len; idx++){
+					var key = keys[idx].textContent || keys[idx].text || "", 
+						value = values[idx].textContent || values[idx].text || "";
+					if (key.trim() != "" && value.trim() != "") {
+						data.other.push({
+							key : key,
+							value : value
+						});
+					}
+				}
+			}
+
+			!!callback && callback(data);
+		} else {
+			!!callback && callback(null);
+		}
+	}
+	
+	function showSingerBase(mid){
+		var avatar = document.getElementById("avatar"),
+			s1 = mid.substr(-2, 1),
+			s2 = mid.substr(-1, 1);
+			
+		//avatar.src = 'http://imgcache.qq.com/music/photo/mid_singer_90/' + s1 + '/' + s2 + '/' + mid + '.jpg';
+		
+		var singerName = getParameter(location.href, "singer");
+		//document.getElementById("singer_name").innerText = myEncode(entityReplace(decodeURIComponent(singerName)));
+	}
+	
+	function init(){
+		var singerMid = getParameter(location.href, "mid");
+		
+		if(!!singerMid){
+			//showSingerBase(singerMid);
+		
+			var url = "http://s.plcloud.music.qq.com/fcgi-bin/fcg_get_singer_desc.fcg?singermid="+singerMid+"&utf8=1&format=xml&outCharset=utf-8";
+			
+			ajaxGetXML(url, function(xmlDom){
+				if(!!xmlDom && (xmlDom.getElementsByTagName("code")[0].textContent == 0)){
+					parseSingerData(xmlDom, showSingerDetail);
+				}else{
+					alert("歌手详情信息有误！");
+				}
+			}, function(){
+				alert("获取歌手详情信息失败，请稍后重试！");
+			});
+		}
+	}
+	
+	document.addEventListener("DOMContentLoaded", function(){
+		init();
+		
+		setTimeout(function(){
+			var e = document.createElement("script");
+			e.setAttribute("type", "text/javascript");
+			e.setAttribute("charset","utf-8");
+			e.setAttribute("src","http://imgcache.qq.com/music/js/mobile/ping.js?max_age=31536000&_bid=243");
+			document.getElementsByTagName("head")[0].appendChild(e);
+			e.onload = function(){
+				if(typeof(pgvMain) == 'function') {
+					pgvMain("", {
+						"virtualURL": '/ipad/singer_detail.html',
+						"useRefUrl": true,
+						"careSameDomainRef" : true,
+						"tagParamName": "ADTAG"
+					});
+				}
+			}
+		}, 1000);
+	}, true);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+| RAPI: =======================================================
+2016/08/25 23:04:47:227  | RAPI:  RAPI Version: 3.0.3 (Build Date: 13.07.2016, 17:45, GIT-Hash: e5709b5)
+2016/08/25 23:04:47:229  | RAPI: =======================================================
+2016/08/25 23:04:47:230  | RAPI: 
+2016/08/25 23:04:47:231  | RAPI:  RAPI GIT-Hash: e5709b5
+2016/08/25 23:04:47:233  | RAPI:  BMWAppKit-Version      : BMWAppKit-Version: 2.1-APPKIT-980 - 12/18/15 15:33
+2016/08/25 23:04:47:236  | RAPI:  Current local time     : 2016-08-25 23:04:47.2
+2016/08/25 23:04:47:236  | RAPI:  Log directory          : /var/mobile/Containers/Data/Application/6C034F06-58D0-4640-9E0B-EF0579D6D2ED/Documents/RAPIAppKitLogs
+2016/08/25 23:04:47:237  | RAPI: 
+2016/08/25 23:04:47:238  | RAPI: ----- App Information -----
+2016/08/25 23:04:47:239  | RAPI:  Bundle identifier      : com.gemd.iting
+2016/08/25 23:04:47:240  | RAPI:  Bundle version         : 5.4.21 Build 688
+2016/08/25 23:04:47:241  | RAPI:  Background modes       : external-accessory, audio, bluetooth-central
+2016/08/25 23:04:47:242  | RAPI:  Supported EA protocols : com.bmw.a4a, com.bmw.a4a1, com.bmw.a4a2, com.bmw.a4a3, com.bmw.a4a4, com.bmw.a4a5, com.bmw.a4a6, com.bmw.a4a7, com.bmw.a4a8, com.bmw.a4a9, com.bmw.a4a10, com.bmw.a4a11, com.bmw.a4a12, com.bmw.a4a13, com.bmw.a4a14
+2016/08/25 23:04:47:245  | RAPI:  URL types              : (
+2016/08/25 23:04:47:246  | RAPI:         {
+2016/08/25 23:04:47:247  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:248  | RAPI:         CFBundleURLName = tencentopenapi;
+2016/08/25 23:04:47:249  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:250  | RAPI:             tencent1104591716
+2016/08/25 23:04:47:251  | RAPI:         );
+2016/08/25 23:04:47:251  | RAPI:     },
+2016/08/25 23:04:47:252  | RAPI:         {
+2016/08/25 23:04:47:253  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:254  | RAPI:         CFBundleURLName = qqplugin;
+2016/08/25 23:04:47:254  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:255  | RAPI:             QQ41D6BB64
+2016/08/25 23:04:47:256  | RAPI:         );
+2016/08/25 23:04:47:257  | RAPI:     },
+2016/08/25 23:04:47:257  | RAPI:         {
+2016/08/25 23:04:47:258  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:259  | RAPI:         CFBundleURLName = weixin;
+2016/08/25 23:04:47:260  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:261  | RAPI:             wxb9371ecb5f0f05b1
+2016/08/25 23:04:47:262  | RAPI:         );
+2016/08/25 23:04:47:262  | RAPI:     },
+2016/08/25 23:04:47:263  | RAPI:         {
+2016/08/25 23:04:47:264  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:265  | RAPI:         CFBundleURLName = weibo;
+2016/08/25 23:04:47:265  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:266  | RAPI:             "sinaweibosso.com.gemd.iting"
+2016/08/25 23:04:47:267  | RAPI:         );
+2016/08/25 23:04:47:268  | RAPI:     },
+2016/08/25 23:04:47:268  | RAPI:         {
+2016/08/25 23:04:47:269  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:270  | RAPI:         CFBundleURLName = renren;
+2016/08/25 23:04:47:271  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:272  | RAPI:             "rm240157com.gemd.iting"
+2016/08/25 23:04:47:273  | RAPI:         );
+2016/08/25 23:04:47:274  | RAPI:     },
+2016/08/25 23:04:47:275  | RAPI:         {
+2016/08/25 23:04:47:275  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:276  | RAPI:         CFBundleURLName = "iting3.ximalaya.com";
+2016/08/25 23:04:47:277  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:278  | RAPI:             iting
+2016/08/25 23:04:47:279  | RAPI:         );
+2016/08/25 23:04:47:279  | RAPI:     },
+2016/08/25 23:04:47:280  | RAPI:         {
+2016/08/25 23:04:47:281  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:282  | RAPI:         CFBundleURLName = "mainapp.ximalaya.com";
+2016/08/25 23:04:47:282  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:283  | RAPI:             "ximalaya.mainapp"
+2016/08/25 23:04:47:284  | RAPI:         );
+2016/08/25 23:04:47:285  | RAPI:     },
+2016/08/25 23:04:47:285  | RAPI:         {
+2016/08/25 23:04:47:286  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:287  | RAPI:         CFBundleURLName = bundleScheme;
+2016/08/25 23:04:47:288  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:289  | RAPI:             itinggemd
+2016/08/25 23:04:47:289  | RAPI:         );
+2016/08/25 23:04:47:290  | RAPI:     },
+2016/08/25 23:04:47:291  | RAPI:         {
+2016/08/25 23:04:47:292  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:293  | RAPI:         CFBundleURLName = wemart;
+2016/08/25 23:04:47:293  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:294  | RAPI:             wemart
+2016/08/25 23:04:47:295  | RAPI:         );
+2016/08/25 23:04:47:296  | RAPI:     },
+2016/08/25 23:04:47:297  | RAPI:         {
+2016/08/25 23:04:47:297  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:298  | RAPI:         CFBundleURLName = CarLife;
+2016/08/25 23:04:47:299  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:300  | RAPI:             akcdaefc2f6b
+2016/08/25 23:04:47:301  | RAPI:         );
+2016/08/25 23:04:47:302  | RAPI:     },
+2016/08/25 23:04:47:302  | RAPI:         {
+2016/08/25 23:04:47:303  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:304  | RAPI:         CFBundleURLName = misfit;
+2016/08/25 23:04:47:305  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:305  | RAPI:             "mfl-1003"
+2016/08/25 23:04:47:306  | RAPI:         );
+2016/08/25 23:04:47:307  | RAPI:     },
+2016/08/25 23:04:47:308  | RAPI:         {
+2016/08/25 23:04:47:309  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:309  | RAPI:         CFBundleURLName = itingpay;
+2016/08/25 23:04:47:310  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:311  | RAPI:             itingpay
+2016/08/25 23:04:47:312  | RAPI:         );
+2016/08/25 23:04:47:313  | RAPI:     },
+2016/08/25 23:04:47:314  | RAPI:         {
+2016/08/25 23:04:47:314  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:315  | RAPI:         CFBundleURLName = "";
+2016/08/25 23:04:47:316  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:317  | RAPI:             prefs
+2016/08/25 23:04:47:318  | RAPI:         );
+2016/08/25 23:04:47:318  | RAPI:     },
+2016/08/25 23:04:47:319  | RAPI:         {
+2016/08/25 23:04:47:320  | RAPI:         CFBundleTypeRole = Editor;
+2016/08/25 23:04:47:321  | RAPI:         CFBundleURLName = gameCenter;
+2016/08/25 23:04:47:322  | RAPI:         CFBundleURLSchemes =         (
+2016/08/25 23:04:47:322  | RAPI:             xmlyGame
+2016/08/25 23:04:47:323  | RAPI:         );
+2016/08/25 23:04:47:324  | RAPI:     }
+2016/08/25 23:04:47:325  | RAPI: )
+2016/08/25 23:04:47:372  | BMWAppKit: [3] (null): 
+2016/08/25 23:04:47:374  | BMWAppKit: 
+2016/08/25 23:04:47:376  | BMWAppKit: -----------------------------------------------------------
+2016/08/25 23:04:47:377  | BMWAppKit:  BMW AppKit Framework
+2016/08/25 23:04:47:378  | BMWAppKit:  (C) 2010-2015 BMW Group
+2016/08/25 23:04:47:378  | BMWAppKit:  BMWAppKit-Version: 2.1-APPKIT-980 - 12/18/15 15:33
+2016/08/25 23:04:47:379  | BMWAppKit: -----------------------------------------------------------
+2016/08/25 23:04:47:380  | BMWAppKit: 
+2016/08/25 23:04:47:381  | BMWAppKit: 
+2016/08/25 23:04:47:381  | BMWAppKit: 
+2016/08/25 23:04:47:526  | BMWAppKit: [3] BMWAppKit-BCL: EASession startup delay required on headunits without multisession support. Startup delay set to 2.5 seconds.
+2016/08/25 23:04:47:576  | RAPI: [CONNECT] manifestForApplication
+2016/08/25 23:04:47:578  | RAPI: [CONNECT] -> returning content of 'XimalayaRAPI.plist'
+2016/08/25 23:04:47:588  | BMWAppKit: [1] BMWAppKit-Application: The signature of the manifest you were trying to register does not match its content! Could not create manifest object!
+2016/08/25 23:04:47:593  | RAPI: RAPIScreenTable: [0] RAPIMainScreen '(null)'
+2016/08/25 23:04:47:600  | RAPI: RAPIScreenTable: [1] RAPIListScreen '(null)'
+2016/08/25 23:04:47:602  | RAPI: RAPIScreenTable: [2] RAPIListScreen '(null)'
+2016/08/25 23:04:47:603  | RAPI: RAPIScreenTable: [3] RAPIListScreen '(null)'
+2016/08/25 23:04:47:604  | RAPI: RAPIScreenTable: [4] RAPIListScreen '(null)'
+2016/08/25 23:04:47:606  | RAPI: RAPIScreenTable: [5] RAPIListScreen '(null)'
+2016/08/25 23:04:47:607  | RAPI: RAPIScreenTable: [6] RAPIListScreen '(null)'
+2016/08/25 23:04:47:608  | RAPI: RAPIScreenTable: [7] RAPIListScreen '(null)'
+2016/08/25 23:04:47:609  | RAPI: RAPIScreenTable: [8] RAPIListScreen '(null)'
+2016/08/25 23:04:47:611  | RAPI: RAPIScreenTable: [9] RAPIListScreen '(null)'
+2016/08/25 23:04:47:621  | BMWAppKit: [3] BMWAppKit-BCL: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStopped][vehicle info:(null)][cds version:(null)][etch version:(null)] - wont't start protocol selector: [UIApplication.state:1][isAllowedToConnectWhileUIApplicationNotActive:YES][hasValidAccessoryWithMultisessionSupport:NO]
+2016/08/25 23:04:50:411  | BMWAppKit: [3] BMWAppKit-General: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplication did become active: [bclManager.isStarted:NO][protocolSelector.isStarted:NO]
+2016/08/25 23:04:50:417  | BMWAppKit: [2] BMWAppKit-ProtocolSelector: Unable to start protocol selector, no external accessory connected!
+2016/08/25 23:08:02:583  | BMWAppKit: [3] BMWAppKit-BCL: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplicatiopn did enter background [supportsA4AConnectionInBackground:YES][bclManager.isConnected:NO]
+2016/08/25 23:12:42:805  | BMWAppKit: [3] BMWAppKit-General: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplication did become active: [bclManager.isStarted:NO][protocolSelector.isStarted:NO]
+2016/08/25 23:12:42:808  | BMWAppKit: [2] BMWAppKit-ProtocolSelector: Unable to start protocol selector, no external accessory connected!
+2016/08/25 23:13:16:112  | BMWAppKit: [3] BMWAppKit-BCL: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplicatiopn did enter background [supportsA4AConnectionInBackground:YES][bclManager.isConnected:NO]
+2016/08/26 14:24:47:477  | BMWAppKit: [3] BMWAppKit-General: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplication did become active: [bclManager.isStarted:NO][protocolSelector.isStarted:NO]
+2016/08/26 14:24:47:490  | BMWAppKit: [2] BMWAppKit-ProtocolSelector: Unable to start protocol selector, no external accessory connected!
+2016/08/26 14:28:20:506  | BMWAppKit: [3] BMWAppKit-BCL: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplicatiopn did enter background [supportsA4AConnectionInBackground:YES][bclManager.isConnected:NO]
+2016/08/26 15:23:12:074  | BMWAppKit: [3] BMWAppKit-General: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplication did become active: [bclManager.isStarted:NO][protocolSelector.isStarted:NO]
+2016/08/26 15:23:12:133  | BMWAppKit: [2] BMWAppKit-ProtocolSelector: Unable to start protocol selector, no external accessory connected!
+2016/08/26 15:25:24:047  | BMWAppKit: [3] BMWAppKit-BCL: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplicatiopn did enter background [supportsA4AConnectionInBackground:YES][bclManager.isConnected:NO]
+2016/08/26 18:18:32:254  | BMWAppKit: [3] BMWAppKit-General: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplication did become active: [bclManager.isStarted:NO][protocolSelector.isStarted:NO]
+2016/08/26 18:18:32:262  | BMWAppKit: [2] BMWAppKit-ProtocolSelector: Unable to start protocol selector, no external accessory connected!
+2016/08/26 18:18:35:540  | BMWAppKit: [3] BMWAppKit-BCL: IDDefaultAccessoryMonitor [state: IDAccessoryMonitorStateStarted][vehicle info:(null)][cds version:(null)][etch version:(null)] - handle UIApplicatiopn did enter background [supportsA4AConnectionInBackground:YES][bclManager.isConnected:NO]

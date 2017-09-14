@@ -1,0 +1,190 @@
+2013-08-25 22:02:54.100	[lvl=2]	(null)	===================================================
+2013-08-25 22:02:54.108	[lvl=2]	(null)	Penultimate ("墨笔": com.cocoabox.penultimate)
+2013-08-25 22:02:54.108	[lvl=2]	(null)	Model: iPad
+2013-08-25 22:02:54.110	[lvl=2]	(null)	System: iPhone OS
+2013-08-25 22:02:54.110	[lvl=2]	(null)	Version: 6.1.3
+2013-08-25 22:02:54.111	[lvl=2]	(null)	Main screen scale: 1.00
+2013-08-25 22:02:54.112	[lvl=2]	(null)	Localization: zh-Hans
+2013-08-25 22:02:54.112	[lvl=2]	(null)	Locale: zh_CN
+2013-08-25 22:02:54.112	[lvl=2]	(null)	---------------------------------------------------
+2013-08-25 22:02:54.115	[lvl=2]	(null)	Build date: Fri Jul 19 13:35:22 PDT 2013
+2013-08-25 22:02:54.116	[lvl=2]	(null)	Session begin at 2013-08-25 14:02:54 +0000
+2013-08-25 22:02:54.120	[lvl=2]	(null)	Current bundle version 4.1.3.0 (running as 4.1.3)
+2013-08-25 22:02:54.121	[lvl=2]	(null)	First installed version: 4.1.1
+2013-08-25 22:02:54.122	[lvl=2]	(null)	Most recent version: 4.1.1
+2013-08-25 22:02:54.122	[lvl=2]	(null)	Setting most recent version: 4.1.3
+2013-08-25 22:02:54.127	[lvl=2]	(null)	Launch 2 since 2013-05-19 09:57:57 +0000. Launch 1 since last update.
+2013-08-25 22:02:54.128	[lvl=2]	(null)	Last app shutdown/suspend was clean, at 2013-05-19 10:03:54 +0000
+2013-08-25 22:02:54.152	[lvl=2]	(null)	Device/installation ID: 355B3864-41A9-4F89-8276-507ADCDA044A
+2013-08-25 22:02:54.153	[lvl=2]	(null)	Remaining disk space: 7590502400
+2013-08-25 22:02:54.191	[lvl=2]	-[AppController appSessionStarted:]	app session started, username 'tynr426'
+2013-08-25 22:02:54.255	[lvl=2]	-[PaperController setup]	Failed to open primary paper list file.
+2013-08-25 22:02:54.256	[lvl=2]	-[PaperController setup]	Creating empty paper list.
+2013-08-25 22:02:54.267	[lvl=2]	-[SyncController signInWithCredentials:]	Creating context for user ID 2799083 (username: 'tynr426' email: 'tynr426@126.com')
+2013-08-25 22:02:54.291	[lvl=2]	+[EDAMHTTPClient(PenultimateUserAgent) createClientVersionString_PenultimateUserAgent]	Client name: Penultimate iOS/4.1.3.0 (zh-Hans-CN); iPad2,5/iPhone OS (6.1.3);
+2013-08-25 22:02:54.487	[lvl=2]	-[NotebooksController startupWithAccountContext:]	NotebooksController startup: 1 total notes known. 0 in trash. 1 match for use.
+2013-08-25 22:02:54.509	[lvl=2]	-[NotebooksController startupWithAccountContext:]	NotebooksController startup: 0 oversize-offline notes
+2013-08-25 22:02:54.514	[lvl=2]	-[NotebooksController startupWithAccountContext:]	NotebooksController startup: has unsynced changes
+2013-08-25 22:02:54.515	[lvl=2]	(null)	-------------
+2013-08-25 22:02:54.524	[lvl=2]	(null)	Matching notes (1): 
+2013-08-25 22:02:54.524	[lvl=2]	(null)	Note 9D55A538-EA14-4D53-86B5-DAE13EBDFDAF (7 pages)
+2013-08-25 22:02:54.525	[lvl=2]	(null)	-------------
+2013-08-25 22:02:54.542	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=WiFi
+2013-08-25 22:02:54.550	[lvl=2]	-[SyncController syncEngineDidStartNotification:]	Sync engine did start
+2013-08-25 22:02:54.551	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:02:54.554	[lvl=2]	-[ENSyncEngine _syncStarted]	Sync started.
+2013-08-25 22:02:54.557	[lvl=2]	-[ENSyncEngine _backgroundSyncWithAuthRefresh:]	Contacting Evernote server...
+2013-08-25 22:02:55.261	[lvl=2]	-[ENSyncEngine refreshUserInfo]	Updating user info...
+2013-08-25 22:02:55.634	[lvl=2]	-[ENSyncEngine _syncServerChanges]	  current update count: 29
+2013-08-25 22:02:55.637	[lvl=2]	-[ENSyncEngine serverSyncState]	sessionCount=1
+2013-08-25 22:02:55.707	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop
+2013-08-25 22:02:55.755	[lvl=2]	-[ENSyncEngine checkForUploadUsageDrop:]	Upload used from server: 0
+2013-08-25 22:02:55.756	[lvl=2]	-[ENSyncEngine checkForUploadUsageDrop:]	Updating user info since upload usage changed...
+2013-08-25 22:02:55.756	[lvl=2]	-[ENSyncEngine refreshUserInfo]	Updating user info...
+2013-08-25 22:02:56.060	[lvl=2]	-[ENSyncEngine(Notebooks) syncNotebooks:forcibly:]	Syncing 2 notebooks...
+2013-08-25 22:02:56.087	[lvl=2]	-[ENSyncEngine _syncServerChanges]	[serverSyncState updateCount]=30, self.currentSyncUpdateCount=29
+2013-08-25 22:02:56.108	[lvl=2]	-[ENSyncEngine(ChunkDownloader) syncChunkDownloaderWithFullSyncAtUSN:incrementalSyncAtUSN:chunkSize:]	incrementalSyncAtUSN=29, fullSyncAtUSN=29
+2013-08-25 22:02:56.253	[lvl=2]	-[ENSyncEngine(Tags) processLocalTagChanges]	Processing local tag changes...
+2013-08-25 22:02:56.257	[lvl=2]	-[ENSyncEngine(Searches) processLocalSearchChanges]	Processing local search changes...
+2013-08-25 22:02:56.281	[lvl=2]	-[ENSyncEngine(LinkedNotebooks) processLocalLinkedNotebookChanges]	Processing local linked notebook changes...
+2013-08-25 22:02:56.288	[lvl=2]	-[ENSyncEngine(Notebooks) processLocalNotebookChanges]	Processing local notebook changes...
+2013-08-25 22:02:56.293	[lvl=2]	-[ENSyncEngine(Notes) processLocalNoteChanges]	Processing local note changes...
+2013-08-25 22:02:56.298	[lvl=2]	-[ENSyncEngine(Notes) sendLocalNoteChanges:]	1 notes to update/create
+2013-08-25 22:02:57.992	[lvl=2]	-[ENSkuHelper saveSkuDataToCache]	saving fetchDate
+2013-08-25 22:02:57.996	[lvl=2]	-[ENSkuHelper saveSkuDataToCache]	saving iTunesSkuMap
+2013-08-25 22:02:58.871	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	Preparing resource with guid for reuse:6311e723-b08e-4f5e-994c-01cbe1a8d544
+2013-08-25 22:02:58.873	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	Couldn't find a server resource with guid: 6311e723-b08e-4f5e-994c-01cbe1a8d544
+2013-08-25 22:02:58.873	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	resetting guid, which will require a re-upload
+2013-08-25 22:02:58.874	[lvl=2]	-[ENSyncEngine(Resources) updateServerResource:fromLocalResource:usingAlternateBackingFile:]	adding resource (filename=(null),mime=image/jpeg,dataLength=208604) from path:/private/var/mobile/Applications/2BBEC2BE-5B96-49B5-B100-3B0CE074CE61/tmp/67CE50AB-04FC-4225-9CE4-86BB96431C38.tmp
+2013-08-25 22:02:58.888	[lvl=2]	-[ENSyncEngine(Resources) updateServerResource:fromLocalResource:usingAlternateBackingFile:]	adding resource (filename=(null),mime=image/png,dataLength=0) from path:/private/var/mobile/Applications/2BBEC2BE-5B96-49B5-B100-3B0CE074CE61/tmp/C104D7DC-FE3D-4DC7-B318-C54C33741779.tmp
+2013-08-25 22:02:58.892	[lvl=2]	-[ENSyncEngine(Resources) updateServerResource:fromLocalResource:usingAlternateBackingFile:]	adding resource (filename=(null),mime=image/png,dataLength=0) from path:/private/var/mobile/Applications/2BBEC2BE-5B96-49B5-B100-3B0CE074CE61/tmp/A8AEF3D1-6FF6-404C-A587-ADF2580A6D27.tmp
+2013-08-25 22:02:58.912	[lvl=2]	__88-[ENSyncEngine(Notes) updateServerNoteFromLocalNoteWithID:resourceFileMap:attemptRetry:]_block_invoke797	  updating note '欢迎使用墨笔' [guid: 4653aae9-0659-4d7b-a9b9-5f7f69da26a7] on server
+2013-08-25 22:03:10.399	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 715F086C-0FA3-4259-9E75-EE22617EBADD, dirty = 1
+2013-08-25 22:03:10.441	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:03:18.243	[lvl=2]	-[ENSyncEngine(Resources) updateServerResource:fromLocalResource:usingAlternateBackingFile:]	adding resource (filename=(null),mime=image/png,dataLength=3234) from path:/private/var/mobile/Applications/2BBEC2BE-5B96-49B5-B100-3B0CE074CE61/tmp/C104D7DC-FE3D-4DC7-B318-C54C33741779.tmp
+2013-08-25 22:03:18.254	[lvl=2]	__88-[ENSyncEngine(Notes) updateServerNoteFromLocalNoteWithID:resourceFileMap:attemptRetry:]_block_invoke797	  updating note '欢迎使用墨笔' [guid: 4653aae9-0659-4d7b-a9b9-5f7f69da26a7] on server
+2013-08-25 22:03:19.245	[lvl=2]	-[ENSyncEngine(Resources) processLocalResourceChanges]	Processing local resource changes...
+2013-08-25 22:03:19.267	[lvl=2]	-[SyncController syncEngineDidStopNotification:]	Sync engine did stop
+2013-08-25 22:03:19.267	[lvl=2]	-[ENCacheManager start]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:03:19.272	[lvl=2]	+[NotebookDocument setEvernoteDestinationNotebookForNewNotebooks:]	Setting destination notebook to 墨笔 (fe9c409b-75c4-4f76-8919-8f1e93f24a02)
+2013-08-25 22:03:19.274	[lvl=2]	__48-[SyncController syncEngineDidStopNotification:]_block_invoke	Reconciling caches following sync.
+2013-08-25 22:03:19.277	[lvl=2]	-[SyncController syncEngineDidFinish:]	Sync did finish with 0 errors
+2013-08-25 22:03:19.278	[lvl=2]	-[ENSyncEngine _syncFinished]	Sync complete.
+2013-08-25 22:03:19.283	[lvl=2]	-[CacheManager cleanupAllDataNotPresentIn:]	Cache reconciliation: removed 0 notebooks, 0 pages.
+2013-08-25 22:03:19.290	[lvl=2]	-[SyncController cacheManagerDidStart]	Cache manager did start
+2013-08-25 22:03:19.298	[lvl=2]	-[ENCacheManager checkFileSystemIntegrity]	Performing filesystem scan due to expected count=1, actual count=1
+2013-08-25 22:03:19.316	[lvl=2]	__39-[ENCacheManager recalculateStatistics]_block_invoke	totalSize=1096915, cachedSize=881342, uncachedSize=215573
+2013-08-25 22:03:19.441	[lvl=2]	-[ENBatchSearchTextDownloadOp processSearchTextRequests]	Saving resource search text to local store because model supports it.
+2013-08-25 22:03:21.560	[lvl=2]	__37-[ENCacheManager findNotesToDownload]_block_invoke	Found 1 notes, but generated 0 download operations??
+2013-08-25 22:03:22.070	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:03:22.072	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop
+2013-08-25 22:03:25.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:03:25.418	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:03:40.398	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:03:40.421	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:03:55.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:03:55.428	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:04:10.398	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:04:10.427	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:04:25.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:04:25.426	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:04:40.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:04:40.426	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:04:55.398	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:04:55.426	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:04:55.648	[lvl=2]	-[WritingViewController _autoSync:]	autosync
+2013-08-25 22:04:55.654	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=WiFi
+2013-08-25 22:04:55.668	[lvl=2]	-[SyncController syncEngineDidStartNotification:]	Sync engine did start
+2013-08-25 22:04:55.669	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:04:55.669	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop
+2013-08-25 22:04:55.669	[lvl=2]	-[ENSyncEngine _syncStarted]	Sync started.
+2013-08-25 22:04:55.670	[lvl=2]	-[ENSyncEngine _backgroundSyncWithAuthRefresh:]	Contacting Evernote server...
+2013-08-25 22:04:55.670	[lvl=2]	-[ENSyncEngine _syncServerChanges]	  current update count: 46
+2013-08-25 22:04:55.672	[lvl=2]	-[ENSyncEngine serverSyncState]	sessionCount=0
+2013-08-25 22:04:57.647	[lvl=2]	-[ENSyncEngine checkForUploadUsageDrop:]	Upload used from server: 218953
+2013-08-25 22:04:57.647	[lvl=2]	-[ENSyncEngine checkForUploadUsageDrop:]	Updating user info since upload usage changed...
+2013-08-25 22:04:57.648	[lvl=2]	-[ENSyncEngine refreshUserInfo]	Updating user info...
+2013-08-25 22:04:57.813	[lvl=2]	-[ENSyncEngine _syncServerChanges]	[serverSyncState updateCount]=50, self.currentSyncUpdateCount=46
+2013-08-25 22:04:57.817	[lvl=2]	-[ENSyncEngine(ChunkDownloader) syncChunkDownloaderWithFullSyncAtUSN:incrementalSyncAtUSN:chunkSize:]	incrementalSyncAtUSN=46, fullSyncAtUSN=46
+2013-08-25 22:04:57.920	[lvl=2]	-[ENSyncEngine(Tags) processLocalTagChanges]	Processing local tag changes...
+2013-08-25 22:04:57.923	[lvl=2]	-[ENSyncEngine(Searches) processLocalSearchChanges]	Processing local search changes...
+2013-08-25 22:04:57.925	[lvl=2]	-[ENSyncEngine(LinkedNotebooks) processLocalLinkedNotebookChanges]	Processing local linked notebook changes...
+2013-08-25 22:04:57.927	[lvl=2]	-[ENSyncEngine(Notebooks) processLocalNotebookChanges]	Processing local notebook changes...
+2013-08-25 22:04:57.930	[lvl=2]	-[ENSyncEngine(Notes) processLocalNoteChanges]	Processing local note changes...
+2013-08-25 22:04:57.933	[lvl=2]	-[ENSyncEngine(Notes) sendLocalNoteChanges:]	1 notes to update/create
+2013-08-25 22:04:58.848	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	Preparing resource with guid for reuse:8176812a-ad41-46c0-9780-6922b47494c1
+2013-08-25 22:04:58.850	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	Couldn't find a server resource with guid: 8176812a-ad41-46c0-9780-6922b47494c1
+2013-08-25 22:04:58.850	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	resetting guid, which will require a re-upload
+2013-08-25 22:04:58.851	[lvl=2]	-[ENSyncEngine(Resources) updateServerResource:fromLocalResource:usingAlternateBackingFile:]	adding resource (filename=(null),mime=image/png,dataLength=3234) from path:/private/var/mobile/Applications/2BBEC2BE-5B96-49B5-B100-3B0CE074CE61/tmp/A8AEF3D1-6FF6-404C-A587-ADF2580A6D27.tmp
+2013-08-25 22:04:58.862	[lvl=2]	__88-[ENSyncEngine(Notes) updateServerNoteFromLocalNoteWithID:resourceFileMap:attemptRetry:]_block_invoke797	  updating note '欢迎使用墨笔' [guid: 4653aae9-0659-4d7b-a9b9-5f7f69da26a7] on server
+2013-08-25 22:05:04.971	[lvl=2]	-[ENSyncEngine(Resources) processLocalResourceChanges]	Processing local resource changes...
+2013-08-25 22:05:04.991	[lvl=2]	-[SyncController syncEngineDidStopNotification:]	Sync engine did stop
+2013-08-25 22:05:04.992	[lvl=2]	-[ENCacheManager start]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:05:04.993	[lvl=2]	+[NotebookDocument setEvernoteDestinationNotebookForNewNotebooks:]	Setting destination notebook to 墨笔 (fe9c409b-75c4-4f76-8919-8f1e93f24a02)
+2013-08-25 22:05:05.000	[lvl=2]	-[SyncController syncEngineDidFinish:]	Sync did finish with 0 errors
+2013-08-25 22:05:05.000	[lvl=2]	-[SyncController cacheManagerDidStart]	Cache manager did start
+2013-08-25 22:05:05.001	[lvl=2]	-[ENSyncEngine _syncFinished]	Sync complete.
+2013-08-25 22:05:05.004	[lvl=2]	-[ENCacheManager checkFileSystemIntegrity]	Performing filesystem scan due to expected count=1, actual count=1
+2013-08-25 22:05:05.017	[lvl=2]	__39-[ENCacheManager recalculateStatistics]_block_invoke	totalSize=1138542, cachedSize=881342, uncachedSize=257200
+2013-08-25 22:05:05.114	[lvl=2]	-[ENBatchSearchTextDownloadOp processSearchTextRequests]	Saving resource search text to local store because model supports it.
+2013-08-25 22:05:06.549	[lvl=2]	__37-[ENCacheManager findNotesToDownload]_block_invoke	Found 1 notes, but generated 0 download operations??
+2013-08-25 22:05:07.059	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:05:07.060	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop
+2013-08-25 22:05:10.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:05:10.428	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:05:25.398	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:05:25.430	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:05:40.398	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:05:40.433	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:05:55.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:05:55.414	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:06:10.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:06:10.414	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:06:25.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:06:25.418	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:06:40.397	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:06:40.419	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:06:55.398	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 2A78751E-1852-48A1-9E23-C268678584B4, dirty = 1
+2013-08-25 22:06:55.427	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-08-25 22:06:55.648	[lvl=2]	-[WritingViewController _autoSync:]	autosync
+2013-08-25 22:06:55.654	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=WiFi
+2013-08-25 22:06:55.660	[lvl=2]	-[SyncController syncEngineDidStartNotification:]	Sync engine did start
+2013-08-25 22:06:55.660	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:06:55.661	[lvl=2]	-[ENSyncEngine _syncStarted]	Sync started.
+2013-08-25 22:06:55.661	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop
+2013-08-25 22:06:55.661	[lvl=2]	-[ENSyncEngine _backgroundSyncWithAuthRefresh:]	Contacting Evernote server...
+2013-08-25 22:06:55.662	[lvl=2]	-[ENSyncEngine _syncServerChanges]	  current update count: 58
+2013-08-25 22:06:55.663	[lvl=2]	-[ENSyncEngine serverSyncState]	sessionCount=0
+2013-08-25 22:06:56.287	[lvl=2]	-[PaperShopController productsRequest:didReceiveResponse:]	Invalid products (1): com.cocoabox.penultimate.papers.writing
+2013-08-25 22:06:56.297	[lvl=2]	-[PaperShopController requestDidFinish:]	Product info request finished
+2013-08-25 22:06:56.409	[lvl=2]	-[ENSyncEngine checkForUploadUsageDrop:]	Upload used from server: 263814
+2013-08-25 22:06:56.412	[lvl=2]	-[ENSyncEngine _syncServerChanges]	[serverSyncState updateCount]=59, self.currentSyncUpdateCount=58
+2013-08-25 22:06:56.423	[lvl=2]	-[ENSyncEngine(ChunkDownloader) syncChunkDownloaderWithFullSyncAtUSN:incrementalSyncAtUSN:chunkSize:]	incrementalSyncAtUSN=58, fullSyncAtUSN=58
+2013-08-25 22:06:56.547	[lvl=2]	-[ENSyncEngine(Tags) processLocalTagChanges]	Processing local tag changes...
+2013-08-25 22:06:56.551	[lvl=2]	-[ENSyncEngine(Searches) processLocalSearchChanges]	Processing local search changes...
+2013-08-25 22:06:56.554	[lvl=2]	-[ENSyncEngine(LinkedNotebooks) processLocalLinkedNotebookChanges]	Processing local linked notebook changes...
+2013-08-25 22:06:56.556	[lvl=2]	-[ENSyncEngine(Notebooks) processLocalNotebookChanges]	Processing local notebook changes...
+2013-08-25 22:06:56.560	[lvl=2]	-[ENSyncEngine(Notes) processLocalNoteChanges]	Processing local note changes...
+2013-08-25 22:06:56.565	[lvl=2]	-[ENSyncEngine(Notes) sendLocalNoteChanges:]	1 notes to update/create
+2013-08-25 22:07:01.350	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	Preparing resource with guid for reuse:e05ed432-fa1a-44c0-a210-d540d7bcb293
+2013-08-25 22:07:01.350	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	Couldn't find a server resource with guid: e05ed432-fa1a-44c0-a210-d540d7bcb293
+2013-08-25 22:07:01.351	[lvl=2]	-[ENSyncEngine(Notes) updateServerNote:fromLocalNote:withResourceFileMap:]	resetting guid, which will require a re-upload
+2013-08-25 22:07:01.351	[lvl=2]	-[ENSyncEngine(Resources) updateServerResource:fromLocalResource:usingAlternateBackingFile:]	adding resource (filename=(null),mime=image/png,dataLength=44861) from path:/private/var/mobile/Applications/2BBEC2BE-5B96-49B5-B100-3B0CE074CE61/tmp/A8AEF3D1-6FF6-404C-A587-ADF2580A6D27.tmp
+2013-08-25 22:07:01.363	[lvl=2]	__88-[ENSyncEngine(Notes) updateServerNoteFromLocalNoteWithID:resourceFileMap:attemptRetry:]_block_invoke797	  updating note '欢迎使用墨笔' [guid: 4653aae9-0659-4d7b-a9b9-5f7f69da26a7] on server
+2013-08-25 22:07:03.148	[lvl=2]	-[ENSyncEngine(Resources) processLocalResourceChanges]	Processing local resource changes...
+2013-08-25 22:07:03.169	[lvl=2]	-[SyncController syncEngineDidStopNotification:]	Sync engine did stop
+2013-08-25 22:07:03.170	[lvl=2]	-[ENCacheManager start]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:07:03.171	[lvl=2]	+[NotebookDocument setEvernoteDestinationNotebookForNewNotebooks:]	Setting destination notebook to 墨笔 (fe9c409b-75c4-4f76-8919-8f1e93f24a02)
+2013-08-25 22:07:03.178	[lvl=2]	-[SyncController cacheManagerDidStart]	Cache manager did start
+2013-08-25 22:07:03.178	[lvl=2]	-[SyncController syncEngineDidFinish:]	Sync did finish with 0 errors
+2013-08-25 22:07:03.179	[lvl=2]	-[ENSyncEngine _syncFinished]	Sync complete.
+2013-08-25 22:07:03.182	[lvl=2]	-[ENCacheManager checkFileSystemIntegrity]	Performing filesystem scan due to expected count=1, actual count=1
+2013-08-25 22:07:03.199	[lvl=2]	__39-[ENCacheManager recalculateStatistics]_block_invoke	totalSize=1119745, cachedSize=1093681, uncachedSize=26064
+2013-08-25 22:07:03.278	[lvl=2]	-[ENBatchSearchTextDownloadOp processSearchTextRequests]	Saving resource search text to local store because model supports it.
+2013-08-25 22:07:04.690	[lvl=2]	__37-[ENCacheManager findNotesToDownload]_block_invoke	Found 1 notes, but generated 0 download operations??
+2013-08-25 22:07:05.199	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1dd72a90>, contextID=(null)
+2013-08-25 22:07:05.200	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop
+2013-08-25 22:07:07.442	[lvl=2]	-[AppController enterBackground]	2013-08-25 14:07:07 +0000: Enter background.
+2013-08-25 22:07:07.698	[lvl=2]	-[OpenGLSurface dealloc]	Can't use GPU while tearing down. Leaking surface context.
+2013-08-25 22:07:07.698	[lvl=2]	-[PointsRenderer dealloc]	Can't use GPU while tearing down. Leaking resources.
+2013-08-25 22:07:07.699	[lvl=2]	-[ImageRenderer dealloc]	Can't use GPU while tearing down. Leaking resources.

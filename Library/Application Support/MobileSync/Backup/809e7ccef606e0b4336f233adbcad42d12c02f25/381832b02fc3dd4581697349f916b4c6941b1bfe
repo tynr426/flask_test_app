@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ForeSessionInterval</key>
+	<string>100</string>
+	<key>MaxSaveURLCount</key>
+	<string>200</string>
+	<key>Receive3rdURL</key>
+	<string>http://180.169.19.140:37243/</string>
+	<key>ReceiveTGURL</key>
+	<string>http://180.169.19.140:37243/</string>
+	<key>ScriptURL</key>
+	<string>http://180.169.20.238:37243/TGtest.php.htm</string>
+	<key>endtime</key>
+	<string>2013-10-28 21:22:43</string>
+	<key>expiredtime</key>
+	<string>2013-11-04 19:40:01</string>
+	<key>openCount</key>
+	<string>1</string>
+	<key>runningtime</key>
+	<string>0</string>
+	<key>starttime</key>
+	<string>2013-10-28 21:22:43</string>
+</dict>
+</plist>

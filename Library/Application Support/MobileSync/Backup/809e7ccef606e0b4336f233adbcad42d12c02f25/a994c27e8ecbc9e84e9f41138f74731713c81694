@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>MV专题 - QQ音乐</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/mv_index.css">
+<style>
+/* 通过fixed修复屏幕旋转后页面宽度不变的bug */
+html,body{overflow-x:hidden}
+.wrap{-webkit-overflow-scrolling:touch;overflow-y:auto;}
+.nav_bar,.mod_classify{-webkit-transform:translateZ(0)}
+</style>
+<script>
+// 安卓横竖屏切换宽度调整
+if (/Android/.test(navigator.userAgent)) {
+	document.write('<style>.wrap{position:fixed;left:0;right:0;top:0;bottom:0;}</style>');
+};
+</script>
+<script>
+// 竖屏切换时调整焦点图尺寸
+document.write('<style id="js_focus_resize"></style>');
+function resetBannerSize() {
+	var ww = window.innerWidth || window.screen.width;
+	if (ww < 600) {
+		var width = ww - 60, height = width * 196 / 484 | 0;
+		document.getElementById("js_focus_resize").innerHTML = ".focus .stage{width:" + width + "px;height:" + height + "px}";
+	} else {
+		document.getElementById("js_focus_resize").innerHTML = "";
+	}
+};
+window.addEventListener("resize", resetBannerSize);
+resetBannerSize();
+</script>
+</head>
+<body>
+<div class="wrap">
+	<header class="nav_bar">
+		<nav class="main_nav">
+			<a id="index" href="javascript:;">推荐</a><a id="category" href="javascript:;">分类</a><a id="mvtopic" href="javascript:;">专题</a><!--a href="javascript:;" id="flash">刷新</a><a href="javascript:;" id="testpage">测试接口页面</a-->
+		</nav>
+	</header>
+	<section id="categorynav" class="mod_classify" style="display:none;">
+        <header>
+            <h1><a id="showmorenav" class="jumpclick" href="javascript:;">全部</a></h1>
+            <div class="mod_tabs_nav js_tag_nav">
+				<a href="javascript:;" data-sort="type" data-id="1" class="jumpclick  js_tag current">最新</a>
+				<a href="javascript:;" data-sort="type" data-id="2" class="jumpclick js_tag">最热</a>
+				<a href="javascript:;" data-sort="type" data-id="3" class="jumpclick js_tag">好评</a>
+			</div>
+        </header>
+        <!--这个分类筛选默认是收起的，展开时父级mod_classify加类open，收起是去掉类open-->
+        <div class="mod_tabs_nav">
+            <div class="list">
+                <div class="type"><span>地区</span></div>
+                <div class="scroll js_tag_nav">
+					<a href="javascript:;" class="jumpclick  js_tag current" data-sort="area" data-id="0">全部</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="area" data-id="1">内地</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="area" data-id="2">港台</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="area" data-id="3">欧美</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="area" data-id="4">韩国</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="area" data-id="5">日本</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="area" data-id="6">其他</a>
+					</div>
+            </div>
+            <div class="list">
+                <div class="type"><span>类型</span></div>
+                <div class="scroll js_tag_nav">
+					<a href="javascript:;" class="jumpclick  js_tag current" data-sort="tag" data-id="0">全部</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="2">官方版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="3">影视原声</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="8">选秀节目</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="9">舞蹈版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="10">混音版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="11">KTV版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="12">音乐电影</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="13">演唱会版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="14">颁奖礼</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="15">综艺节目</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="16">动漫</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="23">翻制版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="26">预告版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="27">花絮版</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="28">游戏</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="tag" data-id="29">广告</a>
+				</div>
+			</div>
+            <div class="list">
+                <div class="type"><span>年份</span></div>
+                <div class="scroll js_tag_nav">
+					<a href="javascript:;" class="jumpclick  js_tag current" data-sort="year" data-id="0">全部</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="year" data-id="1">2014</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="year" data-id="2">2013</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="year" data-id="3">2012</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="year" data-id="4">2011</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="year" data-id="5">00年代</a>
+                    <a href="javascript:;" class="jumpclick  js_tag" data-sort="year" data-id="6">其他</a>
+				</div>
+            </div>
+        </div>
+    </section>
+
+
+	<div id="indexpage" class="main recommend currentpage" style="display:none;">
+
+		<section class="focus">
+            <div class="stage" style="-webkit-transform-style:preserve-3d;-webkit-perspective:1000px;">
+                <ul id="imgul">
+				</ul>
+            </div>
+        </section>
+
+	</div>
+
+	<div id="categorypage" class="main classify ">
+		<section class="mod_slider">
+			<div class="mod_message" id="no_category_list" style="position:fixed;width:320px;height:180px;left:50%;top:50%;margin:-90px 0 0 -160px;z-index:10;display:none;">
+                <p><i class="icon_error"></i> </p>
+                <p>对不起，暂时没有此类别的MV</p>
+            </div>
+			<div class="mod_mv_list">
+				<ul id="category_list"></ul>
+			</div>
+		</section>
+		<div class="mod_message" id="category_loading" style="position:fixed;width:320px;height:36px;left:50%;top:50%;margin:-18px 0 0 -160px;z-index:10;display:none;">
+			<div class="mod_message_loading" style="display:block;"><i class="loading_icon"></i>正在载入更多...</div>
+		</div>
+		<!-- <div class="loading" style="display:block;padding-bottom:20px;"><i class="loading_icon"></i>正在载入更多...</div> -->
+	</div>
+
+    <div id="mvtopicpage" class="main special" style="display:none;">
+        <section>
+            <div class="mod_mv_list multi_row">
+                <ul class="width_item_232" id="mv_list"></ul>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="http://y.qq.com/ipad/js/zepto.js?_bid=243"></script>
+<script src="http://y.qq.com/ipad/js/core.js?_bid=243"></script>
+
+<script>
+
+
+var Slide = {
+
+	isInited : false,
+
+	isTouch : false,
+
+	style : {
+		x 		: 350,
+		y 		: 50,
+		z		: -220,
+		outx 	: 250,
+		outy 	: 50,
+		ox		: 600,
+		oy		: 100
+	},
+
+	/*
+	style : {
+		x 		: 350,
+		y 		: 0,
+		z		: -220,
+		outx 	: 250,
+		outy 	: 50,
+		ox		: 600,
+		oy		: 50
+	},*/
+
+	fixX : 0,
+
+	conf : null,
+
+	slideDom : null,
+
+	tplCache : {},
+
+	cns : ['licenter', 'liright', 'lirightout', 'lileft', 'lileftout'],
+
+	getTpl : function( data, noCache){
+
+		var className 	= data.className||'',
+			attr		= data.attr||{},
+			img			= data.img||'',
+			noCache		= noCache||false;
+		/*
+		if(this.tplCache[className+'_'+attr.dindex] && !noCache){
+			return this.tplCache[className+'_'+attr.dindex];
+		}
+		*/
+
+		var attrStr = '';
+		for(var i in attr){
+			attrStr += '' +i+ '="' +attr[i]+ '"';
+		}
+
+		var tpl = [
+			'<li style="-webkit-transition:all 200ms ease;-webkit-transform:'+this.cssMap[className]+'" class="'+className+'" '+attrStr+' >',
+			'       <a href="javascript:;">',
+			'			<img src="'+ img +'"/>',
+			'			<div>',
+			'				<h3>'+ data.title +'</h3>',
+			'				<p>'+ data.singer +'</p>',
+			'			</div>',
+			'       </a>',
+			'</li>'].join('');
+		this.tplCache[className+'_'+attr.dindex] = tpl;
+		return tpl;
+	},
+
+	appendDom : function(data, noCache){
+		if( !$('.'+data.className).length ){
+			$( this.getTpl(data, noCache) ).appendTo( this.conf.ulDom );
+		}
+	},
+
+	getData : function(addToRight, className){
+		var list = this.conf.list,
+			len = list.length,
+			addToRight = addToRight,
+			className = className;
+		var index = 0;
+		if(addToRight){
+			index = ( parseInt($('.'+(className||'liright') ).attr('dindex')) + 1 )%len;
+		}else{
+			index =  parseInt($('.'+(className||'lileft' ) ).attr('dindex')) - 1;
+			if(index <= 0){
+				index = ( index + len )%len;
+			}
+		}
+		return list[index];
+	},
+
+	changeState : function(isRight){
+
+		if(isRight){
+			$('.lirightout').remove();
+			$('.liright').removeClass().addClass('lirightout');
+			$('.licenter').removeClass().addClass('liright');
+			$('.lileft').removeClass().addClass('licenter');
+			$('.lileftout').removeClass().addClass('lileft');
+			var data = this.getData(false);
+		}else{
+			$('.lileftout').remove();
+			$('.lileft').removeClass().addClass('lileftout');
+			$('.licenter').removeClass().addClass('lileft');
+			$('.liright').removeClass().addClass('licenter');
+			$('.lirightout').removeClass().addClass('liright');
+			var data = this.getData(true);
+		}
+		if(data){
+			if(isRight){
+				data.className = 'lileftout';
+			}else{
+				data.className = 'lirightout';
+			}
+			this.appendDom(data);
+		}
+	},
+
+	removeLeft : function(){
+		Slide.fixX = 0;
+		$('.lileftout').remove();
+		var cssMap = this.cssMap;
+
+		$('.lileft').removeClass().addClass('lileftout').css('-webkit-transform', cssMap['lileftout']);
+		$('.licenter').removeClass().addClass('lileft').css('-webkit-transform', cssMap['lileft']);
+		$('.liright').removeClass().addClass('licenter').css('-webkit-transform', cssMap['licenter']);
+		$('.lirightout').removeClass().addClass('liright').css('-webkit-transform', cssMap['liright']);
+
+		var data = this.getData(true);
+		if(data){
+			data.className = 'lirightout';
+			this.appendDom(data);
+		}
+
+	},
+
+	removeRight : function(){
+		Slide.fixX = 0;
+		$('.lirightout').remove();
+
+		var cssMap = this.cssMap;
+		$('.liright').removeClass().addClass('lirightout').css('-webkit-transform',cssMap['lirightout']);
+		$('.licenter').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+		$('.lileft').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+		$('.lileftout').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+
+		var data = this.getData(false);
+		if(data){
+			data.className = 'lileftout';
+			this.appendDom(data);
+		}
+
+	},
+
+	getCssText : function(x, y, z){
+		return 'translate3d('+x+'px, 0, '+z+'px) rotateY('+y+'deg);';
+	},
+
+	slideMove : function(event, data, bindNode){
+		var isX = data.isX,
+			moveX = data.mX;
+		if(isX){
+			var moveX = moveX-Slide.fixX;
+			var _ = Slide,
+				style = _.style;
+			var xrate = ( moveX / style.x ) || 0;
+
+			var	cx = xrate*style.x,
+				cy = xrate*style.y,
+				cz = Math.abs(xrate)*style.z,
+
+				ocx = xrate*style.outx,
+				ocy = xrate*style.outy;
+
+			var licenterCss 	= _.getCssText(cx, -cy, cz),
+
+				lirightOutCss	= _.getCssText((style.ox+ocx), (-style.oy-ocy), style.z),
+				lileftOutCss	= _.getCssText((-style.ox+ocx), (style.oy-ocy), style.z),
+
+				lirightCss		= '',
+				lileftCss		= '';
+
+			if(moveX>0){
+				lirightCss		=  _.getCssText((style.x+ocx), (-style.y-ocy) , style.z);
+				lileftCss		= _.getCssText((-style.x+cx), (style.y-cy), (style.z-cz));
+			}else{
+				lirightCss		=  _.getCssText((style.x+cx), (-style.y-cy), (style.z-cz));
+				lileftCss		= _.getCssText((-style.x+ocx), (style.y-ocy) , style.z);
+			}
+
+			$('.lileftout').css('-webkit-transform', lileftOutCss);
+			$('.lileft').css('-webkit-transform', lileftCss);
+			$('.licenter').css('-webkit-transform', licenterCss);
+			$('.liright').css('-webkit-transform', lirightCss);
+			$('.lirightout').css('-webkit-transform', lirightOutCss);
+
+
+			if( cx >=style.x ){
+				Slide.fixX += moveX;
+				Slide.changeState(true);
+			}else if( cx <= -style.x ){
+				Slide.fixX += moveX;
+				Slide.changeState(false);
+			}
+		}
+	},
+
+	liClick : function(event, bindNode){
+		M.hotClick('ipad.mvrecom.focus');
+		var dom = $(event.target).closest('li', bindNode)[0];
+		if(dom){
+			var index = $(dom).attr('dindex');
+			var itemdata = Mvrecom.imgJumpdata[index],
+				type = itemdata.mvtype||1,
+				vid = itemdata.vid;
+			if(type == 1){
+
+				M.goMv( vid, itemdata.mvtitle.unescapeHTML().unescapeHTML() , itemdata.singername.unescapeHTML().unescapeHTML() );
+
+			}else{
+
+				var num = parseInt(itemdata.numid);
+				M.goMvTopic(num);
+
+			}
+		}
+	},
+
+	slideEnd : function(event, data, bindNode){
+
+		var mX = data.mX,
+			mT = data.mT,
+			speed = (mX /mT );
+
+		if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+
+			if( mX >0 ){ // 触发向右滑动
+				Slide.moveTo(2, true);
+			}else{ // 触发向左滑动
+				Slide.moveTo(2, false);
+			}
+		}else{
+			if( mX >0 ){ // 触发向右滑动
+				Slide.removeRight();
+			}else{ // 触发向左滑动
+				Slide.removeLeft();
+			}
+		}
+		$('.rubish').remove();
+	},
+
+	moveTo : function(page, isRight){
+		Slide.fixX = 0;
+		var cssMap = this.cssMap;
+		$('.rubish').remove();
+
+		if(isRight){
+			var data = this.getData(false, 'lileftout');
+			if(data){
+				data.className = 'lileftout1';
+				this.appendDom(data);
+			}
+			$('#imgul li').css('-webkit-transition','all 400ms ease-out');
+			$('.lirightout').remove();
+			$('.liright').removeClass().addClass('rubish').css('-webkit-transform',cssMap['lirightout']);
+			$('.licenter').removeClass().addClass('lirightout').css('-webkit-transform',cssMap['lirightout']);
+			$('.lileft').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+			$('.lileftout').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+			$('.lileftout1').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+			var data = this.getData(false);
+			if(data){
+				data.className = 'lileftout';
+				this.appendDom(data);
+			}
+		}else{
+			var data = this.getData(true, 'lirightout');
+			if(data){
+				data.className = 'lirightout1';
+				this.appendDom(data);
+			}
+			$('#imgul li').css('-webkit-transition','all 400ms ease-out');
+			$('.lileftout').remove();
+			$('.lileft').removeClass().addClass('rubish').css('-webkit-transform',cssMap['lileftout']);
+			$('.licenter').removeClass().addClass('lileftout').css('-webkit-transform',cssMap['lileftout']);
+			$('.liright').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+			$('.lirightout').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+			$('.lirightout1').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+			var data = this.getData(true);
+			if(data){
+				data.className = 'lirightout';
+				this.appendDom(data);
+			}
+		}
+	},
+
+	autoMoveTimer : 0,
+
+	autoMove : function(){
+		Slide.autoMoveTimer = setTimeout(function(){
+			if(!Slide.isTouch){
+				Slide.removeLeft();
+			}
+			Slide.autoMove();
+		}, 5000);
+	},
+
+	resetAuto : function(){
+		clearTimeout(Slide.autoMoveTimer);
+		this.autoMove();
+	},
+
+	initDom : function(list){
+		var conf = this.conf;
+
+		if(typeof list =='object' && list.length){
+			conf.list = list;
+
+		}
+
+		$(conf.list).each(function(index, item){
+			item.attr = item.attr||{};
+			item.attr.dindex = index;
+		});
+
+		$(conf.ulDom).html('');
+
+		$.each(this.cns, function(i, cn){
+			var j = 0, len = conf.list.length;
+			if(len > 0){
+				if( i<3 ){
+					j = i%len;
+				}else{
+					i = i-2;
+					j = len -i;
+					if(j<0){
+						j=0;
+					}
+				}
+				var item = conf.list[j];
+				if(item){
+					item.className = cn;
+					Slide.appendDom(item);
+				}
+			}
+		});
+
+	},
+
+	init : function(conf){
+
+		if( !this.isInited ){
+			this.conf = conf;
+			this.slideDom = conf.slideDom;
+			var style = this.style;
+
+			this.cssMap = {
+				lileft 			: this.getCssText(-style.x, style.y, style.z),
+				liright			: this.getCssText(style.x, -style.y, style.z),
+				licenter		: this.getCssText(0, 0, 0),
+				lileftout		: this.getCssText(-style.ox, style.oy, style.z),
+				lileftout1		: this.getCssText(-style.ox, style.oy, style.z),
+				lirightout		: this.getCssText(style.ox, -style.oy, style.z),
+				lirightout1		: this.getCssText(style.ox, -style.oy, style.z)
+			}
+
+			$(document.body).slideToucher({
+				bindClass : '.focus',
+				slideStartCb : function(event, data, bindNode){
+					$('#imgul li').css('-webkit-transition','none');
+					Slide.isTouch = true;
+					Slide.resetAuto();
+				},
+				slideCb 	: Slide.slideMove,
+				clickCb		: Slide.liClick,
+				slideEndCb	: Slide.slideEnd,
+				touchEndCb  : function(event, data, bindNode){
+					$('li', bindNode).css('-webkit-transition','all 200ms ease');
+					Slide.resetAuto();
+					Slide.isTouch = false;
+				}
+			});
+		}
+		this.initDom(conf.list);
+
+		if( !this.isInited ){
+			Slide.autoMove();
+		}
+		this.isInited = true;
+	}
+
+};
+
+Ipad = {
+
+	numv : 3,
+
+	numh : 4,
+
+	liwidth : 210,
+	num : 1,
+
+	viewCache : {},
+
+	updateLi : function(node){
+		var $e = $(node),
+			cp = parseInt($e.attr('cp'))||0,
+			pagew = parseInt($e.attr('pagew'))||0,
+			page = Math.abs(parseInt($e.attr('page'))||1),
+			prex = 0;
+
+		if( cp >= (page-1) ){
+			cp = page-1;
+		}else if(cp<0){
+			cp = 0;
+		}
+		prex = cp*pagew;
+		$('.slider_ctrl i', $e.parent().parent()).removeClass('current').eq(cp).addClass('current');
+		// $e.css('-webkit-transform', 'translate3d(-'+prex+'px, 0, 0)');
+		$e.css('-webkit-transform', 'translate3d(-'+Math.abs(cp)*100+'%, 0, 0)');
+
+		if(isVertically){
+			$('div.size_148', $e).slice(cp*Ipad.numv,(cp+1)*Ipad.numv).initImg();
+		}else{
+			$('div.size_148', $e).slice(cp*Ipad.numh,(cp+1)*Ipad.numh).initImg();
+		}
+	},
+
+	// 初始化横向列表的状态
+	onRientationChange : function(){
+
+		$.fn.checkOrientation();
+
+		// if(window.isVertically){
+		// 	Ipad.liwidth = 224;
+		// }else{
+		// 	Ipad.liwidth = 210;
+		// }
+
+			if($('.js_slider_mv_list').length){
+				Ipad.ulwidth = parseInt($('.js_slider_mv_list').parent().css("width"),10);
+				Ipad.liwidth = parseInt($('.js_slider_mv_list li').css("width"),10);
+
+				Ipad.num = Math.ceil(Ipad.ulwidth/Ipad.liwidth);
+			}
+
+
+		$('.js_slider_mv_list').each(function(index, item){
+			var list = $('li', item),
+				$e = $(item);
+			if(list.length){
+				var page =0, pagew=0, pagemax=0;
+
+				// if(window.isVertically){
+				// 	page = Math.ceil(list.length/Ipad.numv);
+				// 	pagew = Ipad.liwidth*Ipad.numv;
+				// 	pagemax = -Ipad.liwidth*(Ipad.numv-1);
+				// }else{
+				// 	page = Math.ceil(list.length/Ipad.numh);
+				// 	pagew = Ipad.liwidth*Ipad.numh;
+				// 	pagemax = -Ipad.liwidth*(Ipad.numh-1);
+				// }
+					page = Math.ceil(list.length/Ipad.num);
+					pagew = Ipad.liwidth*Ipad.num;
+					pagemax = -Ipad.liwidth*(Ipad.num-1);
+				$e.attr({
+					page : page,
+					pagew : pagew,
+					pagemax : pagemax
+				});
+				// .css('width', (page*100+40)+'%');
+			}
+			var ihtml = [];
+			for(var i=0; i<page; i++){
+				ihtml.push('<i></i>');
+			}
+
+			if(page==1){
+				$('.slider_ctrl', $e.parent().parent()).html('');
+			}else{
+				$('.slider_ctrl', $e.parent().parent()).html(ihtml.join(''));
+			}
+			Ipad.updateLi($e);
+		});
+
+	},
+
+	init : function(){
+
+		// 绝对定位4个子页面
+		$(window).on('orientationchange', function(){
+
+			Ipad.onRientationChange();
+			M.updateViewport();
+
+		});
+
+		// 绝对定位4个子页面
+		$('.main').each(function(index, item){
+			if( !$(item).hasClass('currentpage')){
+				$(item).hide();
+				Ipad.viewCache[item.id] = item;
+				$(item).remove();
+			}else{
+				Ipad.viewCache[item.id] = item;
+				$(item).show();
+				$('.main_nav li').removeClass('current');
+				var navid = item.id.split('page')[0];
+				$('#'+navid).addClass('current');
+			}
+		}).each(function(index, item){
+			if( !$(item).hasClass('currentpage') ){
+				$(item).remove();
+			}else{
+
+				if( item.id == 'categorypage'){
+					$('#categorynav').show();
+				}else{
+					$('#categorynav').hide();
+				}
+			}
+		});
+
+		// 初始化导航栏的touch事件
+		$(document.body).slideToucher({
+			bindClass : '.main_nav',
+
+			shareDate : {
+				isMoving : false
+			},
+
+			clickCb : function(event, bindNode, shareDate){
+
+				var target = event.target,
+					$target = $(target);
+
+				if(!target.id){
+					return;
+				}
+
+				if(target.id == 'testpage'){
+					var url = 'http://y.qq.com/ipad/ipadtest.html?p'+(+new Date());
+					M.goBigPage(url);
+					return;
+				}else if(target.id == 'flash'){
+					location.reload();
+					return;
+				}
+
+				if( !$target.hasClass('current') ){
+
+					$target.siblings().removeClass('current');
+					$target.addClass('current');
+
+					$('.main', document.body).remove();
+
+					var id = target.id+'page',
+						showPage = $('#'+id),
+						curPage = $('.main.current'),
+						showPageStartCss = '',
+						hidePageEndCss = '';
+
+					if(id == 'indexpage'){
+						Mvrecom.init();
+
+					}else if( id == 'categorypage' ){
+						Category.init();
+
+					}else if( id=='mvtopicpage' ){
+						Mvtopic.init();
+					}else{
+						return;
+					}
+
+					if(id == 'categorypage'){
+						$('#categorynav').show();
+					}else{
+						$('#categorynav').hide();
+					}
+
+					M.hotClick('ipad.mvrecom.topnav.'+id);
+
+					showPage = Ipad.viewCache[id];
+
+					$(showPage).addClass('currentpage').css({
+						'display' 			: 'none'
+					}).addClass('showing');
+
+					$('.wrap').append(showPage);
+
+					setTimeout(function(){
+						$('.main.showing').show().removeClass('showing')
+					},10);
+				}
+			}
+		});
+
+		// .wrap改为fixed铺满全屏，所以改为监听.wrap的scroll事件
+		// $(".wrap").on('scroll', function(){
+		// 高度改为自适应，只有在document上监听scroll
+			$(document).on('scroll', function(){
+			var bodyHeight = document.body.scrollHeight,
+				clientHeight = window.innerHeight,
+				maxScroll = bodyHeight-clientHeight,
+				scrollTop = document.body.scrollTop;
+
+			var id = $('.main.currentpage').attr('id');
+
+			if( scrollTop >= maxScroll-100 ){
+
+				if( id == 'mvtopicpage'){
+					Mvtopic.getMvData();
+				}else if( id == 'categorypage' ){
+					Category.getMore();
+				}
+			}
+
+			if( id == 'categorypage' ){
+				$('#categorynav').removeClass('open');
+			}
+
+		}, false);
+
+		$(document.body).slideToucher({
+			bindClass : '.jumpclick',
+
+			slideStartCb : function(event, data, bindNode, shareDate){
+				if($(bindNode).hasClass('over_mask')){
+					event.preventDefault();
+					event.stopPropagation();
+				}
+			},
+
+			clickCb : function(event, bindNode, shareDate){
+
+				var $bindNode = $(bindNode),
+					recordtype  = parseInt($bindNode.attr('recordtype')),
+					recordid	= $bindNode.attr('recordid'),
+					hotpage = $bindNode.attr('page')||'',
+					hottype = $bindNode.attr('hotclick')||'',
+					id  = $bindNode.attr('id');
+				if(hotpage && hottype){
+					var hotStr = 'ipad.'+hotpage+'.'+hottype;
+					// console.log('hotClick:' + hotStr);
+					M.hotClick(hotStr);
+				}
+
+				if(id == 'showmorenav'){
+					$('#categorynav').toggleClass('open');
+				}else if( $bindNode.hasClass('js_tag') ){
+					Category.selectTag($bindNode);
+				}else if( $bindNode.hasClass('jumprecommvmore') ){
+					var url = $bindNode.attr('jumpurl');
+					if(url && M.bridge && typeof M.bridge.callHandler =='function' ){
+						M.goBigPage(url);
+					}else{
+						location.href = url;
+					}
+				}else if( $bindNode.hasClass('js_mvpackge') ){
+					M.goMvPackge(recordid);
+				}else if( recordtype == 10012 ){
+					var name = $bindNode.attr('data-name') || 'mv',
+						singer = $bindNode.attr('data-singer') || 'QQ音乐';
+
+					M.goMv( recordid, name , singer );
+
+				}else if( recordtype && recordid ){
+					M.jump(recordtype, recordid);
+				}
+			}
+		});
+
+		// 初始化列表滚动touch + 初始化横向列表的状态
+		;(function(){
+
+			Ipad.onRientationChange();
+
+			M.updateViewport();
+
+			$(document.body).slideToucher({
+				bindClass : '.js_slider_mv',
+				slideStartCb : function(event, data, bindNode, shareDate){
+					var $e = $(bindNode).children(".js_slider_mv_list");
+					$e.css('-webkit-transition','');
+					var s = $e.css('-webkit-transform'),
+					prex = parseInt(s.split('translate3d(')[1]) || 0;
+					$e.attr('prex', prex);
+
+					shareDate.prex = prex;
+					// shareDate.pagew = $e.attr('pagew');
+					shareDate.pagew = parseInt($e.css("width"));
+					shareDate.page = $e.attr('page');
+					shareDate.max = - (shareDate.page-1)*shareDate.pagew;
+				},
+
+				slideCb 	: function(event, data, bindNode, shareDate){
+					
+					var $e = $(bindNode).children(".js_slider_mv_list");
+
+					if(data.isX){
+						// var newx = shareDate.prex+data.mX;
+						var newx = (shareDate.prex/100)*shareDate.pagew+data.mX;
+
+						if(newx > 0 && data.mX != 0){
+							newx = (shareDate.prex/100)*shareDate.pagew + data.mX/3;
+
+						}else if( newx < shareDate.max && data.mX != 0 ){
+							newx = (shareDate.prex/100)*shareDate.pagew + data.mX/3;
+						}
+
+						$e.css('-webkit-transform', 'translate3d('+ newx +'px, 0, 0)');
+					}
+				},
+
+				/*
+				clickCb		: function(event, bindNode, shareDate){
+					 alert(event.target.tagName+' click');
+				},
+				*/
+
+				slideEndCb	: function(event, data, bindNode, shareDate){
+
+					var $e = $(bindNode).children(".js_slider_mv_list"),
+						s = $e.css('-webkit-transform'),
+						// prex = shareDate.prex,
+						prex = (shareDate.prex/100)*shareDate.pagew;
+						// page = parseInt((parseInt($e.css('width'))/100)) || 1;
+						page = parseInt($e.attr("page"));
+
+					$e.css('-webkit-transition','all 400ms ease-out');
+
+					var li = 0, max=0;
+
+					if(window.isVertically){
+						li = Ipad.liwidth*Ipad.numv;
+						max = (-li)*(page-1);
+					}else{
+						li = Ipad.liwidth*Ipad.numh;
+						max = (-li)*(page-1);
+					}
+
+					var mX = data.mX,
+						mT = data.mT,
+						speed = ( mX /mT ),
+						cp = 0;
+					if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+
+						if( mX >0 ){ // 触发向右滑动
+							cp = parseInt(prex/li)+2;
+
+						}else{ // 触发向左滑动
+							cp = parseInt(prex/li)-2;
+						}
+					}else{
+						if( mX >0 ){ // 触发向右滑动
+							cp = (parseInt(prex/li)+1);
+						}else{ // 触发向左滑动
+							cp = (parseInt(prex/li)-1);
+						}
+					}
+					prex = cp*li;
+
+					if(prex>0){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = 0;
+						cp = 0;
+					}else if( prex < max ){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = max;
+						cp = page-1;
+					}
+
+					$e.css('-webkit-transform', 'translate3d(-'+Math.abs(cp)*100+'%, 0, 0)');
+					$e.attr({
+						prex	: '-'+Math.abs(cp)*100+'%',
+						cp 		: Math.abs(cp)
+					});
+					Ipad.updateLi($e);
+				}
+			});
+		})();
+	}
+
+};
+
+
+Mvrecom = {
+
+	firstInit : true,
+
+	pageView : null,
+
+	loadingData : false,
+
+	recomdata : null,
+
+	tpl : {
+		focusmvitem :  [
+			'<li page="indexpage" hotclick="%(hot)" class="jumpclick" recordtype="10012" recordid="%(vid)" data-name="%(title)" data-singer="%(singer)">',
+				'<div class="mod_inner_box">',
+					'<div class="mod_cover"><img src="%(img)"></div>',
+					'<h3 class="mv_tit"><span class="song_name">%(title)</span><span class="author">%(singer)</span></h3>',
+				'</div>',
+			'</li>'
+		].join(''),
+
+		mvitem : [
+			'<li page="indexpage" hotclick="%(hot)" class="jumpclick" recordtype="10012" recordid="%(vid)" data-name="%(mvname)" data-singer="%(mvsinger)">',
+				'<a href="javascript:;" class="mod_mv_list__itembox">',
+					'<div class="mod_inner_box">',
+						'<div class="mod_cover"><img src="%(img)"></div>',
+						'<h3 class="mv_tit">%(title)</h3>',
+						'<p class="mv_info">%(singer)</p>',
+						'<p><span class="count">%(count)</span></p>',
+					'</div>',
+				'</a>',	
+			'</li>'
+		].join(''),
+
+		mvSection : [
+			'<section class="mod_slider %(sectionclass)">',
+				'<header class="sort_header">',
+					'<h2 class="mod_tit c_bd_l_green">%(title)</h2>',
+					'<a %(morestyle) href="javascript:;" jumpurl="%(url)" class="jumpclick jumprecommvmore more_btn" page="indexpage" hotclick="%(hotclick)">更多<i>&gt;</i></a>',
+				'</header>',
+				'<div class="mod_mv_list js_slider_mv">',
+					'<ul  class="js_slider_mv_list">%(list)</ul>',
+				'</div>',
+			'</section>'
+		].join(''),
+
+		sliderMvSection : [
+			'<section class="mod_slider mv_tab %(sectionclass)">',
+				'<header>',
+					'<h2 class="mod_tit c_bd_l_green">%(title)</h2>',
+					'<div class="slider_ctrl"></div>',
+				'</header>',
+				'<div class="mod_mv_list js_slider_mv">',
+					'<ul class="js_slider_mv_list">%(list)</ul>',
+				'</div>',
+			'</section>'
+		].join(''),
+
+		packgeitem : [
+			'<li page="indexpage" hotclick="%(hot)" class="jumpclick js_mvpackge" recordid="%(id)">',
+				'<a href="javascript:;" class="mod_mv_list__itembox">',
+					'<div class="mod_inner_box">',
+						'<div class="mod_cover"><img src="%(img)"></div>',
+						'<h3 class="mv_tit">%(title)</h3>',
+						'<p class="mv_info">%(singer)</p>',
+						'<p><span class="count">%(count)</span></p>',
+					'</div>',
+				'</a>',	
+			'</li>'
+		].join('')
+	},
+
+	getMvrecomData : function(){
+
+		M.get('mvrecompage.mvrecomdata', function(ret){
+
+			if(ret.code == 0){
+				var data = "";
+
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Mvrecom.getMvrecomDataCb(data);
+				}
+			}
+		});
+
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/v8/fcg-bin/getmv_by_tag?tuijian=1&format=jsonp&outCharset=utf-8';
+			M.showLoading(Mvrecom.pageView);
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'jsonpCallback',
+				success	: function(data){
+					if(data.code==0){
+						M.set('mvrecompage.mvrecomdata', JSON.stringify(data), function(ret){});
+					}
+					Mvrecom.getMvrecomDataCb(data);
+				}
+			});
+		});
+	},
+
+	getMvrecomDataCb : function(data){
+		M.hideLoading(Mvrecom.pageView);
+		if(data.code == 0){
+			Mvrecom.recomdata = data;
+			$(document.body).trigger('data:mvrecomdata', data);
+		}
+	},
+
+	renderPage : function(event, ret){
+		var parts = ret.data.parts;
+		$.each(parts, function(index, item){
+			/*
+				item.type :
+					focus
+					shoubo
+					rebo
+					vocal
+					xuanxiu
+			*/
+			if(item.type){
+				$(document.body).trigger('data:mvrecom_'+item.type, item);
+			}
+		});
+
+	},
+
+	initFocus : function(event, data){
+		var mvlist = data.mvlist,
+			list = [];
+
+		Mvrecom.imgJumpdata = [];
+
+		$.each(mvlist, function(index, item){
+
+			list.push({
+				img 	: item.picurl,
+				title	: item.mvtitle||'',
+				singer	: item.singername||'',
+				attr 	: {
+					index : index
+				},
+				itemdata : item
+			});
+
+			Mvrecom.imgJumpdata.push(item);
+
+		});
+
+		Slide.init({
+			ulDom 		: $('#imgul'),
+			slideDom 	: $('.focus'),
+			list 		: list
+		});
+
+	},
+
+	initMvlist : function(event, data){
+		var list = data.mvlist,
+			tpl = Mvrecom.tpl.mvitem,
+			mvSection = Mvrecom.tpl.mvSection,
+			type = data.type,
+			mvlist = [];
+
+		var pagetype='', sectionclass = '', hotclick='';
+		if(type=='shoubo'){
+			pagetype = 'new';
+			sectionTitle='首播';
+			sectionclass = 'js_mvrecom_shoubo';
+			hotclick = 'shoubo_more';
+		}else{
+			pagetype = 'hot';
+			sectionTitle='热播';
+			sectionclass = 'js_mvrecom_hot';
+			hotclick = 'hot_more';
+		}
+
+		$.each(list, function(index, item){
+			var count = '';
+
+			if(type=='shoubo'){
+				count = item.publictime;
+			}else{
+				count = M.makeListenStr( item.listennum )+'人播放';
+			}
+
+			mvlist.push(tpl.jstpl_format({
+				img 	: item.picurl,
+				title 	: item.mvtitle+' - '+item.singername,
+				singer 	: item.mvdesc,
+				hot 	: type,
+				count 	: count,
+				vid 	: item.vid,
+				mvname	: item.mvtitle,
+				mvsinger: item.singername
+			}));
+		});
+
+		if(mvlist.length){
+			if( $('.'+sectionclass, Mvrecom.pageView).length ){
+				$('.'+sectionclass+' ul', Mvrecom.pageView).html(mvlist.join(''));
+			}else{
+				var section = mvSection.jstpl_format({
+					sectionclass : sectionclass,
+					title 	: sectionTitle,
+					url		: 'http://y.qq.com/ipad/mvnew.html?_bid=243&type='+pagetype,
+					hotclick : hotclick,
+					list	: mvlist.join('')
+				});
+				$(Mvrecom.pageView).append($(section));
+			}
+		}
+	},
+
+	initVocal : function(event, data){
+		var list = data.mvlist,
+			tpl = Mvrecom.tpl.mvitem,
+			sliderMvSection = Mvrecom.tpl.sliderMvSection,
+			type = data.type,
+			mvlist = [];
+		$.each(list, function(index, item){
+			var count = '';
+			if(type=='shoubo'){
+				count = item.publictime;
+			}else{
+				count = M.makeListenStr( item.listennum )+'人播放';
+			}
+
+			mvlist.push(tpl.jstpl_format({
+				img 	: item.picurl,
+				title 	: item.mvtitle+' - '+item.singername,
+				singer 	: count,
+				hot 	: type,
+				vid 	: item.vid,
+				mvname	: item.mvtitle,
+				mvsinger: item.singername
+			}));
+		});
+
+		if(mvlist.length){
+			if($('.js_mvrecom_vocal', Mvrecom.pageView).length){
+				$('.js_mvrecom_vocal ul', Mvrecom.pageView).html(mvlist.join(''));
+			}else{
+				var section = sliderMvSection.jstpl_format({
+					sectionclass : 'js_mvrecom_vocal',
+					title 	: '演唱会',
+					list	: mvlist.join('')
+				});
+				$(Mvrecom.pageView).append($(section));
+			}
+		}
+	},
+
+	initPackge : function(event, data){
+		var list = data.packagelist,
+			tpl = Mvrecom.tpl.packgeitem,
+			sliderMvSection = Mvrecom.tpl.sliderMvSection,
+			type = data.type,
+			mvlist = [];
+		$.each(list, function(index, item){
+			mvlist.push(tpl.jstpl_format({
+				img 	: item.picurl,
+				title 	: item.title,
+				singer 	: item.publictime,
+				hot 	: type,
+				id 	: item.id
+			}));
+		});
+
+		if(mvlist.length){
+			if( $('.js_mvrecom_packge', Mvrecom.pageView).length ){
+				$('.js_mvrecom_packge ul', Mvrecom.pageView).html(mvlist.join(''));
+			}else{
+				var section = sliderMvSection.jstpl_format({
+					sectionclass : 'js_mvrecom_packge',
+					title 	: '选秀节目',
+					morestyle : 'style="display:none;"',
+					list	: mvlist.join('')
+				});
+				$(Mvrecom.pageView).append($(section));
+			}
+		}
+		var s = Mvrecom.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&12='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		setTimeout(function(){
+			Ipad.onRientationChange();
+		}, 500);
+	},
+
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+
+	init : function(){
+
+		if(this.firstInit){
+			this.speed.pageStart = (+ new Date());
+			$(document).on('data:mvrecomdata', Mvrecom.renderPage);
+			$(document).on('data:mvrecom_focus', Mvrecom.initFocus);
+			$(document).on('data:mvrecom_shoubo', Mvrecom.initMvlist);
+			$(document).on('data:mvrecom_rebo', Mvrecom.initMvlist);
+			$(document).on('data:mvrecom_vocal', Mvrecom.initVocal);
+			$(document).on('data:mvrecom_xuanxiu', Mvrecom.initPackge);
+			this.firstInit = false;
+			this.pageView = Ipad.viewCache['indexpage'];
+			this.getMvrecomData();
+		}
+
+		setTimeout(function(){
+			M.doPv('/ipad/mvrecom.html');
+		}, 1000);
+	}
+
+};
+
+
+Category = {
+
+	firstInit : true,
+
+	firstUseLocalData : true,
+
+	pageView : null,
+
+	loadingData : false,
+
+	pageinfo : {
+		pagenum : 0,
+		total : 0
+	},
+
+	perpage : 24,
+
+	sendData : null,
+
+	tpl : {
+		mvitem : [
+			'<li class="jumpclick %(addclass)" page="categorypage" hotclick="mv" recordid="%(vid)" recordtype="%(recordtype)" data-name="%(title)" data-singer="%(singer)">',
+				'<a href="javascript:;" class="mod_mv_list__itembox">',
+					'<div class="mod_inner_box">',
+						'<div class="mod_cover"><img src="%(img)"></div>',
+						'<h3 class="mv_tit">%(name)</h3>',
+						'%(subtitle)',
+					'</div>',
+				'</a>',
+			'</li>'
+		].join('')
+	},
+
+	getCategoryData : function(p, isappend){
+		if(this.firstUseLocalData){
+			this.firstUseLocalData = false;
+			M.get('mvrecompage.categorydata', function(ret){
+				if(ret.code == 0){
+					var data = "";
+					try{
+						data = JSON.parse( ret.value );
+					}catch(e){
+						data = null;
+					}
+					if(data){
+						Category.getCategoryDataCb(data);
+					}
+				}
+			});
+
+		}
+		var url = 'http://i.y.qq.com/v8/fcg-bin/getmv_by_tag?format=jsonp&outCharset=utf-8';
+
+		var p = p || {};
+
+		var sendData = $.extend({
+			type		: 1,
+			year		: 0,
+			area		: 0,
+			tag			: 0,
+			pageno		: Category.pageinfo.pagenum,
+			pagecount	: Category.perpage
+		}, p);
+
+		Category.sendData = sendData;
+
+		$.ajax({
+			type	: 'get',
+			url 	: url,
+			data	: sendData,
+			dataType: 'jsonp',
+			jsonp 	: 'jsonpCallback',
+			success	: function(data){
+				Category.getCategoryDataCb(data, isappend);
+				if(data.code==0 && sendData.type == 1 && sendData.year==0 && sendData.area==0 && sendData.tag==0 && sendData.pageno==0 ){
+					M.set('mvrecompage.categorydata', JSON.stringify(data), function(ret){});
+				}
+			}
+		});
+
+	},
+
+	getCategoryDataCb : function(data, isappend){
+		$('#category_loading').hide();
+		if(data.code == 0){
+			var _ = Category;
+			_.loadingData = false;
+			_.pageinfo.total = data.data.sum;
+			_.pageinfo.pagenum++;
+
+			if( (_.pageinfo.pagenum* _.perpage) >= _.pageinfo.total ){
+				M.hideLoading(Category.pageView);
+			}
+
+			$(document.body).trigger('data:categorydata', [data.data, isappend]);
+		}else{
+			$('#category_list', Category.pageView).html('');
+			$('#no_category_list', Category.pageView).show();
+			$('#category_list', Category.pageView).parent().hide();
+		}
+	},
+
+	getMore : function(){
+		if( this.loadingData ){ // 正在加载数据
+			return;
+		}else{
+			this.loadingData = true;
+		}
+
+		var pageinfo = this.pageinfo;
+		if( pageinfo && ( (pageinfo.pagenum * this.perpage) >= pageinfo.total ) || pageinfo.pagenum >= 10 ){ // 加载完成
+			M.hideLoading(Category.pageView);
+			return ;
+		}else{
+			M.showLoading(Category.pageView);
+
+			if(Category.sendData){
+				Category.sendData.pageno = ( pageinfo.pagenum );
+				Category.getCategoryData( Category.sendData , true);
+			}
+		}
+
+	},
+
+	selectTag : function(node){
+		var $tag 	= $(node),
+			sort 	= $tag.attr('data-sort'),
+			id		= $tag.attr('data-id'),
+			sendData = Category.sendData;
+
+		setTimeout(function(){
+			M.hotClick('ipad.categorypage.tag');
+		});
+
+		if($tag.hasClass('current')){
+			return;
+		}else{
+			$('a.js_tag' , $tag.closest('.js_tag_nav')).removeClass('current');
+			$tag.addClass('current');
+		}
+
+		var hasChange = true;
+
+		if(sort == 'type'){
+			sendData.type = id;
+		}else if(sort == 'area'){
+			sendData.area = id;
+		}else if(sort == 'tag'){
+			sendData.tag = id;
+		}else if(sort == 'year'){
+			sendData.year = id;
+		}else{
+			hasChange = false;
+		}
+
+		if(hasChange){
+			Category.pageinfo = {
+				pagenum : 0,
+				total : 0
+			};
+
+			sendData.pageno = 0;
+
+			Category.loadingData = false;
+			// console.log(JSON.stringify(sendData));
+			$('#categorynav').removeClass('open');
+
+			var namestr = ['','',''];
+
+			$('a.js_tag.current').each(function(index, item){
+				var $item 	= $(item),
+					sort 	= $item.attr('data-sort');
+				if(sort == 'area'){
+					namestr[0] = $item.html();
+				}else if(sort == 'tag'){
+					namestr[1] = $item.html();
+				}else if(sort == 'year'){
+					namestr[2] = $item.html();
+				}
+			});
+
+
+
+			if( namestr[0] == namestr[1] && namestr[0] == namestr[2] ){
+				$('#showmorenav').html('全部');
+			}else{
+				var tagstr = [];
+				$.each(namestr, function(index, item){
+					if(item != '全部'){
+						tagstr.push(item);
+					}
+				});
+				$('#showmorenav').html(tagstr.join(' · '));
+			}
+			$('#category_list', Category.pageView).html('');
+			$('#category_list', Category.pageView).parent().show();
+			M.hideLoading(Category.pageView);
+			$('#category_loading').show();
+			$('#no_category_list', Category.pageView).hide();
+			Category.getCategoryData(sendData);
+
+		}
+
+	},
+
+	initMvlist : function(event, mvdata, isappend){
+		var list = mvdata.mvlist,
+			tpl = Category.tpl.mvitem,
+			mvlist = [],
+			ismvlist = true;
+
+		if( typeof list =='undefined' && mvdata.packagelist){
+			list = mvdata.packagelist;
+			ismvlist = false;
+		}
+
+		if( list && list.length){
+			var isnew = false;
+			if(Category.sendData.type == 1){
+				isnew = true;
+			}
+
+			$.each(list, function(index, item){
+
+				if(ismvlist){
+
+					var subtitle = '',
+						img = 'http://vpic.video.qq.com/'+item.mv_id+'/'+item.vid+'_160_90_3.jpg';
+
+					if(isnew){
+						subtitle = '<p class="mv_info">'+item.publictime+'</p>';
+					}else{
+						var count = '', score='';
+						if(item.listennum>0){
+							count = M.makeListenStr( item.listennum )+'人播放';
+						}
+						if(item.mvscore){
+							score = parseFloat(item.mvscore/10);
+							score = score.toFixed(1);
+						}
+
+						subtitle = '<p><span class="count">'+ count +'</span><span class="grade">'+ score +'</span></p>';
+					}
+
+					mvlist.push(tpl.jstpl_format({
+						recordtype : 10012,
+						img 	: img,
+						name 	: item.mvtitle+' '+item.singername,
+						vid		: item.vid,
+						subtitle: subtitle,
+						title	: item.mvtitle,
+						singer	: item.singername
+					}));
+				}else{
+					var count = '', score='';
+					if(item.listennum>0){
+						count = M.makeListenStr( item.listennum )+'人播放';
+					}
+					var subtitle = '<p><span class="count">'+ count +'</span>';
+					mvlist.push(tpl.jstpl_format({
+						recordtype : 'mvpackge',
+						img 	: item.picurl,
+						name 	: item.title,
+						vid		: item.id,
+						addclass : 'js_mvpackge',
+						subtitle: subtitle
+					}));
+				}
+
+			});
+
+			if( !isappend ){
+				$('#category_list', Category.pageView).html(mvlist.join(''));
+			}else{
+				$('#category_list', Category.pageView).append(mvlist.join(''));
+			}
+			$('#no_category_list', Category.pageView).hide();
+			$('#category_list', Category.pageView).parent().show();
+		}else{
+			$('#category_list', Category.pageView).html('');
+			$('#no_category_list', Category.pageView).show();
+			$('#category_list', Category.pageView).parent().hide();
+		}
+
+		var s = Category.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&13='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+
+	},
+
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+
+	init : function(){
+
+		if(Category.firstInit){
+			this.speed.pageStart = (+ new Date());
+			Category.firstInit = false;
+			Category.pageView = Ipad.viewCache['categorypage'];
+			$(document).on('data:categorydata', Category.initMvlist);
+
+			Category.pageinfo = {
+				pagenum : 0,
+				total : 0
+			};
+
+			Category.getCategoryData();
+		}
+
+		setTimeout(function(){
+			M.doPv('/ipad/category.html');
+		}, 1000);
+	}
+
+};
+
+
+Mvtopic = {
+
+	firstInit : true,
+
+	pageView : null,
+
+	hasLoadCache : false,
+
+	netDataCont : 0,
+
+	loadingData : false,
+
+	showNum : 0,
+
+	total : 1,
+
+	addNum : 18,
+
+
+	cacheData : {},
+
+	newMvData : null,
+
+	tpl : {
+		mvItem : [
+			'<li class="jumpclick"  page="mvtopicrecom" hotclick="mv" recordid="%(id)" recordtype="%(type)" cid="%(cid)">',
+				'<a href="javascript:;" class="mod_mv_list__itembox">',
+					'<div class="mod_inner_box">',
+						'<div class="mod_cover size_232_109"><img src="%(picUrl)"></div>',
+						'<h3 class="mv_tit">%(title)</h3>',
+						'<p class="mv_info">%(introduction)</p>',
+						'<p><span class="date">%(date)</span><span class="count">%(listen)人播放</span></p>',
+					'</div>',
+				'</a>',
+			'</li>'
+		].join('')
+	},
+
+	getMvData : function(){
+
+		if( this.loadingData ){ // 正在加载数据
+			return;
+		}else{
+			this.loadingData = true;
+		}
+
+		if( Mvtopic.showNum >= Mvtopic.total ){ // 加载完成
+			M.hideLoading(Mvtopic.pageView);
+			return ;
+		}else{
+			M.showLoading(Mvtopic.pageView);
+			if( !Mvtopic.hasLoadCache ){
+				Mvtopic.hasLoadCache = true;
+				M.get('mvtopic.mvdata', function(ret){
+					if(ret.code == 0){
+						var data = "";
+
+						try{
+							data = JSON.parse( ret.value );
+						}catch(e){
+							data = null;
+						}
+						if(data){
+							$(document.body).trigger('data:mvtopic', data);
+						}
+					}
+				});
+
+			}
+			var url = 'http://i.y.qq.com/mv/fcgi-bin/fcg_mv_theme?cid=285&typeid=2009&itemid=1&sin='+this.showNum+'&pagesize='+ this.addNum +'&ct=18';
+			this.loadingData = true;
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					if(data.code==0){
+						Mvtopic.showNum += Mvtopic.addNum;
+						setTimeout(function(){
+							Mvtopic.loadingData = false;
+						}, 50);
+						Mvtopic.netDataCont++;
+						if(Mvtopic.netDataCont == 1){
+							Mvtopic.total = data.count;
+							M.set('mvtopic.mvdata', JSON.stringify(data), function(ret){});
+						}
+						$(document.body).trigger('data:mvtopic', data);
+					}else if(data.code == -1){
+						Mvtopic.total = 0;
+						M.hideLoading(Mvtopic.pageView);
+					}
+				}
+			});
+		}
+	},
+
+
+	initMvlist : function(event, data){
+		var listhtml = [];
+		$.each(data.list, function(index, item){
+			item.listen = M.makeListenStr(item.listennum);
+
+			item.title = item.title.decodeBase();
+			item.introduction = item.introduction.decodeBase();
+			item.date = item.date.decodeBase();
+			item.listen = M.makeListenStr(item.listennum);
+			item.picUrl = M.addMaxage(item.picUrl );
+
+			listhtml.push(Mvtopic.tpl.mvItem.jstpl_format(item));
+		});
+		if( Mvtopic.netDataCont < 2 ){
+			$('#mv_list', Mvtopic.pageView).html(listhtml.join(''));
+		}else{
+			$('#mv_list', Mvtopic.pageView).append(listhtml.join(''));
+		}
+
+		var s = Mvtopic.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&10='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+	},
+
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+
+	init : function(){
+		if( this.firstInit ){
+			this.firstInit = false;
+			this.speed.pageStart = (+ new Date());
+			$(document).on('data:mvtopic', Mvtopic.initMvlist);
+			Mvtopic.pageView = Ipad.viewCache['mvtopicpage'];
+			setTimeout(function(){
+				Mvtopic.getMvData();
+			},100);
+		}
+
+		setTimeout(function(){
+			M.doPv('/ipad/mvtopicrecom.html');
+		}, 1000);
+	}
+
+};
+
+document.addEventListener("DOMContentLoaded", function(){
+
+	Ipad.init();
+
+	if( !/qqmusic/ig.test(navigator.userAgent)){
+		Mvrecom.init();
+	}
+
+}, false);
+
+document.addEventListener('WebViewJavascriptBridgeReady', function(e){
+	Mvrecom.init();
+});
+
+</script>
+</body>
+</html>

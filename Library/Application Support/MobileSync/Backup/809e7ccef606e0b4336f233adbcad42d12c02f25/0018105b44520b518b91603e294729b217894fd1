@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ana_open_udid</key>
+	<string>3D29B3DE-FC38-403A-BAE7-5E520ACE3B56</string>
+	<key>ana_qimei</key>
+	<string>2014102823134808828:31:52:b0:29:b0145475</string>
+	<key>ana_ver_hash</key>
+	<string>1.00.180(1.00.180)</string>
+	<key>rqd_heartbeat</key>
+	<string>2015-11-02</string>
+	<key>rqd_not_first_usage</key>
+	<true/>
+</dict>
+</plist>

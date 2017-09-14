@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Recomments</key>
+	<array/>
+	<key>citycode</key>
+	<string>CHXX0016</string>
+	<key>code</key>
+	<string>200</string>
+	<key>icon</key>
+	<string>http://u1.sinaimg.cn/upload/tqt/resource/life_index/9010/d_i_2_7.jpg?v=0</string>
+	<key>id</key>
+	<string>2</string>
+	<key>img_l</key>
+	<string>http://u1.sinaimg.cn/upload/tqt/resource/life_index/9010/d_i_2_7.jpg?v=0</string>
+	<key>img_p</key>
+	<string>http://u1.sinaimg.cn/upload/tqt/resource/life_index/9010/d_i_2_7.jpg?v=0</string>
+	<key>intro</key>
+	<string>宜着衬衫、薄长裙、T恤，短裙、短裤、短套装等夏季服装。天气较热，推荐棉麻面料，手感柔软，透气性好。</string>
+	<key>level</key>
+	<string>衬衫</string>
+	<key>level_id</key>
+	<string>7</string>
+	<key>name</key>
+	<string>穿衣</string>
+	<key>result</key>
+	<string>success</string>
+	<key>tpl</key>
+	<string>1</string>
+	<key>ts</key>
+	<string>1404310737</string>
+	<key>vote</key>
+	<dict>
+		<key>bad</key>
+		<string>22</string>
+		<key>bad_comment</key>
+		<string>没这么热嘛，穿短袖要感冒的。</string>
+		<key>bad_txt</key>
+		<string>没这么热吧</string>
+		<key>good</key>
+		<string>104</string>
+		<key>good_comment</key>
+		<string>这天气，短袖短裤才是标准配置啊~</string>
+		<key>good_txt</key>
+		<string>确实很热啊</string>
+	</dict>
+</dict>
+</plist>

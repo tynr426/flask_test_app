@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>stations</key>
+		<dict>
+			<key>inserted</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>On-The-Go</string>
+					<key>uuid</key>
+					<string>PlaylistOnTheGo</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>最新单集</string>
+					<key>uuid</key>
+					<string>PlaylistMostRecent</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>所有未播放单集</string>
+					<key>uuid</key>
+					<string>PlaylistAllUnplayed</string>
+				</dict>
+			</array>
+		</dict>
+		<key>uuid</key>
+		<string>29260A80-6C09-450B-BF2C-0D95737F5181</string>
+	</dict>
+	<dict>
+		<key>podcasts</key>
+		<dict>
+			<key>inserted</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>阿U有声漫画</string>
+					<key>uuid</key>
+					<string>28E8D523-64E9-49AD-87B8-46035A927D63</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</array>
+</plist>

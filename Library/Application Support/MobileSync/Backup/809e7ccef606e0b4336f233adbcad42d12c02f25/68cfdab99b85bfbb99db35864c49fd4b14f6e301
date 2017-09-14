@@ -1,0 +1,57 @@
+2013-12-12 19:05:33.178	[lvl=2]	(null)	===================================================
+2013-12-12 19:05:33.187	[lvl=2]	(null)	Penultimate ("墨笔": com.cocoabox.penultimate)
+2013-12-12 19:05:33.188	[lvl=2]	(null)	Model: iPad
+2013-12-12 19:05:33.189	[lvl=2]	(null)	System: iPhone OS
+2013-12-12 19:05:33.190	[lvl=2]	(null)	Version: 6.1.3
+2013-12-12 19:05:33.190	[lvl=2]	(null)	Main screen scale: 1.00
+2013-12-12 19:05:33.191	[lvl=2]	(null)	Localization: zh-Hans
+2013-12-12 19:05:33.191	[lvl=2]	(null)	Locale: zh_CN
+2013-12-12 19:05:33.191	[lvl=2]	(null)	---------------------------------------------------
+2013-12-12 19:05:33.194	[lvl=2]	(null)	Build date: Fri Jul 19 13:35:22 PDT 2013
+2013-12-12 19:05:33.195	[lvl=2]	(null)	Session begin at 2013-12-12 11:05:33 +0000
+2013-12-12 19:05:33.199	[lvl=2]	(null)	Current bundle version 4.1.3.0 (running as 4.1.3)
+2013-12-12 19:05:33.200	[lvl=2]	(null)	First installed version: 4.1.1
+2013-12-12 19:05:33.200	[lvl=2]	(null)	Most recent version: 4.1.3
+2013-12-12 19:05:33.204	[lvl=2]	(null)	Launch 7 since 2013-05-19 09:57:57 +0000. Launch 6 since last update.
+2013-12-12 19:05:33.206	[lvl=2]	(null)	Last app shutdown/suspend was clean, at 2013-10-27 17:48:53 +0000
+2013-12-12 19:05:33.217	[lvl=2]	(null)	Device/installation ID: 355B3864-41A9-4F89-8276-507ADCDA044A
+2013-12-12 19:05:33.218	[lvl=2]	(null)	Remaining disk space: 4218601472
+2013-12-12 19:05:33.255	[lvl=2]	-[AppController appSessionStarted:]	app session started, username 'tynr426'
+2013-12-12 19:05:33.319	[lvl=2]	-[PaperController setup]	Failed to open primary paper list file.
+2013-12-12 19:05:33.321	[lvl=2]	-[PaperController setup]	Creating empty paper list.
+2013-12-12 19:05:33.332	[lvl=2]	-[SyncController signInWithCredentials:]	Creating context for user ID 2799083 (username: 'tynr426' email: 'tynr426@126.com')
+2013-12-12 19:05:33.353	[lvl=2]	+[EDAMHTTPClient(PenultimateUserAgent) createClientVersionString_PenultimateUserAgent]	Client name: Penultimate iOS/4.1.3.0 (zh-Hans-CN); iPad2,5/iPhone OS (6.1.3);
+2013-12-12 19:05:33.593	[lvl=2]	-[NotebooksController startupWithAccountContext:]	NotebooksController startup: 1 total notes known. 0 in trash. 1 match for use.
+2013-12-12 19:05:33.613	[lvl=2]	-[NotebooksController startupWithAccountContext:]	NotebooksController startup: 0 oversize-offline notes
+2013-12-12 19:05:33.618	[lvl=2]	-[NotebooksController startupWithAccountContext:]	NotebooksController startup: has unsynced changes
+2013-12-12 19:05:33.618	[lvl=2]	(null)	-------------
+2013-12-12 19:05:33.629	[lvl=2]	(null)	Matching notes (1): 
+2013-12-12 19:05:33.630	[lvl=2]	(null)	Note 9D55A538-EA14-4D53-86B5-DAE13EBDFDAF (10 pages)
+2013-12-12 19:05:33.631	[lvl=2]	(null)	-------------
+2013-12-12 19:05:33.648	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=Not Reachable
+2013-12-12 19:05:33.651	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	canAccessNetwork returned NO
+2013-12-12 19:05:49.290	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:05:49.374	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-12-12 19:06:04.288	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:06:04.308	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-12-12 19:06:19.287	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:06:19.306	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-12-12 19:06:23.976	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:06:34.288	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:06:34.310	[lvl=2]	__35-[WritingViewController _autoSave:]_block_invoke	(page autosaved)
+2013-12-12 19:06:39.530	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:06:40.047	[lvl=2]	-[WritingViewController editPages:]	ASSERTION FAILED: (!pagesListController) :: -[WritingViewController editPages:] ::/Users/bzotto/src/Penultimate-iOS-4.1.3/proj/Classes/Writing View/WritingViewController.m(2169)
+2013-12-12 19:06:54.103	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=Not Reachable
+2013-12-12 19:06:54.106	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	canAccessNetwork returned NO
+2013-12-12 19:07:00.989	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:07:01.570	[lvl=2]	-[WritingViewController editPages:]	ASSERTION FAILED: (!pagesListController) :: -[WritingViewController editPages:] ::/Users/bzotto/src/Penultimate-iOS-4.1.3/proj/Classes/Writing View/WritingViewController.m(2169)
+2013-12-12 19:07:04.841	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=Not Reachable
+2013-12-12 19:07:04.844	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	canAccessNetwork returned NO
+2013-12-12 19:07:16.785	[lvl=2]	-[NotebookDocument commitPage:completion:]	committing page 8AA7BDE3-F51E-4092-97EF-EFC39B89391E, dirty = 1
+2013-12-12 19:07:20.426	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=Not Reachable
+2013-12-12 19:07:20.429	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	canAccessNetwork returned NO
+2013-12-12 19:07:37.748	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	reachability currentReachabilityStatus=Not Reachable
+2013-12-12 19:07:37.757	[lvl=2]	-[ENSyncEngine syncIgnoringNetworkPreference:forcingAuthRefresh:]	canAccessNetwork returned NO
+2013-12-12 19:07:43.096	[lvl=2]	-[AppController enterBackground]	2013-12-12 11:07:43 +0000: Enter background.
+2013-12-12 19:07:43.229	[lvl=2]	-[ENCacheManager stop]	self=<ENCacheManager: 0x1d0615c0>, contextID=(null)
+2013-12-12 19:07:43.298	[lvl=2]	-[SyncController cacheManagerDidStop]	Cache manager did stop

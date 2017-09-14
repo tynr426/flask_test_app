@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEVID</key>
+	<data>
+	wu7cnzyQzVmc+siTTjqOtQ==
+	</data>
+	<key>GUID</key>
+	<data>
+	3hdpFLfJorzj48aSesB80g==
+	</data>
+	<key>WtloginLastInfo</key>
+	<dict>
+		<key>LoginAppVer</key>
+		<string>5.0</string>
+		<key>LoginSdkVer</key>
+		<string>5.3.3.1168</string>
+		<key>LoginTime</key>
+		<integer>1463906041</integer>
+	</dict>
+	<key>WtloginSigTime</key>
+	<dict>
+		<key>258</key>
+		<integer>86400</integer>
+		<key>259</key>
+		<integer>7200</integer>
+		<key>262</key>
+		<integer>2592000</integer>
+		<key>266</key>
+		<integer>2419200</integer>
+		<key>284</key>
+		<integer>1728000</integer>
+		<key>288</key>
+		<integer>86400</integer>
+		<key>310</key>
+		<integer>1814400</integer>
+		<key>323</key>
+		<integer>1814400</integer>
+		<key>356</key>
+		<integer>1814400</integer>
+	</dict>
+	<key>WtloginUserNoPicSig</key>
+	<dict>
+		<key>121347419</key>
+		<data>
+		7Slu/XLtPerGus7kobdeRk3GOs1YrYRAnQfI07Yii+PouG2fuShugq5Vtyxl
+		WOD/
+		</data>
+	</dict>
+	<key>WtloginUserPwdSig</key>
+	<dict>
+		<key>121347419</key>
+		<data>
+		mIjsg4nQne3guIRv1VsitS8hniKj2KejqeRULcliTiVtBU+8bsskssR+nCV5
+		3Fzd3QI9Hd2uLj/qRhBR6zHZ/cg5dxHKet1t9JAN9e4bIyEAKRimq04HTSYS
+		xdSrAEjCwa/02Uyy4HHMg6KifeQo3xRXRny+WOZLc7d473AW1+1zAbEQFJbG
+		aGskTLx8b0evq1cYngfOf2FP1WNOegQNpQ==
+		</data>
+	</dict>
+</dict>
+</plist>

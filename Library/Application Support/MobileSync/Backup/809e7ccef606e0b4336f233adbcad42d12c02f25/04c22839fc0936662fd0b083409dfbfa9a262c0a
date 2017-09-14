@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SWForecastLive</key>
+	<array>
+		<dict>
+			<key>car</key>
+			<string>3,8</string>
+			<key>date</key>
+			<string>2014-07-02</string>
+		</dict>
+		<dict>
+			<key>car</key>
+			<string>4,9</string>
+			<key>date</key>
+			<string>2014-07-03</string>
+		</dict>
+		<dict>
+			<key>car</key>
+			<string>5,0</string>
+			<key>date</key>
+			<string>2014-07-04</string>
+		</dict>
+		<dict>
+			<key>car</key>
+			<string>0</string>
+			<key>date</key>
+			<string>2014-07-05</string>
+		</dict>
+		<dict>
+			<key>car</key>
+			<string>0</string>
+			<key>date</key>
+			<string>2014-07-06</string>
+		</dict>
+		<dict>
+			<key>car</key>
+			<string>1,6</string>
+			<key>date</key>
+			<string>2014-07-07</string>
+		</dict>
+		<dict>
+			<key>car</key>
+			<string>2,7</string>
+			<key>date</key>
+			<string>2014-07-08</string>
+		</dict>
+	</array>
+	<key>city</key>
+	<string>CHXX0016</string>
+	<key>citycode</key>
+	<string>CHXX0016</string>
+	<key>result</key>
+	<string>success</string>
+	<key>timestamp</key>
+	<string>1404310879</string>
+</dict>
+</plist>

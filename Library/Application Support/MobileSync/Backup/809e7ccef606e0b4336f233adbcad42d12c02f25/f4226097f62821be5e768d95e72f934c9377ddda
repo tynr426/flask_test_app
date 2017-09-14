@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>全部歌单</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/song_menu_detail.css">
+
+
+</head>
+<body>
+<div class="wrap">
+	<div class="main">
+        <section>
+            <div class="mod_album_list multi_row">
+                <ul class="width_item_148">
+                    
+                </ul>
+            </div>
+        </section>
+	</div>
+</div>
+
+<script src="http://y.qq.com/ipad/js/zepto.js?_bid=243"></script>
+<script src="http://y.qq.com/ipad/js/core.js?_bid=243"></script>
+<script>
+
+Ipad = {
+	
+	viewCache : {},
+	
+	updateLi : function(node){
+		var $e = $(node),
+			cp = parseInt($e.attr('cp'))||0,
+			pagew = parseInt($e.attr('pagew'))||0,
+			page = Math.abs(parseInt($e.attr('page'))||1),
+			prex = 0;
+		
+		if( cp >= (page-1) ){
+			cp = page-1;
+		}else if(cp<0){
+			cp = 0;
+		}
+		prex = cp*pagew;
+		$('.slider_ctrl i', $e.parent()).removeClass('current').eq(cp).addClass('current');
+		$e.css('-webkit-transform', 'translate3d(-'+prex+'px, 0, 0)');
+		if(isVertically){
+			$('div.size_148', $e).slice(cp*4,(cp+1)*4).initImg();
+		}else{
+			$('div.size_148', $e).slice(cp*5,(cp+1)*5).initImg();
+		}
+	},
+	
+	// 初始化横向列表的状态
+	onRientationChange : function(){
+		
+		$.fn.checkOrientation();
+		/*
+		$('.album_slider_album_list').each(function(index, item){
+			var list = $('li', item),
+				$e = $(item);
+			if(list.length){
+				var page =0, pagew=0, pagemax=0;
+				if(window.isVertically){
+					page = Math.ceil(list.length/4);
+					pagew = 168*4;
+					pagemax = -168*3;
+				}else{
+					page = Math.ceil(list.length/5);
+					pagew = 168*5;
+					pagemax = -168*4;
+				}
+				
+				$e.attr({
+					page : page,
+					pagew : pagew,
+					pagemax : pagemax
+				}).css('width', (page*100+40)+'%');
+			}
+			var ihtml = [];
+			for(var i=0; i<=page; i++){
+				ihtml.push('<i></i>');
+			}
+			if(page==1){
+				$('.slider_ctrl', $e.parent()).html('');
+			}else{
+				$('.slider_ctrl', $e.parent()).html(ihtml.join(''));
+			}
+			Ipad.updateLi($e);
+		});
+		
+		*/
+	},
+	
+	init : function(){
+		
+		
+		$(window).on('orientationchange', function(){
+			Ipad.onRientationChange();
+			M.updateViewport();
+		});
+		
+		// 初始化列表滚动touch + 初始化横向列表的状态
+		;(function(){
+			
+			Ipad.onRientationChange();
+			M.updateViewport();
+			/*
+			$(document.body).slideToucher({
+				
+				bindClass : '.album_slider_album_list',
+				
+				slideStartCb : function(event, data, bindNode, shareDate){
+					$(bindNode).css('-webkit-transition','');
+					var s = $(bindNode).css('-webkit-transform'),
+					prex = parseInt(s.split('translateX(')[1]) || 0;
+					$(bindNode).attr('prex', prex);
+					shareDate.prex = prex;
+				},
+				
+				slideCb 	: function(event, data, bindNode, shareDate){
+					if(data.isX){
+						$(bindNode).css('-webkit-transform', 'translateX('+(shareDate.prex+data.mX)+'px)');
+					}
+				},
+				
+				slideEndCb	: function(event, data, bindNode, shareDate){
+					
+					var $e = $(bindNode),
+						s = $e.css('-webkit-transform'),
+						prex = shareDate.prex,
+						page = parseInt((parseInt($e.css('width'))/100)) || 1;
+						
+					$e.css('-webkit-transition','all 400ms ease-out');
+					
+					var li = 0, max=0;
+					
+					if(window.isVertically){
+						li = 168*4;
+						max = (-li)*(page-1);
+					}else{
+						li = 168*5;
+						max = (-li)*(page-1);
+					}
+					
+					var mX = data.mX,
+						mT = data.mT,
+						speed = ( mX /mT ),
+						cp = 0;
+					if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+						
+						if( mX >0 ){ // 触发向右滑动
+							cp = parseInt(prex/li)+2;
+
+						}else{ // 触发向左滑动
+							cp = parseInt(prex/li)-2;
+						}
+					}else{
+						if( mX >0 ){ // 触发向右滑动
+							cp = (parseInt(prex/li)+1);
+						}else{ // 触发向左滑动
+							cp = (parseInt(prex/li)-1);
+						}
+					}
+					prex = cp*li;
+					
+					if(prex>0){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = 0;
+						cp = 0;
+					}else if( prex < max ){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = max;
+						cp = page-1;
+					}
+					
+					$e.css('-webkit-transform', 'translateX('+prex+'px)');
+					$e.attr({
+						prex	: prex,
+						cp 		: Math.abs(cp)
+					});
+					Ipad.updateLi(bindNode);
+				}
+			});
+			*/
+			
+		})();
+		
+	}
+	
+};
+
+Taogelist = {
+	
+	categoryid 	: 0,
+	
+	sortid		: 0,
+	
+	showNum 	: 0,
+	
+	totalNum 	: 0,
+	
+	addNum 		: 20,
+	
+	loadingData : false,
+	
+	taogeInfo 	: null,
+	
+	taogeData 	: {
+		
+	},
+	
+	tpl : {
+		taogeItem : [
+			'<li class="jumpclick taogeitem" page="taogelist" hotclick="playlist" recordtype="10014" recordid="%(dissid)" reportstr="2,294,2940">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148 imgcut"  style="background-image:url(%(imgurl))">',
+				//'		<img src="%(imgurl)" >',
+				'		%(dj)',
+				'	</div>',
+				'	<h3 class="album_tit">%(dissname)</h3>',
+				'	<p class="singer">%(singer)%(vip)</p>',
+				'	<p class="count">%(listen)人听</p>',
+				'</a>',
+			'</li>'
+		].join('')
+	},
+
+
+	htmlDecode:function(str){
+
+        var div = document.createElement('div');
+        div.innerHTML = str + "";
+        return div.innerText || div.textNode || '';
+    },
+
+    htmlEncode:function(str){
+
+
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/\'/g,'&#39;').replace(/\//g,'&#47;').replace(/\n/g,'<br/>');
+    },
+	
+	getTaogeData : function(){
+		
+		if( this.loadingData ){ // 正在加载数据
+			return; 
+		}else{
+			this.loadingData = true;
+		}
+		
+		if( this.totalNum && this.showNum >= this.totalNum || this.showNum >= 180  ){
+			this.loadingData = true;
+			M.hideLoading();
+			// 已经拉取完
+			return ;
+		}else{
+			M.showLoading();
+			var url = 'http://i.y.qq.com/s.plcloud/fcgi-bin/fcg_get_diss_by_tag.fcg?cid=298&ct=18&categoryId='+Taogelist.categoryid+'&sortId='+Taogelist.sortid+'&sin='+Taogelist.showNum+'&ein='+(Taogelist.showNum + Taogelist.addNum -1)+'&g_tk=5381&inCharset=GB2312&outCharset=utf-8&notice=0&platform=padgedan&needNewCode=0';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'jsonpCallback',
+				jsonpCallback: 'iTaogeJsonCallBack',
+				success	: function(data){
+					Taogelist.loadingData = false;
+					if(!Taogelist.totalNum){
+						Taogelist.totalNum = data.data.sum;
+					}
+					Taogelist.showNum += Taogelist.addNum;
+					
+					$(document.body).trigger('data:taogelist', data.data);
+				
+				}
+			});
+		}
+		
+	},
+	
+	initTaogelist : function(event, data){
+		var listhtml = [];
+		
+		$.each(data.list, function(index, item){
+			
+			// item.dissname = item.dissname.decodeBase();
+			// item.singer = item.creator.name.decodeBase();
+			item.dissname = Taogelist.htmlEncode(Taogelist.htmlDecode(Taogelist.htmlDecode(item.dissname)));
+			item.singer = Taogelist.htmlEncode(Taogelist.htmlDecode(Taogelist.htmlDecode(item.creator.name)));
+			item.listen =  M.makeListenStr(item.listennum);
+			
+			if( item.version == 7 ){
+				item.dj = '<span>DJ节目</span>';
+			}
+			if( item.creator.isVip ){
+				item.vip = '<i class="identification_icon"></i>';
+			}
+			
+			listhtml.push(Taogelist.tpl.taogeItem.jstpl_format(item));
+		});
+		
+		$('.width_item_148').append(listhtml.join(''));
+		
+		var s = Taogelist.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&11='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		
+	},
+	
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	init : function(){
+		this.speed.pageStart = (+ new Date());
+		this.categoryid = M.getParam('categoryid');
+		this.sortid = M.getParam('sortid');
+		$(document).on('data:taogelist', this.initTaogelist);
+		
+		$(document).on('scroll', function(){
+			var bodyHeight = document.body.clientHeight,
+				clientHeight = window.innerHeight,
+				maxScroll = bodyHeight-clientHeight,
+				scrollTop = document.body.scrollTop;
+			if( scrollTop >= maxScroll-100 && !Taogelist.loadingData ){
+				Taogelist.getTaogeData();
+			}
+		}, false);
+		
+		$(document.body).slideToucher({
+			bindClass : '.jumpclick',
+			clickCb : function(event, bindNode, shareDate){
+				var recordtype  = parseInt($(bindNode).attr('recordtype')),
+					recordid	= $(bindNode).attr('recordid'),
+					hotpage = $(bindNode).attr('page')||'defualt',
+					hottype = $(bindNode).attr('hotclick')||'defualt';
+					
+				var reportstr = $(bindNode).attr('reportstr')||'';
+					
+				M.hotClick('ipad.'+hotpage+'.'+hottype);
+				if( recordtype && recordid ){
+					 M.jump(recordtype, recordid, reportstr);
+				}
+			}
+		});
+		
+		this.getTaogeData();
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+	
+	Ipad.init();
+	Taogelist.init();
+	setTimeout(function(){
+		M.doPv('/ipad/taogelist.html');
+	}, 1000);
+}, false);
+
+</script>
+</body>
+</html>

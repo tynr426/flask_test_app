@@ -1,0 +1,97 @@
+<application>
+  <component name="StatisticsApplicationUsages">
+    <group name="run-configuration-type">
+      <project id="MyService" values="AndroidRunConfigurationType" collectionTime="1477366167888" />
+      <project id="My Service1" values="AndroidRunConfigurationType" collectionTime="1477365676242" />
+      <project id="LearnFragment" values="AndroidRunConfigurationType" collectionTime="1473170498103" />
+      <project id="helloworld" values="AndroidRunConfigurationType" collectionTime="1477979363970" />
+      <project id="text" values="AndroidRunConfigurationType" collectionTime="1477366173941" />
+      <project id="otherapp" values="AndroidRunConfigurationType" collectionTime="1472355920239" />
+      <project id="test" values="AndroidRunConfigurationType" collectionTime="1474551528557" />
+    </group>
+    <group name="frameworks">
+      <project id="MyService" values="android-gradle,java-gradle,android" collectionTime="1477366167887" />
+      <project id="My Service1" values="android,android-gradle,java-gradle" collectionTime="1477365676241" />
+      <project id="LearnFragment" values="android,android-gradle,java-gradle" collectionTime="1473170498103" />
+      <project id="helloworld" values="android,android-gradle,java-gradle" collectionTime="1477979363970" />
+      <project id="text" values="android-gradle,android,java-gradle" collectionTime="1477366173941" />
+      <project id="otherapp" values="android-gradle,java-gradle,android" collectionTime="1472355920239" />
+      <project id="Android-PullToRefresh" values="android" collectionTime="1477995956669" />
+      <project id="test" values="android,java-gradle,android-gradle" collectionTime="1474551528557" />
+    </group>
+    <group name="vcs">
+      <project id="Android" values="Git" collectionTime="1478063141614" />
+      <project id="test" values="Git" collectionTime="1474551528557" />
+    </group>
+    <group name="file-type">
+      <project id="MyService" values="Properties,PLAIN_TEXT,IDEA_MODULE,AIDL,JAVA,ProGuard File,UNKNOWN,XML,ARCHIVE,Groovy,Images" collectionTime="1477366168038" />
+      <project id="text" values="Properties,UNKNOWN,Images,JAVA,ARCHIVE,AIDL,Groovy,PLAIN_TEXT,IDEA_MODULE,ProGuard File,XML" collectionTime="1477366173977" />
+      <project id="LearnFragment" values="AIDL,Images,PLAIN_TEXT,IDEA_MODULE,UNKNOWN,ProGuard File,Groovy,Properties,XML,ARCHIVE,JAVA" collectionTime="1473170498158" />
+      <project id="test" values="IDEA_MODULE,Groovy,ARCHIVE,ProGuard File,AIDL,Properties,JAVA,PLAIN_TEXT,UNKNOWN,XML,Images" collectionTime="1474551528585" />
+      <project id="Android-PullToRefresh" values="UNKNOWN,ARCHIVE,PLAIN_TEXT,HTML,ProGuard File,IDEA_MODULE,JAVA,XML,Properties,Images" collectionTime="1477995956700" />
+      <project id="Android" values="IDEA_MODULE,UNKNOWN,XML,PLAIN_TEXT" collectionTime="1478063141620" />
+      <project id="otherapp" values="XML,PLAIN_TEXT,IDEA_MODULE,Groovy,Images,ProGuard File,AIDL,ARCHIVE,Properties,UNKNOWN,JAVA" collectionTime="1472355920357" />
+      <project id="androidhello" values="UNKNOWN" collectionTime="1472782498454" />
+      <project id="My Service1" values="JAVA,AIDL,UNKNOWN,XML,Images,PLAIN_TEXT,IDEA_MODULE,Groovy,ProGuard File,ARCHIVE,Properties" collectionTime="1477365676408" />
+      <project id="helloworld" values="PLAIN_TEXT,Images,AIDL,JAVA,ARCHIVE,XML,Properties,IDEA_MODULE,Groovy,UNKNOWN,ProGuard File" collectionTime="1477979364021" />
+    </group>
+    <group name="module type">
+      <project id="MyService" values="JAVA_MODULE" collectionTime="1477366167887" />
+      <project id="text" values="JAVA_MODULE" collectionTime="1477366173941" />
+      <project id="LearnFragment" values="JAVA_MODULE" collectionTime="1473170498103" />
+      <project id="test" values="JAVA_MODULE" collectionTime="1474551528557" />
+      <project id="Android-PullToRefresh" values="JAVA_MODULE" collectionTime="1477995956669" />
+      <project id="Android" values="JAVA_MODULE" collectionTime="1478063141614" />
+      <project id="otherapp" values="JAVA_MODULE" collectionTime="1472355920239" />
+      <project id="androidhello" values="JAVA_MODULE" collectionTime="1472782498446" />
+      <project id="My Service1" values="JAVA_MODULE" collectionTime="1477365676241" />
+      <project id="helloworld" values="JAVA_MODULE" collectionTime="1477979363970" />
+    </group>
+    <group name="Git">
+      <project id="MyService" values="config.update.type.BRANCH_DEFAULT,config.force.push.enabled,config.repo.sync.NOT_DECIDED,config.save.policy.STASH,config.warn.about.detached.enabled,config.warn.about.crlf.enabled,config.push.autoupdate.disabled,config.push.update.all.roots.enabled,config.ssh.enabled,config.cherry-pick.autocommit.disabled" collectionTime="1477366168051" />
+      <project id="text" values="config.warn.about.detached.enabled,config.save.policy.STASH,config.push.autoupdate.disabled,config.repo.sync.NOT_DECIDED,config.update.type.BRANCH_DEFAULT,config.push.update.all.roots.enabled,config.force.push.enabled,config.cherry-pick.autocommit.disabled,config.warn.about.crlf.enabled,config.ssh.enabled" collectionTime="1477366173980" />
+      <project id="LearnFragment" values="config.push.update.all.roots.enabled,config.ssh.enabled,config.warn.about.detached.enabled,config.push.autoupdate.disabled,config.cherry-pick.autocommit.disabled,config.force.push.enabled,config.update.type.BRANCH_DEFAULT,config.save.policy.STASH,config.repo.sync.NOT_DECIDED,config.warn.about.crlf.enabled" collectionTime="1473170498159" />
+      <project id="test" values="config.push.update.all.roots.enabled,config.repo.sync.NOT_DECIDED,data.remote.branches.count.0,config.force.push.enabled,data.remotes.in.project.0,config.warn.about.crlf.enabled,data.local.branches.count.0,config.warn.about.detached.enabled,config.save.policy.STASH,config.cherry-pick.autocommit.disabled,config.push.autoupdate.disabled,config.update.type.BRANCH_DEFAULT,config.ssh.enabled" collectionTime="1474551528585" />
+      <project id="Android-PullToRefresh" values="config.update.type.BRANCH_DEFAULT,config.warn.about.crlf.enabled,config.push.update.all.roots.enabled,config.save.policy.STASH,config.push.autoupdate.disabled,config.warn.about.detached.enabled,config.force.push.enabled,config.cherry-pick.autocommit.disabled,config.repo.sync.NOT_DECIDED,config.ssh.enabled" collectionTime="1477995956701" />
+      <project id="Android" values="data.local.branches.count.0,config.update.type.BRANCH_DEFAULT,data.remotes.in.project.1,config.warn.about.crlf.enabled,config.repo.sync.NOT_DECIDED,config.cherry-pick.autocommit.disabled,config.push.update.all.roots.enabled,config.ssh.enabled,config.force.push.enabled,config.push.autoupdate.disabled,data.remote.branches.count.0,config.warn.about.detached.enabled,config.save.policy.STASH" collectionTime="1478063141625" />
+      <project id="otherapp" values="config.repo.sync.NOT_DECIDED,config.push.autoupdate.disabled,config.ssh.enabled,config.force.push.enabled,config.save.policy.STASH,config.warn.about.detached.enabled,config.cherry-pick.autocommit.disabled,config.update.type.BRANCH_DEFAULT,config.push.update.all.roots.enabled,config.warn.about.crlf.enabled" collectionTime="1472355920358" />
+      <project id="androidhello" values="config.warn.about.detached.enabled,config.repo.sync.NOT_DECIDED,config.save.policy.STASH,config.warn.about.crlf.enabled,config.update.type.BRANCH_DEFAULT,config.push.update.all.roots.enabled,config.ssh.enabled,config.push.autoupdate.disabled,config.cherry-pick.autocommit.disabled,config.force.push.enabled" collectionTime="1472782498456" />
+      <project id="My Service1" values="config.ssh.enabled,config.force.push.enabled,config.update.type.BRANCH_DEFAULT,config.push.autoupdate.disabled,config.warn.about.crlf.enabled,config.save.policy.STASH,config.push.update.all.roots.enabled,config.repo.sync.NOT_DECIDED,config.cherry-pick.autocommit.disabled,config.warn.about.detached.enabled" collectionTime="1477365676423" />
+      <project id="helloworld" values="config.force.push.enabled,config.update.type.BRANCH_DEFAULT,config.save.policy.STASH,config.push.autoupdate.disabled,config.push.update.all.roots.enabled,config.repo.sync.NOT_DECIDED,config.warn.about.detached.enabled,config.warn.about.crlf.enabled,config.ssh.enabled,config.cherry-pick.autocommit.disabled" collectionTime="1477979364021" />
+    </group>
+    <group name="language-level">
+      <project id="MyService" values="JDK_1_8,JDK_1_7" collectionTime="1477366168050" />
+      <project id="text" values="JDK_1_8,JDK_1_7" collectionTime="1477366173980" />
+      <project id="LearnFragment" values="JDK_1_7,JDK_1_8" collectionTime="1473170498159" />
+      <project id="test" values="JDK_1_7,JDK_1_8" collectionTime="1474551528585" />
+      <project id="Android-PullToRefresh" values="JDK_1_8" collectionTime="1477995956701" />
+      <project id="Android" values="JDK_1_6" collectionTime="1478063141620" />
+      <project id="otherapp" values="JDK_1_7" collectionTime="1472355920358" />
+      <project id="androidhello" values="JDK_1_8" collectionTime="1472782498456" />
+      <project id="My Service1" values="JDK_1_7" collectionTime="1477365676421" />
+      <project id="helloworld" values="JDK_1_7" collectionTime="1477979364021" />
+    </group>
+  </component>
+  <component name="UsageTrigger">
+    <counts>
+      <entry feature="execute.AndroidRunConfigurationType.Debug" count="56" />
+      <entry feature="execute.AndroidRunConfigurationType.Run" count="492" />
+      <entry feature="ide.settings.Android_SDK" count="4" />
+      <entry feature="ide.settings.Colors_&amp;_Fonts" count="2" />
+      <entry feature="ide.settings.Console_Font" count="5" />
+      <entry feature="ide.settings.Font" count="6" />
+      <entry feature="ide.settings.Gradle" count="2" />
+      <entry feature="ide.settings.HTTP_Proxy" count="3" />
+      <entry feature="ide.settings.Project_Structure" count="4" />
+      <entry feature="ideaapp.started" count="36" />
+      <entry feature="terminal.mac" count="10" />
+      <entry feature="welcome.screen.WelcomeScreen.Configure" count="5" />
+      <entry feature="welcome.screen.WelcomeScreen.CreateNewProject" count="6" />
+      <entry feature="welcome.screen.WelcomeScreen.DevelopPlugins" count="1" />
+      <entry feature="welcome.screen.WelcomeScreen.Documentation" count="1" />
+      <entry feature="welcome.screen.WelcomeScreen.OpenProject" count="1" />
+      <entry feature="welcome.screen.WelcomeScreen.Plugins" count="2" />
+      <entry feature="welcome.screen.WelcomeScreen.RunAndroidSdkManager" count="2" />
+    </counts>
+  </component>
+</application>

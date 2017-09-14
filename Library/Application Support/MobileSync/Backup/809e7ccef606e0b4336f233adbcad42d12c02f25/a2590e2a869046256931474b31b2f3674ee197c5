@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<activitys exportable="true" url_root="http://static.manimal.happyelements.cn/activity_static/" version="316"> 
+  <activity source="SPDBankPromotion/config.lua" version="175dc83411050d8c2b0a786c5622e667" actId="70" beginTime="2016-7-8 10:00:00" endTime="2016-7-15 23:59:59"/>  
+  <activity source="LenovoPush/config.lua" version="084ef6a88d90dfc076deed87f423463c" beginTime="2016-06-01 10:00:00" endTime="2016-06-06 23:59:59"/>  
+  <activity source="JiangXiReward/Config.lua" version="cc8d8c8c642d3d8137f962563ebd962d" actId="71" beginTime="2016-07-15 00:00:00" endTime="2016-08-22 23:59:59"/>  
+  <activity source="JiangXi/Config.lua" version="1fd4cc73b3ca2ef231a6fa944cc13c0a" beginTime="2016-07-15 00:00:00" endTime="2016-08-22 23:59:59"/>  
+  <activity source="WeeklyHelpActivity/config.lua" version="a747282704b13126ff6f081bf09a253c" actId="51" beginTime="2015-11-10 00:00:00" endTime="2050-12-31 23:59:59"/>  
+  <activity source="FishPromotionIOS/Config.lua" version="94b71d752fd76b04a473614c4e83fdf4" actId="36" beginTime="2015-06-16 00:00:00" endTime="2020-07-16 23:59:59" stepIn="100"/>  
+  <activity source="FishPromotion/FishActivity_config.lua" version="2c83d4116c08a9284933b20ba3a2e858" stepIn="100"/>  
+  <activity source="ChildrenDay/Config.lua" version="dd45fccd2526d8f2217516ee322ff6cd" actId="66" beginTime="2016-05-26 10:00:00" endTime="2016-06-08 23:59:59" stepIn="100"/>  
+  <activity source="OppoPush/config.lua" version="c9d1e508d56b3c45d6bcb0be9f339d99" beginTime="2016-06-22 00:00:00" endTime="2016-06-26 23:59:59"/>  
+  <activity source="TranslatorPromotion/Config.lua" version="18b369768b90fefaff5729d89423792e" actId="67" beginTime="2016-7-1 10:00:00" endTime="2016-7-9 23:59:59"/>  
+  <activity source="UpdatePackage/Config.lua" version="00411563f706d05077f206eb2af49ecb"/>  
+  <activity source="Wildaid/Config.lua" version="0758acc7a948e6ff2be68899a9aadb89" actId="68" beginTime="2016-7-25 10:00:00" endTime="2016-8-1 23:59:59"/>  
+  <activity source="WildaidShare/Config.lua" version="25a7ba885ecc6b35ce4b69cb9324045a" actId="6666" beginTime="2016-7-1 10:00:00" endTime="2016-8-1 23:59:59"/>  
+  <activity source="EnergyPushActivity/config.lua" version="b17194b5b77375c17017700b12d3581e" beginTime="2016-08-02 00:00:00" endTime="2016-08-10 23:59:59"/>  
+  <activity source="ActivityCommon/Config.lua" version="b05f16570ba5c48a5cf606a6355043a6"/>  
+  <activity source="OppoSummerLottery/config.lua" version="6a182e8d00d24518e71c0bc83d9c1877" actId="76" beginTime="2016-08-17 00:00:00" endTime="2016-08-21 23:59:59"/>  
+  <activity source="Olympic/Config.lua" version="3d647a6ae97546fa761b9acc8168c2d3" actId="74" beginTime="2016-08-18 00:00:00" endTime="2016-09-03 23:59:59"/>  
+  <activity source="OlympicConfig/Config.lua" version="1a4a3aebad9d81290c58f40e4e7d1ee2" actId="75" beginTime="2016-08-19 10:00:00" endTime="2016-09-01 23:59:59"/> 
+</activitys>

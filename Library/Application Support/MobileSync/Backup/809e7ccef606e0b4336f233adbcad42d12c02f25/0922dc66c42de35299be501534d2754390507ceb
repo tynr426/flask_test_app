@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>end</key>
+		<real>0.0</real>
+		<key>pause</key>
+		<real>1476368649.293406</real>
+		<key>recover</key>
+		<real>1476368600.5688779</real>
+		<key>running</key>
+		<real>100.19818902015686</real>
+		<key>start</key>
+		<real>1476368600.5688779</real>
+	</dict>
+</array>
+</plist>

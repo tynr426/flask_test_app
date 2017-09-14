@@ -1,0 +1,279 @@
+2015-09-04 13:26:24.955 iPad.1.7.0  tynr426@126.com 6.1.3
+2015-09-04 13:26:41.314 [NW][Sync][NoteContentEventOperation][ID:9BA5FD05CC2F43E9ACCE03708F37C599,VS:1614]:server content note:9BA5FD05CC2F43E9ACCE03708F37C599 v:1614 not mod
+2015-09-04 13:26:46.072 [NW][Sync][NoteContentEventOperation][ID:9BA5FD05CC2F43E9ACCE03708F37C599,VS:1614]:server content note:9BA5FD05CC2F43E9ACCE03708F37C599 v:1614 not mod
+2015-09-04 13:26:50.493 [NW][Sync][NoteContentEventOperation][ID:C9E4D0B224FE42298EDA707DD84A187B,VS:1616]:download server content note:C9E4D0B224FE42298EDA707DD84A187B v:1616 finish
+2015-09-04 13:29:27.963 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:29:28.326 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:29:28.425 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:29:28.445 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:29:28.463 [NW][Sync][SyncEventOperation][TT:重命名 不识字,ID:1441344384237074,VS:0]:start push note:1441344384237074 title:重命名 不识字 v:0 attrv:0 nb:B33F3C0824314D0B986AD96F43F2F102 prenb:(null)
+2015-09-04 13:29:28.471 [NW][Sync][SyncEventOperation][ID:1441344384237074]:push content dirty note 1441344384237074
+2015-09-04 13:29:28.473 [NW][Sync][SyncEventOperation][ID:1441344384237074]:push notecontent id:1441344384237074 nb:B33F3C0824314D0B986AD96F43F2F102
+2015-09-04 13:29:29.736 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:29:29.826 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:29:30.055 [NW][Sync][NoteBookSyncHandler][NM:文言,ID:B33F3C0824314D0B986AD96F43F2F102,VS:1617]:store nb:B33F3C0824314D0B986AD96F43F2F102 name:文言 v:1617
+2015-09-04 13:29:30.070 [NW][Sync][SyncEventOperation][ID:1441344384237074,VS:0]:pull add no cur note:1441344384237074 v:0 attrv:1617
+2015-09-04 13:29:30.086 [NW][Sync][SyncEventOperation][ID:1441344384237074,ST:0,VS:1617]:store note:1441344384237074 v:1617 attrv:1617 needSync:0 state:0
+2015-09-04 13:29:30.417 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:30:42.911 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:30:43.221 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:30:43.297 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:30:43.302 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:30:43.304 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:30:43.401 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:30:43.877 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:31:21.873 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:31:22.192 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:31:22.267 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:31:22.296 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:31:22.300 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:31:22.353 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:31:22.824 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:32:50.410 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:32:50.768 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:32:50.840 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:32:50.845 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:32:50.847 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:32:50.949 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:32:51.435 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:34:42.122 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:34:42.501 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:34:42.604 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:34:42.609 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:34:42.611 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:34:42.708 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:34:43.217 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:37:56.652 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:37:56.979 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:37:57.056 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:37:57.078 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:37:57.081 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:37:57.161 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:37:57.704 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:39:06.315 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:39:06.671 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:39:06.744 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:39:06.748 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:39:06.751 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:39:06.841 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:39:07.358 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:48:48.964 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:48:49.319 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:48:49.387 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:48:49.395 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:48:49.397 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:48:49.491 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:48:50.029 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:49:45.508 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:49:45.868 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:49:45.947 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:49:45.954 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:49:45.957 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:49:46.062 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:49:46.552 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:50:26.341 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:50:26.658 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:50:26.723 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:50:26.740 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:50:26.753 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:50:26.828 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:50:27.306 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:51:30.603 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:51:30.965 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:51:31.073 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:51:31.087 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:51:31.090 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:51:31.193 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:51:31.707 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 13:52:12.528 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 13:52:12.858 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 13:52:12.930 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 13:52:12.933 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 13:52:12.936 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 13:52:13.028 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 13:52:13.497 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 14:10:05.236 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 14:10:05.650 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 14:10:05.726 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 14:10:05.728 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 14:10:05.731 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 14:10:05.810 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 14:10:06.345 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 14:10:42.609 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 14:10:42.940 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 14:10:43.006 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 14:10:43.011 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 14:10:43.024 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 14:10:43.100 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 14:10:43.568 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 14:11:39.610 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 14:11:39.969 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 14:11:40.056 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 14:11:40.058 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 14:11:40.061 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 14:11:40.152 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 14:11:40.601 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 15:47:48.287 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 15:47:48.629 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 15:47:48.691 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 15:47:48.702 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 15:47:48.715 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 15:47:48.796 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 15:47:49.286 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 15:47:53.008 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 15:47:53.134 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 15:47:53.226 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 15:47:53.229 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 15:47:53.232 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-04 15:47:53.325 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-04 15:47:53.890 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-04 15:47:55.517 [NW][Sync][SyncEventOperation]:start sync
+2015-09-04 15:47:55.615 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-04 15:47:55.682 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-04 15:47:55.689 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-04 15:47:55.703 [NW][Sync][SyncEventOperation][TT:不识字,ID:C9E4D0B224FE42298EDA707DD84A187B,VS:1616]:start push note:C9E4D0B224FE42298EDA707DD84A187B title:不识字 v:1616 attrv:1616 nb:B33F3C0824314D0B986AD96F43F2F102 prenb:(null)
+2015-09-04 15:47:55.721 [NW][Sync][SyncEventOperation][ID:C9E4D0B224FE42298EDA707DD84A187B]:push content dirty note C9E4D0B224FE42298EDA707DD84A187B
+2015-09-04 15:47:55.806 [NW][Sync][SyncEventOperation][ID:C9E4D0B224FE42298EDA707DD84A187B]:push notecontent id:C9E4D0B224FE42298EDA707DD84A187B nb:B33F3C0824314D0B986AD96F43F2F102
+2015-09-08 22:41:02.099 iPad.1.7.0  tynr426@126.com 6.1.3
+2015-09-08 22:41:02.254 [NW][Login][NoteManager][NM:tynr426@126.com,ID:tynr426@126.com]:autoLoginTSina with reachable authServerID:tynr426@126.com, authServerName:tynr426@126.com
+2015-09-08 22:41:02.844 [NW][Sync][SyncEventOperation]:start sync
+2015-09-08 22:41:02.986 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-08 22:41:03.500 [NW][Sync][NoteBookSyncHandler][NM:sql,ID:046DFEA820444496814C914D3A8F6402,VS:1644]:store nb:046DFEA820444496814C914D3A8F6402 name:sql v:1644
+2015-09-08 22:41:03.503 [NW][Sync][NoteBookSyncHandler][NM:entity framework,ID:22CF83BD726249F9B519FDBFC9D0559B,VS:1631]:store nb:22CF83BD726249F9B519FDBFC9D0559B name:entity framework v:1631
+2015-09-08 22:41:03.510 [NW][Sync][NoteBookSyncHandler][NM:工作记录,ID:6CF4D9B414544F87AEA862F42E89AFA0,VS:1640]:store nb:6CF4D9B414544F87AEA862F42E89AFA0 name:工作记录 v:1640
+2015-09-08 22:41:03.513 [NW][Sync][NoteBookSyncHandler][NM:文言,ID:B33F3C0824314D0B986AD96F43F2F102,VS:1650]:store nb:B33F3C0824314D0B986AD96F43F2F102 name:文言 v:1650
+2015-09-08 22:41:03.523 [NW][Sync][SyncEventOperation][ID:554F2024792E486EAA04EC2CDE7AC16D,VS:0]:pull add no cur note:554F2024792E486EAA04EC2CDE7AC16D v:0 attrv:1642
+2015-09-08 22:41:03.527 [NW][Sync][SyncEventOperation][ID:554F2024792E486EAA04EC2CDE7AC16D,ST:0,VS:0]:store note:554F2024792E486EAA04EC2CDE7AC16D v:0 attrv:1642 needSync:0 state:0
+2015-09-08 22:41:03.535 [NW][Sync][SyncEventOperation][ID:611119C57FA6403FB0B833D104A17A37,VS:0]:pull add no cur note:611119C57FA6403FB0B833D104A17A37 v:0 attrv:1644
+2015-09-08 22:41:03.538 [NW][Sync][SyncEventOperation][ID:611119C57FA6403FB0B833D104A17A37,ST:0,VS:0]:store note:611119C57FA6403FB0B833D104A17A37 v:0 attrv:1644 needSync:0 state:0
+2015-09-08 22:41:03.540 [NW][Sync][SyncEventOperation][ID:4F4DE28A045D4B82A4FE8D5A19A5B938,VS:0]:pull add no cur note:4F4DE28A045D4B82A4FE8D5A19A5B938 v:0 attrv:1631
+2015-09-08 22:41:03.543 [NW][Sync][SyncEventOperation][ID:4F4DE28A045D4B82A4FE8D5A19A5B938,ST:0,VS:0]:store note:4F4DE28A045D4B82A4FE8D5A19A5B938 v:0 attrv:1631 needSync:0 state:0
+2015-09-08 22:41:03.548 [NW][Sync][SyncEventOperation][ID:D42A08FA0EED4E9D9EFA30A431A65B3F,VS:0]:pull add no cur note:D42A08FA0EED4E9D9EFA30A431A65B3F v:0 attrv:1637
+2015-09-08 22:41:03.551 [NW][Sync][SyncEventOperation][ID:D42A08FA0EED4E9D9EFA30A431A65B3F,ST:0,VS:0]:store note:D42A08FA0EED4E9D9EFA30A431A65B3F v:0 attrv:1637 needSync:0 state:0
+2015-09-08 22:41:03.569 [NW][Sync][SyncEventOperation][ID:F4E62A0C3F844921BC6268681AC8B0BD,VS:0]:pull add no cur note:F4E62A0C3F844921BC6268681AC8B0BD v:0 attrv:1640
+2015-09-08 22:41:03.572 [NW][Sync][SyncEventOperation][ID:F4E62A0C3F844921BC6268681AC8B0BD,ST:0,VS:0]:store note:F4E62A0C3F844921BC6268681AC8B0BD v:0 attrv:1640 needSync:0 state:0
+2015-09-08 22:41:03.574 [NW][Sync][SyncEventOperation][ID:C9E4D0B224FE42298EDA707DD84A187B,VS:0]:pull add no cur note:C9E4D0B224FE42298EDA707DD84A187B v:0 attrv:1650
+2015-09-08 22:41:03.577 [NW][Sync][NetworkUtility][ID:C9E4D0B224FE42298EDA707DD84A187B,ST:1,VS:1616]:note conflict local note:C9E4D0B224FE42298EDA707DD84A187B v:1616 needSync:1 servernote attrv:1650
+2015-09-08 22:41:03.579 [NW][Sync][NetworkUtility][TT:不识字,ID:1441723263574092]:rename conflict note:C9E4D0B224FE42298EDA707DD84A187B title:1441723263574092 new note:不识字
+2015-09-08 22:41:03.609 [NW][Sync][SyncEventOperation][ID:C9E4D0B224FE42298EDA707DD84A187B,ST:0,VS:0]:store note:C9E4D0B224FE42298EDA707DD84A187B v:0 attrv:1650 needSync:0 state:0
+2015-09-08 22:41:03.666 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-08 22:41:03.727 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-08 22:41:03.729 [NW][Sync][SyncEventOperation][TT:重命名 不识字,ID:1441723263574092,VS:0]:start push note:1441723263574092 title:重命名 不识字 v:0 attrv:0 nb:B33F3C0824314D0B986AD96F43F2F102 prenb:(null)
+2015-09-08 22:41:03.813 [NW][Sync][SyncEventOperation][ID:1441723263574092]:push content dirty note 1441723263574092
+2015-09-08 22:41:03.823 [NW][Sync][SyncEventOperation][ID:1441723263574092]:push notecontent id:1441723263574092 nb:B33F3C0824314D0B986AD96F43F2F102
+2015-09-08 22:41:05.371 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-08 22:41:05.471 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-08 22:41:05.674 [NW][Sync][NoteBookSyncHandler][NM:文言,ID:B33F3C0824314D0B986AD96F43F2F102,VS:1651]:store nb:B33F3C0824314D0B986AD96F43F2F102 name:文言 v:1651
+2015-09-08 22:41:05.687 [NW][Sync][SyncEventOperation][ID:1441723263574092,VS:0]:pull add no cur note:1441723263574092 v:0 attrv:1651
+2015-09-08 22:41:05.715 [NW][Sync][SyncEventOperation][ID:1441723263574092,ST:0,VS:1651]:store note:1441723263574092 v:1651 attrv:1651 needSync:0 state:0
+2015-09-08 22:41:06.017 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-08 22:41:16.271 [NW][Sync][SyncEventOperation]:start sync
+2015-09-08 22:41:16.375 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-08 22:41:16.443 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-08 22:41:16.450 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-08 22:41:16.452 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-08 22:41:16.541 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-08 22:41:17.046 [NW][Sync][SyncEventOperation]:sync finish
+2015-09-08 23:01:30.619 [NW][Sync][SyncEventOperation]:start sync
+2015-09-08 23:01:31.163 [NW][Sync][SyncEventOperation]:pull before push
+2015-09-08 23:01:31.225 [NW][Sync][SyncEventOperation]:start push nb
+2015-09-08 23:01:31.229 [NW][Sync][SyncEventOperation]:start push notes
+2015-09-08 23:01:31.250 [NW][Sync][SyncEventOperation]:start push del nb
+2015-09-08 23:01:31.327 [NW][Sync][SyncEventOperation]:pull after push
+2015-09-08 23:01:31.991 [NW][Sync][SyncEventOperation]:sync finish
+2015-10-18 11:00:08.970 iPad.1.7.0  tynr426@126.com 8.4.1
+2015-10-18 11:00:09.107 [NW][Login][NoteManager][NM:tynr426@126.com,ID:tynr426@126.com]:autoLoginTSina with reachable authServerID:tynr426@126.com, authServerName:tynr426@126.com
+2015-10-18 11:00:13.294 [NW][Login][NoteManager][NM:tynr426@126.com,ID:tynr426@126.com]:autoLoginTSina with reachable authServerID:tynr426@126.com, authServerName:tynr426@126.com
+2015-10-18 11:00:20.489 [NW][Sync][SyncEventOperation]:start sync
+2015-10-18 11:00:30.835 [NW][Sync][SyncEventOperation]:pull before push
+2015-10-18 11:00:41.795 [NW][Sync][SyncEventOperation][TT:无标题笔记(1),ID:2F81AD7CA7814A99B4DD799552DF59A4,VS:0]:pull del no current note:2F81AD7CA7814A99B4DD799552DF59A4 v:0 title:无标题笔记(1)
+2015-10-18 11:00:41.831 [NW][Sync][SyncEventOperation][TT:无标题笔记(2),ID:DA0F11BC1C15491C91805020FB86BA37,VS:0]:pull del no current note:DA0F11BC1C15491C91805020FB86BA37 v:0 title:无标题笔记(2)
+2015-10-18 11:00:41.834 [NW][Sync][SyncEventOperation][TT:无标题笔记(3),ID:EA1E6D4005754DACAF7D22C6ABA6EDB2,VS:0]:pull del no current note:EA1E6D4005754DACAF7D22C6ABA6EDB2 v:0 title:无标题笔记(3)
+2015-10-18 11:00:41.836 [NW][Sync][SyncEventOperation][TT:无标题笔记(4),ID:2FEC3938392245919B6A57BF24A5BA4D,VS:0]:pull del no current note:2FEC3938392245919B6A57BF24A5BA4D v:0 title:无标题笔记(4)
+2015-10-18 11:00:41.839 [NW][Sync][SyncEventOperation][TT:无标题笔记(5),ID:4E845F7824FA4925AD1E1F7B10D1A69C,VS:0]:pull del no current note:4E845F7824FA4925AD1E1F7B10D1A69C v:0 title:无标题笔记(5)
+2015-10-18 11:00:41.844 [NW][Sync][SyncEventOperation][TT:无标题笔记(6),ID:EA8947389CFE4C2D9BCE9988CAE653BC,VS:0]:pull del no current note:EA8947389CFE4C2D9BCE9988CAE653BC v:0 title:无标题笔记(6)
+2015-10-18 11:00:41.847 [NW][Sync][SyncEventOperation][TT:无标题笔记(7),ID:EEE07AFD1E3C4CF6A05D1402580BB1FC,VS:0]:pull del no current note:EEE07AFD1E3C4CF6A05D1402580BB1FC v:0 title:无标题笔记(7)
+2015-10-18 11:00:41.849 [NW][Sync][NoteBookSyncHandler][NM:sql,ID:046DFEA820444496814C914D3A8F6402,VS:1679]:store nb:046DFEA820444496814C914D3A8F6402 name:sql v:1679
+2015-10-18 11:00:41.852 [NW][Sync][NoteBookSyncHandler][NM:entity framework,ID:22CF83BD726249F9B519FDBFC9D0559B,VS:1652]:store nb:22CF83BD726249F9B519FDBFC9D0559B name:entity framework v:1652
+2015-10-18 11:00:41.855 [NW][Sync][NoteBookSyncHandler][NM:工作记录,ID:6CF4D9B414544F87AEA862F42E89AFA0,VS:1837]:store nb:6CF4D9B414544F87AEA862F42E89AFA0 name:工作记录 v:1837
+2015-10-18 11:00:41.864 [NW][Sync][NoteBookSyncHandler][NM:产品,ID:70ED29B5DC4E4612ACB1EAED946B0684,VS:1681]:store nb:70ED29B5DC4E4612ACB1EAED946B0684 name:产品 v:1681
+2015-10-18 11:00:41.877 [NW][Sync][NoteBookSyncHandler][NM:IOS,ID:CD6C7BBEA9004F7FAD94FFE3BAED7838,VS:1654]:store nb:CD6C7BBEA9004F7FAD94FFE3BAED7838 name:IOS v:1654
+2015-10-18 11:00:41.880 [NW][Sync][NoteBookSyncHandler][NM:日记,ID:D7152A98ADF54B71BA8A09951C67D627,VS:1683]:store nb:D7152A98ADF54B71BA8A09951C67D627 name:日记 v:1683
+2015-10-18 11:00:41.902 [NW][Sync][NoteBookSyncHandler][NM:分词,ID:D92EFCC38F79424C94B1ED4148BD7CE9,VS:1833]:store nb:D92EFCC38F79424C94B1ED4148BD7CE9 name:分词 v:1833
+2015-10-18 11:00:41.914 [NW][Sync][NoteBookSyncHandler][NM:DOM,ID:DCFF304ACC3145E5968D0640F0CA1FA7,VS:1656]:store nb:DCFF304ACC3145E5968D0640F0CA1FA7 name:DOM v:1656
+2015-10-18 11:00:41.916 [NW][Sync][NoteBookSyncHandler][NM:面向对象的程序设计,ID:EEA97E075C6448D686633B77A9A17BEB,VS:1655]:store nb:EEA97E075C6448D686633B77A9A17BEB name:面向对象的程序设计 v:1655
+2015-10-18 11:00:41.920 [NW][Sync][NoteBookSyncHandler][NM:默认笔记本,ID:SVRAB736FF7B27C40FEA83046CCEF42256F,VS:1659]:store nb:SVRAB736FF7B27C40FEA83046CCEF42256F name:默认笔记本 v:1659
+2015-10-18 11:00:41.922 [NW][Sync][SyncEventOperation][ID:13662F5463A447C498F8462A0AD51460,VS:0]:pull add no cur note:13662F5463A447C498F8462A0AD51460 v:0 attrv:1673
+2015-10-18 11:00:41.929 [NW][Sync][SyncEventOperation][ID:13662F5463A447C498F8462A0AD51460,ST:0,VS:0]:store note:13662F5463A447C498F8462A0AD51460 v:0 attrv:1673 needSync:0 state:0
+2015-10-18 11:00:41.939 [NW][Sync][SyncEventOperation][ID:1747E65EA8404CBE9EE1401079DBF49E,VS:0]:pull add no cur note:1747E65EA8404CBE9EE1401079DBF49E v:0 attrv:1679
+2015-10-18 11:00:41.943 [NW][Sync][SyncEventOperation][ID:1747E65EA8404CBE9EE1401079DBF49E,ST:0,VS:0]:store note:1747E65EA8404CBE9EE1401079DBF49E v:0 attrv:1679 needSync:0 state:0
+2015-10-18 11:00:41.956 [NW][Sync][SyncEventOperation][ID:2B5AF76E040A4A00BE42FF20066824B5,VS:0]:pull add no cur note:2B5AF76E040A4A00BE42FF20066824B5 v:0 attrv:1677
+2015-10-18 11:00:41.959 [NW][Sync][SyncEventOperation][ID:2B5AF76E040A4A00BE42FF20066824B5,ST:0,VS:0]:store note:2B5AF76E040A4A00BE42FF20066824B5 v:0 attrv:1677 needSync:0 state:0
+2015-10-18 11:00:41.962 [NW][Sync][SyncEventOperation][ID:955B372C36BD49D7972473BF83D5AA15,VS:0]:pull add no cur note:955B372C36BD49D7972473BF83D5AA15 v:0 attrv:1666
+2015-10-18 11:00:41.976 [NW][Sync][SyncEventOperation][ID:955B372C36BD49D7972473BF83D5AA15,ST:0,VS:0]:store note:955B372C36BD49D7972473BF83D5AA15 v:0 attrv:1666 needSync:0 state:0
+2015-10-18 11:00:41.986 [NW][Sync][SyncEventOperation][ID:A30DBE1594E642AAA0E1E6A269967697,VS:0]:pull add no cur note:A30DBE1594E642AAA0E1E6A269967697 v:0 attrv:1652
+2015-10-18 11:00:42.002 [NW][Sync][SyncEventOperation][ID:A30DBE1594E642AAA0E1E6A269967697,ST:0,VS:0]:store note:A30DBE1594E642AAA0E1E6A269967697 v:0 attrv:1652 needSync:0 state:0
+2015-10-18 11:00:42.010 [NW][Sync][SyncEventOperation][ID:4BE19130D0F04D70A6D06B2775FDAA7F,VS:0]:pull add no cur note:4BE19130D0F04D70A6D06B2775FDAA7F v:0 attrv:1705
+2015-10-18 11:00:42.013 [NW][Sync][SyncEventOperation][ID:4BE19130D0F04D70A6D06B2775FDAA7F,ST:0,VS:0]:store note:4BE19130D0F04D70A6D06B2775FDAA7F v:0 attrv:1705 needSync:0 state:0
+2015-10-18 11:00:42.016 [NW][Sync][SyncEventOperation][ID:C4DB028CA315462FBB0D891DBE80DF52,VS:0]:pull add no cur note:C4DB028CA315462FBB0D891DBE80DF52 v:0 attrv:1837
+2015-10-18 11:00:42.025 [NW][Sync][SyncEventOperation][ID:C4DB028CA315462FBB0D891DBE80DF52,ST:0,VS:0]:store note:C4DB028CA315462FBB0D891DBE80DF52 v:0 attrv:1837 needSync:0 state:0
+2015-10-18 11:00:42.034 [NW][Sync][SyncEventOperation][ID:ECD0581224B84D4EBE8C2BD2EA5B0531,VS:0]:pull add no cur note:ECD0581224B84D4EBE8C2BD2EA5B0531 v:0 attrv:1681
+2015-10-18 11:00:42.041 [NW][Sync][SyncEventOperation][ID:ECD0581224B84D4EBE8C2BD2EA5B0531,ST:0,VS:0]:store note:ECD0581224B84D4EBE8C2BD2EA5B0531 v:0 attrv:1681 needSync:0 state:0
+2015-10-18 11:00:42.045 [NW][Sync][SyncEventOperation][ID:6CE4598F20B1420C8F7FA111E20D2D74,VS:0]:pull add no cur note:6CE4598F20B1420C8F7FA111E20D2D74 v:0 attrv:1683
+2015-10-18 11:00:42.051 [NW][Sync][SyncEventOperation][ID:6CE4598F20B1420C8F7FA111E20D2D74,ST:0,VS:0]:store note:6CE4598F20B1420C8F7FA111E20D2D74 v:0 attrv:1683 needSync:0 state:0
+2015-10-18 11:00:42.075 [NW][Sync][SyncEventOperation][ID:5E6097BD36E7486C92DC35BA7ED84B58,VS:0]:pull add no cur note:5E6097BD36E7486C92DC35BA7ED84B58 v:0 attrv:1829
+2015-10-18 11:00:42.091 [NW][Sync][SyncEventOperation][ID:5E6097BD36E7486C92DC35BA7ED84B58,ST:0,VS:0]:store note:5E6097BD36E7486C92DC35BA7ED84B58 v:0 attrv:1829 needSync:0 state:0
+2015-10-18 11:00:42.102 [NW][Sync][SyncEventOperation][ID:652054833FAE4F94BF63A066E22C1EF1,VS:0]:pull add no cur note:652054833FAE4F94BF63A066E22C1EF1 v:0 attrv:1833
+2015-10-18 11:00:42.116 [NW][Sync][SyncEventOperation][ID:652054833FAE4F94BF63A066E22C1EF1,ST:0,VS:0]:store note:652054833FAE4F94BF63A066E22C1EF1 v:0 attrv:1833 needSync:0 state:0
+2015-10-18 11:00:42.131 [NW][Sync][SyncEventOperation][ID:7C0F6CC0F68946BE842512E4219E05A6,VS:0]:pull add no cur note:7C0F6CC0F68946BE842512E4219E05A6 v:0 attrv:1686
+2015-10-18 11:00:42.141 [NW][Sync][SyncEventOperation][ID:7C0F6CC0F68946BE842512E4219E05A6,ST:0,VS:0]:store note:7C0F6CC0F68946BE842512E4219E05A6 v:0 attrv:1686 needSync:0 state:0
+2015-10-18 11:00:42.144 [NW][Sync][SyncEventOperation]:start push nb
+2015-10-18 11:00:42.154 [NW][Sync][SyncEventOperation]:start push notes
+2015-10-18 11:00:42.162 [NW][Sync][SyncEventOperation]:start push del nb
+2015-10-18 11:00:52.849 [NW][Sync][SyncEventOperation]:pull after push
+2015-10-18 11:01:14.345 [NW][Sync][NoteContentEventOperation][ID:88FE664E69694F3DBFDDBF423A81E7F5,VS:1264]:download server content note:88FE664E69694F3DBFDDBF423A81E7F5 v:1264 finish
+2015-10-18 11:01:18.269 [NW][Sync][NoteContentEventOperation][ID:FF98761CADF44C28A5DA1033B6A0E2E4,VS:1262]:download server content note:FF98761CADF44C28A5DA1033B6A0E2E4 v:1262 finish
+2015-10-18 11:01:24.574 [NW][Sync][SyncEventOperation]:sync finish
+2015-10-18 11:01:39.862 [NW][Sync][SyncEventOperation]:start sync
+2015-10-18 11:01:51.490 [NW][Sync][SyncEventOperation]:pull before push
+2015-10-18 11:02:01.591 [NW][Sync][SyncEventOperation]:start push nb
+2015-10-18 11:02:01.596 [NW][Sync][SyncEventOperation]:start push notes
+2015-10-18 11:02:01.602 [NW][Sync][SyncEventOperation]:start push del nb
+2015-10-18 11:02:05.834 [NW][Sync][NoteContentEventOperation][ID:2B5AF76E040A4A00BE42FF20066824B5,VS:1677]:download server content note:2B5AF76E040A4A00BE42FF20066824B5 v:1677 finish
+2015-10-18 11:02:12.484 [NW][Sync][SyncEventOperation]:pull after push
+2015-10-18 11:02:59.600 [NW][Sync][NoteContentEventOperation][ID:1747E65EA8404CBE9EE1401079DBF49E,VS:1679]:download server content note:1747E65EA8404CBE9EE1401079DBF49E v:1679 finish
+2015-10-18 11:03:00.132 [NW][Sync][NoteContentEventOperation][ID:554F2024792E486EAA04EC2CDE7AC16D,VS:1642]:download server content note:554F2024792E486EAA04EC2CDE7AC16D v:1642 finish
+2015-10-24 15:49:11.974 iPad.1.7.0  tynr426@126.com 8.4.1
+2015-10-24 15:49:12.106 [NW][Login][NoteManager][NM:tynr426@126.com,ID:tynr426@126.com]:autoLoginTSina with reachable authServerID:tynr426@126.com, authServerName:tynr426@126.com
+2015-10-24 15:49:13.564 [NW][Sync][SyncEventOperation]:start sync
+2015-10-24 15:49:14.899 [NW][Sync][SyncEventOperation]:pull before push
+2015-10-24 15:49:15.119 [NW][Sync][SyncEventOperation][TT:收集--各种信息，从此一网打尽,ID:1436615263405025,VS:0]:pull del no current note:1436615263405025 v:0 title:收集--各种信息，从此一网打尽
+2015-10-24 15:49:15.141 [NW][Sync][SyncEventOperation][TT:无标题笔记,ID:6069AAB8A4854485A67BE97C0D26DA2B,VS:0]:pull del no current note:6069AAB8A4854485A67BE97C0D26DA2B v:0 title:无标题笔记
+2015-10-24 15:49:15.145 [NW][Sync][SyncEventOperation][TT:无标题笔记,ID:973B5D8B5FBC4DB0A7EAD2D9F8F1A222,VS:0]:pull del no current note:973B5D8B5FBC4DB0A7EAD2D9F8F1A222 v:0 title:无标题笔记
+2015-10-24 15:49:15.151 [NW][Sync][SyncEventOperation][TT:shopex,ID:9BAE9890B8D64896B8F8BD436288B9F6,VS:0]:pull del no current note:9BAE9890B8D64896B8F8BD436288B9F6 v:0 title:shopex
+2015-10-24 15:49:15.164 [NW][Sync][NoteBookSyncHandler][NM:webapi,ID:2B2C77CF328B4D57AEF24EC5F710C4FF,VS:1887]:store nb:2B2C77CF328B4D57AEF24EC5F710C4FF name:webapi v:1887
+2015-10-24 15:49:15.168 [NW][Sync][NoteBookSyncHandler][NM:分词,ID:D92EFCC38F79424C94B1ED4148BD7CE9,VS:1867]:store nb:D92EFCC38F79424C94B1ED4148BD7CE9 name:分词 v:1867
+2015-10-24 15:49:15.172 [NW][Sync][NoteBookSyncHandler][NM:默认笔记本,ID:SVRAB736FF7B27C40FEA83046CCEF42256F,VS:1886]:store nb:SVRAB736FF7B27C40FEA83046CCEF42256F name:默认笔记本 v:1886
+2015-10-24 15:49:15.179 [NW][Sync][SyncEventOperation][ID:9351DEA7F7984779A313E8A70C939015,VS:0]:pull add no cur note:9351DEA7F7984779A313E8A70C939015 v:0 attrv:1887
+2015-10-24 15:49:15.190 [NW][Sync][SyncEventOperation][ID:9351DEA7F7984779A313E8A70C939015,ST:0,VS:0]:store note:9351DEA7F7984779A313E8A70C939015 v:0 attrv:1887 needSync:0 state:0
+2015-10-24 15:49:15.201 [NW][Sync][SyncEventOperation][ID:C8A98B7CA7424C7EBC20576258301FEE,VS:0]:pull add no cur note:C8A98B7CA7424C7EBC20576258301FEE v:0 attrv:1867
+2015-10-24 15:49:15.216 [NW][Sync][SyncEventOperation][ID:C8A98B7CA7424C7EBC20576258301FEE,ST:0,VS:0]:store note:C8A98B7CA7424C7EBC20576258301FEE v:0 attrv:1867 needSync:0 state:0
+2015-10-24 15:49:15.224 [NW][Sync][NoteBookSyncHandler][ID:803E8F1E1AA24B2396A8897E6146CC3F,ST:0]:pull del nb:803E8F1E1AA24B2396A8897E6146CC3F local nb needSync:0 isDeleted:0
+2015-10-24 15:49:15.229 [NW][Sync][NoteBookSyncHandler][ID:EBCF38D2418B4B7A86EB8A36A5FB5567,ST:0]:pull del nb:EBCF38D2418B4B7A86EB8A36A5FB5567 local nb needSync:0 isDeleted:0
+2015-10-24 15:49:15.232 [NW][Sync][SyncEventOperation]:start push nb
+2015-10-24 15:49:15.234 [NW][Sync][SyncEventOperation]:start push notes
+2015-10-24 15:49:15.237 [NW][Sync][SyncEventOperation]:start push del nb
+2015-10-24 15:49:15.960 [NW][Sync][SyncEventOperation]:pull after push
+2015-10-24 15:49:17.318 [NW][Sync][SyncEventOperation]:sync finish
+2015-10-24 15:49:43.050 [NW][Sync][NoteContentEventOperation][ID:9351DEA7F7984779A313E8A70C939015,VS:1887]:download server content note:9351DEA7F7984779A313E8A70C939015 v:1887 finish
+2015-10-24 15:50:02.454 [NW][Sync][NoteContentEventOperation][ID:CFBA1DB9246C4B2D9E5C56B278DE579D,VS:1460]:server content note:CFBA1DB9246C4B2D9E5C56B278DE579D v:1460 not mod
+2015-10-24 15:50:54.921 [NW][Sync][NoteContentEventOperation][ID:0099AD6ACB914E7093F13ADE401BC2FD,VS:1379]:download server content note:0099AD6ACB914E7093F13ADE401BC2FD v:1379 finish
+2015-10-24 15:52:45.181 [NW][Sync][NoteContentEventOperation][ID:C8A98B7CA7424C7EBC20576258301FEE,VS:1867]:download server content note:C8A98B7CA7424C7EBC20576258301FEE v:1867 finish
+2015-10-24 15:52:54.385 [NW][Sync][NoteContentEventOperation][ID:652054833FAE4F94BF63A066E22C1EF1,VS:1833]:download server content note:652054833FAE4F94BF63A066E22C1EF1 v:1833 finish
+2015-10-24 15:53:03.471 [NW][Sync][NoteContentEventOperation][ID:5E6097BD36E7486C92DC35BA7ED84B58,VS:1829]:download server content note:5E6097BD36E7486C92DC35BA7ED84B58 v:1829 finish
+2015-10-24 15:53:07.085 [NW][Sync][NoteContentEventOperation][ID:7C0F6CC0F68946BE842512E4219E05A6,VS:1686]:download server content note:7C0F6CC0F68946BE842512E4219E05A6 v:1686 finish
+2015-10-24 15:53:08.855 [NW][Sync][NoteContentEventOperation][ID:5E6097BD36E7486C92DC35BA7ED84B58,VS:1829]:server content note:5E6097BD36E7486C92DC35BA7ED84B58 v:1829 not mod
+2015-10-24 15:53:09.851 [NW][Sync][NoteContentEventOperation][ID:7C0F6CC0F68946BE842512E4219E05A6,VS:1686]:server content note:7C0F6CC0F68946BE842512E4219E05A6 v:1686 not mod
+2015-10-24 15:53:12.780 [NW][Sync][NoteContentEventOperation][ID:5E6097BD36E7486C92DC35BA7ED84B58,VS:1829]:server content note:5E6097BD36E7486C92DC35BA7ED84B58 v:1829 not mod
+2015-10-24 15:53:14.634 [NW][Sync][NoteContentEventOperation][ID:7C0F6CC0F68946BE842512E4219E05A6,VS:1686]:server content note:7C0F6CC0F68946BE842512E4219E05A6 v:1686 not mod
+2015-10-24 15:53:17.672 [NW][Sync][NoteContentEventOperation][ID:7C0F6CC0F68946BE842512E4219E05A6,VS:1686]:server content note:7C0F6CC0F68946BE842512E4219E05A6 v:1686 not mod

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SWForecastLive</key>
+	<array/>
+	<key>citycode</key>
+	<string>CHXX0103</string>
+	<key>result</key>
+	<string>success</string>
+	<key>timestamp</key>
+	<string>1426689743</string>
+</dict>
+</plist>

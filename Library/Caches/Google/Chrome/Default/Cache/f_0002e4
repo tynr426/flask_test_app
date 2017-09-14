@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>安卓Android缩放图片示例-Android多点触摸交互处理-极客学院</title>
+    <meta name="keywords" content="安卓图片缩放,android图片缩放,android 图片缩放,android图片手势缩放,android 手势缩放,android图片放大缩小,android缩放图片 控件" />
+    <meta name="description" content="安卓Android缩放图片示例视频教程,主讲安卓图片缩放,android图片缩放,android 图片缩放,android图片手势缩放,android 手势缩放,android图片放大缩小,学会两点触控进行缩放图片操作" />
+    <link href="http://sp1.jikexueyuan.com/static/css/register.css" rel="stylesheet" type="text/css">
+	  <script type="text/javascript" src="http://sp1.jikexueyuan.com/static/scripts/jquery.min.js "></script>
+    
+    
+    
+    
+    
+    
+    
+
+    <link rel="stylesheet" href="http://s1.jikexueyuan.com/common/pkg/common_sync0_libs_4f30de2.css" /><link rel="stylesheet" href="http://s1.jikexueyuan.com/common/pkg/common_sync1_libs_4637308.css" /><link rel="stylesheet" href="http://s1.jikexueyuan.com/common/widget/header/header_d41d8cd.css" /><link rel="stylesheet" href="http://s1.jikexueyuan.com/course/editor/styles/simditor_de1c92b.css" /><link rel="stylesheet" href="http://s1.jikexueyuan.com/course/css/player_59b7d6b.css" /><link rel="stylesheet" href="http://s1.jikexueyuan.com/course/css/pop_79bec68.css" /><link rel="stylesheet" href="http://s1.jikexueyuan.com/common/video/videojs_8552290.css" /></head>
+    <body>
+        <div id="wrapper">
+           <script src="http://e.jikexueyuan.com/static/js/browser.js?t=1475152597000"></script>
+<script src="http://e.jikexueyuan.com/static/js/growingio.js?t=1475152597000"></script>
+<script src="http://sp1.jikexueyuan.com/static/scripts/jquery.min.js?t=1475152597000"></script>
+<link rel="stylesheet" href="http://e.jikexueyuan.com/headerandfooter/css/header.css?t=1475152597000" />
+<!-- 营销广告 END-->
+<div class="j-banner">
+    <div class="j-wraper">
+        <ul>
+            <li><img class="new-icon" src="http://e.jikexueyuan.com/headerandfooter/images/newicon.png?t=1475152597000"/><a target="_blank" href="http://j.jikexueyuan.com/train/web-offline?utm_source=jike&utm_medium=banner&utm_campaign=qiantuwuliang&utm_content=%E7%BA%BF%E4%B8%8B%E9%9D%A2%E6%8E%88%E7%8F%AD%E4%B8%93%E5%9C%BA&utm_term=">线下面授班专场</a></li>
+            <li><img class="hot-icon" src="http://e.jikexueyuan.com/headerandfooter/images/hoticon.png?t=1475152597000" /><a target="_blank" href="http://j.jikexueyuan.com/train/web?utm_source=jike&utm_medium=banner&utm_campaign=qiantuwuliang&utm_content=%E7%BA%BF%E4%B8%8A%E5%B0%B1%E4%B8%9A%E7%8F%AD%E4%B8%93%E5%9C%BA&utm_term=">线上就业班专场</a></li>
+            <li><a target="_blank" href="http://www.jikexueyuan.com/zhiye/web?utm_source=jike&utm_medium=banner&utm_campaign=qiantuwuliang&utm_content=%E6%8A%80%E8%83%BD%E5%BC%BA%E5%8C%96%E4%B8%93%E5%9C%BA&utm_term=/#zxtg">技能强化班专场</a></li>
+            <li><a target="_blank" href="http://qun.jikexueyuan.com/activity/topic/537?utm_source=jike&utm_medium=banner&utm_campaign=qiantuwuliang&utm_content=%E6%8A%A5%E5%90%8D%E5%B0%B1%E6%8A%BDiPhone7&utm_term=">报名就抽iPhone7</a></li>
+        </ul>
+        <i id="j-close"></i>
+    </div>
+</div>
+<script type="text/javascript">
+$('#j-close').on('click',function(){$('.j-banner').slideUp();});
+</script>
+<!-- 广告 END-->
+<div id="header">
+	<div class="w-1000 relative">
+		<a href="http://www.jikexueyuan.com" class="logo"><img src="http://e.jikexueyuan.com/headerandfooter/images/logo.png?t=1475152597000" height="40" width="109" /></a>
+		<!--nav-->
+		<nav>
+			<ul class="header-nav">
+				<li><a href="http://www.jikexueyuan.com">首页</a></li>
+				<li>职业学院<i class="arrow-icon"></i>
+					<div class="submenu school-list">
+						<h3>前端学院</h3>
+						<a href="http://www.jikexueyuan.com/zhiye/web"><i class="web-icon"></i>Web 前端工程师</a>
+						<!--<a href="#"><i class="android-icon"></i>web大前端</a>-->
+						<h3>后端学院</h3>
+						<a href="http://www.jikexueyuan.com/zhiye/python"><i class="python-icon"></i>Python Web工程师</a>
+						<a href="http://www.jikexueyuan.com/zhiye/go"><i class="go-icon"></i>Go语言工程师</a>
+						<!--<a href="http://j.jikexueyuan.com/train/php?huodong=jiuye_php_in"><i class="php-icon"></i>PHP工程师</a>
+						<a href="http://j.jikexueyuan.com/train/javaweb?huodong=jiuye_javaweb_guide"><i class="java-icon"></i>Java Web工程师</a>-->
+						<h3>移动学院</h3>
+						<a href="http://www.jikexueyuan.com/zhiye/ios"><i class="ios-icon"></i>iOS工程师</a>
+						<!--<a href="http://j.jikexueyuan.com/train/android?huodong=jiuye_android_in"><i class="android-icon"></i>Android 开发工程师</a>-->
+
+					</div>
+				</li>
+				<li>会员课程<i class="arrow-icon"></i>
+					<div class="submenu vip-lesson">
+						<a href="http://www.jikexueyuan.com/course/"><i class="kck-icon"></i>课程库<span>2500+</span></a>
+						<a href="http://ke.jikexueyuan.com/zhiye/"><i class="zyljt-icon"></i>职业路径图<span>9</span></a>
+						<a href="http://www.jikexueyuan.com/path/"><i class="zstxt-icon"></i>知识体系图<span>24</span></a>
+						<a href="http://ke.jikexueyuan.com/xilie/"><i class="xlkc-icon"></i>系列课程<span>101</span></a>
+						<a href="http://www.jikexueyuan.com/tag/"><i class="kcbq-icon"></i>课程标签<span>4000+</span></a>
+						<a href="http://www.jikexueyuan.com/vip/"><i class="vip-icon"></i>VIP会员购买<span>30/月  260/年</span></a>
+
+					</div>
+				</li>
+				<li>极客社区<i class="arrow-icon"></i>
+					<div class="submenu vip-lesson">
+						<a href="http://wenda.jikexueyuan.com"><i class="jswd-icon"></i>技术问答<span>20000+</span></a>
+						<a href="http://wiki.jikexueyuan.com"><i class="wiki-icon"></i>Wiki<span>351</span></a>
+						<a href="http://qun.jikexueyuan.com"><i class="sq-icon"></i>社群<span>7000+</span></a>
+						<a href="http://download.jikexueyuan.com"><i class="zygx-icon"></i>资源下载<span>3000+</span></a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<!--nav end-->
+		<!--login-->
+		<div class="icon-box">
+			<span class="search-icon" id="search-btn"></span>
+			<span class="app-icon loginlist relative" id="appicon">
+					<div class="submenu">
+						<i class="top-icon"></i>
+						<img src="http://e.jikexueyuan.com/headerandfooter/images/heade-rwm.png?t=1475152597000" />
+					</div>
+				</span>
+			<span class="relative loginlist" id="loginlist">
+						<!--<dl class="submenu">
+							<i class="top-icon"></i>
+							<dd><a href="http://passport.jikexueyuan.com/sso/reg_phone" class="reg-btn">注册</a>|<a href="http://passport.jikexueyuan.com/sso/login" class="login-btn">登录</a></dd>
+							<dd><a href="#"><i class="xxzx-icon"></i>学习中心</a></dd>
+							<dd><a href="http://my.jikexueyuan.com/"><i class="grzy-icon"></i>个人主页</a></dd>
+							<dd><a href="http://www.jikexueyuan.com/member/notifications/"><i class="xxtz-icon"></i>消息通知</a></dd>
+							<dd><a href="http://my.jikexueyuan.com/setting/user/"><i class="zhsz-icon"></i>账号设置</a></dd>
+						</dl>-->
+					</span>
+
+		</div>
+		<!--login-->
+		<!--searchbox-->
+		<div class="searchbox" id="searchbox">
+			<i class="close-icon" id="close-btn"></i>
+			<i class="search-icon" id="search-btn"></i>
+			<input id="web_search_header" placeholder="搜索课程、问答或Wiki" value="">
+			<div class="tagbox">
+				<a href="http://search.jikexueyuan.com/course/?q=Android">Android</a>
+				<a href="http://search.jikexueyuan.com/course/?q=iOS">iOS</a>
+				<a href="http://search.jikexueyuan.com/course/?q=HTML5">HTML5</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="http://e.jikexueyuan.com/headerandfooter/js/header.min.js?t=1475152597000"></script>
+<script src="http://e.jikexueyuan.com/headerandfooter/js/web_socket.js?t=1475152597000"></script>
+<script src="http://e.jikexueyuan.com/headerandfooter/js/websocket.js?t=1475152597000"></script>
+
+            <div  id="pager">
+                
+ 	<div class="crumbs">
+	<div class="w-1000">
+		<a href="http://www.jikexueyuan.com/">首页</a>
+		<em>&gt;</em>
+		<a href="http://www.jikexueyuan.com/course/">职业课程库</a>
+		<em>&gt;</em>
+		<a href="http://www.jikexueyuan.com/course/android/">Android</a>
+		<em>&gt;</em>
+		<a href="http://www.jikexueyuan.com/course/90.html">Android多点触摸交互处理</a>
+		
+		<em>&gt;</em>安卓Android缩放图片示例
+		
+	</div>
+</div>
+<div id="palyer-box" class="cf">
+	
+	<h1  img="http://a1.jikexueyuan.com/home/201406/04/e2b0/538f2cf6f284f.jpg">
+		<span class="tit">安卓Android缩放图片示例 </span>
+		<!-- 添加视频身份 -->
+		
+		
+		<span class="jiuye-banner" id="JY_AD_1"></span>
+	</h1>
+	
+	  <!-- 有权限视频 -->
+		
+		<div class="videobox player-video" last_play_position="565" time="728" seq="5" lesson_count="5" course_id="90">
+			
+			<img src="http://s1.jikexueyuan.com/course/images/prev_d27db2c.png" courseurl="/course/90_4.html?ss=1" class="cprev" id="lesson-prev">  
+			<video class='video-js vjs-default-skin' controls='controls' height='100%' id='play_video' poster="" last_play_position="565"  time="728" seq="5" lesson_count="" data-setup='{"example_option":true,"customControlsOnMobile": true}' preload='none'
+			width="100%">
+				<!-- 如果浏览器不兼容HTML5则使用flash播放 -->
+				<source src="http://cv4.jikexueyuan.com/fa23c34bf84e904eab6046fc7cfd6f31/201610272242/android/course_multi_touch/01/video/c90b_05_h264_sd_960_540.mp4" type="video/mp4" />
+				<object id="flash_fallback_1" class="vjs-flash-fallback" width="100%" height="100%" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+					<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+					<param name="allowfullscreen" value="true" />
+					<param name="flashvars" value='config={$jsonConfig}' />
+				</object>
+			</video>
+			
+			
+
+			<!-- yx-pop -->
+			<div class="yx-popup" id="yxPop">
+				<div class="layout-inner">
+					<div class="baiduGG" id="videoGG"></div>
+					<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+					<script type="text/javascript">
+					    BAIDU_CLB_fillSlotAsync('2819306', 'videoGG');
+					</script>
+					<i class="close"></i>
+					<span class="no-pop everClose" data-id="ever-close">不再弹出</span>
+				</div>
+			</div>
+			<!-- /yx-popup -->
+
+			<!-- keyboard shortcuts reminder js insert -->
+			
+		</div>
+		
+
+	
+	<div class="player-nav">
+		<ul>
+			<li class="mulu">
+				<i></i>
+				<p>目录</p>
+				<div class="mulu-box" id="videolist">
+					<div class="mulu-content">
+						<strong>目录 <span id="shouqi">收起&gt;</span></strong>
+						<!--case-->
+						<div class="case cf">
+							<div id="simTestContent2" class="simScrollCont">
+								<p>本课学习触摸事件的侦听、传递和多点触摸的使用方法。</p>
+								<dl class="lessonvideo-list">
+									 
+										<dd>
+											
+											<h2>
+										<span class="sm-icon "></span>
+										<a href="http://www.jikexueyuan.com/course/90_1.html?ss=1" jktag="&posGP=103001&posArea=0002&posOper=8005&posColumn=1.1">1.安卓Android触摸事件侦听</a>
+										<span class="lesson-time">00:03:32</span>
+									</h2>
+											<blockquote>安卓Android触摸事件侦听视频教程,主讲Android触摸事件侦听,安卓触摸事件,android 触摸事件,android触摸事件,android 触摸屏事件,android 触摸监听,掌握为安卓组件添加触摸事件侦听器,并会Android侦听触摸操作</blockquote>
+										</dd>
+										 
+										<dd>
+											
+											<h2>
+										<span class="sm-icon "></span>
+										<a href="http://www.jikexueyuan.com/course/90_2.html?ss=1" jktag="&posGP=103001&posArea=0002&posOper=8005&posColumn=2.2">2.安卓Android触摸事件传递</a>
+										<span class="lesson-time">00:01:58</span>
+									</h2>
+											<blockquote>安卓Android触摸事件传递视频教程,主讲android 事件传递,android 触摸事件传递,安卓触摸事件,android 触摸事件,学习android触摸事件传递过程和安卓事件传递特点</blockquote>
+										</dd>
+										 
+										<dd>
+											
+											<h2>
+										<span class="sm-icon "></span>
+										<a href="http://www.jikexueyuan.com/course/90_3.html?ss=1" jktag="&posGP=103001&posArea=0002&posOper=8005&posColumn=3.3">3.获取一个安卓Android触摸点坐标</a>
+										<span class="lesson-time">00:04:48</span>
+									</h2>
+											<blockquote>获取一个安卓Android触摸点坐标视频教程,主讲android触摸点坐标,获取触摸,安卓触摸事件,android 触摸事件,android触摸事件,掌握读取单一触摸点坐标的原理和方法</blockquote>
+										</dd>
+										 
+										<dd>
+											
+											<h2>
+										<span class="sm-icon "></span>
+										<a href="http://www.jikexueyuan.com/course/90_4.html?ss=1" jktag="&posGP=103001&posArea=0002&posOper=8005&posColumn=4.4">4.获取多个安卓Android触摸点坐标</a>
+										<span class="lesson-time">00:04:40</span>
+									</h2>
+											<blockquote>获取多个安卓Android触摸点坐标视频教程,主讲获取触摸,android触摸点坐标,android 多点触摸,多点触摸 android,安卓多点触摸,android 多点触摸,掌握多个触摸点坐标获取方法</blockquote>
+										</dd>
+										 
+									<dd class="playing">
+										
+											<h2>
+										<span class="sm-icon "></span>
+										<a href="http://www.jikexueyuan.com/course/90_5.html?ss=1" jktag="&posGP=103001&posArea=0002&posOper=8005&posColumn=5.5">5.安卓Android缩放图片示例</a>
+										<span class="lesson-time">00:12:08</span>
+									</h2>
+											<blockquote>安卓Android缩放图片示例视频教程,主讲安卓图片缩放,android图片缩放,android 图片缩放,android图片手势缩放,android 手势缩放,android图片放大缩小,学会两点触控进行缩放图片操作</blockquote>
+										</dd>
+										
+								</dl>
+							</div>
+							<div id="simScrollTest2" class="simScroll" style="visibility: visible;">
+								<div tag="simArea" class="simScrollDragArea" style="height: 202px;">
+									<div tag="simDrag" class="simScrollDrag" style="position: absolute; top: 2px; width: 14px; height: 39px;"></div>
+								</div>
+							</div>
+						</div>
+						<!--case end-->
+					</div>
+				</div>
+			</li>
+			
+				
+					<li class="ask" onclick="javascript:;" id="warning-question" jktag="&posArea=0002&posOper=8017&posColumn=2.1">
+				
+			
+				<i></i>
+				<p>提问</p>
+				<div class="ask-box">提交问题</div>
+			</li>
+
+			
+			<li class="xiazai">
+					<a href="javascript:void(0)" class="down-course down-ajax" id="down_video"><i></i><p>下载</p></a>
+					<div class="xiazai-box">
+						<a href="javascript:void(0)"  class="down-course down-ajax" jktag="&posArea=0002&posOper=8006&posColumn=3.1" >下载本节视频</a>
+					</div>
+			
+			</li>
+
+			<li class="xianlu">
+				<i></i>
+				<p>线路</p>
+				<div class="xianlu-box">
+					<em>视频太卡？试试切换线路</em> 
+					<span class="bc-blue"><a href="http://www.jikexueyuan.com/course/90_5.html">√ 线路1</a></span>
+					
+					 
+					<span><a href="http://www.jikexueyuan.com/course/90_5.html?ss=2" jktag="&posGP=103001&posArea=0002&posOper=8018&posColumn=4.2&aVXl=2">√ 线路2</a></span> 
+				</div>
+			</li>
+			
+			<li class="shouchang user-action" id="shouchang">
+			
+				
+					<i class="" jktag="&posArea=0002&posOper=8019&posColumn=5.2"></i>
+				 
+				<p>收藏</p>
+				<div class="shouchang-box">收藏课程</div>
+			</li>
+			<li class="fenxiang">
+				<i></i>
+				<p>分享</p>
+				<div class="fenxiang-box">
+					<i class="sina-icon" jktag="&posArea=0002&posOper=8020&posColumn=6.1"></i>
+					<i class="qq-icon" jktag="&posArea=0002&posOper=8021&posColumn=6.2"></i>
+				</div>
+			</li>
+		</ul>
+		<div class="lianbo relative" val="1" courseurl="/course/90_5.html?ss=1" jktag="&posArea=0002&posOper=8007&posColumn=7.1">
+			<i></i>
+			<p>连播</p>
+			<div class="lianbobox">连续播放</div>
+		</div>
+		<div class="deng-icon relative" jktag="&posArea=0002&posOper=8022&posColumn=8.1">
+			<i></i>
+			<p>关灯</p>
+			<div class="deng-box">关灯模式</div>
+		</div>
+		<div class="slow-time-tip">
+			<i class="w-sj"></i>
+			<img src="http://s1.jikexueyuan.com/course/images/close2_77b3a90.png" class="closew">
+			<strong>视频加载太慢？</strong>
+			<p>我们有两条线路可以选择，试试切换线路吧</p>
+		</div>
+	</div>
+
+
+</div>
+<!-- 认证弹窗 -->
+<script src="http://e.jikexueyuan.com/certificate/js/certificate.min.js"></script>
+<script>
+	var courseInfo = {
+			id: '90',
+			title: 'Android多点触摸交互处理'
+		}
+</script>
+
+
+
+
+
+
+	<div class="lesson-table cf">
+   	<script src="http://s1.jikexueyuan.com/course/editor/scripts/module_171ec63.js"></script>
+	<script src="http://s1.jikexueyuan.com/course/editor/scripts/hotkeys_e175c92.js"></script>
+  	 <script src="http://s1.jikexueyuan.com/course/editor/scripts/uploader_ad281df.js"></script>
+    <script src="http://s1.jikexueyuan.com/course/editor/scripts/simditor_4c30884.js"></script>
+		
+		
+		
+		
+		
+		
+		
+	 	
+<div class="lesson-teacher">
+		<div class="bc-box">
+		<h2><a href="http://www.jikexueyuan.com/course/90.html">Android多点触摸交互处理</a></h2>
+		<div class="timebox"><span>5课时，27分钟</span><span class="mar-l30">2014-06-03</span></div>
+		<div class="teacher-infor cf">
+		
+			<a href="http://my.jikexueyuan.com/ime/record/"><img src="http://a1.jikexueyuan.com/home/201406/20/cf3c/53a4015c44629.png" alt="ime"></a>
+			<div class="infor-text">
+				<strong><a href="http://my.jikexueyuan.com/ime/record/">ime</a></strong>
+				<p>极客学院首席布道师</p>
+			</div>
+		
+
+		</div>
+		<div class="infor-content">
+			
+            		<strong>课程背景：</strong><br />触摸操作是安卓最基本的交互方法，掌握多点触摸的开发可增强应用交互体验。<br /><br /><strong>核心内容：</strong><br />1.触摸事件的侦听和传递。<br />2.单点、多点触摸的使用方法。<br /><br /><p><strong>开发环境：</strong>Eclipse</p><p><strong><br /></strong></p><p><strong>是否提供源码：</strong>是</p><p><strong><br /></strong></p><p><strong>课程等级：</strong>入门级别</p><br /><strong>适应人群：</strong><br />有一定Java与Android基础的开发者
+            
+		
+		</div>
+		<div class="btn-box">
+			
+			
+				
+					<a href="javascript:void('0');" class="greenbtn sc_btn user-action" id="shouchang-towbtn" jktag="&posArea=0003&posOper=8013&posColumn=0.1">收藏</a>
+				
+				
+					
+						<a class="orinagebtn"  id="course_download"  course_id = "90"title="下载课程对应的源代码、素材等资料" href="javascript:void('0');" jktag="&posArea=0003&posOper=8015&posColumn=0.1">资料下载</a>
+					
+				
+			
+		</div>
+	</div>
+
+	<div class="less-tag">
+		
+		<span><a href="http://www.jikexueyuan.com/tag/Android.html" jktag="posGP=105002&posArea=0003&posOper=8031&posColumn=.1" >Android</a></span>
+		
+		<span><a href="http://www.jikexueyuan.com/tag/Java.html" jktag="posGP=105002&posArea=0003&posOper=8031&posColumn=.2" >Java</a></span>
+		
+		<span><a href="http://www.jikexueyuan.com/tag/Eclipse.html" jktag="posGP=105002&posArea=0003&posOper=8031&posColumn=.3" >Eclipse</a></span>
+		
+		<span><a href="http://www.jikexueyuan.com/tag/多点触摸.html" jktag="posGP=105002&posArea=0003&posOper=8031&posColumn=.4" >多点触摸</a></span>
+		
+		<span><a href="http://www.jikexueyuan.com/tag/用户交互.html" jktag="posGP=105002&posArea=0003&posOper=8031&posColumn=.5" >用户交互</a></span>
+		
+	</div>
+</div>
+
+
+
+	 	<div class="video-list">
+    <div class="lessonlist-nav cf">
+        <ul class="cf time-hot">
+            <li class="nav_on" jktag="&posOper=8037&posArea=0009&posColumn=9.1">课时列表</li>
+            <li jktag="&posOper=8036&posArea=0009&posColumn=9.2">技术问答</li>
+            
+
+        </ul>
+    </div>
+    <div class="lesson-box" style="display: block;">
+        <ul>
+            
+            		
+            		
+                        
+                                    
+                                        <li>
+                                    
+                                    <i class="lessonmbers"><em>1</em></i>
+                                    <div class="text-box">
+                                        <h2>
+                                            <a href="http://www.jikexueyuan.com/course/90_1.html?ss=1" jktag="&posArea=0007&posAOper=8035&posColumn=641.1"> 安卓Android触摸事件侦听</a>
+
+                                            <p class="f_r">03:32</p>
+                                        </h2>
+                                        <p>安卓Android触摸事件侦听视频教程,主讲Android触摸事件侦听,安卓触摸事件,android 触摸事件,android触摸事件,android 触摸屏事件,android 触摸监听,掌握为安卓组件添加触摸事件侦听器,并会Android侦听触摸操作</p>
+                                    </div>
+                                    </li>
+                        
+                    
+            
+            		
+            		
+                        
+                                    
+                                        <li>
+                                    
+                                    <i class="lessonmbers"><em>2</em></i>
+                                    <div class="text-box">
+                                        <h2>
+                                            <a href="http://www.jikexueyuan.com/course/90_2.html?ss=1" jktag="&posArea=0007&posAOper=8035&posColumn=642.2"> 安卓Android触摸事件传递</a>
+
+                                            <p class="f_r">01:58</p>
+                                        </h2>
+                                        <p>安卓Android触摸事件传递视频教程,主讲android 事件传递,android 触摸事件传递,安卓触摸事件,android 触摸事件,学习android触摸事件传递过程和安卓事件传递特点</p>
+                                    </div>
+                                    </li>
+                        
+                    
+            
+            		
+            		
+                        
+                                    
+                                        <li>
+                                    
+                                    <i class="lessonmbers"><em>3</em></i>
+                                    <div class="text-box">
+                                        <h2>
+                                            <a href="http://www.jikexueyuan.com/course/90_3.html?ss=1" jktag="&posArea=0007&posAOper=8035&posColumn=643.3"> 获取一个安卓Android触摸点坐标</a>
+
+                                            <p class="f_r">04:48</p>
+                                        </h2>
+                                        <p>获取一个安卓Android触摸点坐标视频教程,主讲android触摸点坐标,获取触摸,安卓触摸事件,android 触摸事件,android触摸事件,掌握读取单一触摸点坐标的原理和方法</p>
+                                    </div>
+                                    </li>
+                        
+                    
+            
+            		
+            		
+                        
+                                    
+                                        <li>
+                                    
+                                    <i class="lessonmbers"><em>4</em></i>
+                                    <div class="text-box">
+                                        <h2>
+                                            <a href="http://www.jikexueyuan.com/course/90_4.html?ss=1" jktag="&posArea=0007&posAOper=8035&posColumn=644.4"> 获取多个安卓Android触摸点坐标</a>
+
+                                            <p class="f_r">04:40</p>
+                                        </h2>
+                                        <p>获取多个安卓Android触摸点坐标视频教程,主讲获取触摸,android触摸点坐标,android 多点触摸,多点触摸 android,安卓多点触摸,android 多点触摸,掌握多个触摸点坐标获取方法</p>
+                                    </div>
+                                    </li>
+                        
+                    
+            
+            		
+            		
+                        
+                                    
+                                        <li class="on">
+                                    
+                                    <i class="lessonmbers"><em>5</em></i>
+                                    <div class="text-box">
+                                        <h2>
+                                            <a href="http://www.jikexueyuan.com/course/90_5.html?ss=1" jktag="&posArea=0007&posAOper=8035&posColumn=645.5"> 安卓Android缩放图片示例</a>
+
+                                            <p class="f_r">12:08</p>
+                                        </h2>
+                                        <p>安卓Android缩放图片示例视频教程,主讲安卓图片缩放,android图片缩放,android 图片缩放,android图片手势缩放,android 手势缩放,android图片放大缩小,学会两点触控进行缩放图片操作</p>
+                                    </div>
+                                    </li>
+                        
+                    
+            
+        </ul>
+
+    </div>
+    <!--lesson-box-->
+    <div class="lesson-box" style="display: none;">
+        
+                
+            <button class="greenbtn askqustion"  id="q_pop1"  jktag="&posArea=0004&posOper=8032&posColumn=1.1" >发布问题</button>
+            
+        
+        <div class="lesson-list2" id="">
+    <ul class="cf" id="course_question_list">
+        
+    </ul>
+    <div  id="page-nav">
+
+    </div>
+
+</div>
+    </div>
+   
+    <style>
+        ul.pages li {
+            width: 30px !important;
+            height: 30px !important;
+            padding: 0px !important;
+            clear: inherit !important;
+            float: left;
+            border: 1px solid #e4e4e4 !important;
+        }
+        ul.pages li.pgNext {
+            width: 40px !important;
+        }
+
+        ul.pages li.pagenow {
+            width: 100px !important;
+        }
+
+        ul.pages li.pgEmpty {
+            border: 1px solid #f0f0f0;
+            color: #d9d6c3;
+            background-color: #f0f0f0;
+            width: 50px !important;
+        }
+
+        ul.pages li.thpoint {
+            margin-top: 0px !important;
+            border: none !important;
+        }
+
+        ul.pages li.go {
+            margin-top: 0px !important;
+            line-height: 30px !important;
+        }
+
+        ul.pages li.pagetotal {
+
+            width: 70px !important;
+        }
+
+    </style>
+    <!--lesson-box end-->
+    <!--lesson-box-->
+
+    <!--lesson-box end-->
+</div>
+
+
+
+		<!--弹出1-->
+<div class="add-pop1" id="pop-one" style="display: none;"><span class="popclose close-one"></span>
+
+	<div class="add-title"><strong>添加新技术问题</strong>
+		<!-- <span>非技术类问题，请移步 <a href="#">[互动交流区]</a></span> -->
+	</div>
+	<div class="input-title">
+		<div class="inputbox cf">
+			<div class="user-img">
+				<img src="http://assets.jikexueyuan.com/user/avtar/default.gif" alt="tynr426">
+			</div>
+			<input type="text" placeholder="请输入问题的标题" class="one-input">
+
+		</div>
+		<button class="input-inforbtn">填写详情</button>
+	</div>
+	<div class="lesson-qustiontitle">课程 <a>[安卓Android缩放图片示例] </a> 中已存在问题</div>
+	<div class="qustion-list">
+		<ul id="returnQaTopics">
+
+		</ul>
+	</div>
+</div>
+<!--弹出1 end-->
+<!--弹出2-->
+
+<div class="add-pop1" id="pop-tow" style="display: none;"><span class="popclose close-two"></span>
+
+	<div class="add-title"><strong>添加新技术问题</strong>
+		<!-- <span>非技术类问题，请移步 <a href="#">[互动交流区]</a></span> -->
+	</div>
+	<form id='reply_form' myurl=http://www.jikexueyuan.com/image/upload?uid=c088m1vHDW8fRnYl5zNDwW8c4QsJE2TgkxeUa1Ml+zWe4xH/+Z4HHwk719vFnXk>
+	<div class="input-title">
+		<div class="inputbox2 cf">
+			<div class="user-img">
+				<img src="http://assets.jikexueyuan.com/user/avtar/default.gif" alt="tynr426">
+			</div>
+			<!-- <input type="text" placeholder="请输入问题的标题" class="tow-input"> -->
+			<div>
+				<input type="text" name="qa_sub_title" id="qa_sub_title" data-type="blur" class="tow-input" autocomplete="off">
+			</div>
+		</div>
+	</div>
+	<div class="lesson-qustiontitle">问题描述越详细，被解答的速度越快</div>
+	<div class="edit-box" id="replies_editor">
+		<textarea id="editor" placeholder="文字请尽量表述清晰、详尽、完整，针对课程的问题请注明出现时间，以便于快速查找问题并及时为你解答。" autofocus ></textarea>
+	</div>
+	<div class="emailandlevel cf">
+		<div class="email">
+			<input type="checkbox" checked="checked" name="send_email">有新回答时请邮件提醒我
+		</div>
+		<div class="level"><span><input type="radio" name="qalevel" value="1">十万火急</span><span>
+			<input type="radio" name="qalevel" value="2"checked="">着急，拜托快点</span><span>
+			<input type="radio" name="qalevel" value="3">不急，慢慢解决</span>
+		</div>
+	</div>
+	<div class="otherlesson">关联课程 <a>[安卓Android缩放图片示例]</a>
+	</div>
+	<input type='hidden' name='_csrf' value='Aj4JQoWPaVhWqHgiWnoNUjWukbrHDmjSaYrMo='>
+	<button class="greenbtn tiwt-btn" id="qa_subask_submit">提交问题</button>
+	</form>
+</div>
+<!--弹出2end-->
+	</div>
+	
+<div class="onestage w-1000 m ">
+	<h2>相关课程</h2>
+	<div class="lesson-list">
+		<ul class="cf">
+			
+			 	
+<li id="79" test="0" deg="120" >
+	<div class="lessonimg-box">
+			
+				
+				<i class="user-action lesson-shoucang " style="display: none;" jktag="&posGP=103001&posArea=0006&posOper=8012&aCId=79&posColumn=79.1"></i>
+				
+			
+		
+		<i class="vip-icon"></i> 
+		
+		
+		<a href="http://www.jikexueyuan.com/course/79.html" target="_blank" jktag="&posGP=103001&posArea=0006&posOper=8010&aCId=79&posColumn=79.1">
+			<img src="http://a1.jikexueyuan.com/home/201405/20/3dbe/537b483021260.jpg" class="lessonimg" title="Android通用下拉刷新控件的使用" alt="Android通用下拉刷新控件的使用">
+			
+			<div class="lessonplay" style="opacity: 0;">
+				<div class="cricle">
+					<div class="mask"></div>
+					<div class="left">
+						<div class="bg"></div>
+					</div>
+					<div class="cright">
+						<div class="bg"></div>
+					</div>
+					<div class="text"></div>
+				</div>
+			</div>
+			
+
+		</a>
+		
+			
+			<div class="jd-line" style="display: block;">
+				<div class="green-line" style="width:79.33333333333333px"></div>
+			</div>
+			
+		
+	</div>
+
+	<div class="lesson-infor" style="height: 88px;">
+		<h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/79.html" target="_blank" jktag="&posGP=103001&posArea=0006&posOper=8010&aCId=79&posColumn=79.1">Android通用下拉刷新控件的使用</a></h2>
+		<p style="height: 0px; opacity: 0; display: none;">
+			本课学习通用下拉刷新控件和控件的刷新方法。
+		</p>
+		<div class="timeandicon">
+			<div class="cf">
+				<dl>
+					<dd class="mar-b8"><i class="time-icon"></i><em>3课时
+							15分钟</em>
+					</dd>
+					<dd class="zhongji">
+						
+						<i class="xinhao-icon"></i><em>初级</em>
+					</dd>
+					
+				</dl>
+				<em class="learn-number">19177人学习</em>
+			</div>
+			<div class="cf">
+				<div class="lessonicon-box">
+					
+					<a href="http://www.jikexueyuan.com/course/android/">
+						<img width="16" src="http://a1.jikexueyuan.com/home/201411/03/00a1/54578d8e652c3.png" alt="android" title="Android" jktag="&posGP=101001&posArea=0006&posOper=8011&aCId=79&posColumn=79.1&aCCate=android" >
+					</a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
+
+
+			
+			 	
+<li id="43" test="0" deg="0" >
+	<div class="lessonimg-box">
+			
+				
+				<i class="user-action lesson-shoucang " style="display: none;" jktag="&posGP=103001&posArea=0006&posOper=8012&aCId=43&posColumn=43.2"></i>
+				
+			
+		
+		<i class="vip-icon"></i> 
+		
+		
+		<a href="http://www.jikexueyuan.com/course/43.html" target="_blank" jktag="&posGP=103001&posArea=0006&posOper=8010&aCId=43&posColumn=43.2">
+			<img src="http://a1.jikexueyuan.com/home/201605/13/1f65/57357ebca5630.jpg" class="lessonimg" title="Android项目开发实战-2048游戏" alt="Android项目开发实战-2048游戏">
+			
+			<div class="lessonplay" style="opacity: 0;">
+				<i class="playericon" jktag="&posGP=103001&posArea=0006&posOper=8010&aCId=43&posColumn=43.2"></i>
+			</div>
+			
+
+		</a>
+		
+			
+		
+	</div>
+
+	<div class="lesson-infor" style="height: 88px;">
+		<h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/43.html" target="_blank" jktag="&posGP=103001&posArea=0006&posOper=8010&aCId=43&posColumn=43.2">Android项目开发实战-2048游戏</a></h2>
+		<p style="height: 0px; opacity: 0; display: none;">
+			本课程学习创建2048游戏项目，掌握2048游戏的开发思路、游戏算法，独立开发一款属于自己的2048。
+		</p>
+		<div class="timeandicon">
+			<div class="cf">
+				<dl>
+					<dd class="mar-b8"><i class="time-icon"></i><em>12课时
+							75分钟</em>
+					</dd>
+					<dd class="zhongji">
+						
+					<i class="xinhao-icon2"></i><em>中级</em>
+					</dd>
+					
+				</dl>
+				<em class="learn-number">47606人学习</em>
+			</div>
+			<div class="cf">
+				<div class="lessonicon-box">
+					
+					<a href="http://www.jikexueyuan.com/course/android/">
+						<img width="16" src="http://a1.jikexueyuan.com/home/201411/03/00a1/54578d8e652c3.png" alt="android" title="Android" jktag="&posGP=101001&posArea=0006&posOper=8011&aCId=43&posColumn=43.1&aCCate=android" >
+					</a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
+
+
+			
+		</ul>
+	</div>
+	<style type="text/css">
+		.lesson-list ul {
+			width: 1020px !important;
+		}
+		.lesson-list ul li {
+			width: 240px;
+			margin: 0px !important;
+		}
+		.lesson-list ul li {
+			margin-right: 13px !important;
+		}
+	</style>
+</div>
+
+
+	 
+ 
+            </div>
+            
+<div id="footer" class="mar-t50">
+	<link rel="stylesheet" href="http://e.jikexueyuan.com/headerandfooter/css/footer.css?t=1475152597000" />
+	<div class=" jkinfor-block">
+		<div class="jkinfor cf">
+			<div class="jk-logo">
+				<img src="http://e.jikexueyuan.com/headerandfooter/images/jk-logo-footer.png?t=1475152597000">
+				<p>极客学院，编程是一种信仰！</p>
+			</div>
+			<dl>
+				<dt>职业学院</dt>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/zhiye/web">Web前端工程师</a></dd>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/zhiye/python">Python Web工程师</a></dd>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/zhiye/go">Go语言工程师</a></dd>
+				<!--<dd><a target="_blank" href="http://j.jikexueyuan.com/train/android?huodong=jiuye_android_in">Android学院</a></dd>-->
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/zhiye/ios">iOS工程师</a></dd>
+			</dl>
+			<dl>
+				<dt>会员课程</dt>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/course/">课程库</a></dd>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/path/">知识体系图</a></dd>
+				<dd><a target="_blank" href="http://ke.jikexueyuan.com/zhiye/">职业路径图</a></dd>
+				<dd><a target="_blank" href="http://ke.jikexueyuan.com/xilie/">系列课程</a></dd>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/tag/">课程标签</a></dd>
+			</dl>
+			<dl>
+				<dt>极客社区</dt>
+				<dd><a target="_blank" href="http://wenda.jikexueyuan.com/">技术问答</a></dd>
+				<dd><a target="_blank" href="http://wiki.jikexueyuan.com/">Wiki</a></dd>
+				<dd><a target="_blank" href="http://download.jikexueyuan.com/">资源下载</a></dd>
+				<dd><a target="_blank" href="http://qun.jikexueyuan.com/">社群</a></dd>
+			</dl>
+			<dl>
+				<dt>其他</dt>
+				<dd><a target="_blank" href="http://help.jikexueyuan.com/">关于我们</a></dd>
+				<dd><a target="_blank" href="http://help.jikexueyuan.com/join.html">加入我们</a></dd>
+				<dd><a target="_blank" href="http://press.jikexueyuan.com/evangelist/apply.html">讲师合作</a></dd>
+				<dd><a target="_blank" href="http://help.jikexueyuan.com/contact.html">联系我们</a></dd>
+				<dd><a target="_blank" href="http://www.jikexueyuan.com/friendlink.html">友情链接</a></dd>
+			</dl>
+
+			<div class="jk-down">
+				<p class="hot-tel">服务热线:400-678-8266</p>
+				<div class="downCon down-ios">
+					<img src="http://e.jikexueyuan.com/headerandfooter/images/app.png?t=1475152597000" class="twoCode" alt="下载二维码"> iPhone
+				</div>
+				<div class="downCon down-and">
+					<img src="http://e.jikexueyuan.com/headerandfooter/images/app.png?t=1475152597000" class="twoCode" alt="下载二维码"> Android
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="w-1000 copyright">
+		Copyright © 2013-2016&nbsp;<strong><a href="http://www.jikexueyuan.com/" target="_blank">jikexueyuan.com</a></strong> All Rights Reserved. 京ICP备11018032号-8 京公网安备11010802020210
+		<a href="http://qun.jikexueyuan.com/jikexueyuan/topic/430" target="_blank" class="down-wechat"></a>
+		<a href="http://weibo.com/jikexueyuan" target="_blank" class="down-sina"></a>
+
+		<a style="display:block; margin: 15px auto 0" id='___szfw_logo___' href='https://credit.szfw.org/CX20160908025320080267.html' target='_blank'><img src='http://icon.szfw.org/cert.png?t=1475152597000' width="60px" border='0' /></a> <script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+	</div>
+</div>
+
+<div class="gotop" id="gototop">
+	<span class="top" style="display: block;"></span>
+	<span class="erwma" style="display:none">
+		<img src="http://e.jikexueyuan.com/headerandfooter/images/erwma.png?t=1475152597000" style="display: none;">
+	</span>
+	<a href="http://www.jikexueyuan.com/app" alt="极客学院应用" target="_blank">
+		<span class="jk-app"><div class="appewm"></div></span>
+	</a>
+	<a href="javascript:;" id="diaochaid" class="diaocha"></a>
+	<!--<a onclick="doyoo.util.openChat('g=10059996');return false;" href="javascript:;" class="apply qq-online qq-online1" rel="nofollow"><span class="kefu">在线客服<br>  工作日9:00-21:00在线<i></i></span></a>-->
+</div>
+<script src="http://e.jikexueyuan.com/headerandfooter/js/footer.min.js?t=1475152597000"></script>
+<!--<script type="text/javascript" charset="utf-8" src="http://lead.soperson.com/20001269/10057537.js?t=1475152597000"></script>-->
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js?t=1475152597000"></script>
+<script type="text/javascript">
+	BAIDU_CLB_fillSlotAsync('2478912', 'diaochaid');
+</script>
+
+        </div>
+        <script type="text/javascript">LazyLoad=function(e){function t(t,n){var s,r=e.createElement(t);for(s in n)n.hasOwnProperty(s)&&r.setAttribute(s,n[s]);return r}function n(e){var t,n,s=i[e];s&&(t=s.callback,n=s.urls,n.shift(),u=0,n.length||(t&&t.call(s.context,s.obj),i[e]=null,f[e].length&&r(e)))}function s(){var t=navigator.userAgent;o={async:e.createElement("script").async===!0},(o.webkit=/AppleWebKit\//.test(t))||(o.ie=/MSIE|Trident/.test(t))||(o.opera=/Opera/.test(t))||(o.gecko=/Gecko\//.test(t))||(o.unknown=!0)}function r(r,u,h,g,d){var p,y,m,b,k,v,j=function(){n(r)},w="css"===r,E=[];if(o||s(),u)if(u="string"==typeof u?[u]:u.concat(),w||o.async||o.gecko||o.opera)f[r].push({urls:u,callback:h,obj:g,context:d});else for(p=0,y=u.length;y>p;++p)f[r].push({urls:[u[p]],callback:p===y-1?h:null,obj:g,context:d});if(!i[r]&&(b=i[r]=f[r].shift())){for(l||(l=e.head||e.getElementsByTagName("head")[0]),k=b.urls,p=0,y=k.length;y>p;++p){if(v=k[p],w?m=o.gecko?t("style"):t("link",{href:v,rel:"stylesheet"}):(m=t("script",{src:v}),m.async=!1),m.className="lazyload",m.setAttribute("charset","utf-8"),o.ie&&!w&&"onreadystatechange"in m&&!("draggable"in m))m.onreadystatechange=function(){/loaded|complete/.test(m.readyState)&&(m.onreadystatechange=null,j())};else if(w&&(o.gecko||o.webkit))if(o.webkit){var T;if(b.urls[p]=m.href,T=c()){p--,y=k.length;continue}}else m.innerHTML='@import "'+v+'";',a(m);else m.onload=m.onerror=j;E.push(m)}var A=document.createDocumentFragment();for(p=0,y=E.length;y>p;++p)A.appendChild(E[p]);var x;return"css"===r?x=l:"js"===r&&(x=document.getElementById("pages-container")||l),x.appendChild(A),E}}function a(e){var t;try{t=!!e.sheet.cssRules}catch(s){return u+=1,void(200>u?setTimeout(function(){a(e)},50):t&&n("css"))}n("css")}function c(){var e,t=i.css,s=!1;if(t){for(e=h.length;--e>=0;)if(h[e].href===t.urls[0]){s=!0,n("css");break}u+=1,t&&(200>u?setTimeout(c,50):n("css"))}return s}var o,l,i={},u=0,f={css:[],js:[]},h=e.styleSheets;return{css:function(e,t,n,s){r("css",e,t,n,s)},js:function(e,t,n,s){r("js",e,t,n,s)}}}(this.document);</script>
+	      <script type="text/javascript" src="http://sp1.jikexueyuan.com/static/scripts/LoginAndRegister.js"></script>
+     <script type="text/javascript">var _ready = false;_list = [];_when = function(cb) {_ready?cb():_list.push(cb);};LazyLoad.js(['http://s1.jikexueyuan.com/common/js/TweenMax.min_5a7da72.js', 'http://s1.jikexueyuan.com/common/pkg/common_sync0_libs_1a4ebbf.js', 'http://s1.jikexueyuan.com/common/js/setcookie_51991d5.js', 'http://s1.jikexueyuan.com/common/js/swfobject_5fb5452.js', 'http://s1.jikexueyuan.com/common/pkg/common_sync1_libs_cf97d43.js', 'http://s1.jikexueyuan.com/common/video/video2_4b2fdcf.js', 'http://s1.jikexueyuan.com/course/js/share_5f52bd0.js', 'http://s1.jikexueyuan.com/course/js/course_2f97b94.js', 'http://s1.jikexueyuan.com/common/widget/pager/jquery.pager_c1811c8.js', 'http://s1.jikexueyuan.com/course/js/lessonlist_614ec49.js', 'http://s1.jikexueyuan.com/course/widget/lessonteacher/lessonteacher_2968630.js', 'http://s1.jikexueyuan.com/course/widget/videolist/videolist_0edef5a.js'], function () {!function() { vov = null; videojs.options.flash.swf = ""; }();
+!function() {
+    $(function(){
+    	    var myurl = $('#reply_form').attr("myurl");
+		var editor = editor = new Simditor({
+			  textarea: $('#editor'),
+			  upload:{
+			    url:myurl,
+			    params: null,
+			    fileKey: 'upload_file',
+			    connectionCount: 3,
+			    pasteImage:true,
+			    upload:true,
+			    leaveConfirm: '正在上传文件，如果离开上传会自动取消'
+			  }
+		 });
+		 editor.focus();
+    })
+
+ }();
+!function() {
+	require("course:widget/lessonteacher/lessonteacher.js").init();
+}();
+!function() {
+    require("course:widget/videolist/videolist.js").init();
+}();
+!function() {
+	 	lessonlist.asklist();
+	 }();;_ready=true;var _item; while((_item=_list.shift())){_item();}});</script></body>
+</html>
+

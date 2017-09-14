@@ -1,0 +1,69 @@
+
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKKeychainItemWrapper getDictFromDefault]# getDictFromDefault:(null)#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKKeychainItemWrapper getDictFromDefault]# getDictFromDefault:(null)#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKKeychainItemWrapper getDictFromDefault]# getDictFromDefault:(null)#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#+[MSDKInfoTool reportGameTimeEventWithEventType:]# ReportingEvent,name:MSDK_GAME_14,events:{
+    EventType = 1;
+    appid = "";
+    devid = "4284E1FE-A6F4-45FB-86B2-8897223B3AFB";
+    gameTime = 0;
+    localTime = 1446468869;
+    openid = "";
+}#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKQQAuthModel loadLoginInfo:]# QQ query == {
+    accessTokenExpiration = 1422202560;
+    accessTokenType = 1;
+    accessTokenValue = FA3165FE240296A5DFBF497091532FF7;
+    flag = 0;
+    openId = 524FD10C683242E7AD473F89C9C41E4C;
+    payTokenExpiration = 1415118360;
+    payTokenType = 2;
+    payTokenValue = 210D3689567263E6FE7A80A11BEFAA8D;
+    pf = "desktop_m_qq-2002-iap-10001-qq-100555390-524FD10C683242E7AD473F89C9C41E4C";
+    pfKey = 6d073fe9a41ccf7606982234a372b5a0;
+    platform = 2;
+    updateTime = 1414512960;
+    "user_id" = "<null>";
+} 
+
+{
+    accessTokenExpiration = 1422202560;
+    accessTokenType = 1;
+    accessTokenValue = "";
+    flag = 0;
+    openId = 524FD10C683242E7AD473F89C9C41E4C;
+    pf = "";
+    pfKey = "";
+    platform = 2;
+    updateTime = 1446468869;
+}#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#static WGPlatform *WGPlatform::GetInstance()# MSDK INSTANCE#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKJob init]# msdk job init#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#+[MSDKInfoTool getNoticeTimeFromInfo]# 没有在info里面配置拉取公告时间#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKCallbackModel initialOtherService]# AnnoObj:<MSDKAnnouncementService: 0x15597660>#LogReportEnd
+LogReportStart#2015-11-02 20:54:29#1#2.8.1i#100555390#NULL#NULL#-[MSDKCallbackModel initialOtherService]# AdClass:<MSDKAdvertisementService: 0x156805e0>#LogReportEnd
+LogReportStart#2015-11-02 20:54:30#1#2.8.1i#100555390#NULL#NULL#-[MSDKJobManger doMangerLoop]# do manger loop#LogReportEnd
+LogReportStart#2015-11-02 20:54:30#1#2.8.1i#100555390#NULL#NULL#-[MSDKJob doMyJob]# do MSDK jobs#LogReportEnd
+LogReportStart#2015-11-02 20:54:37#1#2.8.1i#100555390#NULL#NULL#-[MSDKAuthModel UploadDeviceInfo:]# {
+    A10 = "iPad2,5";
+    A14 = 12;
+    A15 = 502;
+    A16 = "12-10";
+    A17 = "768*1024";
+    A19 = WiFi;
+    A20 = 0xf8d111e7aa6;
+    A23 = 10001;
+    A24 = "1.00.180";
+    A6 = "02:00:00:00:00:00";
+    A9 = Apple;
+    loginType = None;
+    msdkVersion = "2.8.1i";
+}#LogReportEnd
+LogReportStart#2015-11-02 20:54:55#1#2.8.1i#100555390#NULL#NULL#+[MSDKInfoTool reportGameTimeEventWithEventType:]# ReportingEvent,name:MSDK_GAME_14,events:{
+    EventType = 3;
+    appid = "";
+    devid = "4284E1FE-A6F4-45FB-86B2-8897223B3AFB";
+    gameTime = 27;
+    localTime = 1446468896;
+    openid = "";
+}#LogReportEnd

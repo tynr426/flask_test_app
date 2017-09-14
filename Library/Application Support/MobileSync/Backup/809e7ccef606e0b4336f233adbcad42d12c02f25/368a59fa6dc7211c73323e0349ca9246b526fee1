@@ -1,0 +1,6088 @@
+﻿1
+00:00:05,250 --> 00:00:11,500
+> Stanford University.
+
+2
+00:00:11,500 --> 00:00:20,860
+> Well, welcome to lecture number two of CS 193P for fall of 2013/2014 academic year.
+
+3
+00:00:20,860 --> 00:00:24,990
+And today we're going to have some slides at the beginning,
+
+4
+00:00:24,990 --> 00:00:28,950
+little more talking, and then I'm going to have quite a big demo that's going to try
+
+5
+00:00:28,950 --> 00:00:31,220
+and hopefully synthesize all the things I've been talking
+
+6
+00:00:31,220 --> 00:00:33,570
+about on the slides for the first two lectures,
+
+7
+00:00:33,590 --> 00:00:36,850
+which is that we're going to start building our card game.
+
+8
+00:00:36,850 --> 00:00:38,640
+Okay. This card matching game
+
+9
+00:00:38,640 --> 00:00:43,700
+is going to be our substrate for the first two weeks of learning some Objective-C,
+
+10
+00:00:43,700 --> 00:00:47,870
+learning about Xcode, learning about how iOS hooks
+
+11
+00:00:47,870 --> 00:00:52,540
+up the controller, and the view, and the model to make a UI.
+
+12
+00:00:52,540 --> 00:00:58,950
+So if you remember from last time, we did this card thing that -- we did the entire card.
+
+13
+00:00:58,950 --> 00:01:00,240
+It was a very simple class.
+
+14
+00:01:00,240 --> 00:01:04,110
+Got a couple of properties -- three properties there -- and one method.
+
+15
+00:01:04,110 --> 00:01:05,730
+And that's pretty much it.
+
+16
+00:01:05,730 --> 00:01:09,840
+And so today we're going to go on and do another class, which is a deck.
+
+17
+00:01:09,840 --> 00:01:11,360
+The deck of cards.
+
+18
+00:01:11,360 --> 00:01:14,900
+And remember, that card and deck are generic;
+
+19
+00:01:14,900 --> 00:01:17,300
+they're not specific to playing cards, right?
+
+20
+00:01:17,300 --> 00:01:20,190
+A playing card, like the ace of clubs or the king of hearts --
+
+21
+00:01:20,190 --> 00:01:22,790
+something that has all that in it -- that's a playing card thing.
+
+22
+00:01:22,790 --> 00:01:24,380
+These are general cards and decks.
+
+23
+00:01:24,380 --> 00:01:26,660
+So this could be a deck of flash cards,
+
+24
+00:01:26,660 --> 00:01:30,560
+a deck of foreign language words you're trying to learn or whatever.
+
+25
+00:01:30,560 --> 00:01:33,900
+So we're trying to keep these deck and card classes somewhat generic.
+
+26
+00:01:33,900 --> 00:01:34,840
+So here's deck.
+
+27
+00:01:34,840 --> 00:01:37,680
+It should look familiar in terms of its basic structure, right?
+
+28
+00:01:37,680 --> 00:01:40,790
+We're importing our superclasses framework there,
+
+29
+00:01:40,790 --> 00:01:45,440
+and then obviously importing our own header file in our implementation.
+
+30
+00:01:45,440 --> 00:01:50,310
+And the interface for deck is going to have these two kind of fundamental methods:
+
+31
+00:01:50,310 --> 00:01:52,150
+One adds a card to the deck
+
+32
+00:01:52,150 --> 00:01:55,590
+and one draws a random card out of the deck.
+
+33
+00:01:55,590 --> 00:02:00,820
+And the add a card to the deck is a little bit new to you
+
+34
+00:02:00,820 --> 00:02:03,150
+because you can see it has two arguments.
+
+35
+00:02:03,150 --> 00:02:05,880
+This is the first method you've seen that has two arguments.
+
+36
+00:02:05,880 --> 00:02:08,620
+So far you've only seen methods with no arguments or a method
+
+37
+00:02:08,620 --> 00:02:10,710
+with one argument like that -- match --
+
+38
+00:02:10,720 --> 00:02:13,910
+match had one argument or the setters, they also have one argument.
+
+39
+00:02:13,910 --> 00:02:17,790
+So notice that when you have multiple arguments
+
+40
+00:02:17,790 --> 00:02:22,230
+in objective C, they're kind of interspersed with the names of the methods.
+
+41
+00:02:22,230 --> 00:02:28,200
+So the name of this method, this long method is add card colon at top colon.
+
+42
+00:02:28,200 --> 00:02:29,950
+That's the name of this method.
+
+43
+00:02:29,950 --> 00:02:33,320
+So the at top part is actually part of the name of this method.
+
+44
+00:02:33,320 --> 00:02:35,560
+And the arguments, like the card that you're going to add
+
+45
+00:02:35,560 --> 00:02:38,190
+and at top -- which is a Boolean whether to add it at the top
+
+46
+00:02:38,190 --> 00:02:40,340
+of the deck or at the bottom of the deck --
+
+47
+00:02:40,340 --> 00:02:43,580
+those arguments are interspersed.
+
+48
+00:02:43,580 --> 00:02:47,680
+And we'll see how you call such a method in a moment here.
+
+49
+00:02:47,680 --> 00:02:50,800
+And then draw a random card is like a, you know,
+
+50
+00:02:50,800 --> 00:02:55,140
+similar to a getter in that it returns a value and it has no arguments.
+
+51
+00:02:55,140 --> 00:02:58,700
+But this is not a getter because we didn't make this a property.
+
+52
+00:02:58,700 --> 00:03:00,650
+And it's kind of important
+
+53
+00:03:00,650 --> 00:03:02,620
+to understand you could have made this a property
+
+54
+00:03:02,620 --> 00:03:04,970
+like a read-only property or something that reads it,
+
+55
+00:03:04,970 --> 00:03:08,520
+but since draw a random card kind of does something,
+
+56
+00:03:08,520 --> 00:03:12,320
+it has kind of an algorithm to it -- a mechanism --
+
+57
+00:03:12,320 --> 00:03:13,910
+you usually wouldn't make that a property.
+
+58
+00:03:13,910 --> 00:03:16,540
+It's kind of an abuse of a getter to do that.
+
+59
+00:03:16,540 --> 00:03:18,810
+A getter is really just setting and getting a value.
+
+60
+00:03:18,810 --> 00:03:22,200
+It might have side effects, like setting it might update the UI
+
+61
+00:03:22,210 --> 00:03:26,160
+or getting it might make sure it's initialized first -- those kind of things.
+
+62
+00:03:26,160 --> 00:03:28,020
+You're not going to -- something that does something
+
+63
+00:03:28,020 --> 00:03:31,870
+like drawing a card is not going to be a property.
+
+64
+00:03:31,870 --> 00:03:36,950
+Now, if you want to have, like, that at top argument be optional,
+
+65
+00:03:36,950 --> 00:03:39,770
+okay, the only way to do that in Objective-C --
+
+66
+00:03:39,770 --> 00:03:42,420
+obviously we need our header file there --
+
+67
+00:03:42,420 --> 00:03:44,010
+the only way to do that in Objective-C is
+
+68
+00:03:44,010 --> 00:03:48,860
+to declare a new method, add card colon with no at top on it.
+
+69
+00:03:48,860 --> 00:03:51,490
+So this is a totally different method, totally unrelated
+
+70
+00:03:51,490 --> 00:03:54,710
+to the other method except for that in its implementation
+
+71
+00:03:54,710 --> 00:03:57,840
+of this other method we're just going to call the other one.
+
+72
+00:03:57,840 --> 00:04:00,030
+So in add card we're going to say self add card
+
+73
+00:04:00,030 --> 00:04:00,890
+at top colon,
+
+74
+00:04:00,890 --> 00:04:03,970
+whatever we want the default to be, which I'm going to say is no.
+
+75
+00:04:03,970 --> 00:04:07,420
+So just understand that, you know, in some languages,
+
+76
+00:04:07,420 --> 00:04:10,610
+like, some arguments can be optional or you can kind
+
+77
+00:04:10,610 --> 00:04:16,170
+of overload things to have the same method name have different arguments.
+
+78
+00:04:16,170 --> 00:04:19,690
+No. In Objective-C every method is completely distinct
+
+79
+00:04:19,690 --> 00:04:21,150
+and has a distinct name.
+
+80
+00:04:21,150 --> 00:04:23,860
+And extra arguments are interspersed like that.
+
+81
+00:04:23,860 --> 00:04:26,240
+So these would be two different methods.
+
+82
+00:04:26,240 --> 00:04:27,590
+That make sense?
+
+83
+00:04:27,590 --> 00:04:31,710
+All right. So let's talk about our implementation of our deck.
+
+84
+00:04:31,710 --> 00:04:34,480
+So our deck is just going to contain a bunch of cards.
+
+85
+00:04:34,480 --> 00:04:38,290
+We need some sort of internal data structure to store all our cards in.
+
+86
+00:04:38,290 --> 00:04:43,450
+And what we're going do is we're going to get a mutable array.
+
+87
+00:04:43,450 --> 00:04:47,590
+So you've already seen the class NS array, which is the foundation class array,
+
+88
+00:04:47,590 --> 00:04:49,250
+which is an array of objects.
+
+89
+00:04:49,250 --> 00:04:51,690
+Those objects, by the way, in array can be of any class.
+
+90
+00:04:51,690 --> 00:04:56,950
+There's really no way to specify what kind of class of object is in an array.
+
+91
+00:04:56,950 --> 00:04:58,460
+Some languages allow you to do that.
+
+92
+00:04:58,460 --> 00:05:02,800
+You can specify "This is an array of strings" and it knows that.
+
+93
+00:05:02,800 --> 00:05:04,380
+But in Objective-C you can't do that.
+
+94
+00:05:04,380 --> 00:05:06,970
+And we're going to talk about how we deal with that.
+
+95
+00:05:06,990 --> 00:05:08,930
+That's a little bit of the wild west of Objective-C,
+
+96
+00:05:08,930 --> 00:05:11,750
+but there are ways to kind of check and see what the objects
+
+97
+00:05:11,750 --> 00:05:14,460
+are if you want to be really safe about it.
+
+98
+00:05:14,460 --> 00:05:16,350
+But in this case we just have this mutable array.
+
+99
+00:05:16,350 --> 00:05:18,950
+And mutable means that we can add objects to the array.
+
+100
+00:05:18,950 --> 00:05:21,840
+Normally an NS array is immutable.
+
+101
+00:05:21,840 --> 00:05:24,390
+Once it's created, whatever objects enter it,
+
+102
+00:05:24,390 --> 00:05:25,620
+that's the objects that are in it forever --
+
+103
+00:05:25,620 --> 00:05:27,910
+you can't take any out and you can't put any in.
+
+104
+00:05:27,910 --> 00:05:29,800
+So if we want array where we can add stuff,
+
+105
+00:05:29,800 --> 00:05:33,310
+we have to use this subclass of NS array called NS mutable array.
+
+106
+00:05:33,310 --> 00:05:35,790
+You can see that it's a property.
+
+107
+00:05:35,790 --> 00:05:38,530
+It's strong because we want this array to stay in the heap
+
+108
+00:05:38,530 --> 00:05:40,550
+as long as we're pointing at it.
+
+109
+00:05:40,550 --> 00:05:43,060
+And of course, we always put nonatomic there.
+
+110
+00:05:43,080 --> 00:05:45,940
+So this is going to be an array of cards.
+
+111
+00:05:45,940 --> 00:05:49,840
+Now that we have this, we could easily implement add card,
+
+112
+00:05:49,840 --> 00:05:54,380
+for example, by just saying, "If at top, then insert object,"
+
+113
+00:05:54,380 --> 00:05:57,860
+the card, which is the argument to this method -- first argument --
+
+114
+00:05:57,860 --> 00:05:59,200
+"at index zero."
+
+115
+00:05:59,200 --> 00:06:03,970
+So insert object at index is a method in NS mutable array,
+
+116
+00:06:03,970 --> 00:06:07,280
+not in NS array -- only in NS mutable array
+
+117
+00:06:07,290 --> 00:06:09,030
+because that would be mutating it --
+
+118
+00:06:09,030 --> 00:06:11,990
+that inserts the object at that index in the array
+
+119
+00:06:11,990 --> 00:06:13,740
+and index zero is going to be the top
+
+120
+00:06:13,740 --> 00:06:15,160
+that we're going to define.
+
+121
+00:06:15,160 --> 00:06:17,060
+And then otherwise if we're not going to put it at the
+
+122
+00:06:17,060 --> 00:06:17,910
+top, we're going to put it at the bottom,
+
+123
+00:06:17,910 --> 00:06:21,140
+we're going to use a different NS mutable array method called add object.
+
+124
+00:06:21,140 --> 00:06:23,880
+And that just adds something at the end of the array.
+
+125
+00:06:23,880 --> 00:06:25,360
+So everyone cool with that?
+
+126
+00:06:25,360 --> 00:06:27,530
+So I mostly just put this method in here just
+
+127
+00:06:27,530 --> 00:06:30,730
+to show you there's a couple of different methods on mutable array and,
+
+128
+00:06:30,730 --> 00:06:32,970
+you know, how we can use the arguments.
+
+129
+00:06:32,970 --> 00:06:35,020
+It's no big thing here;
+
+130
+00:06:35,030 --> 00:06:38,210
+it's just kind of to get more used to what's going on here.
+
+131
+00:06:38,210 --> 00:06:40,970
+All right. So that's add card. Very, very simple.
+
+132
+00:06:40,970 --> 00:06:43,140
+And there's a problem, though.
+
+133
+00:06:43,140 --> 00:06:49,180
+In this add card, if we just created a deck
+
+134
+00:06:49,180 --> 00:06:52,230
+and then called add card, it would not work.
+
+135
+00:06:52,230 --> 00:06:53,930
+It would do nothing.
+
+136
+00:06:53,930 --> 00:06:55,480
+Why would it do nothing?
+
+137
+00:06:55,480 --> 00:06:58,780
+Because the property cards, okay --
+
+138
+00:06:58,780 --> 00:07:01,400
+self.cards is how we're accessing our own property --
+
+139
+00:07:01,400 --> 00:07:05,230
+its getter looks like that by default.
+
+140
+00:07:05,230 --> 00:07:07,630
+If we don't give a getter, that's what the getter looks like.
+
+141
+00:07:07,630 --> 00:07:10,580
+It's just going to return this underbar cards instance variable.
+
+142
+00:07:10,580 --> 00:07:14,300
+Well, that underbar cards instance variable's going to start out at zero
+
+143
+00:07:14,300 --> 00:07:18,590
+because all instance variables in an Objective-C object start out zero.
+
+144
+00:07:18,590 --> 00:07:19,440
+All of them.
+
+145
+00:07:19,440 --> 00:07:21,880
+So including pointers.
+
+146
+00:07:21,880 --> 00:07:24,900
+So that pointer will be zero, which is we call nil,
+
+147
+00:07:24,900 --> 00:07:29,370
+which means it doesn't point to anything, which means there is no array.
+
+148
+00:07:29,370 --> 00:07:33,180
+We got a pointer to an array that doesn't point to anything right now.
+
+149
+00:07:33,180 --> 00:07:34,670
+So that's a problem.
+
+150
+00:07:34,670 --> 00:07:36,850
+So when we execute the code in add card
+
+151
+00:07:36,850 --> 00:07:39,670
+like self.cards add object card,
+
+152
+00:07:39,670 --> 00:07:43,780
+that's going to not crash but not do anything, either.
+
+153
+00:07:43,780 --> 00:07:47,440
+Because I told you that you can send messages to nil,
+
+154
+00:07:47,440 --> 00:07:51,750
+send messages to pointers, to objects where it's not pointing to one at the time,
+
+155
+00:07:51,770 --> 00:07:53,710
+and it will not crash.
+
+156
+00:07:53,710 --> 00:07:58,350
+If you send a message that returns a value, that message will not execute any code
+
+157
+00:07:58,350 --> 00:07:59,890
+but it will return zero.
+
+158
+00:07:59,890 --> 00:08:02,140
+So a lot of zeros flying around here.
+
+159
+00:08:02,140 --> 00:08:04,050
+So how are we going to fix this?
+
+160
+00:08:04,050 --> 00:08:06,570
+How are we going make it so that add card works?
+
+161
+00:08:06,570 --> 00:08:09,490
+Well, we could put something at the beginning of add card that says,
+
+162
+00:08:09,510 --> 00:08:12,560
+"If self.cards is nil,
+
+163
+00:08:12,560 --> 00:08:17,790
+then go allocate an array in the heap and point to it, and then we'll use it."
+
+164
+00:08:17,790 --> 00:08:21,120
+But that would mean every single time we have to use self.cards
+
+165
+00:08:21,120 --> 00:08:23,560
+we'd have to go around and check and make sure it's not nil.
+
+166
+00:08:23,560 --> 00:08:25,350
+And that would be very annoying.
+
+167
+00:08:25,350 --> 00:08:29,350
+That would be very error-prone, bug-prone, we forget to do it somewhere.
+
+168
+00:08:29,350 --> 00:08:30,310
+All these things.
+
+169
+00:08:30,310 --> 00:08:35,320
+So a great place to do that little if check is in the getter.
+
+170
+00:08:35,320 --> 00:08:37,220
+That getter that we have right there for cards --
+
+171
+00:08:37,220 --> 00:08:40,270
+that's the getter for our private property cards --
+
+172
+00:08:40,270 --> 00:08:42,540
+instead of just returning the cards,
+
+173
+00:08:42,540 --> 00:08:47,260
+let's put a line right in front that says, "If the cards is nil,
+
+174
+00:08:47,260 --> 00:08:52,190
+then let's go allocate one in the heap and assign it to the instance variable."
+
+175
+00:08:52,190 --> 00:08:57,730
+So the way you allocate an array in the heap is
+
+176
+00:08:57,730 --> 00:09:00,390
+you use NS mutable array alloc init.
+
+177
+00:09:00,390 --> 00:09:04,170
+So that's two message calls nested inside of each other.
+
+178
+00:09:04,170 --> 00:09:06,260
+The alloc allocates the memory in the heap,
+
+179
+00:09:06,260 --> 00:09:10,540
+and init initializes that memory so that it's a, you know, sensible array.
+
+180
+00:09:10,540 --> 00:09:15,290
+And we're going to see how we build our own initializer in a couple slides here.
+
+181
+00:09:15,290 --> 00:09:20,970
+So this way every single time you call self.cards, you can be sure that it's not nil;
+
+182
+00:09:20,970 --> 00:09:23,690
+it's at least going to be an empty array.
+
+183
+00:09:23,710 --> 00:09:25,910
+Does everyone understand this code?
+
+184
+00:09:25,910 --> 00:09:28,510
+It's important to understand this. Yeah.
+
+185
+00:09:28,510 --> 00:09:37,470
+> [Inaudible]
+
+186
+00:09:37,480 --> 00:09:39,610
+> Paul Hegarty: Okay. So the question is:
+
+187
+00:09:39,620 --> 00:09:42,900
+Instead of having this initialization code be in this getter,
+
+188
+00:09:42,900 --> 00:09:48,970
+why don't I make an initializer like in init for deck and put this inside deck?
+
+189
+00:09:48,970 --> 00:09:50,630
+And that is another option.
+
+190
+00:09:50,630 --> 00:09:53,820
+And again, we're going to see initializer for playing card deck,
+
+191
+00:09:53,820 --> 00:09:55,440
+we're going to make an initializer.
+
+192
+00:09:55,440 --> 00:09:57,450
+And we could do that. But
+
+193
+00:09:57,450 --> 00:10:01,100
+having the initialization of this thing be closer
+
+194
+00:10:01,100 --> 00:10:04,820
+to the actual getting of the property is more --
+
+195
+00:10:04,820 --> 00:10:08,970
+it makes your init less full of a bunch of junk like that.
+
+196
+00:10:08,970 --> 00:10:13,010
+And this is called lazy instantiation, by the way, doing it this way.
+
+197
+00:10:13,010 --> 00:10:18,180
+We are lazily waiting to the last second until we instantiate.
+
+198
+00:10:18,180 --> 00:10:21,250
+This pattern is something everyone in Objective-C is used to,
+
+199
+00:10:21,250 --> 00:10:23,930
+and you should definitely use it rather than doing things in your init.
+
+200
+00:10:23,930 --> 00:10:27,530
+In init you want to, you know, set things, set values that,
+
+201
+00:10:27,530 --> 00:10:30,290
+you know, can't easily be defaulted like this.
+
+202
+00:10:30,290 --> 00:10:32,470
+But that's a very good question.
+
+203
+00:10:32,470 --> 00:10:34,720
+And we'll see init in a couple slides.
+
+204
+00:10:34,720 --> 00:10:37,860
+So this way we're guaranteed self.cards is never nil. Yeah?
+
+205
+00:10:37,890 --> 00:10:40,630
+> [Inaudible]
+
+206
+00:10:40,630 --> 00:10:43,180
+> Paul Hegarty: Yeah. So the underscore is from last lecture.
+
+207
+00:10:43,180 --> 00:10:46,530
+Remember that when we create a property,
+
+208
+00:10:46,530 --> 00:10:48,670
+Objective-C automatically does this thing,
+
+209
+00:10:48,670 --> 00:10:51,850
+@synthesize cards equals underbar cards.
+
+210
+00:10:51,850 --> 00:10:56,510
+So in other words, it assigns an instance variable called underbar name of property
+
+211
+00:10:56,510 --> 00:10:58,570
+to be the storage space for that property.
+
+212
+00:10:58,570 --> 00:11:02,990
+So that's why underbar cards are automatically created for us there behind the scenes.
+
+213
+00:11:02,990 --> 00:11:06,850
+That at sign synthesizes a pop up in our code, but it's there behind the scenes.
+
+214
+00:11:06,850 --> 00:11:09,180
+That's a very good question.
+
+215
+00:11:09,180 --> 00:11:11,860
+Any other questions about this?
+
+216
+00:11:11,860 --> 00:11:18,140
+Okay. So let's collapse down some of this stuff and look at draw a random card.
+
+217
+00:11:18,140 --> 00:11:24,520
+So draw a random card, all it wants to do is get a random card out of that self.cards.
+
+218
+00:11:24,520 --> 00:11:27,330
+So that code is very simple as well.
+
+219
+00:11:27,330 --> 00:11:30,250
+So we just get a random integer.
+
+220
+00:11:30,250 --> 00:11:34,040
+That's what arc 4 random does if you don't know. It's just a C library function.
+
+221
+00:11:34,040 --> 00:11:35,530
+It gets a random integer.
+
+222
+00:11:35,530 --> 00:11:39,800
+Then that little percent after it means mod -- okay, integer modulo --
+
+223
+00:11:39,800 --> 00:11:42,090
+and then self.cards count is
+
+224
+00:11:42,100 --> 00:11:44,870
+the number of cards in our self.cards.
+
+225
+00:11:44,870 --> 00:11:49,170
+So we're just going to get a random index into self.cards,
+
+226
+00:11:49,170 --> 00:11:51,450
+then assign a random card
+
+227
+00:11:51,450 --> 00:11:55,390
+to be self.cards square brackets index.
+
+228
+00:11:55,390 --> 00:12:01,480
+So this is that same square brackets to access an array kind of syntax.
+
+229
+00:12:01,480 --> 00:12:05,050
+And it's interesting, that self.cards square brackets index, actually,
+
+230
+00:12:05,050 --> 00:12:07,290
+that's a message send believe it or not.
+
+231
+00:12:07,290 --> 00:12:12,450
+That's same as self.cards object at index index.
+
+232
+00:12:12,450 --> 00:12:15,800
+It's just some special syntax and syntactic sugar
+
+233
+00:12:15,800 --> 00:12:18,450
+to make it so that you don't have to have long object at index.
+
+234
+00:12:18,450 --> 00:12:22,460
+It's actually object at subscripted index or something with a real long method name.
+
+235
+00:12:22,460 --> 00:12:26,100
+So this is just a beautiful, little simple syntax.
+
+236
+00:12:26,100 --> 00:12:30,820
+But that is a message send to get the card at that index out of the array.
+
+237
+00:12:30,820 --> 00:12:35,560
+And then we're also going to remove that card out of the array
+
+238
+00:12:35,560 --> 00:12:38,260
+because this is draw a random card.
+
+239
+00:12:38,260 --> 00:12:42,450
+It's draw the card out of the deck. So it's not in the deck anymore, right?
+
+240
+00:12:42,450 --> 00:12:45,660
+Now, there's a problem with this code as well, which is:
+
+241
+00:12:45,660 --> 00:12:48,500
+What if the deck is empty?
+
+242
+00:12:48,500 --> 00:12:53,610
+If the deck is empty, then that unsigned index is going to be zero,
+
+243
+00:12:53,630 --> 00:12:56,910
+right, because it's going to be arc 4 random mod zero.
+
+244
+00:12:56,910 --> 00:12:58,780
+That's going to be zero.
+
+245
+00:12:58,800 --> 00:13:02,180
+And so you're going to say, "Random card equals self.card sub zero."
+
+246
+00:13:02,180 --> 00:13:05,140
+Well, that's going to crash your program
+
+247
+00:13:05,140 --> 00:13:07,940
+because if self.cards is an empty array,
+
+248
+00:13:07,940 --> 00:13:12,380
+then there's no object at index zero and you're going to get array index out of bounds.
+
+249
+00:13:12,380 --> 00:13:14,470
+So be careful of that.
+
+250
+00:13:14,470 --> 00:13:18,710
+The index -- you cannot get the index -- if an array doesn't have an object
+
+251
+00:13:18,710 --> 00:13:20,980
+of that index, you can't get it.
+
+252
+00:13:20,980 --> 00:13:22,710
+So that's easy to fix, though.
+
+253
+00:13:22,710 --> 00:13:26,800
+We're just going to say, "If self.cards count,"
+
+254
+00:13:26,800 --> 00:13:29,760
+in other words if there are things in the array, "then we'll do that.
+
+255
+00:13:29,760 --> 00:13:32,700
+Otherwise we're just going to return random card," which I
+
+256
+00:13:32,700 --> 00:13:35,480
+happily initialized to nil at the beginning of my method.
+
+257
+00:13:35,500 --> 00:13:37,550
+And that's why I kind of like this thing of
+
+258
+00:13:37,560 --> 00:13:40,110
+initialize it to the default value you want,
+
+259
+00:13:40,110 --> 00:13:41,830
+then set it, and then return.
+
+260
+00:13:41,830 --> 00:13:44,100
+And that way if the setting fails for some reason
+
+261
+00:13:44,100 --> 00:13:46,120
+like this -- it fails because there's no cards in the deck --
+
+262
+00:13:46,120 --> 00:13:48,330
+it will return the reasonable default.
+
+263
+00:13:48,330 --> 00:13:50,610
+That's just kind of a coding style thing.
+
+264
+00:13:50,610 --> 00:13:53,600
+We did that same thing with score and match.
+
+265
+00:13:53,600 --> 00:13:57,050
+Any questions about that? Yeah?
+
+266
+00:13:57,050 --> 00:14:03,580
+[ Inaudible ]
+
+267
+00:14:03,580 --> 00:14:04,960
+> Paul Hegarty: Great question.
+
+268
+00:14:04,960 --> 00:14:11,170
+So the question is: When do I use NS integer or NSU integer
+
+269
+00:14:11,170 --> 00:14:15,370
+versus int or even NS number, which is an object which we haven't talked about yet?
+
+270
+00:14:15,370 --> 00:14:17,620
+And the answer is it's a matter of style.
+
+271
+00:14:17,620 --> 00:14:20,920
+And we'll talk a little bit about that style and when to use these things.
+
+272
+00:14:20,920 --> 00:14:24,010
+Here I don't really want to use an NS number which is an object
+
+273
+00:14:24,010 --> 00:14:27,810
+when I'm just using it, you know, as a little local thing like that.
+
+274
+00:14:27,810 --> 00:14:28,630
+You would never do that.
+
+275
+00:14:28,630 --> 00:14:32,910
+You're using NS numbers basically to pass them to methods.
+
+276
+00:14:32,930 --> 00:14:35,550
+And even then you could pass ints, you know, and floats.
+
+277
+00:14:35,550 --> 00:14:41,810
+So it will be become obvious as I talk about NS number, which we'll do next week.
+
+278
+00:14:41,810 --> 00:14:43,600
+Okay. So that's it for deck.
+
+279
+00:14:43,600 --> 00:14:46,150
+Deck, very simple class as well.
+
+280
+00:14:46,170 --> 00:14:49,080
+So let's move onto another class, which is playing card.
+
+281
+00:14:49,080 --> 00:14:50,650
+The reason I'm showing you playing cards,
+
+282
+00:14:50,650 --> 00:14:52,720
+I just want to show you what it looks like to make a subclass
+
+283
+00:14:52,720 --> 00:14:54,140
+of another class that you've written.
+
+284
+00:14:54,140 --> 00:14:56,740
+So playing card is a subclass of card.
+
+285
+00:14:56,740 --> 00:14:59,910
+And this is the specific card like king of hearts,
+
+286
+00:14:59,910 --> 00:15:02,980
+three of diamonds, that kind of card.
+
+287
+00:15:02,980 --> 00:15:08,580
+Now, it has properties that are specific to a playing card, which is the suit and rank.
+
+288
+00:15:08,580 --> 00:15:11,840
+The rank being like a three, four, a jack, king, right?
+
+289
+00:15:11,840 --> 00:15:14,260
+And the suit being hearts, diamonds, clubs.
+
+290
+00:15:14,260 --> 00:15:17,680
+And I'm going to represent the suit as a single character --
+
+291
+00:15:17,680 --> 00:15:19,500
+the hearts characters, the clubs character.
+
+292
+00:15:19,500 --> 00:15:23,340
+Remember I typed the clubs character I think in the card we might have shown that.
+
+293
+00:15:23,340 --> 00:15:25,190
+I don't know. But you can type a single character.
+
+294
+00:15:25,190 --> 00:15:27,680
+Unicode has a character for each of the four suits.
+
+295
+00:15:27,700 --> 00:15:28,750
+So that's what my suit is going to be.
+
+296
+00:15:28,750 --> 00:15:33,070
+And then the rank is going to be a number between zero and thirteen.
+
+297
+00:15:33,070 --> 00:15:34,640
+Is that king?
+
+298
+00:15:34,640 --> 00:15:36,620
+Yeah. Representing the rank.
+
+299
+00:15:36,620 --> 00:15:39,260
+So that's how I'm going to represent in my public API.
+
+300
+00:15:39,280 --> 00:15:42,130
+And here I'm using notice NSU integer
+
+301
+00:15:42,130 --> 00:15:43,940
+instead of unsigned int.
+
+302
+00:15:43,940 --> 00:15:47,270
+So NSU integer and unsigned int are almost exactly the same thing.
+
+303
+00:15:47,270 --> 00:15:50,120
+The only thing about NSU integer is it's typedef.
+
+304
+00:15:50,120 --> 00:15:52,540
+It might be a little different on different platforms.
+
+305
+00:15:52,540 --> 00:15:56,520
+For example, the new iPhone 5s are 64-bit processers.
+
+306
+00:15:56,520 --> 00:16:01,550
+So NSU integer is going to be a 64-bit int, unsigned int on an iPhone 5.
+
+307
+00:16:01,550 --> 00:16:05,320
+And it might only about a 32-bit one back on an iPhone 4 and before.
+
+308
+00:16:05,320 --> 00:16:08,680
+So that's a little bit different.
+
+309
+00:16:08,680 --> 00:16:10,430
+So a minor nit.
+
+310
+00:16:10,430 --> 00:16:12,470
+We were probably not representing integers.
+
+311
+00:16:12,470 --> 00:16:14,410
+Certainly here we're only going zero to thirteen.
+
+312
+00:16:14,410 --> 00:16:15,800
+Probably doesn't matter.
+
+313
+00:16:15,800 --> 00:16:19,030
+But, you know, we're not representing integers that are so gigantic
+
+314
+00:16:19,030 --> 00:16:21,630
+that we're going to be using the 33rd bit.
+
+315
+00:16:22,660 --> 00:16:25,110
+So notice that in playing card
+
+316
+00:16:25,110 --> 00:16:28,320
+we're overriding card method contents.
+
+317
+00:16:28,320 --> 00:16:30,980
+We inherit contents from our superclass.
+
+318
+00:16:30,980 --> 00:16:33,240
+And by default contents just returns
+
+319
+00:16:33,240 --> 00:16:36,310
+the value of whatever the contents property is.
+
+320
+00:16:36,310 --> 00:16:39,550
+But here in the playing card we're going to override contents
+
+321
+00:16:39,550 --> 00:16:43,920
+to actually calculate our contents, based on these other two properties.
+
+322
+00:16:43,920 --> 00:16:46,630
+So we're overriding the getter of contents
+
+323
+00:16:46,630 --> 00:16:49,330
+so that it always returns a string --
+
+324
+00:16:49,330 --> 00:16:53,540
+the contents of this playing card -- that is calculated from the suit and rank.
+
+325
+00:16:53,540 --> 00:16:54,680
+You see what we're doing here?
+
+326
+00:16:54,680 --> 00:16:58,330
+So we're basically taking the storage of contents -- underbar contents --
+
+327
+00:16:58,330 --> 00:17:00,240
+from our superclass and ignoring it
+
+328
+00:17:00,260 --> 00:17:02,770
+because we're overriding its getter.
+
+329
+00:17:02,790 --> 00:17:06,940
+So this is a perfectly valid reason why we do these properties as well
+
+330
+00:17:06,940 --> 00:17:10,060
+because we might have a better way to do things than the storage.
+
+331
+00:17:10,060 --> 00:17:13,350
+Now, here's a way we could implement it: We can just return a string.
+
+332
+00:17:13,350 --> 00:17:15,000
+NS string, string with format
+
+333
+00:17:15,000 --> 00:17:17,110
+just like printf-ing a string.
+
+334
+00:17:17,110 --> 00:17:19,780
+Don't worry about that syntax too much.
+
+335
+00:17:19,780 --> 00:17:22,950
+And I'm printf-ing a string with percent D and percent at sign.
+
+336
+00:17:22,950 --> 00:17:26,700
+So percent D means integer; percent at sign means an object.
+
+337
+00:17:26,700 --> 00:17:28,420
+A string representation of an object.
+
+338
+00:17:28,420 --> 00:17:31,030
+And then I'm just using the rank and suit.
+
+339
+00:17:31,030 --> 00:17:32,840
+So this would be one way to do my contents.
+
+340
+00:17:32,840 --> 00:17:35,380
+It's not a very good way because, for example,
+
+341
+00:17:35,380 --> 00:17:38,570
+the jack of hearts would say 11 hearts.
+
+342
+00:17:38,570 --> 00:17:42,870
+It's not going to say J at least; we want to say J, not 11.
+
+343
+00:17:42,870 --> 00:17:44,320
+So this is not a very good way.
+
+344
+00:17:44,320 --> 00:17:47,450
+So instead I'm going to make an array
+
+345
+00:17:47,450 --> 00:17:51,310
+that has all the right things like an A for a one,
+
+346
+00:17:51,310 --> 00:17:55,380
+and a J for 11, and a Q for 12, and a K for 13, right?
+
+347
+00:17:55,380 --> 00:17:57,750
+So I'm just making this array here.
+
+348
+00:17:57,750 --> 00:18:01,190
+In the middle there I had to cut out to make it fit, right?
+
+349
+00:18:01,190 --> 00:18:03,210
+And I even made zero be question mark.
+
+350
+00:18:03,210 --> 00:18:07,220
+So if your rank is zero, it's going to be, like, question mark, like, unset.
+
+351
+00:18:07,220 --> 00:18:09,570
+You know, your rank is basically not set.
+
+352
+00:18:09,570 --> 00:18:12,220
+And then I return a string,
+
+353
+00:18:12,220 --> 00:18:15,290
+which is taking the rank out of that array
+
+354
+00:18:15,310 --> 00:18:18,340
+and appending onto it the little suit string,
+
+355
+00:18:18,340 --> 00:18:20,730
+the heart, or the club, or the diamond.
+
+356
+00:18:20,730 --> 00:18:22,080
+Everyone understand this?
+
+357
+00:18:22,080 --> 00:18:25,010
+I'm kind of giving you this so you can see how we're mixing
+
+358
+00:18:25,010 --> 00:18:31,750
+in the array notation, and message sending, and it all kind of seamlessly mixes in there.
+
+359
+00:18:31,750 --> 00:18:38,920
+So now contents returns J hearts, or 5 diamonds, or whatever.
+
+360
+00:18:38,920 --> 00:18:41,960
+Notice that our rank is really nice
+
+361
+00:18:41,960 --> 00:18:45,780
+because if our rank is zero, which it starts out being when we say new playing card --
+
+362
+00:18:45,780 --> 00:18:48,000
+all the instance variables are zero so rank would be zero --
+
+363
+00:18:48,000 --> 00:18:49,360
+we get this nice question mark.
+
+364
+00:18:49,360 --> 00:18:51,720
+But our suit starts out as nil,
+
+365
+00:18:51,720 --> 00:18:56,790
+and it would be nice if the suit also returned question mark if it was unset, if it was nil.
+
+366
+00:18:56,790 --> 00:18:59,350
+So here I'm just overriding the getter of suit to say,
+
+367
+00:18:59,350 --> 00:19:04,320
+"If return, if my suit is nil, then return the question mark,
+
+368
+00:19:04,320 --> 00:19:07,660
+otherwise when my suit's not nil, then return what the suit is."
+
+369
+00:19:07,660 --> 00:19:10,780
+So I'm just kind of protecting my API
+
+370
+00:19:10,780 --> 00:19:14,490
+to make sure I always return question mark when the rank or suit is not set.
+
+371
+00:19:14,500 --> 00:19:15,010
+Yeah.
+
+372
+00:19:15,030 --> 00:19:16,750
+> [Inaudible]
+
+373
+00:19:18,750 --> 00:19:22,650
+> Paul Hegarty: Sorry. All little at signs -- the red at signs, you mean?
+
+374
+00:19:22,650 --> 00:19:26,540
+Yeah. Guess we didn't get to that in card.
+
+375
+00:19:26,540 --> 00:19:28,050
+But we might have. But
+
+376
+00:19:28,090 --> 00:19:28,940
+remember that
+
+377
+00:19:28,940 --> 00:19:32,790
+all strings that we're going to work with in this class are string objects,
+
+378
+00:19:32,790 --> 00:19:34,700
+not const char stars.
+
+379
+00:19:34,700 --> 00:19:36,260
+They're string objects.
+
+380
+00:19:36,260 --> 00:19:39,060
+And the compiler, if you put an at sign in front of a string,
+
+381
+00:19:39,060 --> 00:19:42,000
+it will make a string object for you.
+
+382
+00:19:42,000 --> 00:19:45,350
+So that's what those at signs do, they make all those strings be string objects
+
+383
+00:19:45,350 --> 00:19:47,900
+because we can't put a const char star in an NS array.
+
+384
+00:19:47,900 --> 00:19:51,270
+NS array is for objects, so we have to put objects in there like NS strings.
+
+385
+00:19:51,270 --> 00:19:53,670
+Those are objects. Good question.
+
+386
+00:19:53,670 --> 00:19:55,510
+Yeah?
+
+387
+00:19:55,510 --> 00:20:00,540
+[ Inaudible ]
+
+388
+00:20:09,540 --> 00:20:11,820
+> Paul Hegarty: Yes. Okay. That's a good question.
+
+389
+00:20:11,820 --> 00:20:16,180
+If we had used that getter equals notation that we used
+
+390
+00:20:16,180 --> 00:20:18,910
+for is chosen and is matched to change the name,
+
+391
+00:20:18,910 --> 00:20:21,820
+then when we override we have to use the new name.
+
+392
+00:20:21,820 --> 00:20:25,170
+We'd have to is whatever. Now, this is not the case here.
+
+393
+00:20:25,170 --> 00:20:28,960
+But I know what you're saying, and yes, you would have to use the new name.
+
+394
+00:20:28,960 --> 00:20:30,230
+Great question.
+
+395
+00:20:30,230 --> 00:20:32,290
+Any other questions about this?
+
+396
+00:20:32,290 --> 00:20:37,850
+Okay. So that helps the suit always return question mark if the suit is nil or not set.
+
+397
+00:20:37,850 --> 00:20:42,540
+Let's also protect people setting the suit to something wrong.
+
+398
+00:20:42,540 --> 00:20:46,530
+Let's only let people set the suit using this property,
+
+399
+00:20:46,530 --> 00:20:48,460
+the public setter of the property.
+
+400
+00:20:48,460 --> 00:20:53,200
+We'll only let people set the suit to be one of the four suits.
+
+401
+00:20:53,200 --> 00:20:57,640
+So I just on the fly in the middle there created an array of those four suits.
+
+402
+00:20:57,640 --> 00:20:59,700
+And then I use this method contains object;
+
+403
+00:20:59,700 --> 00:21:04,550
+what class do you think contains object is from that bit on?
+
+404
+00:21:04,550 --> 00:21:05,220
+Anyone?
+
+405
+00:21:05,230 --> 00:21:08,310
+> [Inaudible]
+
+406
+00:21:08,330 --> 00:21:10,280
+> Paul Hegarty: It's an NS array method, exactly.
+
+407
+00:21:10,280 --> 00:21:12,240
+So contains object is an NS array method.
+
+408
+00:21:12,240 --> 00:21:15,030
+I'm sending it to the array that I create right in place there.
+
+409
+00:21:15,030 --> 00:21:18,440
+The array that has hearts, diamonds, spades, and clubs in it.
+
+410
+00:21:18,440 --> 00:21:20,750
+And I'm just asking: Do you contain this string?
+
+411
+00:21:20,750 --> 00:21:23,760
+And that contains object is going to compare the contents
+
+412
+00:21:23,760 --> 00:21:27,290
+of this string against all these using a method is equal.
+
+413
+00:21:27,290 --> 00:21:30,600
+Actually, it's going to say is equal to all four of them with the suit as the argument;
+
+414
+00:21:30,600 --> 00:21:32,760
+not is equal to string -- is equal.
+
+415
+00:21:32,760 --> 00:21:35,570
+And in string is equal is implemented by calling is equal
+
+416
+00:21:35,570 --> 00:21:37,550
+to string if the argument's a string.
+
+417
+00:21:37,550 --> 00:21:39,920
+Anyway, more detail than you need probably there.
+
+418
+00:21:39,920 --> 00:21:41,390
+But this is obviously protecting it.
+
+419
+00:21:41,390 --> 00:21:44,790
+So there's no way we can set our internal suit storage variable
+
+420
+00:21:44,790 --> 00:21:48,510
+to anything except for those four suits. Yeah?
+
+421
+00:21:48,510 --> 00:21:58,940
+[ Inaudible ]
+
+422
+00:21:58,940 --> 00:22:01,990
+> Paul Hegarty: Great question. You guys are right on top of it.
+
+423
+00:22:01,990 --> 00:22:04,830
+So every time I use the at sign open square bracket --
+
+424
+00:22:04,830 --> 00:22:06,380
+the blue one -- to
+
+425
+00:22:06,380 --> 00:22:10,170
+create an array, that's actually creating a new array every time.
+
+426
+00:22:10,170 --> 00:22:13,080
+Because I told you that that at sign square bracket
+
+427
+00:22:13,080 --> 00:22:15,790
+and all this array stuff is really just calling methods?
+
+428
+00:22:15,790 --> 00:22:19,200
+Well, that's calling a method like alloc init with array
+
+429
+00:22:19,200 --> 00:22:20,810
+with objects or something like that.
+
+430
+00:22:20,810 --> 00:22:21,830
+Right? So it is creating it.
+
+431
+00:22:21,830 --> 00:22:25,250
+So it would be nice to move it out, and we're going to do that.
+
+432
+00:22:25,250 --> 00:22:28,380
+Although, again, be careful not to preoptimize.
+
+433
+00:22:28,380 --> 00:22:29,870
+It probably wouldn't make any different.
+
+434
+00:22:29,870 --> 00:22:31,810
+I'm only going to move it out to make my code cleaner;
+
+435
+00:22:31,810 --> 00:22:34,680
+I'm not going to move it out for any performance reason. Yeah?
+
+436
+00:22:34,710 --> 00:22:38,010
+> [Inaudible]
+
+437
+00:22:38,010 --> 00:22:39,180
+> Paul Hegarty: The question is:
+
+438
+00:22:39,180 --> 00:22:41,430
+Would LLVM just take care of that, optimize that out for you?
+
+439
+00:22:41,430 --> 00:22:44,000
+And it probably wouldn't because that's a message send;
+
+440
+00:22:44,000 --> 00:22:45,900
+it's not sure what there might be side effects of it.
+
+441
+00:22:45,900 --> 00:22:48,990
+But in any case, we're just going to do it just to make our code look cleaner.
+
+442
+00:22:48,990 --> 00:22:51,540
+And the performance would be negligible here.
+
+443
+00:22:51,540 --> 00:22:54,240
+We're talking about UI. It's not even close.
+
+444
+00:22:54,240 --> 00:22:56,900
+One thing to note, though, before we do that is
+
+445
+00:22:56,900 --> 00:23:00,270
+since we've implemented both the setter and the getter of suit,
+
+446
+00:23:00,270 --> 00:23:04,440
+we are now required to do the at sign synthesize.
+
+447
+00:23:04,440 --> 00:23:08,130
+In other words, normally we don't have to do this at sign synthesize.
+
+448
+00:23:08,130 --> 00:23:09,070
+It gets done for us.
+
+449
+00:23:09,070 --> 00:23:12,670
+But if we implement both the setter and the getter, now we do.
+
+450
+00:23:12,670 --> 00:23:15,870
+It's easy to do because it's always of this exact same form.
+
+451
+00:23:15,870 --> 00:23:18,610
+But we do have to do it.
+
+452
+00:23:18,610 --> 00:23:21,300
+Okay. So here's -- let's do what we were saying.
+
+453
+00:23:21,300 --> 00:23:26,820
+Let's take that little array of suits we have in there and put it in another method.
+
+454
+00:23:26,820 --> 00:23:29,870
+Now, again, I'm not getting any performance by doing this.
+
+455
+00:23:29,870 --> 00:23:32,020
+I'm just getting code cleanliness by doing this
+
+456
+00:23:32,020 --> 00:23:35,170
+because I'm still -- every time I call valid suits, it's going to create it again.
+
+457
+00:23:35,170 --> 00:23:37,000
+Now, I could use a static variable.
+
+458
+00:23:37,000 --> 00:23:39,320
+This is C. I could store this array.
+
+459
+00:23:39,320 --> 00:23:40,710
+Started out being nil.
+
+460
+00:23:40,710 --> 00:23:44,240
+If it's nil, set it to this array, and then it would only create it once.
+
+461
+00:23:44,240 --> 00:23:45,470
+But be careful.
+
+462
+00:23:45,470 --> 00:23:47,200
+Again, code cleanliness
+
+463
+00:23:47,200 --> 00:23:49,840
+and understandably ten times more important than performance like this.
+
+464
+00:23:49,840 --> 00:23:52,850
+So unless you're going to call valid suits in the inner loop thousands of times,
+
+465
+00:23:52,850 --> 00:23:54,420
+it's not really going to matter.
+
+466
+00:23:54,420 --> 00:23:57,790
+But once I move that up into a different method,
+
+467
+00:23:57,790 --> 00:24:00,720
+this kind of method that I moved it to is a little different.
+
+468
+00:24:00,720 --> 00:24:02,500
+Notice it has a plus.
+
+469
+00:24:02,500 --> 00:24:06,080
+You see a plus there instead of a minus starting it?
+
+470
+00:24:06,080 --> 00:24:08,380
+Plus NS array valid suits?
+
+471
+00:24:08,380 --> 00:24:11,090
+Okay. A plus method is a class method.
+
+472
+00:24:11,090 --> 00:24:17,130
+That means you send it to the class, not to an instance of an object.
+
+473
+00:24:17,850 --> 00:24:19,590
+So since you're not sending it to an instance,
+
+474
+00:24:19,590 --> 00:24:23,020
+you can't use any instance variables or anything like that.
+
+475
+00:24:23,020 --> 00:24:25,250
+You can only just kind of do generic stuff.
+
+476
+00:24:25,250 --> 00:24:30,140
+So the only thing we really use plus methods for, class methods, is two things really:
+
+477
+00:24:30,140 --> 00:24:31,860
+Creating things
+
+478
+00:24:31,860 --> 00:24:36,010
+like in the previous slide when we had string with format --
+
+479
+00:24:36,010 --> 00:24:38,910
+that's a class method that was creating a string for us;
+
+480
+00:24:38,910 --> 00:24:41,880
+and then also utility methods like this,
+
+481
+00:24:41,880 --> 00:24:43,930
+like the return constants
+
+482
+00:24:43,930 --> 00:24:47,210
+and things that, you know, our class wants and utility methods.
+
+483
+00:24:47,210 --> 00:24:48,260
+But here's an example.
+
+484
+00:24:48,260 --> 00:24:50,250
+And the way we call the class method --
+
+485
+00:24:50,250 --> 00:24:52,160
+you've already seen me call a few of them --
+
+486
+00:24:52,160 --> 00:24:55,250
+but here's calling it here is we put open square bracket,
+
+487
+00:24:55,250 --> 00:24:58,100
+the name of the class, the name of the method.
+
+488
+00:24:58,100 --> 00:25:00,540
+And again, it could have arguments. It's just like any other method.
+
+489
+00:25:00,560 --> 00:25:02,910
+But everyone understand this?
+
+490
+00:25:03,690 --> 00:25:05,630
+Okay. And if you go back and look a couple slides
+
+491
+00:25:05,630 --> 00:25:09,140
+and you see open square bracket NS string, string with format,
+
+492
+00:25:09,140 --> 00:25:12,030
+same exact type of syntax.
+
+493
+00:25:12,030 --> 00:25:13,720
+So that's what a class method looks like.
+
+494
+00:25:13,720 --> 00:25:19,350
+Again, for creating things basically and for utility methods.
+
+495
+00:25:19,350 --> 00:25:20,460
+And we'll talk about the difference of:
+
+496
+00:25:20,460 --> 00:25:23,880
+When do we create something with a class method versus alloc init?
+
+497
+00:25:23,880 --> 00:25:25,660
+We'll talk about that soon.
+
+498
+00:25:25,660 --> 00:25:28,970
+I'm also going to make valid suits public.
+
+499
+00:25:28,970 --> 00:25:33,360
+And that way people who are using my playing card know what the valid suits are.
+
+500
+00:25:33,360 --> 00:25:35,290
+And all I need to do is put it in the header file.
+
+501
+00:25:35,290 --> 00:25:36,770
+Boom, it's public now.
+
+502
+00:25:36,770 --> 00:25:41,420
+So let's do a similar thing here with those rank strings.
+
+503
+00:25:41,420 --> 00:25:45,790
+So I'm going to take those ranks strings -- that array of rank strings right up there --
+
+504
+00:25:45,790 --> 00:25:48,900
+and I'm going to put that in a class method.
+
+505
+00:25:48,900 --> 00:25:52,280
+And again, this is for readability, not for performance.
+
+506
+00:25:52,280 --> 00:25:56,680
+Because every time I call rank strings, it's still going to create that thing again.
+
+507
+00:25:56,680 --> 00:26:00,360
+And then I call it instead up there.
+
+508
+00:26:00,360 --> 00:26:03,700
+And I'm not going to make rank strings itself public,
+
+509
+00:26:03,700 --> 00:26:06,880
+but I am going to make another class method called max rank,
+
+510
+00:26:06,880 --> 00:26:09,710
+which just looks at how many strings are in rank strings.
+
+511
+00:26:09,710 --> 00:26:13,080
+And I'm going to return that as a public method.
+
+512
+00:26:13,080 --> 00:26:16,510
+So there's three class methods for you to sink your teeth
+
+513
+00:26:16,510 --> 00:26:19,880
+into -- two of them public, one not.
+
+514
+00:26:19,880 --> 00:26:22,110
+All right. And so they're all utility methods, right?
+
+515
+00:26:22,110 --> 00:26:26,320
+We're not accessing any instance variables in any of those methods.
+
+516
+00:26:26,320 --> 00:26:28,700
+That's the only reason I'm showing those,
+
+517
+00:26:28,700 --> 00:26:31,650
+is just so you see what a class method looks like.
+
+518
+00:26:33,170 --> 00:26:35,880
+We also could override the setter of rank just
+
+519
+00:26:35,880 --> 00:26:38,210
+to be complete here to make sure it doesn't allow you
+
+520
+00:26:38,210 --> 00:26:40,970
+to set a wrong rank like set rank 15 --
+
+521
+00:26:40,970 --> 00:26:42,320
+there's no such card as 15.
+
+522
+00:26:42,320 --> 00:26:45,820
+So let's make sure that the rank is less than the max rank,
+
+523
+00:26:45,820 --> 00:26:47,610
+which is the utility method we just did.
+
+524
+00:26:47,610 --> 00:26:50,930
+Does that all come together for you, make sense?
+
+525
+00:26:50,930 --> 00:26:53,030
+So this is kind of reference material.
+
+526
+00:26:53,030 --> 00:26:56,500
+You have these slides that have all the annotations of all the things I'm saying.
+
+527
+00:26:56,500 --> 00:26:59,210
+So feel free to go back and look at it and remind yourself
+
+528
+00:26:59,210 --> 00:27:01,950
+about all these NS array, syntax,
+
+529
+00:27:01,950 --> 00:27:04,490
+and all the class methods, all that stuff.
+
+530
+00:27:04,490 --> 00:27:08,510
+Okay. The last thing we're going to look at is the init method business.
+
+531
+00:27:08,510 --> 00:27:12,080
+So we're going to have another class here called playing card deck.
+
+532
+00:27:12,080 --> 00:27:15,850
+And a playing card deck is a subclass of deck.
+
+533
+00:27:15,850 --> 00:27:18,970
+And it has no public API.
+
+534
+00:27:18,970 --> 00:27:25,340
+It's just going to override a method that it inherits indirectly from NS object --
+
+535
+00:27:25,340 --> 00:27:28,150
+okay, NS object through deck, which doesn't touch it --
+
+536
+00:27:28,150 --> 00:27:29,710
+all the way to playing card deck.
+
+537
+00:27:29,730 --> 00:27:32,110
+And that method is called init.
+
+538
+00:27:32,110 --> 00:27:37,910
+So this is the same init, same kind of method that when we created that array --
+
+539
+00:27:37,910 --> 00:27:41,280
+that mutable array we said NS mutable array alloc init.
+
+540
+00:27:41,280 --> 00:27:45,000
+so someone is going to call this PlayingCardDeck init method --
+
+541
+00:27:45,000 --> 00:27:47,340
+namely you in your homework
+
+542
+00:27:47,340 --> 00:27:50,440
+are going to call this by doing playing card deck alloc,
+
+543
+00:27:50,440 --> 00:27:52,780
+and then on the outside, init.
+
+544
+00:27:52,780 --> 00:27:55,380
+And that's how you're going to create a playing card deck.
+
+545
+00:27:55,380 --> 00:27:59,230
+And that is how we create most instances of objects -- not all.
+
+546
+00:27:59,230 --> 00:28:02,140
+Sometimes we do things like the NS string, string with format.
+
+547
+00:28:02,140 --> 00:28:04,070
+But most of the time -- more than half the time --
+
+548
+00:28:04,070 --> 00:28:06,640
+we do alloc and then on the outside init.
+
+549
+00:28:06,640 --> 00:28:08,040
+Listen carefully:
+
+550
+00:28:08,040 --> 00:28:13,030
+Never call that alloc thing without wrapping an init around it.
+
+551
+00:28:13,030 --> 00:28:14,350
+Don't ever do that.
+
+552
+00:28:14,350 --> 00:28:18,520
+That makes no sense to have an object allocated in the heap that's never been initialized.
+
+553
+00:28:18,520 --> 00:28:19,960
+Always have that nested.
+
+554
+00:28:19,960 --> 00:28:25,220
+And vice versa: Never call that init except for when you wrap it around an alloc.
+
+555
+00:28:25,220 --> 00:28:27,790
+And definitely never call that init more than once.
+
+556
+00:28:27,790 --> 00:28:31,360
+And if you obey my rule of only calling it wrapped around an alloc,
+
+557
+00:28:31,360 --> 00:28:32,870
+you can't call it more than once.
+
+558
+00:28:32,870 --> 00:28:36,170
+Init is not something like you can re-init.
+
+559
+00:28:36,170 --> 00:28:39,580
+Init happens once right after alloc, and that's it.
+
+560
+00:28:39,580 --> 00:28:43,490
+That is a hard and fast rule we never break.
+
+561
+00:28:43,490 --> 00:28:45,060
+So you heard it here.
+
+562
+00:28:45,060 --> 00:28:46,110
+Don't forget.
+
+563
+00:28:46,630 --> 00:28:50,920
+All right. Let's look at the whacky return type to this init method.
+
+564
+00:28:50,920 --> 00:28:55,410
+You might think this init method should return a playing card deck star
+
+565
+00:28:55,430 --> 00:28:58,900
+because it's kind of initializing and maybe it returns itself.
+
+566
+00:28:58,900 --> 00:29:02,530
+And in fact, init does always return self.
+
+567
+00:29:02,530 --> 00:29:04,760
+So init is always going to return self.
+
+568
+00:29:04,760 --> 00:29:07,030
+Okay. More whackiness there, which I'm going to describe.
+
+569
+00:29:07,030 --> 00:29:10,320
+Just for convenience, it always returns self so that you can do,
+
+570
+00:29:10,320 --> 00:29:14,320
+like, playing card deck alloc init, sent it a message.
+
+571
+00:29:14,320 --> 00:29:17,330
+So it's just convenience that it returns self.
+
+572
+00:29:17,330 --> 00:29:21,280
+But it can't really have its return type being playing card deck star
+
+573
+00:29:21,300 --> 00:29:23,480
+because it inherited this from NS object.
+
+574
+00:29:23,480 --> 00:29:28,480
+And NS object already defined it as NS object star.
+
+575
+00:29:28,480 --> 00:29:30,520
+You see? So it's kind of weird
+
+576
+00:29:30,520 --> 00:29:32,790
+that you're inheriting a method whose return value would have
+
+577
+00:29:32,790 --> 00:29:36,870
+to change every time you, you know, overrode it.
+
+578
+00:29:36,870 --> 00:29:40,370
+So they invented this new thing -- this is new for iOS 7, by the way --
+
+579
+00:29:40,390 --> 00:29:42,010
+called instance type.
+
+580
+00:29:42,010 --> 00:29:43,940
+And what instance type means is this is going
+
+581
+00:29:43,940 --> 00:29:49,490
+to return an object that is of the same instance -- same type, same class type --
+
+582
+00:29:49,490 --> 00:29:52,180
+as the object you sent this message to.
+
+583
+00:29:52,180 --> 00:29:54,750
+Which makes perfect sense for inits.
+
+584
+00:29:54,750 --> 00:29:58,140
+And in this class that's probably all you're going to use this for right here.
+
+585
+00:29:58,140 --> 00:30:00,800
+So if you don't really understand what I just said -- it's explained in the slides --
+
+586
+00:30:00,800 --> 00:30:02,050
+but if you don't really understand it,
+
+587
+00:30:02,050 --> 00:30:04,080
+just know that whenever you do an initializer,
+
+588
+00:30:04,080 --> 00:30:07,680
+it's going to return instance type as its return type
+
+589
+00:30:07,680 --> 00:30:10,020
+and you're always going to return self.
+
+590
+00:30:11,670 --> 00:30:14,490
+Now, also just take my word for it.
+
+591
+00:30:14,490 --> 00:30:18,280
+We're going to do these next lines of codes as well because they are really strange.
+
+592
+00:30:18,280 --> 00:30:21,880
+That first line, self equals super init, that is weird.
+
+593
+00:30:21,880 --> 00:30:23,110
+That is super weird.
+
+594
+00:30:23,110 --> 00:30:26,890
+Assigning something to self in Objective-C --
+
+595
+00:30:26,890 --> 00:30:30,300
+just never do that, except for this one time and that's in your init.
+
+596
+00:30:30,300 --> 00:30:35,880
+You take self and you assign it to calling your superclasses initializer
+
+597
+00:30:35,880 --> 00:30:37,950
+so that your superclass gets initialized.
+
+598
+00:30:37,950 --> 00:30:40,990
+Why do we assign the result to self?
+
+599
+00:30:40,990 --> 00:30:42,990
+It's kind of ancient history
+
+600
+00:30:42,990 --> 00:30:45,440
+as to why this has been done for a long time.
+
+601
+00:30:45,440 --> 00:30:48,850
+Basically we're checking the return of our superclasses init
+
+602
+00:30:48,850 --> 00:30:50,670
+to make sure it properly initialized.
+
+603
+00:30:50,670 --> 00:30:55,080
+Because at any time if your initializer cannot initialize itself,
+
+604
+00:30:55,080 --> 00:30:56,990
+it should return nil.
+
+605
+00:30:56,990 --> 00:31:00,310
+And that lets everybody know any of your subclasses
+
+606
+00:31:00,310 --> 00:31:02,670
+or anyone trying to alloc and initialize you,
+
+607
+00:31:02,670 --> 00:31:05,090
+you could not create a well-formed object.
+
+608
+00:31:05,090 --> 00:31:07,540
+So you can see how this code, strange as it is --
+
+609
+00:31:07,540 --> 00:31:09,560
+self equals super init, and then if self,
+
+610
+00:31:09,560 --> 00:31:12,500
+I'm going to initialize myself, return self --
+
+611
+00:31:12,500 --> 00:31:16,800
+that's going to ensure that I don't even try to initialize myself if my superclass,
+
+612
+00:31:16,800 --> 00:31:21,370
+when I call its init, you know, can't initialize itself.
+
+613
+00:31:21,370 --> 00:31:24,270
+So just do it.
+
+614
+00:31:24,270 --> 00:31:27,730
+If you don't understand it, don't worry about it too much. Just do it.
+
+615
+00:31:27,730 --> 00:31:31,140
+Now, one thing here is we're talking about init with no arguments.
+
+616
+00:31:31,140 --> 00:31:33,830
+It is possible to have initializers with arguments
+
+617
+00:31:33,830 --> 00:31:36,940
+because sometimes you need arguments to properly initialize a class.
+
+618
+00:31:36,940 --> 00:31:40,050
+And we're going to talk about that a little more on Monday.
+
+619
+00:31:40,050 --> 00:31:43,050
+So today we're just going to kind of bare bones init.
+
+620
+00:31:43,050 --> 00:31:45,110
+So what does this init need to do?
+
+621
+00:31:45,110 --> 00:31:46,320
+What do I need to do
+
+622
+00:31:46,320 --> 00:31:48,560
+to have a well-formed initialized playing card deck?
+
+623
+00:31:48,560 --> 00:31:53,300
+Well, a playing card deck has 52 cards in it, one of each kind of card.
+
+624
+00:31:53,300 --> 00:31:57,750
+King of clubs, three of diamonds -- all 52 of them.
+
+625
+00:31:57,750 --> 00:32:03,160
+So I just need to iterate to all the suits, and then iterate through all the ranks,
+
+626
+00:32:03,160 --> 00:32:06,240
+and create a card, and add it to myself.
+
+627
+00:32:06,240 --> 00:32:09,810
+So here's me iterating through the suits, iterating through the ranks.
+
+628
+00:32:09,810 --> 00:32:12,380
+Everyone cool with that?
+
+629
+00:32:12,380 --> 00:32:16,020
+Then I'm going to import playing card
+
+630
+00:32:16,020 --> 00:32:18,570
+because I'm going to create a playing card,
+
+631
+00:32:18,580 --> 00:32:20,520
+playing card alloc init.
+
+632
+00:32:20,520 --> 00:32:23,830
+Then I'm going to set that card's rank, set that card's suit.
+
+633
+00:32:23,830 --> 00:32:28,400
+Rank and suit are my little iteration variables there.
+
+634
+00:32:28,400 --> 00:32:31,050
+And then I'm going to add it to myself.
+
+635
+00:32:31,050 --> 00:32:35,500
+I'm a deck, so that's perfectly fine.
+
+636
+00:32:35,500 --> 00:32:39,360
+Everybody cool with that code?
+
+637
+00:32:39,360 --> 00:32:42,930
+So now I'm a well-formed playing card deck and I can be used
+
+638
+00:32:42,930 --> 00:32:45,390
+to draw random cards and all that stuff,
+
+639
+00:32:45,390 --> 00:32:47,450
+which you will need to do for your homework.
+
+640
+00:32:48,500 --> 00:32:51,660
+And in fact, for your homework you're going to have to type all four of these classes in.
+
+641
+00:32:51,660 --> 00:32:54,570
+I want you to get experience entering classes, typing a thing,
+
+642
+00:32:54,570 --> 00:32:59,780
+watching as Xcode complains at you as you mistype things, and stuff like that.
+
+643
+00:32:59,780 --> 00:33:03,520
+And then you're going to be using playing card deck and playing card.
+
+644
+00:33:03,520 --> 00:33:06,220
+Well, playing card deck and card really are the two main ones
+
+645
+00:33:06,220 --> 00:33:08,400
+you're going to be using to do your homework.
+
+646
+00:33:09,390 --> 00:33:11,880
+Questions about that?
+
+647
+00:33:11,880 --> 00:33:14,220
+Okay. So that's it for the slides.
+
+648
+00:33:14,220 --> 00:33:16,970
+So now I'm going to do a big old demo.
+
+649
+00:33:16,970 --> 00:33:21,290
+And this demo is going to integrate everything you've seen so far.
+
+650
+00:33:21,290 --> 00:33:23,680
+Most notably that MVC stuff we talked about,
+
+651
+00:33:23,680 --> 00:33:26,940
+like target action, you know, dropping the target and shooting the action
+
+652
+00:33:26,940 --> 00:33:30,070
+or the green arrow outlet that points the other way.
+
+653
+00:33:30,070 --> 00:33:34,220
+We're going to show you what that actually looks like in Xcode.
+
+654
+00:33:34,220 --> 00:33:37,190
+I think when I asked who of you have done Xcode,
+
+655
+00:33:37,190 --> 00:33:39,240
+almost every single one of you raised your hands.
+
+656
+00:33:39,240 --> 00:33:42,160
+So I'm not going to spend too much time talking about all the buttons in Xcode.
+
+657
+00:33:42,160 --> 00:33:44,680
+I think I'll quickly pass over those.
+
+658
+00:33:44,680 --> 00:33:49,750
+But if you haven't used Xcode, it's in very much detail in the lecture slides.
+
+659
+00:33:49,750 --> 00:33:51,440
+There's kind of this walkthrough.
+
+660
+00:33:51,440 --> 00:33:54,190
+By the way, if you're following along in the lecture slides,
+
+661
+00:33:54,190 --> 00:33:57,070
+my demo's not going to be exactly like what's in the slides.
+
+662
+00:33:57,070 --> 00:34:00,860
+The slides cover a little bit more than I can cover in forty minutes here.
+
+663
+00:34:00,860 --> 00:34:03,480
+And it's also reference material.
+
+664
+00:34:03,480 --> 00:34:07,330
+So if I do something today in this demo and you're like,
+
+665
+00:34:07,330 --> 00:34:08,430
+"Oh, how did he do that?"
+
+666
+00:34:08,430 --> 00:34:10,700
+if you go look in those slides, it will tell you.
+
+667
+00:34:10,700 --> 00:34:13,030
+So do not feel like, "I got to furiously write
+
+668
+00:34:13,030 --> 00:34:15,630
+down every button click he's going to do in the next forty minutes."
+
+669
+00:34:15,630 --> 00:34:16,680
+No way. Okay?
+
+670
+00:34:16,680 --> 00:34:19,240
+Follow along in those slides if you want,
+
+671
+00:34:19,240 --> 00:34:23,500
+or just close your laptop, and watch, and let it sink in
+
+672
+00:34:23,520 --> 00:34:26,120
+because you're going to have to reproduce what I'm doing
+
+673
+00:34:26,120 --> 00:34:28,400
+in the next forty minutes for your homework.
+
+674
+00:34:28,400 --> 00:34:31,340
+And those slides are going to walk you through step by step how to do it.
+
+675
+00:34:31,340 --> 00:34:35,300
+So do not feel like you need to do anything right now but let this all sink in.
+
+676
+00:34:35,300 --> 00:34:37,690
+Get a feel for what's going on.
+
+677
+00:34:37,690 --> 00:34:42,960
+And then when you sit down to do it, you'll be guided through it.
+
+678
+00:34:42,960 --> 00:34:46,220
+Next week we're going to talk a lot more about Objective-C,
+
+679
+00:34:46,220 --> 00:34:47,790
+answer some of these more detailed questions
+
+680
+00:34:47,790 --> 00:34:50,410
+like NS number and some of these other things people are asking.
+
+681
+00:34:50,410 --> 00:34:54,900
+And we'll talk about some of the specific things about Objective-C
+
+682
+00:34:54,910 --> 00:34:57,740
+like dynamic binding, and protocols,
+
+683
+00:34:57,740 --> 00:35:00,030
+and things that you don't generally see as much
+
+684
+00:35:00,030 --> 00:35:02,840
+in other languages or don't exist in other languages.
+
+685
+00:35:02,840 --> 00:35:04,060
+So we'll try and cover all that.
+
+686
+00:35:04,060 --> 00:35:07,440
+So by the end of next week you're up to speed in Objective-C.
+
+687
+00:35:07,440 --> 00:35:10,170
+You're starting to really run with Xcode.
+
+688
+00:35:10,170 --> 00:35:13,770
+And so the week after that we can really start doing some,
+
+689
+00:35:13,770 --> 00:35:17,260
+you know, high power iOS 7 stuff.
+
+690
+00:35:18,080 --> 00:35:20,570
+Okay. So demo here.
+
+691
+00:35:23,140 --> 00:35:25,790
+So the demo I'm going to run in Xcode.
+
+692
+00:35:25,790 --> 00:35:27,750
+So I'm just going to launch Xcode.
+
+693
+00:35:27,750 --> 00:35:32,490
+So Xcode you get by running -- going to your Mac app store.
+
+694
+00:35:32,490 --> 00:35:34,930
+That's this thing down here, right?
+
+695
+00:35:34,930 --> 00:35:37,670
+Get the app store on your Mac, and you just search for Xcode, find it.
+
+696
+00:35:37,670 --> 00:35:40,680
+It's free. You download it and you run it. It's as simple as that.
+
+697
+00:35:40,700 --> 00:35:44,850
+This is what it's going to look like when you first bring it up,
+
+698
+00:35:44,850 --> 00:35:46,220
+this splash screen here.
+
+699
+00:35:46,240 --> 00:35:50,090
+As the quarter goes on, this will fill up with all the projects that you're doing.
+
+700
+00:35:50,090 --> 00:35:52,250
+You're probably used to that if you know Xcode.
+
+701
+00:35:52,250 --> 00:35:55,020
+And what we're going to do today is create a new project.
+
+702
+00:35:55,020 --> 00:35:59,510
+You can either check an existing project out of source control
+
+703
+00:35:59,510 --> 00:36:00,850
+or you can create a new one.
+
+704
+00:36:00,870 --> 00:36:02,280
+And so we're going to create a new one.
+
+705
+00:36:02,280 --> 00:36:06,830
+So when we create a new one, it wants to give us a little bit of help
+
+706
+00:36:06,850 --> 00:36:10,480
+by offering to create a template for different kinds of applications
+
+707
+00:36:10,480 --> 00:36:12,810
+like an openGL game.
+
+708
+00:36:12,830 --> 00:36:16,490
+Okay. It will create some framework for that for you.
+
+709
+00:36:16,490 --> 00:36:18,220
+Master detail applications,
+
+710
+00:36:18,220 --> 00:36:19,740
+something we're going to do later in the quarter,
+
+711
+00:36:19,740 --> 00:36:21,510
+although we're going to build all the code ourselves;
+
+712
+00:36:21,510 --> 00:36:23,460
+we're not going to use this template.
+
+713
+00:36:23,460 --> 00:36:29,250
+And this single view application one right here is basically a single MVC,
+
+714
+00:36:29,260 --> 00:36:32,550
+which is how we're going it start all of our applications in this classroom --
+
+715
+00:36:32,550 --> 00:36:35,640
+with a single MVC. Then we're going to add more MVCs and build up.
+
+716
+00:36:35,640 --> 00:36:39,480
+So this is your basic single MVC app.
+
+717
+00:36:39,500 --> 00:36:41,200
+So I'm going to click that.
+
+718
+00:36:41,220 --> 00:36:43,600
+And here it's going to ask for some information about it
+
+719
+00:36:43,600 --> 00:36:45,810
+like what do you want to call this app?
+
+720
+00:36:45,810 --> 00:36:49,860
+This is a card matching game I have decided to call Machismo.
+
+721
+00:36:50,720 --> 00:36:53,680
+So that's going to be the name of our app just for fun.
+
+722
+00:36:53,680 --> 00:36:55,750
+And organization name can be anything you want.
+
+723
+00:36:55,750 --> 00:36:59,990
+It's going to appear in the headers of all the classes that you create.
+
+724
+00:36:59,990 --> 00:37:01,740
+So I make mine be Stanford University.
+
+725
+00:37:01,740 --> 00:37:05,610
+You can make yours be Bob's Game House or whatever.
+
+726
+00:37:05,610 --> 00:37:09,500
+This identifier should be unique to you.
+
+727
+00:37:09,500 --> 00:37:13,310
+So I have edu.Stanford.cs193p.instructor.
+
+728
+00:37:13,310 --> 00:37:16,790
+You might have edu.Stanford.cs193p dot your SUNet ID.
+
+729
+00:37:16,810 --> 00:37:19,280
+That will be completely unique.
+
+730
+00:37:19,280 --> 00:37:23,330
+These reverse DNS is a really good way to create a unique name.
+
+731
+00:37:23,330 --> 00:37:26,030
+And it's going to create a unique name for this app
+
+732
+00:37:26,030 --> 00:37:28,310
+by combining this with the names.
+
+733
+00:37:28,310 --> 00:37:31,450
+So you can see it's done that here, this bundle identifier.
+
+734
+00:37:31,450 --> 00:37:32,980
+And then this class prefix --
+
+735
+00:37:32,980 --> 00:37:38,400
+this template is going to create a view and a controller for us.
+
+736
+00:37:38,400 --> 00:37:42,170
+And this is saying, "What do you want the name of your controller class to be?"
+
+737
+00:37:42,170 --> 00:37:45,640
+By default it's going to be called "view controller," okay?
+
+738
+00:37:45,640 --> 00:37:49,120
+But if you type something here like "card game," now
+
+739
+00:37:49,120 --> 00:37:51,440
+it's going to be called "card game view controller,"
+
+740
+00:37:51,440 --> 00:37:53,150
+which is a little better name for us.
+
+741
+00:37:53,150 --> 00:37:55,500
+So that's just the prefix it's going to put on the name
+
+742
+00:37:55,500 --> 00:37:57,330
+of your controller that it creates for you.
+
+743
+00:37:57,350 --> 00:38:00,180
+And then finally here we can create an app here just
+
+744
+00:38:00,180 --> 00:38:02,550
+for iPad, or just for iPhone,
+
+745
+00:38:02,550 --> 00:38:05,450
+or a universal app that will run on both platforms.
+
+746
+00:38:05,450 --> 00:38:10,180
+Now, when you create a universal app, you still have to design your UI's separately
+
+747
+00:38:10,180 --> 00:38:13,460
+because if you have more screen rules, you're just going to design a different UI.
+
+748
+00:38:13,460 --> 00:38:15,550
+iPad is not just a big iPhone.
+
+749
+00:38:15,550 --> 00:38:18,820
+You can do a lot more stuff if you have more screen real estate.
+
+750
+00:38:18,820 --> 00:38:23,060
+But you still might have a lot of your MVC's shared, right,
+
+751
+00:38:23,060 --> 00:38:26,610
+because that iPad might have little subareas that are in MVC
+
+752
+00:38:26,610 --> 00:38:29,520
+that are exactly the same as on an iPhone or very, very similar.
+
+753
+00:38:29,520 --> 00:38:34,420
+So totally supported in iOS 7 to build apps that target both platforms
+
+754
+00:38:34,420 --> 00:38:38,290
+and has great tools for letting you build your two UI's separately
+
+755
+00:38:38,290 --> 00:38:40,470
+and share all the MVCs underneath.
+
+756
+00:38:40,470 --> 00:38:42,590
+We're going to do iPhone only here just
+
+757
+00:38:42,590 --> 00:38:46,510
+because it keeps the screen small and I only have so much real estate here.
+
+758
+00:38:46,510 --> 00:38:52,150
+[ Inaudible ]
+
+759
+00:38:52,150 --> 00:38:54,390
+> Paul Hegarty: Yeah. So the question is: If I'm on my iPad
+
+760
+00:38:54,390 --> 00:38:56,700
+and I run an app that's iPhone only, yes,
+
+761
+00:38:56,700 --> 00:39:00,880
+there's an emulation mode essentially that will kind
+
+762
+00:39:00,880 --> 00:39:04,200
+of make a big iPhone-shaped thing on the iPad screen.
+
+763
+00:39:04,200 --> 00:39:05,890
+So we're going to do iPhone here.
+
+764
+00:39:05,890 --> 00:39:07,570
+So that's it. I'm going to hit next.
+
+765
+00:39:07,570 --> 00:39:10,240
+Next it wants to know, "Where are you going it put this project?"
+
+766
+00:39:10,240 --> 00:39:13,660
+I strongly recommend putting it in your home directory --
+
+767
+00:39:13,660 --> 00:39:17,120
+in a directory called "developer" in your home directory.
+
+768
+00:39:17,120 --> 00:39:19,670
+Unless maybe we're working on different class.
+
+769
+00:39:19,670 --> 00:39:23,060
+Maybe you have the CS 193P in your home directory and then other class.
+
+770
+00:39:23,060 --> 00:39:25,340
+But bottom line: Put it in your home directory;
+
+771
+00:39:25,350 --> 00:39:28,050
+do not put it, like, in root or somewhere like that.
+
+772
+00:39:28,050 --> 00:39:31,350
+That has in the past caused problems.
+
+773
+00:39:31,350 --> 00:39:34,680
+But a great place to put it here. This is my home directory, CS 193P there.
+
+774
+00:39:34,680 --> 00:39:37,030
+I see home directory, developer.
+
+775
+00:39:37,030 --> 00:39:39,510
+This is where I'm going to put it. I don't have any projects yet.
+
+776
+00:39:39,510 --> 00:39:43,050
+This little thing down here, source control, we will be talking about that.
+
+777
+00:39:43,050 --> 00:39:45,680
+It's really nicely integrated into Xcode,
+
+778
+00:39:45,680 --> 00:39:47,070
+but we're not going to talk about it today.
+
+779
+00:39:47,070 --> 00:39:49,420
+So leave that unclicked.
+
+780
+00:39:51,580 --> 00:39:53,780
+And so here's our new project.
+
+781
+00:39:53,780 --> 00:39:55,810
+You can see it shows us this screen,
+
+782
+00:39:55,810 --> 00:39:58,630
+which you get to by clicking on this very top thing up here.
+
+783
+00:39:58,630 --> 00:40:00,470
+So this is kind of like our project settings.
+
+784
+00:40:00,470 --> 00:40:02,310
+And there's a whole bunch of settings here.
+
+785
+00:40:02,310 --> 00:40:04,590
+We'll be talk being all this stuff as the quarter goes on.
+
+786
+00:40:04,590 --> 00:40:08,530
+But today we're not going to talk about any of it because we want to focus on our MVC.
+
+787
+00:40:08,530 --> 00:40:15,860
+And our MVC, this right here, main.storyboard, is our view.
+
+788
+00:40:15,860 --> 00:40:18,140
+That's our view of our MVC.
+
+789
+00:40:18,160 --> 00:40:21,160
+And then you see this card game view controller M and H?
+
+790
+00:40:21,160 --> 00:40:23,010
+That's our controller.
+
+791
+00:40:23,010 --> 00:40:24,440
+There's no model here.
+
+792
+00:40:24,440 --> 00:40:27,040
+Your model is going to be those four classes --
+
+793
+00:40:27,040 --> 00:40:29,420
+deck, card, playing card, playing card deck --
+
+794
+00:40:29,420 --> 00:40:31,120
+that's going to be your model.
+
+795
+00:40:31,120 --> 00:40:32,440
+So you'll have to enter that in.
+
+796
+00:40:32,440 --> 00:40:35,100
+I'll show you at the end how to do that.
+
+797
+00:40:35,100 --> 00:40:38,770
+This little thing here, card game app delegate dot H and M,
+
+798
+00:40:38,770 --> 00:40:44,460
+we'll talk about that briefly, especially when we start talking about things like multitasking.
+
+799
+00:40:44,460 --> 00:40:46,860
+But I like to just move those out of the way.
+
+800
+00:40:46,860 --> 00:40:49,920
+So I often put them down here in this supporting files folder.
+
+801
+00:40:49,920 --> 00:40:53,050
+And you can just pick up any file, by the way, and move them anywhere you want
+
+802
+00:40:53,050 --> 00:40:55,260
+here to kind of clean up your view.
+
+803
+00:40:55,260 --> 00:41:00,780
+So here I've got my view and my controller only showing here.
+
+804
+00:41:00,780 --> 00:41:04,770
+So let's go straight to the view and see what that looks like.
+
+805
+00:41:04,770 --> 00:41:09,230
+So here's my view. It's a blank iPhone 5 sized, right?
+
+806
+00:41:09,230 --> 00:41:12,770
+A tall and thin view.
+
+807
+00:41:12,770 --> 00:41:15,810
+And it's blank. Nothing new. It's white.
+
+808
+00:41:15,810 --> 00:41:19,360
+This area on the left, by the way, where we clicked on these files,
+
+809
+00:41:19,360 --> 00:41:20,910
+that's called the "navigator."
+
+810
+00:41:20,910 --> 00:41:23,030
+And you can not only navigate all your files here,
+
+811
+00:41:23,030 --> 00:41:25,230
+but you can navigate your break points,
+
+812
+00:41:25,230 --> 00:41:28,200
+and build problems, and your class hierarchies.
+
+813
+00:41:28,200 --> 00:41:29,150
+All that stuff up here.
+
+814
+00:41:29,150 --> 00:41:32,600
+So again, most of you know Xcode, so you probably know most of this stuff.
+
+815
+00:41:32,600 --> 00:41:35,700
+We'll be demoing all this as the quarter goes on.
+
+816
+00:41:35,700 --> 00:41:38,950
+And this area over here is called the "utilities area."
+
+817
+00:41:38,950 --> 00:41:43,630
+And this is where you basically find out detail about what's going on here.
+
+818
+00:41:43,630 --> 00:41:48,620
+So inspectors for attributes, and dimensions, and connections,
+
+819
+00:41:48,620 --> 00:41:50,250
+and things like that go here.
+
+820
+00:41:50,250 --> 00:41:53,430
+And this is also where you can drag out the things
+
+821
+00:41:53,430 --> 00:41:56,070
+that you're going to use to build your user interface
+
+822
+00:41:56,070 --> 00:41:59,610
+because we're going to build our view entirely graphically.
+
+823
+00:41:59,610 --> 00:42:02,770
+We're not going to write code, for the most part, to build our view.
+
+824
+00:42:02,770 --> 00:42:06,430
+As the quarter goes on, we'll learn a little more about how to build our view in code,
+
+825
+00:42:06,440 --> 00:42:10,730
+but we're going to start out just purely doing our view by graphically
+
+826
+00:42:10,730 --> 00:42:12,390
+dragging things out and wiring them up.
+
+827
+00:42:12,390 --> 00:42:14,670
+And we'll put our code in our controller.
+
+828
+00:42:14,670 --> 00:42:21,150
+This two sides can be hidden and shown with these two buttons.
+
+829
+00:42:21,150 --> 00:42:24,650
+See? You can hide those.
+
+830
+00:42:25,160 --> 00:42:29,030
+This might appear also, this area right here, this little button down here.
+
+831
+00:42:29,030 --> 00:42:30,570
+This is called the "document outline."
+
+832
+00:42:30,570 --> 00:42:32,360
+This is really handy dandy.
+
+833
+00:42:32,360 --> 00:42:33,920
+But again, we're not going it talk about that today.
+
+834
+00:42:33,920 --> 00:42:35,780
+We can only talk about so much at once.
+
+835
+00:42:35,780 --> 00:42:37,360
+The document outline.
+
+836
+00:42:37,360 --> 00:42:42,440
+This just shows you all the instances of objects in your view in a common outline form.
+
+837
+00:42:42,440 --> 00:42:45,700
+So you can really easily find them and their relationships to each other.
+
+838
+00:42:45,700 --> 00:42:50,300
+The other thing you can do is I don't want this iPhone 5 sized
+
+839
+00:42:50,300 --> 00:42:54,690
+thing because my screen is low resolution here so it works on the projector.
+
+840
+00:42:54,690 --> 00:42:57,010
+So I'm going to click this little button down here,
+
+841
+00:42:57,010 --> 00:43:01,770
+which reduces me down to iPhone 4 size. Or iPhone 4S.
+
+842
+00:43:01,770 --> 00:43:03,660
+Not tall and thin.
+
+843
+00:43:03,660 --> 00:43:07,360
+But you can click back and forth and move them back forth.
+
+844
+00:43:07,360 --> 00:43:10,990
+And I'm just trying to make everything fit on screen here.
+
+845
+00:43:10,990 --> 00:43:14,700
+Okay. So let's just dive right into building our view here.
+
+846
+00:43:14,700 --> 00:43:21,300
+What our view is going to be today is a single card with an ace of clubs written on it.
+
+847
+00:43:21,300 --> 00:43:23,220
+That's going to be it.
+
+848
+00:43:23,220 --> 00:43:25,140
+And I'm going to be able to click on the card
+
+849
+00:43:25,140 --> 00:43:27,320
+and it will flip over, show the back of the card,
+
+850
+00:43:27,320 --> 00:43:30,160
+and then click on it again, it will flip back to show me the ace of club again --
+
+851
+00:43:30,160 --> 00:43:31,380
+back and forth, back and forth.
+
+852
+00:43:31,380 --> 00:43:33,630
+And your homework is going to be to make it
+
+853
+00:43:33,630 --> 00:43:36,260
+so when the card flips up it doesn't show the ace of clubs,
+
+854
+00:43:36,260 --> 00:43:39,050
+it shows a random card drawn from the deck.
+
+855
+00:43:39,060 --> 00:43:42,490
+That's going to be your entire homework that's due on Monday.
+
+856
+00:43:42,490 --> 00:43:44,710
+Okay. So let's do this. Really simple.
+
+857
+00:43:44,710 --> 00:43:47,510
+We go to this area right here, this object library.
+
+858
+00:43:47,510 --> 00:43:50,290
+That's the third button over here, show object library.
+
+859
+00:43:50,290 --> 00:43:52,100
+And this is where all our objects are.
+
+860
+00:43:52,100 --> 00:43:54,640
+If you look in here and you don't see these objects,
+
+861
+00:43:54,640 --> 00:43:56,620
+it might be worth clicking on your view.
+
+862
+00:43:56,620 --> 00:44:00,520
+Sometimes Xcode wants to know what the destination is
+
+863
+00:44:00,520 --> 00:44:02,760
+that you're going to be dragging things into.
+
+864
+00:44:02,760 --> 00:44:04,790
+So if you click on it, then you'll see these things.
+
+865
+00:44:04,790 --> 00:44:06,950
+And we're just going to grab one of these buttons right here.
+
+866
+00:44:06,950 --> 00:44:09,730
+So I'm going to pick this button up and drag it out.
+
+867
+00:44:09,730 --> 00:44:11,410
+And notice, as I drag it out,
+
+868
+00:44:11,410 --> 00:44:13,870
+these little blue lines appear -- these guidelines.
+
+869
+00:44:13,870 --> 00:44:16,780
+Okay. These guidelines are super important.
+
+870
+00:44:16,780 --> 00:44:18,430
+They seem just like a convenience
+
+871
+00:44:18,430 --> 00:44:21,890
+for helping you put it right in the middle or right in the right-hand corner.
+
+872
+00:44:21,890 --> 00:44:25,810
+And they are, but they're really important for making sure
+
+873
+00:44:25,810 --> 00:44:29,600
+that all the things in your view are kind of, like, standard space apart.
+
+874
+00:44:29,600 --> 00:44:31,610
+And lined up against edges.
+
+875
+00:44:31,610 --> 00:44:34,300
+So that as the users go from one app to another,
+
+876
+00:44:34,300 --> 00:44:38,610
+things will all be separated by predictable spaces and everything will be consistent.
+
+877
+00:44:38,610 --> 00:44:39,650
+It's really important.
+
+878
+00:44:39,650 --> 00:44:42,190
+And there's a mechanism -- you can see this switch right here,
+
+879
+00:44:42,190 --> 00:44:45,210
+use auto layout, which was introduced in iOS 6
+
+880
+00:44:45,210 --> 00:44:48,460
+and vastly improved in iOS 7, especially in Xcode --
+
+881
+00:44:48,460 --> 00:44:52,760
+that allows when your user interface changes size,
+
+882
+00:44:52,760 --> 00:44:55,370
+like it goes from being an iPhone 4 to an iPhone 5,
+
+883
+00:44:55,370 --> 00:44:59,330
+or it rotates from being vertical to being horizontal,
+
+884
+00:44:59,330 --> 00:45:02,230
+or it's on an iPad in a bigger space.
+
+885
+00:45:02,230 --> 00:45:06,460
+For all the buttons and everything to kind of move to a new position that makes sense
+
+886
+00:45:06,460 --> 00:45:08,120
+or at least most of them, right?
+
+887
+00:45:08,120 --> 00:45:10,410
+And then maybe you might have to move a few of them by hand,
+
+888
+00:45:10,410 --> 00:45:11,750
+depending on what's going on. But
+
+889
+00:45:11,770 --> 00:45:14,000
+it mostly automatically lays it out.
+
+890
+00:45:14,000 --> 00:45:15,050
+And this is really important
+
+891
+00:45:15,050 --> 00:45:18,010
+because I'm sure devices will continue to be differing sizes
+
+892
+00:45:18,010 --> 00:45:20,670
+as new, you know, devices come out over the years.
+
+893
+00:45:20,670 --> 00:45:23,120
+So doing auto layout is important,
+
+894
+00:45:23,120 --> 00:45:26,560
+and these blue guidelines are the number one most important thing for auto layout.
+
+895
+00:45:26,560 --> 00:45:29,820
+We're going to cover auto layout in detail, and there's a lot to it.
+
+896
+00:45:29,820 --> 00:45:33,330
+All these buttons down here have to do with auto layout.
+
+897
+00:45:33,330 --> 00:45:36,530
+But getting those blue guidelines, making sure you drop things
+
+898
+00:45:36,530 --> 00:45:39,670
+with at least one blue guideline somewhere is really important
+
+899
+00:45:39,670 --> 00:45:43,790
+to kind get you going down the right path with the properly auto laid out UI.
+
+900
+00:45:43,790 --> 00:45:45,690
+So we have this button here.
+
+901
+00:45:45,690 --> 00:45:47,990
+But before -- and of course, we can go over here
+
+902
+00:45:47,990 --> 00:45:50,820
+to this is the attributes inspector and click on it.
+
+903
+00:45:50,820 --> 00:45:52,690
+And we'll see all kinds of attributes.
+
+904
+00:45:52,690 --> 00:45:56,400
+In fact, if I hide this, tons and tons of attributes for this button.
+
+905
+00:45:56,400 --> 00:45:58,130
+Not just the button itself,
+
+906
+00:45:58,130 --> 00:46:00,890
+but actually its superclass has attributes.
+
+907
+00:46:00,890 --> 00:46:02,230
+Control is its superclass,
+
+908
+00:46:02,230 --> 00:46:05,610
+and then view is control's superclass and it has attributes.
+
+909
+00:46:05,610 --> 00:46:08,400
+Okay. So this is an object-oriented inspector
+
+910
+00:46:08,400 --> 00:46:14,000
+that will show all the attributes of all the things through the inheritance hierarchy.
+
+911
+00:46:14,000 --> 00:46:20,150
+And what's happening here is we're actually editing an instance of a button here.
+
+912
+00:46:20,150 --> 00:46:21,570
+So we are not -- and I know
+
+913
+00:46:21,570 --> 00:46:24,990
+in some systems you layout the button, you set the size, and you set the attributes.
+
+914
+00:46:24,990 --> 00:46:27,350
+And then, you know, behind the scenes a bunch
+
+915
+00:46:27,350 --> 00:46:30,520
+of code is being generated to create the button.
+
+916
+00:46:30,520 --> 00:46:31,770
+That's not what we're doing here.
+
+917
+00:46:31,770 --> 00:46:33,670
+We're actually editing live objects.
+
+918
+00:46:33,670 --> 00:46:35,670
+They're essentially going to be freeze dried.
+
+919
+00:46:35,690 --> 00:46:39,560
+And then when your app runs, add water, they come to life, okay,
+
+920
+00:46:39,560 --> 00:46:42,040
+with their attributes set, and all their sizes and positions,
+
+921
+00:46:42,040 --> 00:46:44,980
+and all their auto layout information in the object.
+
+922
+00:46:44,980 --> 00:46:50,030
+So it's a little different than you might be used to in some other systems.
+
+923
+00:46:50,030 --> 00:46:52,650
+So anyway, before we edit the attributes of this button,
+
+924
+00:46:52,650 --> 00:46:56,250
+though, let's change our background because this is a card game.
+
+925
+00:46:56,250 --> 00:46:59,450
+And most card games are on, like, green felt, right?
+
+926
+00:46:59,450 --> 00:47:01,650
+So let's make our background be more like a green felt.
+
+927
+00:47:01,650 --> 00:47:03,580
+So I'm just going to click on the background,
+
+928
+00:47:03,580 --> 00:47:06,810
+which is this view right here, and you can see its properties.
+
+929
+00:47:06,810 --> 00:47:10,490
+So I'm going to change a couple -- or just one of its properties -- which is the background.
+
+930
+00:47:10,490 --> 00:47:12,940
+You see this background white color right here?
+
+931
+00:47:12,940 --> 00:47:15,950
+So if I click on this, I have some recently used colors.
+
+932
+00:47:15,950 --> 00:47:18,150
+I have all these kind of black and white colors.
+
+933
+00:47:18,150 --> 00:47:19,490
+And I also have other.
+
+934
+00:47:19,490 --> 00:47:22,570
+And I bring up other, brings up the crayons.
+
+935
+00:47:22,570 --> 00:47:26,140
+It also brings up other ways to choose colors, but I like the crayons.
+
+936
+00:47:26,140 --> 00:47:29,930
+And so where are my crayons?
+
+937
+00:47:29,930 --> 00:47:30,770
+There they are.
+
+938
+00:47:30,770 --> 00:47:34,450
+So let's pick a green, like, moss is a good green.
+
+939
+00:47:34,450 --> 00:47:36,030
+Clover. I kind of like moss better.
+
+940
+00:47:36,030 --> 00:47:39,130
+So that's kind of a card game background.
+
+941
+00:47:39,130 --> 00:47:42,970
+And that's it. So we've set the background color of our views.
+
+942
+00:47:42,970 --> 00:47:45,340
+And all the attribute setting is just like this:
+
+943
+00:47:45,340 --> 00:47:48,140
+You just set it and forget it.
+
+944
+00:47:48,140 --> 00:47:50,980
+So let's go back to the button and its properties.
+
+945
+00:47:50,980 --> 00:47:53,240
+Okay. The button I want to look like a card.
+
+946
+00:47:53,240 --> 00:47:58,730
+Well, a button in iOS 7 basically looks a lot like a hyperlink on a web page,
+
+947
+00:47:58,730 --> 00:48:02,140
+just like that button does right there. That blue button.
+
+948
+00:48:02,140 --> 00:48:04,490
+That's not really appropriate for what we want.
+
+949
+00:48:04,490 --> 00:48:08,270
+We want it to look like a card with a little rounded rect and a white background, right?
+
+950
+00:48:08,270 --> 00:48:10,150
+And I want the back of the card to look the same
+
+951
+00:48:10,150 --> 00:48:13,510
+but have some kind of design on it or something like that.
+
+952
+00:48:13,510 --> 00:48:18,230
+So the way I'm going to do that is I'm going to set a background image for my button.
+
+953
+00:48:18,230 --> 00:48:20,360
+A background image that's like a rounded rect.
+
+954
+00:48:20,360 --> 00:48:22,280
+So let's take a little aside here and talk about:
+
+955
+00:48:22,280 --> 00:48:25,480
+How do we get images into our app?
+
+956
+00:48:25,480 --> 00:48:28,940
+Okay. We want to use images in our app; it's very common to want to use images
+
+957
+00:48:28,940 --> 00:48:31,160
+in a graphical application like on a phone.
+
+958
+00:48:31,160 --> 00:48:32,020
+So how do you do it?
+
+959
+00:48:32,020 --> 00:48:35,810
+And the answer is you go down here to this place called the
+
+960
+00:48:35,810 --> 00:48:38,610
+"image asset library" -- images.xc assets
+
+961
+00:48:38,610 --> 00:48:40,060
+or Xcode assets.
+
+962
+00:48:40,060 --> 00:48:43,090
+And you can see there's already a couple of slots for icons here.
+
+963
+00:48:43,090 --> 00:48:45,720
+They're not set, but this is the app icon.
+
+964
+00:48:45,720 --> 00:48:48,090
+And also you can have a launch image that will appear instantly
+
+965
+00:48:48,090 --> 00:48:51,590
+when someone launches your app. And then as you're initializing,
+
+966
+00:48:51,600 --> 00:48:54,390
+having behind the launch image, and then it will show you are actual UI.
+
+967
+00:48:54,390 --> 00:48:56,450
+So it's kind of quick launch image.
+
+968
+00:48:56,450 --> 00:48:58,170
+And we'll talk about this on Monday.
+
+969
+00:48:58,170 --> 00:49:00,810
+We'll set the app background for Machismo here.
+
+970
+00:49:00,810 --> 00:49:04,820
+But I'm going to actually drag in some other image.
+
+971
+00:49:04,820 --> 00:49:06,780
+So I have some images here.
+
+972
+00:49:06,800 --> 00:49:11,760
+And for example, I've got this Stanford logo right here.
+
+973
+00:49:11,760 --> 00:49:14,170
+So I'm going to drag that Stanford logo in
+
+974
+00:49:14,170 --> 00:49:15,460
+because I want to use it.
+
+975
+00:49:15,460 --> 00:49:16,830
+And that's it; you just drag it in here.
+
+976
+00:49:16,830 --> 00:49:17,910
+It says Stanford.
+
+977
+00:49:17,910 --> 00:49:21,490
+But notice that it kind of has this weird thing here, this 1X and 2X.
+
+978
+00:49:21,490 --> 00:49:26,610
+You see that? And that's because every image that you're going to use in iOS
+
+979
+00:49:26,630 --> 00:49:30,180
+wants to have a normal resolution version that's going
+
+980
+00:49:30,180 --> 00:49:33,720
+to be used like on the iPhone 4 -- nonretina displays basically.
+
+981
+00:49:33,720 --> 00:49:38,140
+And then a 2X, twice as high resolution -- one that will be used on retina.
+
+982
+00:49:38,140 --> 00:49:41,510
+And it will automatically pick the right one, depending on what you're running on.
+
+983
+00:49:41,510 --> 00:49:43,340
+You don't have to do anything about it.
+
+984
+00:49:43,340 --> 00:49:45,750
+But you do want to provide these higher res ones.
+
+985
+00:49:45,750 --> 00:49:50,080
+And these higher res ones aren't just necessarily the same exact image,
+
+986
+00:49:50,090 --> 00:49:53,210
+just, you know, made more high resolution.
+
+987
+00:49:53,210 --> 00:49:54,350
+They might allow you to do --
+
+988
+00:49:54,350 --> 00:49:57,320
+for example, here I've got a Stanford logo with the little tree.
+
+989
+00:49:57,320 --> 00:49:58,950
+See? See the tree in there?
+
+990
+00:49:58,950 --> 00:50:01,930
+So maybe this is too low resolution to really get a good-looking tree.
+
+991
+00:50:01,930 --> 00:50:05,120
+But I can get the tree in at a higher resolution, so I put it in there.
+
+992
+00:50:05,120 --> 00:50:07,880
+So it's not that common that the two ones would be actually
+
+993
+00:50:07,880 --> 00:50:09,530
+different-looking but they could be.
+
+994
+00:50:09,530 --> 00:50:11,400
+Certainly allowed they could be.
+
+995
+00:50:11,400 --> 00:50:14,110
+I also don't want to really call this "Stanford."
+
+996
+00:50:14,110 --> 00:50:17,290
+I'm going to use this as my backup card.
+
+997
+00:50:17,290 --> 00:50:19,610
+Instead of having, you know, some kind of design,
+
+998
+00:50:19,610 --> 00:50:21,890
+I'm going to have the Stanford logo be the back of my card.
+
+999
+00:50:21,890 --> 00:50:24,350
+When my card's flipped down and I see the back, I'm going to see the Stanford logo.
+
+1000
+00:50:24,350 --> 00:50:26,990
+So I'm going to call this "card back."
+
+1001
+00:50:26,990 --> 00:50:29,600
+I can call it anything I want.
+
+1002
+00:50:29,600 --> 00:50:32,060
+I also have things for the front here.
+
+1003
+00:50:32,060 --> 00:50:33,450
+This one right here.
+
+1004
+00:50:33,450 --> 00:50:35,930
+This is blank card with a rounded corner.
+
+1005
+00:50:35,930 --> 00:50:36,480
+There it is.
+
+1006
+00:50:36,480 --> 00:50:38,010
+You can't see it.
+
+1007
+00:50:38,010 --> 00:50:40,100
+Because it's a white card so you can't see it.
+
+1008
+00:50:40,100 --> 00:50:43,430
+But I'm going to use that. I'm going to call this "card front."
+
+1009
+00:50:43,430 --> 00:50:48,810
+And I'm also going to have a high-res version of that as well.
+
+1010
+00:50:48,810 --> 00:50:50,620
+Okay. So that's good.
+
+1011
+00:50:50,620 --> 00:50:53,510
+So as much as we can see of it.
+
+1012
+00:50:53,510 --> 00:50:56,140
+Okay. So now I got some images.
+
+1013
+00:50:56,140 --> 00:50:58,720
+And now I want to use them in my view.
+
+1014
+00:50:58,740 --> 00:51:00,890
+I kind of want to set this card to use this.
+
+1015
+00:51:00,890 --> 00:51:05,820
+So I'm going to start with my card here being face up when it runs.
+
+1016
+00:51:05,820 --> 00:51:08,740
+When my app runs, the card's going to start face up.
+
+1017
+00:51:08,740 --> 00:51:12,590
+In your app when you get your homework you're probably going to want to start it facedown.
+
+1018
+00:51:12,590 --> 00:51:15,800
+The reason for that is my app only shows one card:
+
+1019
+00:51:15,800 --> 00:51:16,880
+Ace of clubs.
+
+1020
+00:51:16,880 --> 00:51:19,110
+So it's fine if it comes up with ace of clubs.
+
+1021
+00:51:19,110 --> 00:51:22,140
+But you don't want your card to come up ace of clubs for sure.
+
+1022
+00:51:22,140 --> 00:51:25,360
+And it might be a little more work for you coding-wise
+
+1023
+00:51:25,360 --> 00:51:27,860
+to initialize it to come up with some random card.
+
+1024
+00:51:27,860 --> 00:51:30,910
+So you'll just have it come up facedown. Make it a lot easier on you.
+
+1025
+00:51:30,910 --> 00:51:33,800
+So how do we set that?
+
+1026
+00:51:33,800 --> 00:51:34,550
+Really simple.
+
+1027
+00:51:34,550 --> 00:51:36,030
+I've got the button selected here.
+
+1028
+00:51:36,030 --> 00:51:37,280
+Here's its properties.
+
+1029
+00:51:37,280 --> 00:51:40,130
+One of its properties is its background image.
+
+1030
+00:51:40,130 --> 00:51:42,500
+So I'm just going to click here, and you can see
+
+1031
+00:51:42,500 --> 00:51:45,530
+that all images that are in my assets library will be here.
+
+1032
+00:51:45,530 --> 00:51:48,860
+And if there was a really lot of them, you can type and it will match it.
+
+1033
+00:51:48,860 --> 00:51:51,750
+So I'm going to make it be the card front.
+
+1034
+00:51:51,750 --> 00:51:55,390
+So it made it the card front, but I don't see -- where's the rounded rect?
+
+1035
+00:51:55,390 --> 00:51:58,580
+I can't see the rounded rect. And that's because it's too small
+
+1036
+00:51:58,580 --> 00:52:01,580
+to see the rounded corners very well here.
+
+1037
+00:52:01,580 --> 00:52:04,590
+So you can just take this thing and resize it.
+
+1038
+00:52:04,590 --> 00:52:06,870
+And I'm going to make it --
+
+1039
+00:52:06,870 --> 00:52:12,910
+I want it to be about two to three ratio. So I'm going to make it 64 by 96.
+
+1040
+00:52:12,910 --> 00:52:15,910
+I know this happens to be a very good size, and I've resized it.
+
+1041
+00:52:15,910 --> 00:52:18,150
+And now you can see the little rounded corners.
+
+1042
+00:52:18,150 --> 00:52:20,800
+You see? So this is that image I dragged in
+
+1043
+00:52:20,800 --> 00:52:22,280
+with button written on top of it.
+
+1044
+00:52:22,280 --> 00:52:24,350
+And of course, I moved it a little so I can put it back
+
+1045
+00:52:24,350 --> 00:52:27,500
+in the middle using my blue guidelines, right?
+
+1046
+00:52:27,500 --> 00:52:30,050
+And of course, I don't want my card to say "button" it;
+
+1047
+00:52:30,050 --> 00:52:33,170
+I want the ace of clubs on here. So I'm going to just double-click on it.
+
+1048
+00:52:33,170 --> 00:52:34,860
+I could also edit that up here.
+
+1049
+00:52:34,860 --> 00:52:36,140
+You see right here where it says "button"?
+
+1050
+00:52:36,140 --> 00:52:36,860
+Click it here.
+
+1051
+00:52:36,860 --> 00:52:38,710
+I'm just going to double-click directly on it.
+
+1052
+00:52:38,710 --> 00:52:39,980
+I'm going to type "ace."
+
+1053
+00:52:39,980 --> 00:52:42,180
+And how do I type clubs, anyone know?
+
+1054
+00:52:43,220 --> 00:52:45,420
+Alt something or other. I like to do this way.
+
+1055
+00:52:45,420 --> 00:52:49,810
+I go to edit menu, special characters, get this magic thing.
+
+1056
+00:52:49,810 --> 00:52:51,320
+You ever seen this, kind of cool?
+
+1057
+00:52:51,320 --> 00:52:55,860
+Just double-click -- find the clubs and double-click.
+
+1058
+00:52:55,860 --> 00:52:58,160
+All right. So there's my ace of clubs.
+
+1059
+00:52:58,160 --> 00:53:00,610
+Now but, you know, that's not quite right, either.
+
+1060
+00:53:00,610 --> 00:53:04,050
+I don't really like that blue A. I really want the A to be black.
+
+1061
+00:53:04,050 --> 00:53:06,750
+And it could be a little bigger. There's more room for it.
+
+1062
+00:53:06,750 --> 00:53:09,760
+So I can go over here, for example, and change the font.
+
+1063
+00:53:09,760 --> 00:53:12,660
+I can change it by clicking this little thing to make it bigger,
+
+1064
+00:53:12,660 --> 00:53:16,760
+or I can actually click on this T and even set which font it is.
+
+1065
+00:53:16,760 --> 00:53:20,610
+One thing that's really important in iOS 7 is the typography.
+
+1066
+00:53:20,610 --> 00:53:25,630
+Picking the right text styles is really, really important in iOS 7.
+
+1067
+00:53:25,630 --> 00:53:27,200
+And we're not going to really talk about it here;
+
+1068
+00:53:27,200 --> 00:53:28,810
+we're just going to use the system font.
+
+1069
+00:53:28,810 --> 00:53:31,590
+But that's something we'll talk about in lecture,
+
+1070
+00:53:31,590 --> 00:53:34,250
+is making sure you pick the right fonts in the right places
+
+1071
+00:53:34,250 --> 00:53:36,050
+to make the UI look really nice.
+
+1072
+00:53:36,050 --> 00:53:40,230
+I can change the size here, maybe 24 point or something like that.
+
+1073
+00:53:40,230 --> 00:53:41,390
+That will still fit.
+
+1074
+00:53:41,390 --> 00:53:44,290
+And then I don't want this blue, so that's this text color.
+
+1075
+00:53:44,290 --> 00:53:46,280
+So let's go ahead and make that black.
+
+1076
+00:53:46,280 --> 00:53:49,000
+All right. So I got the card looking the way I want.
+
+1077
+00:53:49,000 --> 00:53:49,890
+That's good.
+
+1078
+00:53:49,890 --> 00:53:52,770
+All these properties that we're setting, by the way,
+
+1079
+00:53:52,770 --> 00:53:55,570
+if you look at button, you see this state config right here?
+
+1080
+00:53:55,570 --> 00:53:58,970
+Default? We can actually set all these things differently
+
+1081
+00:53:58,970 --> 00:54:03,010
+for the highlighted state of the button, or a selected state, or disabled state.
+
+1082
+00:54:03,010 --> 00:54:05,310
+But we're setting these as the default.
+
+1083
+00:54:05,310 --> 00:54:09,650
+So all our buttons always going to be displaying the default state.
+
+1084
+00:54:09,650 --> 00:54:11,640
+So buttons are pretty powerful.
+
+1085
+00:54:11,640 --> 00:54:14,040
+You can have them look different as they highlight or whatever,
+
+1086
+00:54:14,040 --> 00:54:16,010
+but we're going to be working all in what's called the
+
+1087
+00:54:16,010 --> 00:54:18,450
+"normal" or "default" state of the button.
+
+1088
+00:54:18,450 --> 00:54:20,390
+You'll see that when we get to the code.
+
+1089
+00:54:20,390 --> 00:54:22,180
+So we can actually run this right now.
+
+1090
+00:54:22,180 --> 00:54:22,790
+So running.
+
+1091
+00:54:22,790 --> 00:54:24,670
+You've all -- most, again, done Xcode.
+
+1092
+00:54:24,670 --> 00:54:26,760
+You know how to run. It's this little play button.
+
+1093
+00:54:26,760 --> 00:54:27,950
+You can actually hold it down,
+
+1094
+00:54:27,950 --> 00:54:30,870
+and there's other things you can do like test and analyze.
+
+1095
+00:54:30,870 --> 00:54:31,840
+But we're just going to run.
+
+1096
+00:54:31,840 --> 00:54:36,110
+So I click run, and it's going to run this in a simulator.
+
+1097
+00:54:36,110 --> 00:54:38,520
+And here it is.
+
+1098
+00:54:38,520 --> 00:54:42,360
+And you can see that the simulator's so big it doesn't even fit on my screen.
+
+1099
+00:54:42,360 --> 00:54:44,940
+So I kind of have to scroll around in it.
+
+1100
+00:54:44,940 --> 00:54:48,030
+And when I click it, it doesn't do anything.
+
+1101
+00:54:48,030 --> 00:54:49,700
+So that's not good.
+
+1102
+00:54:49,700 --> 00:54:52,460
+Because I haven't put any code in my controller
+
+1103
+00:54:52,460 --> 00:54:54,840
+to respond to that thing being touched.
+
+1104
+00:54:54,840 --> 00:54:57,730
+So that's what we're going to do next.
+
+1105
+00:54:57,730 --> 00:55:00,130
+So let's go back here and stop.
+
+1106
+00:55:03,790 --> 00:55:05,390
+So how do we do that?
+
+1107
+00:55:05,390 --> 00:55:07,680
+Well, it's pretty interesting how we do that, actually.
+
+1108
+00:55:07,680 --> 00:55:09,950
+I'm going to make some more space here.
+
+1109
+00:55:09,950 --> 00:55:14,070
+And what we need to do is connect up to our controller.
+
+1110
+00:55:14,070 --> 00:55:19,690
+And we do that by putting our controller's code side by side with our view.
+
+1111
+00:55:19,690 --> 00:55:21,830
+So I'm going to click this little button right here,
+
+1112
+00:55:21,830 --> 00:55:25,000
+this button icon, and that puts side by side.
+
+1113
+00:55:25,000 --> 00:55:27,820
+And by default if you have a view up here on the left,
+
+1114
+00:55:27,820 --> 00:55:30,740
+it's going to put that controller's code on the right.
+
+1115
+00:55:30,740 --> 00:55:34,150
+And you can move this to get more space for the code if you want.
+
+1116
+00:55:34,150 --> 00:55:37,760
+You can also switch between the header if you want to do public stuff
+
+1117
+00:55:37,770 --> 00:55:40,270
+or the implementation.
+
+1118
+00:55:41,760 --> 00:55:43,140
+So that's good.
+
+1119
+00:55:43,140 --> 00:55:46,240
+Now, this code right here is part of the view controller lifecycle,
+
+1120
+00:55:46,240 --> 00:55:48,390
+which we're going to talk about in two or three weeks.
+
+1121
+00:55:48,390 --> 00:55:53,110
+But today we're not going to talk about it. So we can just get rid of it.
+
+1122
+00:55:53,110 --> 00:55:57,420
+And let's just start by saying,
+
+1123
+00:55:57,420 --> 00:56:01,180
+"When this button gets touched, we want it to flip over."
+
+1124
+00:56:01,180 --> 00:56:04,600
+So we need to make a connection between our view and the controller.
+
+1125
+00:56:04,600 --> 00:56:08,980
+And we're going to do that thing where we hang the target out and shoot the arrow.
+
+1126
+00:56:08,980 --> 00:56:10,380
+Called "target action."
+
+1127
+00:56:10,380 --> 00:56:11,890
+And this is going to be kind of whacky.
+
+1128
+00:56:11,890 --> 00:56:14,480
+You're probably not even going to believe this when you see it.
+
+1129
+00:56:14,480 --> 00:56:16,860
+The way to do this is you hold down the control key.
+
+1130
+00:56:16,860 --> 00:56:21,910
+So I'm holding down the control key, and I'm dragging a line
+
+1131
+00:56:21,910 --> 00:56:25,710
+from the view directly into our code.
+
+1132
+00:56:27,070 --> 00:56:28,480
+And I let go.
+
+1133
+00:56:28,480 --> 00:56:33,240
+And it says, "Oh, you want a connection between your view and your controller, do you?
+
+1134
+00:56:33,240 --> 00:56:34,680
+Here's what I need to know."
+
+1135
+00:56:34,680 --> 00:56:37,330
+So it's asking us, "What you do you want to call this connection?"
+
+1136
+00:56:37,330 --> 00:56:38,670
+So this is going to be the name of the method.
+
+1137
+00:56:38,670 --> 00:56:42,050
+It's actually going to create a method here that gets called when the button gets touched.
+
+1138
+00:56:42,050 --> 00:56:44,310
+I'm going to call it "touch card button."
+
+1139
+00:56:44,310 --> 00:56:45,530
+That's a good name.
+
+1140
+00:56:45,530 --> 00:56:48,200
+Here it's saying, "What you do you want the type of the argument to be?"
+
+1141
+00:56:48,200 --> 00:56:49,130
+We'll talk about this later,
+
+1142
+00:56:49,130 --> 00:56:51,750
+but for now we obviously want the argument to be
+
+1143
+00:56:51,750 --> 00:56:54,630
+the button that is sending us this action.
+
+1144
+00:56:54,630 --> 00:56:55,980
+Which is going to be nice because then we're going
+
+1145
+00:56:55,980 --> 00:56:58,730
+to talk back to it and tell it to flip itself over.
+
+1146
+00:56:58,730 --> 00:57:00,190
+There's other things we can set here like:
+
+1147
+00:57:00,190 --> 00:57:03,260
+What kind of event do you want to send this action?
+
+1148
+00:57:03,260 --> 00:57:05,760
+And you can actually set it so there's no argument,
+
+1149
+00:57:05,760 --> 00:57:08,530
+it just sends touch card button with no arguments.
+
+1150
+00:57:08,530 --> 00:57:11,010
+But here we want it to have the argument of the sender,
+
+1151
+00:57:11,010 --> 00:57:12,520
+the button sending this message.
+
+1152
+00:57:12,520 --> 00:57:14,090
+You can even send the touch event along,
+
+1153
+00:57:14,090 --> 00:57:17,340
+but we almost never do that -- a tenth of a percent of the time.
+
+1154
+00:57:17,340 --> 00:57:18,940
+So here I'm going to have the sender.
+
+1155
+00:57:18,940 --> 00:57:21,760
+So when I click connect, it creates a new method.
+
+1156
+00:57:21,760 --> 00:57:24,500
+And that method is wired up to that button.
+
+1157
+00:57:24,500 --> 00:57:26,500
+In fact, you see this little round circle?
+
+1158
+00:57:26,500 --> 00:57:31,520
+If I mouse over it, it will show you that's what it's connected to.
+
+1159
+00:57:31,520 --> 00:57:35,470
+So this is just some pretty normal-looking method right here.
+
+1160
+00:57:35,470 --> 00:57:40,130
+The return type, IB action, that's actually typedef void.
+
+1161
+00:57:40,130 --> 00:57:42,100
+This method actually returns void.
+
+1162
+00:57:42,100 --> 00:57:45,040
+The reason that Xcode puts IB action there
+
+1163
+00:57:45,040 --> 00:57:48,270
+and typedef's IB action to void, it's just so that it can tell
+
+1164
+00:57:48,270 --> 00:57:50,120
+which methods are target action
+
+1165
+00:57:50,120 --> 00:57:52,890
+so that it can do stuff like this.
+
+1166
+00:57:52,890 --> 00:57:54,290
+The mouse over.
+
+1167
+00:57:54,290 --> 00:57:55,560
+But the compiler ignores it.
+
+1168
+00:57:55,560 --> 00:57:58,380
+The compiler sees it as void because it's typedef to void.
+
+1169
+00:57:58,380 --> 00:58:01,120
+It's purely an Xcode thing to this IB action thing.
+
+1170
+00:58:01,120 --> 00:58:05,260
+And then you can see this method has one argument, which is the sender.
+
+1171
+00:58:05,260 --> 00:58:06,980
+That's the button sending us this message.
+
+1172
+00:58:06,980 --> 00:58:11,770
+And it's going to send this message every time a touch goes up inside the button.
+
+1173
+00:58:11,770 --> 00:58:13,790
+Touch up inside, right? That was the event.
+
+1174
+00:58:13,790 --> 00:58:15,590
+So that's when it's going to send this message.
+
+1175
+00:58:15,590 --> 00:58:17,030
+So that's perfect. That's what we want.
+
+1176
+00:58:17,030 --> 00:58:19,720
+So every time this happens, what do we want to do?
+
+1177
+00:58:19,720 --> 00:58:22,320
+Well, we want to flip the card over.
+
+1178
+00:58:22,320 --> 00:58:24,570
+Okay. So let's start by just flipping it over to the back.
+
+1179
+00:58:24,570 --> 00:58:27,120
+And the way we're going to do that is we're going to create a local variable
+
+1180
+00:58:27,120 --> 00:58:29,180
+called "card image."
+
+1181
+00:58:29,180 --> 00:58:31,510
+Okay. And you noticed it was trying to help me type there,
+
+1182
+00:58:31,510 --> 00:58:34,510
+and you're going to see a lot of helping here.
+
+1183
+00:58:34,510 --> 00:58:39,340
+And UI image is another class in iOS, okay, just like UI button is a class.
+
+1184
+00:58:39,340 --> 00:58:42,250
+UI image is the class, as you can imagine, stores an image.
+
+1185
+00:58:42,250 --> 00:58:44,830
+Could be a JPEG image, could be an animated GIF,
+
+1186
+00:58:44,830 --> 00:58:47,050
+it could be a TIFF image, whatever.
+
+1187
+00:58:47,050 --> 00:58:50,890
+So it's very powerful image holding class.
+
+1188
+00:58:50,890 --> 00:58:54,800
+And it has a class method called "image named,"
+
+1189
+00:58:54,800 --> 00:59:00,460
+and you give it a string like card front or card back, right?
+
+1190
+00:59:00,460 --> 00:59:04,840
+And it will look in the assets library and give an image of the right resolution,
+
+1191
+00:59:04,850 --> 00:59:06,590
+depending on whether it's going to be go on --
+
+1192
+00:59:06,590 --> 00:59:08,700
+actually, it will give you an image with both resolutions.
+
+1193
+00:59:08,700 --> 00:59:11,220
+And then depending on where you display it, it will, you know,
+
+1194
+00:59:11,220 --> 00:59:13,860
+pick the right resolution, whether it's on a retina or not.
+
+1195
+00:59:13,860 --> 00:59:15,380
+So that's cool. We got the image.
+
+1196
+00:59:15,380 --> 00:59:18,370
+So now we're just going to tell the button to set this
+
+1197
+00:59:18,370 --> 00:59:20,120
+as its background image
+
+1198
+00:59:20,120 --> 00:59:21,990
+instead of whatever's on it right now.
+
+1199
+00:59:21,990 --> 00:59:26,100
+So to talk to the button, we do open square bracket sender.
+
+1200
+00:59:26,100 --> 00:59:30,650
+Right? You see that the sender is the button sending us this message.
+
+1201
+00:59:31,730 --> 00:59:36,130
+Set. Okay, I'm going to start typing set background.
+
+1202
+00:59:36,130 --> 00:59:41,390
+And you see as I start to type, Xcode is suggesting to me what I might want.
+
+1203
+00:59:41,390 --> 00:59:43,640
+Now, it knows that the sender's a UI button,
+
+1204
+00:59:43,640 --> 00:59:48,750
+so it's only suggesting button methods here that start with set B --
+
+1205
+00:59:48,750 --> 00:59:50,360
+set background color, set background image,
+
+1206
+00:59:50,360 --> 00:59:51,550
+and set bounds.
+
+1207
+00:59:51,550 --> 00:59:54,600
+Notice I'm also getting some help at the bottom.
+
+1208
+00:59:54,600 --> 00:59:55,400
+See, isn't that cool?
+
+1209
+00:59:55,400 --> 00:59:57,050
+A little one or two lines of help?
+
+1210
+00:59:57,050 --> 00:59:58,190
+And I could click on this link
+
+1211
+00:59:58,190 --> 00:59:59,660
+and it would take me to the documentation.
+
+1212
+00:59:59,660 --> 01:00:01,940
+We're not going to do that for time reasons.
+
+1213
+01:00:01,940 --> 01:00:06,230
+But I can also just click one and it picks that one
+
+1214
+01:00:06,230 --> 01:00:08,300
+and immediately selects the first argument.
+
+1215
+01:00:08,300 --> 01:00:10,050
+So I can take that.
+
+1216
+01:00:10,050 --> 01:00:11,280
+So I'll do that.
+
+1217
+01:00:11,280 --> 01:00:12,250
+Card image.
+
+1218
+01:00:12,250 --> 01:00:15,950
+And notice here when I type CA, there's a lot of things
+
+1219
+01:00:15,950 --> 01:00:18,280
+that start with CA that could go there.
+
+1220
+01:00:18,280 --> 01:00:20,000
+But Xcode's pretty smart.
+
+1221
+01:00:20,000 --> 01:00:23,820
+It knows that a local variable is much more likely what you want here
+
+1222
+01:00:23,830 --> 01:00:27,660
+than all these other CA -- functions that start with CA.
+
+1223
+01:00:27,660 --> 01:00:30,270
+So it automatically selects that for me.
+
+1224
+01:00:30,270 --> 01:00:31,830
+And if I hit tab, by the way,
+
+1225
+01:00:31,830 --> 01:00:35,250
+it's going to basically escape complete it. Tab, complete it.
+
+1226
+01:00:35,270 --> 01:00:37,410
+And if I hit another tab, it goes over here.
+
+1227
+01:00:37,410 --> 01:00:40,600
+This little forState thing is just what I was talking about where
+
+1228
+01:00:40,600 --> 01:00:43,260
+you can set this for the highlighted state,
+
+1229
+01:00:43,260 --> 01:00:45,390
+or the selected state, or disabled state.
+
+1230
+01:00:45,390 --> 01:00:49,280
+We're just going to do the normal or default state of this button.
+
+1231
+01:00:49,280 --> 01:00:52,530
+So we're setting the background image for this button.
+
+1232
+01:00:52,530 --> 01:00:56,100
+And we also need to set the title because we don't want
+
+1233
+01:00:56,100 --> 01:00:58,440
+to see that ace of clubs when we flip it over backwards.
+
+1234
+01:00:58,440 --> 01:01:01,120
+So I'm just going to set it to that.
+
+1235
+01:01:01,120 --> 01:01:04,160
+Okay. That's the empty string. I could also say nil there.
+
+1236
+01:01:04,160 --> 01:01:07,240
+Okay. But I'm saying empty string just to see what empty string looks like.
+
+1237
+01:01:07,240 --> 01:01:09,450
+So actually if we run this,
+
+1238
+01:01:12,840 --> 01:01:14,010
+command three.
+
+1239
+01:01:14,010 --> 01:01:14,930
+Okay, let's try that.
+
+1240
+01:01:14,930 --> 01:01:16,420
+Oh, cool.
+
+1241
+01:01:18,210 --> 01:01:19,490
+So there you go.
+
+1242
+01:01:19,490 --> 01:01:21,380
+So there's a miniature version of it.
+
+1243
+01:01:21,380 --> 01:01:22,940
+Okay. So here's our card.
+
+1244
+01:01:22,940 --> 01:01:25,050
+And if I click on it,
+
+1245
+01:01:25,050 --> 01:01:26,730
+oh yeah, it flips over.
+
+1246
+01:01:26,730 --> 01:01:29,180
+Yes. Stanford logo with the tree.
+
+1247
+01:01:29,180 --> 01:01:33,030
+But now if I click, it doesn't do anything else; it always flips over to the back,
+
+1248
+01:01:33,030 --> 01:01:35,530
+which is exactly what our code does, right?
+
+1249
+01:01:35,530 --> 01:01:36,410
+So that's good.
+
+1250
+01:01:36,410 --> 01:01:39,470
+So let's fix it so that it flips both ways.
+
+1251
+01:01:39,470 --> 01:01:43,320
+And I'm going to do that by saying if the --
+
+1252
+01:01:43,320 --> 01:01:45,890
+actually, I'm going to do one other thing first
+
+1253
+01:01:45,890 --> 01:01:47,700
+to make this code a little simpler is instead
+
+1254
+01:01:47,700 --> 01:01:49,320
+of having this local variable,
+
+1255
+01:01:49,320 --> 01:01:52,580
+I can just take this and pop it right in there.
+
+1256
+01:01:52,580 --> 01:01:55,100
+And that's very common to do that.
+
+1257
+01:01:55,100 --> 01:01:58,870
+And if I wanted to wrap it, it will automatically wrap if I make this too short.
+
+1258
+01:01:58,870 --> 01:02:00,880
+But I can also put a return in there.
+
+1259
+01:02:00,880 --> 01:02:02,970
+And when I do, look what it does with the colons.
+
+1260
+01:02:02,970 --> 01:02:05,600
+See how it lines the colons up?
+
+1261
+01:02:05,600 --> 01:02:06,900
+It will always do that.
+
+1262
+01:02:06,900 --> 01:02:10,420
+If you press return in the middle of a message send that has multiple arguments,
+
+1263
+01:02:10,420 --> 01:02:12,240
+it will line the colons up for all the arguments.
+
+1264
+01:02:12,240 --> 01:02:12,910
+Really cool.
+
+1265
+01:02:12,910 --> 01:02:16,550
+So you can see all the arguments lined up left and right.
+
+1266
+01:02:16,550 --> 01:02:21,870
+So anyway, I'm going to check to see if the current title --
+
+1267
+01:02:21,870 --> 01:02:24,100
+okay, that's a button method --
+
+1268
+01:02:24,100 --> 01:02:25,470
+if it's a string.
+
+1269
+01:02:25,470 --> 01:02:32,390
+If that length, okay, is nonzero, okay --
+
+1270
+01:02:32,390 --> 01:02:35,190
+so that's testing there to see if the length of nonzero --
+
+1271
+01:02:35,190 --> 01:02:37,490
+that's a cool way to do it because that will work
+
+1272
+01:02:37,490 --> 01:02:41,380
+if the button title is nil or if it's the empty string.
+
+1273
+01:02:41,380 --> 01:02:43,200
+Because the button title starts out nil.
+
+1274
+01:02:43,200 --> 01:02:45,000
+If you don't set it to anything, it starts out nil.
+
+1275
+01:02:45,000 --> 01:02:48,770
+So here with one line of code I've checked both the initial state possibly --
+
+1276
+01:02:48,770 --> 01:02:50,950
+not in our case because we set the title to the A club --
+
+1277
+01:02:50,950 --> 01:02:53,100
+but in your case it might be.
+
+1278
+01:02:53,100 --> 01:02:57,040
+Then we'll set it to one thing, else we'll set it to the other thing.
+
+1279
+01:02:57,040 --> 01:03:00,580
+So we just wanted to set this to this.
+
+1280
+01:03:00,580 --> 01:03:03,410
+So if there's a title on the button,
+
+1281
+01:03:03,410 --> 01:03:07,280
+in other words it has the ace of clubs, then we're going to switch over to the back.
+
+1282
+01:03:07,280 --> 01:03:13,340
+And if there's no title on the button, then we're going to switch back to the front.
+
+1283
+01:03:13,340 --> 01:03:17,630
+Ace of clubs.
+
+1284
+01:03:20,340 --> 01:03:27,160
+So now when we run, our card will flip both ways.
+
+1285
+01:03:27,160 --> 01:03:32,430
+So really simple to wire stuff into your controller to do what you want.
+
+1286
+01:03:32,430 --> 01:03:37,430
+The next thing we're going to do is in the --
+
+1287
+01:03:37,430 --> 01:03:40,330
+okay, I'll show you really quickly here.
+
+1288
+01:03:40,330 --> 01:03:42,910
+If you hold down the option key, a very important key,
+
+1289
+01:03:42,910 --> 01:03:46,190
+do you see how it puts a question mark and starts highlighting things?
+
+1290
+01:03:46,210 --> 01:03:48,990
+That's going to allow to you to transition into the documentation.
+
+1291
+01:03:48,990 --> 01:03:51,450
+So if I want to know more about this current title,
+
+1292
+01:03:51,450 --> 01:03:53,850
+if I hit option, click on it --
+
+1293
+01:03:53,850 --> 01:03:55,410
+see, I get a little bit of help right here.
+
+1294
+01:03:55,410 --> 01:03:58,060
+It's a property. It's read-only, it's nonatomic.
+
+1295
+01:03:58,060 --> 01:04:02,030
+By the way, if you see "retain" in the documentation, that's the same as "strong."
+
+1296
+01:04:02,030 --> 01:04:04,630
+Retain is the same as strong basically.
+
+1297
+01:04:04,630 --> 01:04:07,400
+Little bit of description here but also hyperlinks.
+
+1298
+01:04:07,400 --> 01:04:10,110
+And if I click on one of these hyperlinks, like this one,
+
+1299
+01:04:10,110 --> 01:04:11,520
+it takes me into the documentation.
+
+1300
+01:04:11,520 --> 01:04:13,850
+This is a separate window right here.
+
+1301
+01:04:13,850 --> 01:04:16,900
+And you can navigate around in this documentation.
+
+1302
+01:04:16,900 --> 01:04:18,960
+You really want to get familiar with all this.
+
+1303
+01:04:18,960 --> 01:04:21,750
+I can't really show it all to you today for time constraints,
+
+1304
+01:04:21,750 --> 01:04:26,310
+but you can do things like search, like I can go find UI button here.
+
+1305
+01:04:26,310 --> 01:04:27,620
+Okay. There's UI button.
+
+1306
+01:04:27,620 --> 01:04:30,870
+I might scroll down and go to, for example,
+
+1307
+01:04:30,870 --> 01:04:35,360
+set background image or set background image for state, which we just saw.
+
+1308
+01:04:35,360 --> 01:04:37,520
+Maybe I'll click to go UI image.
+
+1309
+01:04:37,520 --> 01:04:38,940
+You see all this.
+
+1310
+01:04:38,940 --> 01:04:40,910
+There's nice descriptions of the class in the beginning
+
+1311
+01:04:40,910 --> 01:04:43,100
+and then all the methods, etc., etc.
+
+1312
+01:04:43,100 --> 01:04:46,560
+So definitely you want to become a master of that documentation.
+
+1313
+01:04:46,560 --> 01:04:48,290
+You can also option double-click on things
+
+1314
+01:04:48,290 --> 01:04:49,730
+and it will send you straight to the documentation.
+
+1315
+01:04:49,730 --> 01:04:52,710
+If you don't want to get the little help one first, you can go straight in.
+
+1316
+01:04:52,710 --> 01:04:57,000
+So option is the key one for that.
+
+1317
+01:04:57,000 --> 01:04:58,850
+Let's go ahead -- okay.
+
+1318
+01:04:58,850 --> 01:05:02,810
+Notice that this little space along the bottom here appeared
+
+1319
+01:05:02,810 --> 01:05:05,370
+when we ran the application -- you see that?
+
+1320
+01:05:05,370 --> 01:05:10,340
+This is the debugger on the left, and this is the console on the right.
+
+1321
+01:05:10,340 --> 01:05:15,680
+And you are definitely going to be using the debugger and the console both in this class.
+
+1322
+01:05:15,680 --> 01:05:19,370
+And actually, I might not have time to do a quick -- show you how to do the console.
+
+1323
+01:05:19,370 --> 01:05:22,010
+But anyway, you can hide it by dragging it down or also
+
+1324
+01:05:22,010 --> 01:05:23,400
+by clicking this thing.
+
+1325
+01:05:24,770 --> 01:05:27,710
+All right. So the next thing we're going to do is we're going
+
+1326
+01:05:27,710 --> 01:05:31,860
+to put a little label on our UI that counts the flips.
+
+1327
+01:05:31,860 --> 01:05:35,720
+A little incremental thing that increments every time there's a flip.
+
+1328
+01:05:35,720 --> 01:05:43,950
+And we do that by going back to here and grabbing ourselves a label.
+
+1329
+01:05:43,950 --> 01:05:47,780
+So a label is a read-only piece of text, noneditable text.
+
+1330
+01:05:47,800 --> 01:05:50,740
+And I'm just going to drag it over here and put it in the lower left.
+
+1331
+01:05:50,740 --> 01:05:54,090
+I'm going to double-click on it to call it "flips colon zero."
+
+1332
+01:05:54,090 --> 01:05:57,730
+This is what I want it to look like when my UI first launches.
+
+1333
+01:05:57,730 --> 01:06:00,150
+Now here, I'm never going to be tapping on this
+
+1334
+01:06:00,150 --> 01:06:04,080
+and causing a message to be sent like the button; it's the other way around.
+
+1335
+01:06:04,080 --> 01:06:08,170
+My controller wants to talk to this and tell it when the flips changes all the time.
+
+1336
+01:06:08,170 --> 01:06:13,170
+So you might think that you would drag from your code down to this flips,
+
+1337
+01:06:13,170 --> 01:06:15,220
+but unfortunately you don't do that.
+
+1338
+01:06:15,220 --> 01:06:19,170
+You still hold down control and drag from here.
+
+1339
+01:06:19,170 --> 01:06:22,020
+But instead of dragging it down into your implementation area,
+
+1340
+01:06:22,020 --> 01:06:23,860
+you drag it into the interface area
+
+1341
+01:06:23,860 --> 01:06:28,900
+because you're going to create a property that connects to that label basically.
+
+1342
+01:06:28,900 --> 01:06:30,540
+So we do that. We get a thing here.
+
+1343
+01:06:30,540 --> 01:06:32,080
+It's asking us a little bit different questions:
+
+1344
+01:06:32,080 --> 01:06:33,810
+"What's the name of this property?"
+
+1345
+01:06:33,810 --> 01:06:36,230
+I'm going to call it "flips label."
+
+1346
+01:06:36,230 --> 01:06:38,980
+Notice that this property is weak.
+
+1347
+01:06:38,980 --> 01:06:43,200
+When I click connect, it's going to make a property here and it's going to be weak.
+
+1348
+01:06:43,200 --> 01:06:46,530
+This is the first time we've seen weak versus strong.
+
+1349
+01:06:46,530 --> 01:06:48,750
+The reason this is weak is because
+
+1350
+01:06:48,760 --> 01:06:53,370
+this label is held strongly by the view itself.
+
+1351
+01:06:53,370 --> 01:06:56,840
+So we don't need to have a strong pointer to it, to keep it in the heap.
+
+1352
+01:06:56,840 --> 01:06:57,740
+The view will.
+
+1353
+01:06:57,740 --> 01:07:02,010
+And if this label ever leaves the view, it will get cleaned out from the heap.
+
+1354
+01:07:02,010 --> 01:07:04,600
+And this property -- this pointer to it --
+
+1355
+01:07:04,600 --> 01:07:06,840
+will get set to nil, which is exactly what we want.
+
+1356
+01:07:06,840 --> 01:07:09,190
+Because if that flips label's not in the view, we don't want
+
+1357
+01:07:09,190 --> 01:07:11,630
+to be updating it and sending messages to it.
+
+1358
+01:07:11,630 --> 01:07:15,630
+So it's a great use of weak right here.
+
+1359
+01:07:15,630 --> 01:07:19,600
+This is normal property that you're used to except for maybe this IB outlet.
+
+1360
+01:07:19,600 --> 01:07:21,610
+That's just like IB action.
+
+1361
+01:07:21,610 --> 01:07:26,490
+It's a meaningless thing the compiler ignores that Xcode is using.
+
+1362
+01:07:26,490 --> 01:07:28,500
+So that it can do this --
+
+1363
+01:07:28,500 --> 01:07:31,400
+show you what it's connected to when you mouse over it.
+
+1364
+01:07:31,400 --> 01:07:36,270
+By the way, you can see all the connections by also right-clicking on things.
+
+1365
+01:07:36,270 --> 01:07:40,640
+So here I just right-clicked on the button and you can see its connections.
+
+1366
+01:07:40,640 --> 01:07:42,240
+If you ever want to rename --
+
+1367
+01:07:42,240 --> 01:07:45,450
+like if I don't like touch card button, I want to rename it to something,
+
+1368
+01:07:45,450 --> 01:07:47,670
+you can't just rename unfortunately.
+
+1369
+01:07:47,670 --> 01:07:52,990
+You have to go in here, right-click, use this little thing to disconnect it,
+
+1370
+01:07:52,990 --> 01:07:55,550
+and then control drag again.
+
+1371
+01:07:55,550 --> 01:07:57,520
+Everybody got that?
+
+1372
+01:07:57,520 --> 01:07:58,210
+It's unfortunate.
+
+1373
+01:07:58,210 --> 01:08:00,910
+It would be really nice if Xcode could track that for you but it can't.
+
+1374
+01:08:00,910 --> 01:08:03,310
+So if you ever want to rename something,
+
+1375
+01:08:03,310 --> 01:08:06,240
+you have to disconnect it here by right-clicking on it,
+
+1376
+01:08:06,240 --> 01:08:10,630
+and then control drag a new one and set the name that way.
+
+1377
+01:08:10,630 --> 01:08:13,590
+You can also right-click on this little guy
+
+1378
+01:08:13,590 --> 01:08:16,770
+and it will show you all the connections for your controller.
+
+1379
+01:08:16,770 --> 01:08:17,790
+Brings up this window.
+
+1380
+01:08:17,790 --> 01:08:19,450
+And I can see the label. You see?
+
+1381
+01:08:19,470 --> 01:08:21,520
+I'm mousing over the button.
+
+1382
+01:08:21,520 --> 01:08:22,240
+Label.
+
+1383
+01:08:22,240 --> 01:08:25,820
+There's also this little property here, which is something you haven't seen,
+
+1384
+01:08:25,820 --> 01:08:29,490
+which is basically a property that points to the entire view from your controller.
+
+1385
+01:08:29,490 --> 01:08:31,190
+So this is the connections to your controllers.
+
+1386
+01:08:31,190 --> 01:08:33,750
+See, it says "card game view controller"?
+
+1387
+01:08:33,750 --> 01:08:35,230
+So that's right-clicking.
+
+1388
+01:08:35,230 --> 01:08:38,210
+I'm right-clicking over here.
+
+1389
+01:08:38,210 --> 01:08:40,620
+So how are we going to make this flips label work?
+
+1390
+01:08:40,620 --> 01:08:45,320
+We are going to put it aside for a second.
+
+1391
+01:08:45,320 --> 01:08:46,590
+Let's not think about it.
+
+1392
+01:08:46,590 --> 01:08:49,680
+Let's instead do another property.
+
+1393
+01:08:50,690 --> 01:08:53,480
+Property. Which is nonatomic,
+
+1394
+01:08:53,480 --> 01:08:55,300
+which is just going to be an int,
+
+1395
+01:08:55,300 --> 01:08:57,850
+which I'm going to call "flip count."
+
+1396
+01:08:57,850 --> 01:09:02,040
+So flip count is just an integer that's going to keep the count of flips.
+
+1397
+01:09:02,040 --> 01:09:05,270
+And watch this.
+
+1398
+01:09:05,270 --> 01:09:07,410
+Some more space here.
+
+1399
+01:09:07,430 --> 01:09:09,170
+Go there.
+
+1400
+01:09:09,170 --> 01:09:14,180
+I'm just going to go down here and say self.flip count plus plus.
+
+1401
+01:09:14,180 --> 01:09:20,330
+Now, does that call the setter or the getter for flip count?
+
+1402
+01:09:20,330 --> 01:09:21,780
+Both. Exactly.
+
+1403
+01:09:21,780 --> 01:09:23,490
+That is calling both the setter and the getter.
+
+1404
+01:09:23,490 --> 01:09:25,610
+It's calling the getter to get the flip count,
+
+1405
+01:09:25,610 --> 01:09:27,400
+then it's plus plussing it;
+
+1406
+01:09:27,400 --> 01:09:29,700
+and then it's calling the setter to set it back.
+
+1407
+01:09:29,700 --> 01:09:32,050
+Okay. So that's kind of a funky lining of code right there.
+
+1408
+01:09:32,050 --> 01:09:34,980
+That's the same as saying self.flip count equals self.flip count plus one.
+
+1409
+01:09:34,980 --> 01:09:36,910
+So it's calling the getter and the setter.
+
+1410
+01:09:36,910 --> 01:09:39,030
+Okay. So now we've got this nice flip count.
+
+1411
+01:09:39,030 --> 01:09:43,630
+It's keeping track of the count; how do we hook that up to this thing over here?
+
+1412
+01:09:43,630 --> 01:09:45,920
+Which I'm going to make a little bigger, by the way.
+
+1413
+01:09:45,920 --> 01:09:48,910
+Okay. How do we hook that up so that says flips colon one,
+
+1414
+01:09:48,910 --> 01:09:50,600
+flips colon two, flips colon three?
+
+1415
+01:09:50,600 --> 01:09:57,230
+Well, we're going to do it using the setter for flip count.
+
+1416
+01:09:57,230 --> 01:10:00,650
+So normally a setter for flip count would look like this.
+
+1417
+01:10:00,650 --> 01:10:05,200
+And here's another great use of setters and getters,
+
+1418
+01:10:05,200 --> 01:10:08,360
+which is to keep UI in sync with a property.
+
+1419
+01:10:08,360 --> 01:10:16,940
+And I'll just do this by saying self.flips label.text equals --
+
+1420
+01:10:16,950 --> 01:10:20,660
+oops, sorry. It's hard to type standing up.
+
+1421
+01:10:20,660 --> 01:10:23,550
+Equals NS string, string with format,
+
+1422
+01:10:23,550 --> 01:10:27,940
+which you've seen before, flips colon percent D
+
+1423
+01:10:27,950 --> 01:10:30,890
+self.flip count.
+
+1424
+01:10:30,890 --> 01:10:35,130
+So now every time flip count is changed we're going to update the UI.
+
+1425
+01:10:36,460 --> 01:10:39,860
+Make sense? Any questions about that?
+
+1426
+01:10:39,860 --> 01:10:41,980
+Okay. So let's run.
+
+1427
+01:10:44,630 --> 01:10:45,890
+Okay. Here's our thing.
+
+1428
+01:10:45,890 --> 01:10:49,230
+So click, flips over, flip count updates.
+
+1429
+01:10:49,230 --> 01:10:50,500
+Flip, flip, flip, flip.
+
+1430
+01:10:50,500 --> 01:10:53,320
+Back and forth working, and the flip count is keeping track
+
+1431
+01:10:53,320 --> 01:10:54,550
+of how many flips we're doing.
+
+1432
+01:10:54,550 --> 01:10:58,680
+So you can see this stuff is really simple to wire up.
+
+1433
+01:10:58,680 --> 01:11:02,640
+And, you know, when you get into building even complicated applications,
+
+1434
+01:11:02,640 --> 01:11:04,760
+because you're always going to use these same mechanisms
+
+1435
+01:11:04,760 --> 01:11:06,470
+with target action and outlets
+
+1436
+01:11:06,470 --> 01:11:08,930
+and you're going to be using setters and getters to keep things in sync,
+
+1437
+01:11:08,930 --> 01:11:11,190
+it's going to be easy for people to understand how your code works.
+
+1438
+01:11:11,190 --> 01:11:14,390
+They know where to look to see where UI updating happens,
+
+1439
+01:11:14,390 --> 01:11:17,310
+etc. I'm going to do one other thing here.
+
+1440
+01:11:17,310 --> 01:11:19,660
+Take a minute and show you NS log.
+
+1441
+01:11:19,660 --> 01:11:22,700
+Okay. I told you that you could log something in the console.
+
+1442
+01:11:22,700 --> 01:11:25,800
+So let's do every time this thing changes, let's do an NS log.
+
+1443
+01:11:25,800 --> 01:11:27,370
+So it's just a C function.
+
+1444
+01:11:27,390 --> 01:11:29,960
+And you give it a format string like printf.
+
+1445
+01:11:29,960 --> 01:11:34,090
+So I'll say flip count equals percent d
+
+1446
+01:11:34,090 --> 01:11:35,980
+self.flip count.
+
+1447
+01:11:35,980 --> 01:11:38,470
+So you just put that NS log in there,
+
+1448
+01:11:38,470 --> 01:11:42,010
+and now when we run you're going to see it in the console.
+
+1449
+01:11:42,010 --> 01:11:45,750
+It's going to come up when I click, and it's going to say what happened here.
+
+1450
+01:11:45,750 --> 01:11:48,870
+By the way, of course, I can make that wider.
+
+1451
+01:11:48,870 --> 01:11:53,570
+And go back to the simulator. Let's see.
+
+1452
+01:11:53,570 --> 01:11:57,000
+So NS logging -- awesome way to debug.
+
+1453
+01:11:57,000 --> 01:11:59,880
+Sometimes a lot easier than setting a breakpoint
+
+1454
+01:11:59,880 --> 01:12:01,850
+and then when you get there looking at the variables and stuff.
+
+1455
+01:12:01,850 --> 01:12:03,580
+It just prints out what's going on and you can watch it.
+
+1456
+01:12:03,580 --> 01:12:07,940
+Especially in the UI things are sometimes animated, they're happening over time.
+
+1457
+01:12:07,940 --> 01:12:09,510
+It's sometimes hard to set a breakpoint in the middle
+
+1458
+01:12:09,510 --> 01:12:10,990
+of an animation to see what's going on.
+
+1459
+01:12:10,990 --> 01:12:14,540
+but if you do some NS logs, you can kind of see how things progress.
+
+1460
+01:12:14,540 --> 01:12:20,100
+The last thing I'm going to show you here is how to add a new class to your app
+
+1461
+01:12:20,100 --> 01:12:22,910
+because you're going to need to do that. You're going to add four classes to this.
+
+1462
+01:12:22,910 --> 01:12:24,890
+You're going to start with this, okay,
+
+1463
+01:12:24,890 --> 01:12:27,730
+and then you're going to add four classes --
+
+1464
+01:12:27,730 --> 01:12:29,550
+card, deck, etc.
+
+1465
+01:12:29,550 --> 01:12:33,200
+And the way you add a class is you --
+
+1466
+01:12:33,200 --> 01:12:37,690
+and in fact, the way you add any file to your project --
+
+1467
+01:12:37,690 --> 01:12:41,210
+is you go to the file menu, new file.
+
+1468
+01:12:41,210 --> 01:12:44,330
+And there's all different kinds of things you can add here,
+
+1469
+01:12:44,330 --> 01:12:46,490
+database file, schema files and everything.
+
+1470
+01:12:46,490 --> 01:12:51,020
+But you want this one top-left Objective-C class.
+
+1471
+01:12:51,020 --> 01:12:53,830
+Here you're just going to type the name of the class.
+
+1472
+01:12:53,830 --> 01:12:58,280
+So for example, if I'm going to add card and the name of the superclass.
+
+1473
+01:12:58,280 --> 01:13:01,220
+Okay. If you are doing playing card, you can type card here.
+
+1474
+01:13:01,220 --> 01:13:05,240
+It doesn't have to be something that's chosen from this list, which are the iOS ones.
+
+1475
+01:13:05,240 --> 01:13:07,990
+So here I'm going to make card.
+
+1476
+01:13:07,990 --> 01:13:09,490
+I could put card right here.
+
+1477
+01:13:09,490 --> 01:13:10,780
+It's asking where to store this.
+
+1478
+01:13:10,780 --> 01:13:15,190
+I could put it right in the same place that my card game controller is, you see?
+
+1479
+01:13:15,190 --> 01:13:17,380
+But I'm actually a big fan
+
+1480
+01:13:17,380 --> 01:13:20,380
+of putting your model in its own directory.
+
+1481
+01:13:20,380 --> 01:13:23,440
+So you would use new folder down here.
+
+1482
+01:13:23,440 --> 01:13:25,550
+Let's create like a model directory,
+
+1483
+01:13:25,550 --> 01:13:28,520
+and that creates a model directory here.
+
+1484
+01:13:28,520 --> 01:13:31,090
+There's a controller, here's the model directory.
+
+1485
+01:13:31,090 --> 01:13:32,460
+And so create.
+
+1486
+01:13:32,460 --> 01:13:35,350
+So that's going to create card dot H and M.
+
+1487
+01:13:35,350 --> 01:13:39,050
+Here's card dot H and M, okay, kind of blank versions of them.
+
+1488
+01:13:39,050 --> 01:13:41,200
+You can switch back and forth between them here.
+
+1489
+01:13:41,200 --> 01:13:44,930
+Notice that if I switch the left, the right changes to match.
+
+1490
+01:13:44,930 --> 01:13:47,500
+You see? Change this, this matches.
+
+1491
+01:13:47,500 --> 01:13:49,670
+That's because I have counterparts chosen right here.
+
+1492
+01:13:49,670 --> 01:13:52,560
+If you go to manual and pick this file manually,
+
+1493
+01:13:52,560 --> 01:13:54,180
+then it won't be doing that magic anymore.
+
+1494
+01:13:54,180 --> 01:13:57,690
+But you can always go back to counterparts and it will keep them in sync.
+
+1495
+01:13:57,690 --> 01:14:00,850
+Okay. So you can have -- some people like their header file on the left,
+
+1496
+01:14:00,850 --> 01:14:02,730
+some on the right, whatever.
+
+1497
+01:14:02,730 --> 01:14:04,550
+Also, notice over here
+
+1498
+01:14:04,550 --> 01:14:07,570
+it would be nice if I can also group these things in the navigator.
+
+1499
+01:14:07,570 --> 01:14:12,130
+And I can by having them selected right-click new group.
+
+1500
+01:14:12,130 --> 01:14:13,540
+Say model.
+
+1501
+01:14:13,540 --> 01:14:17,660
+Right here. And now I've put my model in its own little place right here.
+
+1502
+01:14:17,660 --> 01:14:20,290
+I can even move this around, put it down here, whatever.
+
+1503
+01:14:20,290 --> 01:14:22,860
+I could put all my four classes in there.
+
+1504
+01:14:22,860 --> 01:14:27,730
+It is possible to link this group to the file system.
+
+1505
+01:14:27,730 --> 01:14:31,850
+In fact, if you just click on a file and bring up the inspector on it right here,
+
+1506
+01:14:31,870 --> 01:14:33,690
+you can see that it's got this location
+
+1507
+01:14:33,690 --> 01:14:36,330
+where you can specify whether it's an absolute path,
+
+1508
+01:14:36,330 --> 01:14:38,800
+or relevant to the group it's in, or whatever.
+
+1509
+01:14:38,800 --> 01:14:41,000
+So you can control that.
+
+1510
+01:14:41,000 --> 01:14:42,840
+And that's it.
+
+1511
+01:14:42,840 --> 01:14:44,580
+So I think that's all you need to do your homework.
+
+1512
+01:14:44,580 --> 01:14:48,290
+You're just going to type in all your code here for card and add your three other ones.
+
+1513
+01:14:48,290 --> 01:14:49,520
+Type all that code in.
+
+1514
+01:14:49,530 --> 01:14:52,830
+And then all you got to do is make that card instead of showing ace of clubs all the time,
+
+1515
+01:14:52,830 --> 01:14:55,640
+needs to go through the deck.
+
+1516
+01:14:55,640 --> 01:14:58,590
+There's a detailed homework write up posted.
+
+1517
+01:14:58,610 --> 01:15:02,650
+It has all kinds of hints and help, and tells you about what the required tasks are,
+
+1518
+01:15:02,650 --> 01:15:04,930
+and evaluation criteria, and all that stuff.
+
+1519
+01:15:04,930 --> 01:15:07,140
+So definitely read that thing in detail.
+
+1520
+01:15:07,140 --> 01:15:09,940
+Don't skip that stuff and just try to go straight to doing it.
+
+1521
+01:15:09,960 --> 01:15:13,570
+And if you have questions, I'll be here. That's it.
+
+1522
+01:15:13,570 --> 01:15:17,570
+> For more, please visit us at Stanford.edu.
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DAAccountPersistentUUID</key>
+		<string>292AFF00-37D8-4BE5-A0DA-844FC76DACEC</string>
+		<key>DAAgentClass</key>
+		<string>SubCalAgent</string>
+		<key>Identifier</key>
+		<string>292AFF00-37D8-4BE5-A0DA-844FC76DACEC</string>
+	</dict>
+	<dict>
+		<key>DAAccountPersistentUUID</key>
+		<string>4497DF5E-EC1B-4300-9E6A-CC93E0E47C5D</string>
+		<key>DAAgentClass</key>
+		<string>DAIMAPNotesAgent</string>
+		<key>Identifier</key>
+		<string>4497DF5E-EC1B-4300-9E6A-CC93E0E47C5D</string>
+	</dict>
+	<dict>
+		<key>DAAccountPersistentUUID</key>
+		<string>7814DA8A-8E43-4369-B89E-720E8E4C7BA2</string>
+		<key>DAAgentClass</key>
+		<string>CalDAVAgent</string>
+		<key>Identifier</key>
+		<string>7814DA8A-8E43-4369-B89E-720E8E4C7BA2</string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>QQ音乐</title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" /> 
+<meta name="format-detection" content="telephone=no">
+<!--link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/music_room.css"-->
+
+<style>
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}a,img{-webkit-touch-callout:none}body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td{margin:0;padding:0}li{list-style:none}table{border-collapse:collapse;border-spacing:0}input:focus,textarea:focus,button:focus{outline:none}body{font:12px/1.5 "hiragino sans gb",arial;color:#808080;-webkit-user-select:none}a{text-decoration:none;color:#000}.c_text_normal{color:#808080}.c_text_strong{color:#000}.c_text_reverse{color:#fff}.c_text_tap{color:#10a54f}.c_text_warning{color:#ea583f}.c_bd_b_strong{border-bottom-color:#d1d5d8}.c_bd_b_normal{border-bottom-color:#dfe3e6}.c_bd_b_weak{border-bottom-color:#eef2f4}.ellipsis{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mgb{margin-bottom:20px}.mgt{margin-top:20px}.main{margin:0 62px 40px;padding-top:50px;overflow-x:hidden}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){.main{margin:0 20px 40px}}.nav_bar{position:fixed;z-index:100;width:100%;height:50px;text-align:center;border-bottom:solid 1px #d1d5d8;background-color:#fff}.nav_bar .main_nav a{position:relative;display:inline-block;width:87px;height:50px;line-height:50px;font-size:14px}.nav_bar .main_nav .current{color:#10a54f}.nav_bar .main_nav .current:after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:4px;background:#10a54f}h1{font-size:20px}h2{font-size:16px}h3{font-size:14px}h4{font-size:12px}h1,h2,h3,h4{color:#000;font-weight:normal}h1 small,h2 small,h3 small,h4 small{font-size:75%;color:#808080}.mod_tit{height:16px;line-height:16px;overflow:hidden;margin:30px 0 20px}.c_bd_l_green,.c_bd_l_blue,.c_bd_l_orange,.c_bd_l_pink,.c_bd_l_yellow{padding-left:10px;border-left-style:solid;border-left-width:3px}.c_bd_l_green{border-left-color:#10a54f}.c_bd_l_blue{border-left-color:#00a0e9}.c_bd_l_orange{border-left-color:#eb6100}.c_bd_l_pink{border-left-color:#f96082}.c_bd_l_yellow{border-left-color:#e49a00}.mod_album_list{width:400%;overflow:hidden}.mod_album_list li{float:left;margin-right:20px}.multi_row li:nth-child(5n + 5){margin-right:0}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){.multi_row li:nth-child(5n + 5){margin-right:20px}.multi_row li:nth-child(4n + 4){margin-right:0}}.multi_row{width:100%}.mod_album_list.multi_row li{margin-bottom:20px}.mod_album_list .album_tit,.mod_album_list .singer{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mod_album_list .album_tit{margin-top:10px}.mod_album_list .count{margin-bottom:-3px}.mod_album_list ul.width_item_148 li{width:148px}.mod_album_list .size_148.imgcut{background-position:center top;background-size:cover;background-repeat:no-repeat}.mod_cover{display:block;position:relative;background-color:#d0ede9;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@1x.png?_bid=243&max_age=259200);background:#d0ede9 -webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@2x.png?_bid=243&max_age=259200) 2x);background-position:center center;background-repeat:no-repeat}.mod_cover img{display:block;width:100%;height:100%}.mod_cover:after{content:"";position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;border:solid 1px rgba(0,0,0,.05);-webkit-box-sizing:border-box}.mod_cover:active:before{content:"";position:absolute;top:0;left:0;z-index:1;width:100%;height:100%;background:rgba(0,0,0,.2)}.mod_cover ins{position:absolute;bottom:0;width:100%;height:22px;line-height:22px;text-decoration:none;text-indent:5px;color:#fff;background-color:rgba(0,0,0,.5)}.mod_cover span{position:absolute;right:0;bottom:0;display:inline-block;width:46px;height:18px;line-height:18px;text-align:center;font-size:12px;color:#fff;background-color:#ea583f}.identification_icon{display:inline-block;width:10px;height:12px;margin-left:4px;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/img/identification_icon@2x.png?_bid=243&max_age=259200);background:-webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/img/identification_icon@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/img/identification_icon@2x.png?_bid=243&max_age=259200) 2x);background-size:100%}.size_84{width:84px;height:84px}.size_148{width:148px;height:148px}.size_148_84{width:148px;height:84px}.size_232_131{width:232px;height:131px}.size_232_109{width:232px;height:109px}.layout_column_2{overflow:hidden}.layout_column_2 .grid{float:left;-webkit-box-sizing:border-box;width:50%}.layout_column_2 .grid:nth-child(odd){padding-right:10px}.layout_column_2 .grid:nth-child(even){padding-left:10px}.layout_column_2.multi_row .grid{margin-bottom:20px}.layout_column_2.multi_row .grid:last-child,.layout_column_2.multi_row .grid:nth-child(odd):nth-last-child(2){margin-bottom:0}.mod_media{position:relative;height:84px;padding-right:20px;-webkit-box-sizing:border-box;background-color:#f6f6f8}.mod_media:active:before{content:"";position:absolute;top:0;left:0;z-index:1;width:100%;height:100%;background:rgba(0,0,0,.2)}.mod_media .mod_cover{float:left;margin-right:20px}.mod_media .media_body{overflow:hidden}.mod_media .media_heading{margin:8px 0 5px}.mod_media .media_paragraph{line-height:20px}.mod_media .media_time{display:block;margin-top:5px}.mod_media .mod_ranks_list{margin-top:8px}.mod_media .media_paragraph .song{display:inline-block;max-width:66%}.mod_media .media_paragraph .singer{vertical-align:top;margin-left:5px;display:inline-block;max-width:30%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mod_media .size_84.imgcut{background-position:center top;background-size:cover;background-repeat:no-repeat}.mod_ranks_list li{line-height:22px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#000}.mod_ranks_list li em{margin-right:5px;font-style:normal;color:#ea583f}.mod_ranks_list li .singer{margin-left:5px;color:#808080}.mod_ranks_list li .song{display:inline-block;vertical-align:bottom;max-width:60%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mod_slider{position:relative;width:100%;overflow:hidden}.mod_slider header{position:relative;height:66px;overflow:hidden}.mod_slider .slider_ctrl{position:absolute;top:38px;right:-10px}.mod_slider .slider_ctrl i{float:left;width:7px;height:7px;margin-right:10px;-webkit-border-radius:7px;background-color:#e1e5e8}.mod_slider .slider_ctrl .current{background-color:#89949b}.mod_slider .mod_album_list ul{width:100%;overflow:hidden}.mod_slider .mod_album_list li:nth-child(5n + 5){margin-right:20px}@media only screen and (max-device-width:1024px) and (min-device-width:768px) and (orientation:portrait){.mod_slider .mod_album_list li:nth-child(4n + 4){margin-right:20px}}.mod_tabs_nav{padding-top:30px}.mod_tabs_nav a{display:inline-block;width:60px;height:30px;line-height:30px;margin-right:22px;font-size:14px;text-align:center}.mod_tabs_nav a.current,.mod_tabs_nav a:active{color:#fff;background-color:#10A54F;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}.mod_dropdown_menu{position:relative}.mod_dropdown_menu .btn_sort{width:auto;height:30px;line-height:30px;font-size:14px;padding:0 15px 0 14px;text-align:center;margin-right:0;white-space:nowrap;border:solid 1px #dfe3e6;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background-color:#fff}.mod_dropdown_menu .btn_sort:active{color:#fff;background-color:#878b94}.mod_dropdown_menu .btn_sort i{position:relative;top:3px;display:inline-block;width:11px;height:15px;margin-left:10px;-webkit-transform:rotate(90deg);background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_more_r@1x.png?_bid=243&max_age=259200);background:-webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_more_r@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_more_r@2x.png?_bid=243&max_age=259200) 2x);background-size:100%}.mod_dropdown_menu .btn_sort:active i{background-position:0 -15px}.mod_dropdown_menu button.current{color:#fff;border-color:#10A54F;-webkit-border-radius:4px;background-color:#10A54F}.over_mask{position:fixed;top:0;left:0;z-index:100;width:100%;height:100%;background-color:rgba(0,0,0,.2)}.mod_dropdown_wrap{position:absolute;top:50px;right:62px;z-index:100;width:100%;height:100%}.sort_list{position:absolute;top:72px;right:0;width:320px;z-index:1000;-webkit-border-radius:6px;background-color:#fff}.sort_list:before{content:"";position:absolute;top:-20px;left:270px;border-width:10px;border-color:transparent transparent #fff transparent;border-style:dashed dashed solid dashed}.sort_list a{position:relative;display:inline-block;text-align:center;width:100%;height:34px;line-height:34px;font-size:14px;color:#000}.sort_list a.all_sort{border:solid 1px #DFE3E6}{color:#fff;border:solid 1px #10a54f;background-color:#10A54F}.sort_list .mod_tit{margin:22px 0 15px 0}.sort_list .scroll{margin:10px 0;padding:10px 20px;max-height:458px;-webkit-overflow-scrolling:touch;overflow-x:hidden;overflow-y:auto;-webkit-transform:translate3d(0,0,0)}.ul_sort:after{content:"";display:block;clear:both}.ul_sort li{position:relative;z-index:0;float:left;width:25%;margin:0 0 -1px -1px;border:solid 1px #DFE3E6;-webkit-box-sizing:border-box}.sort_list a.all_sort.current,.sort_list a.all_sort:active,.ul_sort li.current,.ul_sort li:active{z-index:1;border-color:#10A54F}.ul_sort li.current a:after,.sort_list a.all_sort.current:after{content:"";position:absolute;bottom:0;right:0;width:18px;height:18px;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/img/current_icon@1x.png?_bid=243&max_age=259200);background:-webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/img/current_icon@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/img/current_icon@2x.png?_bid=243&max_age=259200) 2x);background-size:100%}.mod_loading{position:relative;margin:10px 0;height:36px;line-height:36px;text-align:center}.mod_loading .icon_loading{display:inline-block;position:relative;top:4px;width:14px;height:18px}.mod_loading .text_loading{margin-left:5px;font-size:14px;color:#4b4b4b}.blockG{position:absolute;background-color:#FFF;width:2px;height:6px;-webkit-border-radius:2px 2px 0 0;-webkit-transform:scale(0.4);-webkit-animation-name:fadeG;-webkit-animation-duration:1.04s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear}#rotateG_01{left:0;top:7px;-webkit-animation-delay:.39s;-webkit-transform:rotate(-90deg)}#rotateG_02{left:2px;top:2px;-webkit-animation-delay:.52s;-webkit-transform:rotate(-45deg)}#rotateG_03{left:6px;top:1px;-webkit-animation-delay:.65s;-webkit-transform:rotate(0deg)}#rotateG_04{right:2px;top:2px;-webkit-animation-delay:.78s;-webkit-transform:rotate(45deg)}#rotateG_05{right:0;top:7px;-webkit-animation-delay:.9099999999999999s;-webkit-transform:rotate(90deg)}#rotateG_06{right:2px;bottom:2px;-webkit-animation-delay:1.04s;-webkit-transform:rotate(135deg)}#rotateG_07{bottom:0;left:6px;-webkit-animation-delay:1.1700000000000002s;-webkit-transform:rotate(180deg)}#rotateG_08{left:2px;bottom:2px;-webkit-animation-delay:1.3s;-webkit-transform:rotate(-135deg)}@-webkit-keyframes fadeG{0%{background-color:#000}100%{background-color:#FFF}}.loading{width:100%;height:36px;line-height:36px;text-align:center;font-size:14px;color:#4b4b4b}.loading_icon{display:inline-block;width:30px;height:30px;vertical-align:middle;margin-right:2px;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/loading.gif?_bid=243&max_age=259200);background-size:100%}.focus{padding-top:30px}.focus .stage{position:relative;width:100%;height:196px;margin:0 auto}.focus .stage ul{width:484px;height:196px;margin:0 auto}.focus .stage li{position:absolute;width:484px;height:100%;border:solid 1px #d5d5d5;background-color:#d0ede9;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@1x.png?_bid=243&max_age=259200);background:#d0ede9 -webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@2x.png?_bid=243&max_age=259200) 2x);background-position:center center;background-repeat:no-repeat}.focus .stage li img{display:block;width:100%;height:100%}.sort{height:60px}.sort .mod_tabs_nav{float:left}.sort .mod_dropdown_menu{float:right;padding-top:30px}.sort_header{position:relative}.more_btn{position:absolute;top:0;right:0;font-size:14px;color:#000}.sort_header .more_btn i{width:11px;height:15px;margin:-2px 0 0 6px;text-indent:-999em;display:inline-block;vertical-align:middle;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_more_r@1x.png?_bid=243&max_age=259200);background:-webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_more_r@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_more_r@2x.png?_bid=243&max_age=259200) 2x);background-size:100%}.sort_header .more_btn:active i{background-position:0 -30px}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){.mod_tabs_nav a{margin-right:6px}}.mask{position:absolute;width:100%;height:100%;display:none;background-color:rgba(16,165,79,.8)}.wave{position:absolute;top:50%;left:50%;width:24px;height:20px;margin:-10px 0 0 -12px;overflow:hidden;pointer-events:none;-webkit-transform-style:preserve-3d}.wave i{float:left;width:3px;height:30px;margin-right:4px;background-color:#FFF;-webkit-animation-name:wavedelay;-webkit-animation-timing-function:ease-in-out;-webkit-animation-fill-mode:forwards;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate}.wave i:nth-of-type(4){margin-right:0}@-webkit-keyframes wavedelay{0%{-webkit-transform:translate3d(0,11px,0)}100%{-webkit-transform:translate3d(0,0,0)}}.wave i:first-child{-webkit-animation-duration:400ms}.wave i:nth-child(2){-webkit-animation-duration:600ms}.wave i:nth-child(3){-webkit-animation-duration:700ms}.wave i:last-child{-webkit-animation-duration:500ms}.playing .mask{display:block}
+#CssGaga{content:"140729113221,jag,326"}
+</style>
+
+</head>
+<body>
+<div class="wrap" style="position:relative;">
+	<header class="nav_bar">
+		<nav class="main_nav">
+			<a href="javascript:;" id="recom" class="current">推荐</a><a id="toplist" href="javascript:;">排行榜</a><a href="javascript:;" id="taoge">歌单广场</a><a href="javascript:;"  id="radio">电台</a>
+		</nav>
+	</header>
+	
+	<div id="recompage" class="main currentpage recommend" style="position: absolute;-webkit-transition: all 350ms ease-out;left: 0;right:0;padding-bottom:40px;translate3d(0px, 0px, 0px);">
+		<section class="focus">
+			<div class="stage" id="stage" style="-webkit-transform-style:preserve-3d;-webkit-perspective: 1000px;">
+				<ul  id="imgul">
+					
+				</ul>
+			</div>
+		</section>
+	</div>
+	
+	<div id="toplistpage" class="main rank" style="display:none;"></div>
+	
+	<div id="radiopage" class="main radio" style="display:none;">
+		<nav class="mod_tabs_nav"></nav>
+		<section class="mgt"></section>
+	</div>
+	
+	<div id="taogepage" class="main song_list" style="display:none;">
+		<header class="sort">
+			<nav class="mod_tabs_nav"></nav>
+			<div class="mod_dropdown_menu">
+				<button class="btn_sort jumpclick alltags" page="playlist" hotclick="alltags" >全部分类<i></i></button>
+			</div>
+		</header>
+	</div>
+
+<div class="mod_dropdown_wrap" style="display:none;">
+    <div class="over_mask jumpclick" id="taogemask" page="playlist" hotclick="mask"></div>
+    <div class="sort_list">
+        <div class="scroll" style="-webkit-overflow-scrolling: touch;overflow-x: hidden;overflow-y: auto;-webkit-transform: translate3d(0,0,0);">
+        </div>
+    </div>
+</div>
+<script src="http://y.qq.com/ipad/js/zepto.js?_bid=243"></script>
+<script src="http://y.qq.com/ipad/js/core.js?_bid=243"></script>
+<script>
+
+var Slide = {
+	
+	isInited : false,
+	
+	isTouch : false,
+	
+	style : {
+		x 		: 350,
+		y 		: 50,
+		z		: -220,
+		outx 	: 250,
+		outy 	: 50,
+		ox		: 600,
+		oy		: 100
+	},
+	
+	/*
+	style : {
+		x 		: 350,
+		y 		: 0,
+		z		: -220,
+		outx 	: 250,
+		outy 	: 50,
+		ox		: 600,
+		oy		: 50
+	},*/
+	
+	fixX : 0,
+	
+	conf : null,
+	
+	slideDom : null,
+	
+	tplCache : {},
+	
+	cns : ['licenter', 'liright', 'lirightout', 'lileft', 'lileftout'],
+	
+	getTpl : function( data, noCache){
+
+		var className 	= data.className||'',
+			attr		= data.attr||{},
+			img			= data.img||'',
+			noCache		= noCache||false;
+		/*
+		if(this.tplCache[className+'_'+attr.dindex] && !noCache){
+			return this.tplCache[className+'_'+attr.dindex];
+		}
+		*/
+		
+		var attrStr = '';
+		for(var i in attr){
+			attrStr += '' +i+ '="' +attr[i]+ '"';
+		}
+		
+		var tpl = [
+			'<li style="-webkit-transition: all 200ms ease;-webkit-transform:'+this.cssMap[className]+'" class="'+className+'" '+attrStr+' >',
+			'       <a href="javascript:;">',
+			'			<img src="'+ img +'"/>',
+			'       </a>',
+			'</li>'].join('');
+		this.tplCache[className+'_'+attr.dindex] = tpl;
+		return tpl;
+	},
+
+	appendDom : function(data, noCache){
+		if( !$('.'+data.className).length ){
+			$( this.getTpl(data, noCache) ).appendTo( this.conf.ulDom );
+		}
+	},
+	
+	getData : function(addToRight, className){
+		var list = this.conf.list,
+			len = list.length,
+			addToRight = addToRight,
+			className = className;
+		var index = 0;
+		if(addToRight){
+			index = ( parseInt($('.'+(className||'liright') ).attr('dindex')) + 1 )%len;
+		}else{
+			index =  parseInt($('.'+(className||'lileft' ) ).attr('dindex')) - 1;
+			if(index <= 0){
+				index = ( index + len )%len;
+			}
+		}
+		return list[index];
+	},
+	
+	changeState : function(isRight){
+		
+		if(isRight){
+			$('.lirightout').remove();
+			$('.liright').removeClass().addClass('lirightout');
+			$('.licenter').removeClass().addClass('liright');
+			$('.lileft').removeClass().addClass('licenter');
+			$('.lileftout').removeClass().addClass('lileft');
+			var data = this.getData(false);
+		}else{
+			$('.lileftout').remove();
+			$('.lileft').removeClass().addClass('lileftout');
+			$('.licenter').removeClass().addClass('lileft');
+			$('.liright').removeClass().addClass('licenter');
+			$('.lirightout').removeClass().addClass('liright');
+			var data = this.getData(true);
+		}
+		if(data){
+			if(isRight){
+				data.className = 'lileftout';
+			}else{
+				data.className = 'lirightout';
+			}
+			this.appendDom(data);
+		}
+	},
+	
+	removeLeft : function(){
+		Slide.fixX = 0;
+		$('.lileftout').remove();
+		var cssMap = this.cssMap;
+		
+		$('.lileft').removeClass().addClass('lileftout').css('-webkit-transform', cssMap['lileftout']);
+		$('.licenter').removeClass().addClass('lileft').css('-webkit-transform', cssMap['lileft']);
+		$('.liright').removeClass().addClass('licenter').css('-webkit-transform', cssMap['licenter']);
+		$('.lirightout').removeClass().addClass('liright').css('-webkit-transform', cssMap['liright']);
+		
+		var data = this.getData(true);
+		if(data){
+			data.className = 'lirightout';
+			this.appendDom(data);
+		}
+	
+	},
+	
+	removeRight : function(){
+		Slide.fixX = 0;
+		$('.lirightout').remove();
+
+		var cssMap = this.cssMap;
+		$('.liright').removeClass().addClass('lirightout').css('-webkit-transform',cssMap['lirightout']);
+		$('.licenter').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+		$('.lileft').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+		$('.lileftout').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+		
+		var data = this.getData(false);
+		if(data){
+			data.className = 'lileftout';
+			this.appendDom(data);
+		}
+		
+	},
+	
+	getCssText : function(x, y, z){
+		return 'translate3d('+x+'px, 0, '+z+'px) rotateY('+y+'deg);';
+	},
+	
+	slideMove : function(event, data, bindNode){
+		var isX = data.isX,
+			moveX = data.mX;
+		if(isX){
+			var moveX = moveX-Slide.fixX;
+			var _ = Slide,
+				style = _.style;
+			var xrate = ( moveX / style.x ) || 0;
+	
+			var	cx = xrate*style.x,
+				cy = xrate*style.y,
+				cz = Math.abs(xrate)*style.z,
+				
+				ocx = xrate*style.outx,
+				ocy = xrate*style.outy;
+				
+			var licenterCss 	= _.getCssText(cx, -cy, cz),
+			
+				lirightOutCss	= _.getCssText((style.ox+ocx), (-style.oy-ocy), style.z),
+				lileftOutCss	= _.getCssText((-style.ox+ocx), (style.oy-ocy), style.z),
+				
+				lirightCss		= '',
+				lileftCss		= ''; 
+				
+			if(moveX>0){
+				lirightCss		=  _.getCssText((style.x+ocx), (-style.y-ocy) , style.z);
+				lileftCss		= _.getCssText((-style.x+cx), (style.y-cy), (style.z-cz));
+			}else{
+				lirightCss		=  _.getCssText((style.x+cx), (-style.y-cy), (style.z-cz));
+				lileftCss		= _.getCssText((-style.x+ocx), (style.y-ocy) , style.z);
+			}
+			
+			$('.lileftout').css('-webkit-transform', lileftOutCss);
+			$('.lileft').css('-webkit-transform', lileftCss);
+			$('.licenter').css('-webkit-transform', licenterCss);
+			$('.liright').css('-webkit-transform', lirightCss);
+			$('.lirightout').css('-webkit-transform', lirightOutCss);
+			
+			
+			if( cx >=style.x ){
+				Slide.fixX += moveX;
+				Slide.changeState(true);
+			}else if( cx <= -style.x ){
+				Slide.fixX += moveX;
+				Slide.changeState(false);
+			}
+		}
+	},
+	
+	liClick : function(event, bindNode){
+		M.hotClick('ipad.index.focus');
+		var dom = $(event.target).closest('li', bindNode)[0];
+		if(dom){
+			var index = $(dom).attr('dindex');
+			var itemdata = Recom.imgJumpdata[index];
+			//alert(JSON.stringify(itemdata));
+			if(itemdata.type == 3001){
+				M.goPage(itemdata.jmpurl);
+				return
+			}else if( itemdata.type == 10012 ){
+				M.goMv(itemdata.mvid, itemdata.mvtitle.decodeBase(), itemdata.singername.decodeBase());
+				return;
+			}
+			var  reportstr = '2,200,41';
+			if(itemdata && itemdata.type && typeof itemdata.id !='undefined'){
+				M.jump(itemdata.type, itemdata.id , reportstr);
+			}
+		}
+	},
+	
+	slideEnd : function(event, data, bindNode){
+		
+		var mX = data.mX,
+			mT = data.mT,
+			speed = (mX /mT );
+		
+		if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+			
+			if( mX >0 ){ // 触发向右滑动
+				Slide.moveTo(2, true);
+			}else{ // 触发向左滑动
+				Slide.moveTo(2, false);
+			}
+		}else{
+			if( mX >0 ){ // 触发向右滑动
+				Slide.removeRight();
+			}else{ // 触发向左滑动
+				Slide.removeLeft();
+			}
+		}
+		$('.rubish').remove();
+	},
+	
+	moveTo : function(page, isRight){
+		Slide.fixX = 0;
+		var cssMap = this.cssMap;
+		$('.rubish').remove();
+		
+		if(isRight){
+			var data = this.getData(false, 'lileftout');
+			if(data){
+				data.className = 'lileftout1';
+				this.appendDom(data);
+			}
+			$('#imgul li').css('-webkit-transition','all 400ms ease-out');
+			$('.lirightout').remove();
+			$('.liright').removeClass().addClass('rubish').css('-webkit-transform',cssMap['lirightout']);
+			$('.licenter').removeClass().addClass('lirightout').css('-webkit-transform',cssMap['lirightout']);
+			$('.lileft').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+			$('.lileftout').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+			$('.lileftout1').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+			var data = this.getData(false);
+			if(data){
+				data.className = 'lileftout';
+				this.appendDom(data);
+			}
+		}else{
+			var data = this.getData(true, 'lirightout');
+			if(data){
+				data.className = 'lirightout1';
+				this.appendDom(data);
+			}
+			$('#imgul li').css('-webkit-transition','all 400ms ease-out');
+			$('.lileftout').remove();
+			$('.lileft').removeClass().addClass('rubish').css('-webkit-transform',cssMap['lileftout']);
+			$('.licenter').removeClass().addClass('lileftout').css('-webkit-transform',cssMap['lileftout']);
+			$('.liright').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+			$('.lirightout').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+			$('.lirightout1').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+			var data = this.getData(true);
+			if(data){
+				data.className = 'lirightout';
+				this.appendDom(data);
+			}
+		}
+	},
+	
+	autoMoveTimer : 0,
+	
+	autoMove : function(){
+		Slide.autoMoveTimer = setTimeout(function(){
+			if(!Slide.isTouch){
+				Slide.removeLeft();
+			}
+			Slide.autoMove();
+		}, 5000);
+	},
+	
+	resetAuto : function(){
+		clearTimeout(Slide.autoMoveTimer);
+		this.autoMove();
+	},
+	
+	initDom : function(list){
+		var conf = this.conf;
+		
+		if(typeof list =='object' && list.length){
+			conf.list = list;
+			
+		}
+		
+		$(conf.list).each(function(index, item){
+			item.attr = item.attr||{};
+			item.attr.dindex = index;
+		});
+		
+		$(conf.ulDom).html('');
+		
+		$.each(this.cns, function(i, cn){
+			var j = 0, len = conf.list.length;
+			if(len > 0){
+				if( i<3 ){
+					j = i%len;
+				}else{
+					i = i-2;
+					j = len -i;
+					if(j<0){
+						j=0;
+					}
+				}
+				var item = conf.list[j];
+				if(item){
+					item.className = cn;
+					Slide.appendDom(item);
+				}
+			}
+		});
+		
+	},
+	
+	init : function(conf){
+		
+		if( !this.isInited ){
+			this.conf = conf;
+			this.slideDom = conf.slideDom;
+			var style = this.style;
+			
+			this.cssMap = {
+				lileft 			: this.getCssText(-style.x, style.y, style.z),
+				liright			: this.getCssText(style.x, -style.y, style.z),
+				licenter		: this.getCssText(0, 0, 0),
+				lileftout		: this.getCssText(-style.ox, style.oy, style.z),
+				lileftout1		: this.getCssText(-style.ox, style.oy, style.z),
+				lirightout		: this.getCssText(style.ox, -style.oy, style.z),
+				lirightout1		: this.getCssText(style.ox, -style.oy, style.z)
+			}
+			
+			$(document.body).slideToucher({
+				bindClass : '.focus',
+				slideStartCb : function(event, data, bindNode){
+					$('#imgul li').css('-webkit-transition','none');
+					Slide.isTouch = true;
+					Slide.resetAuto();
+				},
+				slideCb 	: Slide.slideMove,
+				clickCb		: Slide.liClick,
+				slideEndCb	: Slide.slideEnd,
+				touchEndCb  : function(event, data, bindNode){
+					$('li', bindNode).css('-webkit-transition','all 200ms ease');
+					Slide.resetAuto();
+					Slide.isTouch = false;
+				}
+			});
+		}
+		
+		this.initDom(conf.list);
+		
+		if( !this.isInited ){
+			Slide.autoMove();
+		}
+		this.isInited = true;
+	}
+
+};
+
+Ipad = {
+	
+	viewCache : {},
+	
+	updateLi : function(node){
+		var $e = $(node),
+			cp = parseInt($e.attr('cp'))||0,
+			pagew = parseInt($e.attr('pagew'))||0,
+			page = Math.abs(parseInt($e.attr('page'))||1),
+			prex = 0;
+		
+		if( cp >= (page-1) ){
+			cp = page-1;
+		}else if(cp<0){
+			cp = 0;
+		}
+		prex = cp*pagew;
+		$('.slider_ctrl i', $e.parent()).removeClass('current').eq(cp).addClass('current');
+		$e.css('-webkit-transform', 'translate3d(-'+prex+'px, 0, 0)');
+		//console.log(cp);
+		if(isVertically){
+			$('div.size_148', $e).slice(cp*4,(cp+1)*4).initImg();
+		}else{
+			$('div.size_148', $e).slice(cp*5,(cp+1)*5).initImg();
+		}
+	},
+	
+	// 初始化横向列表的状态
+	onRientationChange : function(){
+		
+		$.fn.checkOrientation();
+		
+		$('.mod_album_list_slide').each(function(index, item){
+			var list = $('li', item),
+				$e = $(item);
+			if(list.length){
+				var page =0, pagew=0, pagemax=0;
+				if(window.isVertically){
+					page = Math.ceil(list.length/4);
+					pagew = 168*4;
+					pagemax = -168*3;
+				}else{
+					page = Math.ceil(list.length/5);
+					pagew = 168*5;
+					pagemax = -168*4;
+				}
+				
+				$e.attr({
+					page : page,
+					pagew : pagew,
+					pagemax : pagemax
+				}).css('width', (page*100+40)+'%');
+			}
+			var ihtml = [];
+			for(var i=0; i<page; i++){
+				ihtml.push('<i></i>');
+			}
+			if(page==1){
+				$('.slider_ctrl', $e.parent()).html('');
+			}else{
+				$('.slider_ctrl', $e.parent()).html(ihtml.join(''));
+			}
+			Ipad.updateLi($e);
+		});
+		
+	},
+	
+	init : function(){
+		
+		// 绝对定位4个子页面
+		$(window).on('orientationchange', function(){
+		
+			Ipad.onRientationChange();
+			M.updateViewport();
+			
+		});
+		
+		// 绝对定位4个子页面
+		$('.main').each(function(index, item){
+			if( !$(item).hasClass('currentpage')){
+				$(item).hide();
+				Ipad.viewCache[item.id] = item;
+				$(item).remove();
+			}else{
+				Ipad.viewCache[item.id] = item;
+			}
+		}).on('webkitTransitionEnd', function(e){
+			// 子页面切换完成后 保留当前展现页面dom 其余的删除
+			var target = e.target,
+				$target = $(target);
+			if( $target.hasClass('main') ){
+				if( !$target.hasClass('currentpage') ){
+					$target.remove();
+				}else{
+					Ipad.onRientationChange();
+					if( target.id == 'recompage' ){ // 焦点图点击问题修复
+						target.style.cssText = 'display:;position: absolute;left: 0;right: 0;-webkit-transition: all 350ms ease-out;padding-bottom:40px;';
+					}
+				}
+			}
+		}).each(function(index, item){
+			if( !$(item).hasClass('currentpage') ){
+				$(item).remove();
+			}
+		});
+		
+		// 初始化导航栏的touch事件
+		$(document.body).slideToucher({
+			bindClass : '.main_nav',
+			
+			shareDate : {
+				isMoving : false
+			},
+			
+			clickCb : function(event, bindNode, shareDate){
+
+				var target = event.target,
+					$target = $(target);
+				
+				if(!target.id){
+					return;
+				}
+					
+				if(target.id == 'testpage'){
+					window.location.href = 'http://y.qq.com/ipad/ipadtest.html?p='+( + new Date() );
+					return;
+				}else if(target.id == 'flash'){
+					location.reload();
+					return;
+				}
+				
+				if( !$target.hasClass('current') ){
+					
+					$target.siblings().removeClass('current');
+					$target.addClass('current');
+					
+					$('.main', document.body).remove();
+					
+					var id = target.id+'page',
+						showPage = $('#'+id),
+						curPage = $('.main.current'),
+						showPageStartCss = '',
+						hidePageEndCss = '';
+						
+					if(id == 'radiopage'){
+						Radio.init();
+					}else if( id == 'toplistpage' ){
+						
+						Toplist.init();
+						
+					}else if( id=='taogepage' ){
+						Taoge.init();
+					}else if( id =='recompage' ){
+						Recom.init();
+					}
+					
+					M.hotClick('ipad.index.topnav.'+id);
+					
+					showPage = Ipad.viewCache[id];
+					
+					$(showPage).addClass('currentpage').css({
+						'display' 			: 'none',
+						'-webkit-transform'	: 'translate3d(0px, 0px, 0px)'
+					}).addClass('showing');
+					$('.wrap').append(showPage);
+					setTimeout(function(){
+						$('.main.showing').show().removeClass('showing')
+					},10);
+				}
+			}
+		});
+		
+		$(document.body).slideToucher({
+			bindClass : '.jumpclick',
+			
+			slideStartCb : function(event, data, bindNode, shareDate){
+				if($(bindNode).hasClass('over_mask')){
+					event.preventDefault();
+					event.stopPropagation();
+				}
+			},
+			
+			clickCb : function(event, bindNode, shareDate){
+				
+				var $bindNode = $(bindNode),
+					recordtype  = parseInt($bindNode.attr('recordtype')),
+					recordid	= $bindNode.attr('recordid'),
+					hotpage = $bindNode.attr('page')||'defualt',
+					hottype = $bindNode.attr('hotclick')||'defualt';
+					
+				var reportstr = $bindNode.attr('reportstr')||'';
+					
+				M.hotClick('ipad.'+hotpage+'.'+hottype);
+					
+				if( recordtype && recordid ){
+					
+					if( recordtype == 10004 ){ // 电台点击后需要同步状态
+						
+						Radio.radioClick(bindNode, recordtype, recordid, reportstr);
+					}else{
+						
+						M.jump(recordtype, recordid, reportstr);
+					}
+					
+					
+				}else if( $bindNode.hasClass('radiotab') ){
+					
+					if($bindNode.hasClass('current')){
+						return;
+					}
+					
+					var groupid = parseInt( $bindNode.attr('groupid') );
+					$('.radiotab').removeClass('current');
+					$bindNode.addClass('current');
+					var data = Radio.radioMap['group_'+groupid];
+					$(document.body).trigger('data:radio', data);
+					
+				}else if( $bindNode.hasClass('taogemore') ){
+				
+					var categoryid = $bindNode.attr('categoryid'),
+						sortid = $bindNode.attr('sortid');
+					if(sortid && categoryid){
+						var url = 'http://y.qq.com/ipad/taogelist.html?_bid=243#sortid=' + sortid + '&categoryid=' + categoryid;
+						if( typeof M.bridge.callHandler == 'function' ){
+							M.goBigPage( url );
+						}else{
+							window.location.href = url;
+						}
+					}
+					
+				}else if( $bindNode.hasClass('tagitem') ){
+
+					if($bindNode.hasClass('current')){
+						return;
+					}
+					
+					var categoryid = $bindNode.attr('categoryid'),
+						categorytype = $bindNode.attr('categorytype');
+					Taoge.hideTags();
+					Taoge.getTaogeData(categoryid);
+					
+				}else if( $bindNode.hasClass('over_mask') ){
+					Taoge.hideTags();
+				}else if( $bindNode.hasClass('alltags') ){
+					Taoge.tagsClick();
+				}
+			}
+		});
+		
+		// 初始化列表滚动touch + 初始化横向列表的状态
+		;(function(){
+		
+			Ipad.onRientationChange();
+			
+			M.updateViewport();
+			
+			$(document.body).slideToucher({
+				bindClass : '.mod_album_list_slide',
+				slideStartCb : function(event, data, bindNode, shareDate){
+					$(bindNode).css('-webkit-transition','');
+					var s = $(bindNode).css('-webkit-transform'),
+					prex = parseInt(s.split('translate3d(')[1]) || 0;
+					$(bindNode).attr('prex', prex);
+					
+					shareDate.prex = prex;
+					shareDate.pagew = $(bindNode).attr('pagew');
+					shareDate.page = $(bindNode).attr('page');
+					shareDate.max = - (shareDate.page-1)*shareDate.pagew;
+				},
+				
+				slideCb 	: function(event, data, bindNode, shareDate){
+					if(data.isX){
+						var newx = shareDate.prex+data.mX;
+						
+						if(newx > 0 && data.mX != 0){
+							newx = shareDate.prex + data.mX/3;
+							
+						}else if( newx < shareDate.max && data.mX != 0 ){
+							newx = shareDate.prex + data.mX/3;
+						}
+						
+						$(bindNode).css('-webkit-transform', 'translate3d('+ newx +'px, 0, 0)');
+					}
+				},
+				
+				/*
+				clickCb		: function(event, bindNode, shareDate){
+					 alert(event.target.tagName+' click');
+				},
+				*/
+				
+				slideEndCb	: function(event, data, bindNode, shareDate){
+					
+					var $e = $(bindNode),
+						s = $e.css('-webkit-transform'),
+						prex = shareDate.prex,
+						page = parseInt((parseInt($e.css('width'))/100)) || 1;
+						
+					$e.css('-webkit-transition','all 400ms ease-out');
+					
+					var li = 0, max=0;
+					
+					if(window.isVertically){
+						li = 168*4;
+						max = (-li)*(page-1);
+					}else{
+						li = 168*5;
+						max = (-li)*(page-1);
+					}
+					
+					var mX = data.mX,
+						mT = data.mT,
+						speed = ( mX /mT ),
+						cp = 0;
+					if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+						
+						if( mX >0 ){ // 触发向右滑动
+							cp = parseInt(prex/li)+2;
+
+						}else{ // 触发向左滑动
+							cp = parseInt(prex/li)-2;
+						}
+					}else{
+						if( mX >0 ){ // 触发向右滑动
+							cp = (parseInt(prex/li)+1);
+						}else{ // 触发向左滑动
+							cp = (parseInt(prex/li)-1);
+						}
+					}
+					prex = cp*li;
+					
+					if(prex>0){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = 0;
+						cp = 0;
+					}else if( prex < max ){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = max;
+						cp = page-1;
+					}
+					
+					$e.css('-webkit-transform', 'translate3d('+prex+'px, 0, 0)');
+					$e.attr({
+						prex	: prex,
+						cp 		: Math.abs(cp)
+					});
+					Ipad.updateLi(bindNode);
+				}
+			});
+		})();
+		
+	
+	}
+	
+};
+
+Recom = {
+	
+	tpl : {
+		newBox : [
+			'<section>',
+			'	<h2 class="mod_tit %(titleClass)">%(title)<small>%(subtitle)</small></h2>',
+			'	<div class="layout_column_2">',
+			'		%(listHtml)',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		taogeBox : [
+			'<section class="mod_slider">',
+			'	<header>',
+			'		<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'		<div class="slider_ctrl"></div>',
+			'	</header>',
+			'	<div class="mod_album_list mod_album_list_slide" style="height: 212px;width:140%">',
+			'		<ul>',
+			'			%(listHtml)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		newItem : [
+			'<div class="grid jumpclick" page="index" hotclick="newsongtab" recordtype="%(recordtype)" recordid="%(recordid)">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84">',
+			'			<img src="%(imgurl)">',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<h3 class="media_heading">%(title)</h3>',
+			'			<p class="media_paragraph">%(subtitle)</p>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		toplistItem : [
+			'<div class="grid jumpclick"  page="index" hotclick="toplisttab" recordtype="%(recordtype)" recordid="%(recordid)" reportstr="2,200">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84">',
+			'			<img src="%(imgurl)">',
+			'			<ins>%(listen)人听</ins>',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<ol class="mod_ranks_list">',
+			'			%(songlist)',
+			'			</ol>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		topSongItem : [
+			'<li>',
+				'<em>%(index)</em>',
+				'<span class="song">%(song)</span>',
+				'<span class="singer">－%(singer)</span>',
+			'</li>'
+		].join(''),
+		
+		taogeItem : [
+			'<li class="jumpclick"  page="index" hotclick="playlist" recordtype="%(recordtype)" recordid="%(recordid)" reportstr="2,200">',
+			'	<div class="mod_cover size_148 imgcut" style="background-image:url(%(imgurl))">',
+			//'		<img src="%(imgurl)">',
+			'		%(dj)',
+			'	</div>',
+			'	<h3 class="album_tit" style="width: 148px;">%(title)</h3>',
+			'	<p class="singer">%(username)%(vip)</p>',
+			'	<p class="count">%(listen)人听</p>',
+			'</li>'
+		].join('')
+		
+		
+	},
+	
+	titleClass : ['c_bd_l_green', 'c_bd_l_blue', 'c_bd_l_orange', 'c_bd_l_pink', 'c_bd_l_yellow'],
+	
+	hasInit : false,
+	
+	firstInit : true,
+	
+	imgData : null,
+	
+	imgJumpdata : [],
+	
+	listData : null,
+	
+	imgDataCallback : function(data){
+		var dataList = [], data = data;
+		Recom.imgJumpdata = [];
+		$.each(data.item, function(index, item){
+			
+			item.picUrl = M.addMaxage(item.picUrl);
+			
+			dataList.push({
+				img 	: item.picUrl,
+				attr 	: {
+					index : index
+				},
+				itemdata:item
+			});
+			Recom.imgJumpdata.push(item);
+		});
+		
+		Recom.imgData = {
+			list : dataList
+		};
+		$(document.body).trigger('data:recomimg', Recom.imgData);
+	},
+	
+	imgNativeData : null,
+	
+	getImgData : function(){
+		Recom.speed.imgStart = (+ new Date());
+		M.get('recom.imgdata', function(ret){
+			Recom.speed.imgEnd = (+ new Date());
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Recom.imgNativeData = data;
+					Recom.imgDataCallback(data);
+				}
+			}
+		});
+		
+		setTimeout(function(){
+			Recom.speed.imgCGIStart = (+ new Date());
+			//var url = 'http://y.qq.com/v3/static/focus/focus_v3.9.5.json';
+			var url = 'http://y.qq.com/v3/static/focus/focus_ipad.json';
+
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'json',
+				success	: function(data){
+					Recom.speed.imgCGIEnd = (+ new Date());
+					
+					if(Recom.imgNativeData && Recom.imgNativeData.versionTime){
+							if( Recom.imgNativeData.versionTime == data.versionTime){
+							setTimeout(function(){
+								var p = '&flag3=50&15=1000';
+								M.doSpeed(p);
+							}, 1500);
+							return;
+						}else{
+							setTimeout(function(){
+								var p = '&flag3=50&16=1000';
+								M.doSpeed(p);
+							}, 1500);
+						}
+					}
+						
+					M.set('recom.imgdata', JSON.stringify(data), function(ret){});
+					Recom.imgDataCallback(data);
+					
+					
+					
+				}
+			});
+		});
+		
+	},
+	
+	getListData : function(){
+		Recom.speed.recomStart = (+ new Date());
+		M.get('recom.listdata', function(ret){
+			Recom.speed.recomEnd = (+ new Date());
+			if(ret.code == 0){
+				var data = "";
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Recom.listDataCallback(data);
+				}
+			}
+			
+		});	
+		
+		setTimeout(function(){
+			Recom.speed.recomCGIStart = (+ new Date());
+			var url = 'http://proxy.music.qq.com/3gmusic/fcgi-bin/3g_musichall_tuijian?cid=345&ct=18';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					Recom.speed.recomCGIEnd = (+ new Date());
+					M.set('recom.listdata', JSON.stringify(data), function(ret){});
+					Recom.listDataCallback(data);
+					
+					setTimeout(function(){
+						var s = Recom.speed;
+						if(typeof M.reCode == 'object'){
+							M.reCode.report({
+								domain : 'proxy.music.qq.com',
+								rate : 1,
+								type : data.code==0?1:2,
+								code : data.code,
+								time : (s.recomCGIEnd - s.recomCGIStart),
+								cgi : '3g_musichall_tuijian'
+							});
+						}
+					});
+					
+					setTimeout(function(){
+						var s = Recom.speed;
+						if(s.imgEnd && s.recomEnd && s.imgCGIEnd && s.recomCGIEnd && s.pageEnd ){
+							var p = '&flag3=50&1='+ 
+								(s.imgEnd - s.imgStart) +
+								'&2='+(s.recomEnd - s.recomStart)+
+								'&3='+(s.pageEnd - s.pageStart)+
+								'&4='+(s.imgCGIEnd - s.imgCGIStart)+
+								'&5='+(s.recomCGIEnd - s.recomCGIStart);
+							M.doSpeed(p);
+						}
+					}, 1500);
+				},
+				error : function(xhr, errorType, error){
+					Recom.speed.recomCGIEnd = (+ new Date());
+					setTimeout(function(){
+						if(typeof M.reCode == 'object'){
+							var s = Recom.speed;
+							M.reCode.report({
+								domain : 'proxy.music.qq.com',
+								rate : 1,
+								type : 2,
+								code : 500,
+								time : (s.recomCGIEnd - s.recomCGIStart),
+								cgi : '3g_musichall_tuijian'
+							});
+						}
+					});
+				}
+			});
+		});
+	},
+	
+	listDataCallback : function(data){
+		Recom.listData = data;
+		$.each(data.groups, function(index, group){
+			if(!group.title){
+				return;
+			}
+			group.title = group.title.decodeBase();
+			if(group.subtitle){
+				group.subtitle = group.subtitle.decodeBase();
+			}
+			$.each(group.contents, function(i, item){
+				if(item.subtitle){
+					item.subtitle = item.subtitle.decodeBase();
+				}
+				if(item.subtitle2){
+					item.subtitle2 = item.subtitle2.decodeBase();
+				}
+				if(item.subtitle3){
+					item.subtitle3 = item.subtitle3.decodeBase();
+				}
+				if(item.title){
+					item.title = item.title.decodeBase();
+				}
+				if(item.title2){
+					item.title2 = item.title2.decodeBase();
+				}
+				if(item.title3){
+					item.title3 = item.title3.decodeBase();
+				}
+				if(item.singername){
+					item.singername = item.singername.decodeBase();
+				}
+				if(item.username){
+					item.username = item.username.decodeBase();
+				}
+			});
+		});
+		$(document.body).trigger('data:recomlist', data);
+	},
+	
+	// 初始化焦点图
+	initImg : function(event, data){
+
+		Slide.init({
+			ulDom 		: $('#imgul'),
+			slideDom 	: $('.focus'),
+			list 		: data.list
+		});
+	},
+	
+	initList : function(event, data){
+		
+		var pagehtml = [];
+		
+		$.each(data.groups, function(index, group){
+			if(!group.title || !group.contents || !(group.contents.length>0) ){
+				return;
+			}
+			var titleClass = Recom.titleClass[index%5],
+				listHtml = [];
+				
+			if( index == 0 ){
+				$.each(group.contents, function(i, item){
+					if(i<2){
+						listHtml.push(Recom.tpl.newItem.jstpl_format(item));
+					}
+				});
+				pagehtml.push(Recom.tpl.newBox.jstpl_format({
+					title 		: group.title,
+					titleClass	: titleClass,
+					listHtml	: listHtml.join('')
+				}));
+			}else if( index==1 ){
+				$.each(group.contents, function(i, item){
+					var songlist = [];
+					songlist.push(Recom.tpl.topSongItem.jstpl_format({
+						index 	: 1,
+						song 	: item.title,
+						singer 	: item.subtitle
+					}));
+					songlist.push(Recom.tpl.topSongItem.jstpl_format({
+						index 	: 2,
+						song 	: item.title2,
+						singer 	: item.subtitle2
+					}));
+					songlist.push(Recom.tpl.topSongItem.jstpl_format({
+						index 	: 3,
+						song 	: item.title3,
+						singer 	: item.subtitle3
+					}));
+					item.songlist = songlist.join('');
+					
+					item.listen = M.makeListenStr(item.listennum);
+					listHtml.push(Recom.tpl.toplistItem.jstpl_format(item));
+				});
+				pagehtml.push(Recom.tpl.newBox.jstpl_format({
+					title 		: group.title,
+					subtitle	: group.subtitle,
+					titleClass	: titleClass,
+					listHtml	: listHtml.join('')
+				}));
+			}else{
+				
+				$.each(group.contents, function(i, item){
+					if( item.recordtype != 10014 ){ // 不是歌单 
+						return false;
+					}
+					
+					item.listen = M.makeListenStr(item.listennum);
+					item.imgurl = M.addMaxage(item.imgurl );
+					if( item.isdj ){
+						item.dj = '<span>DJ节目</span>';
+					}
+					if( item.isvip ){
+						item.vip = '<i class="identification_icon"></i>';
+					}
+					
+					listHtml.push(Recom.tpl.taogeItem.jstpl_format(item));
+					
+					
+				});
+				if(listHtml.length){
+					pagehtml.push(Recom.tpl.taogeBox.jstpl_format({
+						title 		: group.title,
+						titleClass	: titleClass,
+						listHtml	: listHtml.join('')
+					}));
+				}
+			}
+			
+		});
+		
+		$('section', Ipad.viewCache['recompage']).each(function(i, item){
+			if( !$(item).hasClass('focus') ){
+				$(item).remove();
+			}
+		});
+		
+		$(Ipad.viewCache['recompage']).append(pagehtml.join(''));
+		
+		Recom.speed.pageEnd = (+ new Date());
+		
+		setTimeout(function(){
+			Ipad.onRientationChange();
+		}, 500);
+	},
+	
+	speed : {
+		pageStart : 0,
+		imgStart : 0,
+		imgEnd : 0,
+		recomStart : 0,
+		recomEnd : 0,
+		
+		imgCGIStart : 0,
+		imgCGIEnd : 0,
+		recomCGIStart : 0,
+		recomCGIEnd : 0,
+		pageEnd : 0
+	},
+	
+	init : function(){
+		if( this.firstInit ){
+			this.speed.pageStart = (+ new Date());
+			$(document).on('data:recomimg', Recom.initImg);
+			$(document).on('data:recomlist', Recom.initList);
+			this.firstInit = false;
+			this.getImgData();
+			this.getListData();
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/index.html');
+		}, 1000);
+	}
+};
+
+Radio = {
+	
+	firstInit : true,
+	
+	tpl : {
+	
+		radioNavItem : '<a class="jumpclick radiotab %(current)"  page="radio" hotclick="radionav" href="javascript:;" groupid="%(GroupID)" id="group_%(GroupID)">%(GroupName)</a>',
+		
+		radioBox : [
+			'	<div class="mod_album_list multi_row">',
+			'		<ul class="width_item_148">',
+			'		%(listhtml)',
+			'		</ul>',
+			'	</div>'
+		].join(''),
+		
+		redioItem : [
+			'<li class="jumpclick radioitem" recordid="%(RecID)" page="radio" hotclick="radioitem" id="radio_%(RecID)" recordtype="%(RecType)"  reportstr="2,295">',
+			'	<div class="mod_cover size_148">',
+			'		<div class="mask">',
+			'			<b class="wave">',
+			'				<i></i>',
+			'				<i></i>',
+			'				<i></i>',
+			'				<i></i>',
+			'			</b>',
+			'		</div>',
+			'		<img src="%(PicUrl)">',
+			'	</div>',
+			'	<h3 class="album_tit">%(RecName)</h3>',
+			'	<p class="count">%(OrderNumStr)</p>',
+			'</li>'
+		].join('')
+		
+	},
+	
+	cgroupid : null,
+	
+	radioMap : {},
+	
+	getRadioData : function(){
+		
+		M.get('radio.radiolistdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Radio.radioDataCallback(data);
+				}
+			}
+		});
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/musicradio/fcgi-bin/get_radiolist?cid=294&ct=18';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('radio.radiolistdata', JSON.stringify(data), function(ret){});
+					Radio.radioDataCallback(data);
+				}
+			});
+		});
+	},
+	
+	radioDataCallback : function(data){
+		$.each(data.Group ,function(i, group){
+			if(i==0){
+				Radio.cgroupid = group.GroupID;
+			}
+			Radio.radioMap['group_'+ group.GroupID] = group;
+		});
+		$(document.body).trigger('data:navlist', data);
+		$(document.body).trigger('data:radio', Radio.radioMap['group_'+Radio.cgroupid]);
+		$('#group_'+Radio.cgroupid).addClass('current');
+	},
+	
+	radioClick : function(node, recordtype, recordid, reportstr){
+		
+		M.queryRadio(function(ret){
+			
+			if(ret.code == 0){ // 有电台在播放
+				
+				if( ret.id == recordid ){
+					
+					if( ret.state == 'playing'){
+						M.pause();
+						$('.radioitem .playing').removeClass('playing');
+					}else{
+						M.resume();
+						if(recordid != 99){
+							$('.mod_cover', node).addClass('playing');
+						}
+					}
+					
+					return;
+				}
+			}
+			if(recordid != 99){
+				$('.radioitem .playing').removeClass('playing');
+				$('.mod_cover', node).addClass('playing');
+			}
+			M.jump(recordtype, recordid, reportstr);
+		});
+	},
+	
+	selectItem : function(groupid){
+		if(groupid == Radio.cgroupid){		
+			return;
+		}
+		var data = Radio.radioMap[groupid];
+		if(data){
+			$(document.body).trigger('data:radio', data);
+		}
+	},
+	
+	initNavList : function(event, data){
+		var listhtml = [];
+		
+		$.each(data.Group ,function(i, item){
+			item.GroupName = item.GroupName.decodeBase();
+			if(item.GroupID == 24){
+				item.current = 'current';
+			}
+			listhtml.push(Radio.tpl.radioNavItem.jstpl_format(item));
+		});
+
+		$('.mod_tabs_nav' ,Ipad.viewCache['radiopage']).html(listhtml.join(''));
+		
+	},
+	
+	initRadioList : function(event, data){
+		if(typeof data.listhtml == 'undefined'){
+			var listhtml = [];
+			$.each(data.List ,function(i, item){
+				item.RecName = item.RecName.decodeBase();
+				item.OrderNumStr = item.OrderNumStr.decodeBase();
+				item.PicUrl = M.addMaxage(item.PicUrl);
+				
+				listhtml.push(Radio.tpl.redioItem.jstpl_format(item));
+			});
+			data.listhtml = listhtml.join('');
+		}
+		$('section' ,Ipad.viewCache['radiopage']).html(Radio.tpl.radioBox.jstpl_format(data));
+		var s = Radio.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&6='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		setTimeout(function(){
+			Radio.initCurRadio();
+		}, 500);
+	},
+	
+	initCurRadio : function(){
+		
+		M.queryRadio(function(ret){
+			$('.radioitem .playing').removeClass('playing');
+			if(ret.code == 0){ // 有电台在播放
+				var radioid = ret.id;
+				if( ret.state == 'playing'){
+					$('.mod_cover', '#radio_'+radioid).addClass('playing');
+				}else{
+					$('.mod_cover', '#radio_'+radioid).removeClass('playing');
+				}
+				
+			}else{
+				$('.mod_cover.playing', '#radiopage').removeClass('playing');
+			}
+		});
+		
+	},
+	
+	speed : {
+		pageStart : 0,
+		pageEnd : 0
+	},
+	
+	init : function(){
+		if( this.firstInit ){
+			this.speed.pageStart = (+ new Date());
+			$(document).on('data:radio', Radio.initRadioList);
+			$(document).on('data:navlist', Radio.initNavList);
+			this.firstInit = false;
+			setTimeout(function(){
+				M.onSongStateChange(function(data){
+					if( $('#radiopage').hasClass('currentpage') ){
+						Radio.initCurRadio();
+					}
+				});
+			},300);
+		}
+		if( !$('li', Ipad.viewCache['radiopage']).length ){
+			this.getRadioData();
+		}else{
+			setTimeout(function(){
+				Radio.initCurRadio();
+			}, 500);
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/radio.html');
+		}, 1000);
+	}
+};
+
+Toplist = {
+	
+	tpl : {
+		topItem : [
+			'<div class="grid jumpclick" page="toplist" hotclick="topitem" recordid="%(RecID)" recordtype="%(RecType)" reportstr="2,296">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84 imgcut" style="background-image:url(%(PicUrl))">',
+			//'			<img src="%(PicUrl)">',
+			'			<ins>%(listen)人听</ins>',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<ol class="mod_ranks_list">',
+			'				%(list)',
+			'			</ol>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		topBox : [
+			'<section>',
+			'	<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'	<div class="layout_column_2 multi_row">',
+			'		%(listhtml)',
+			'	</div>',
+			'<section>'
+		].join(''),
+		
+		songItem : [
+			'<li>',
+			'	<em>%(index)</em>',
+			'	<span class="song">%(songname)</span>',
+			'	<span class="singer">- %(singername)</span>',
+			'</li>'
+		].join('')
+	},
+	
+	getToplistData : function(){
+		M.get('toplist.toplistdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Toplist.toplistDataCallback(data);
+				}
+			}
+		});
+		
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/toplist/fcgi-bin/get_toplist?cid=293&ct=18';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('toplist.toplistdata', JSON.stringify(data), function(ret){});
+					Toplist.toplistDataCallback(data);
+				}
+			});
+		});
+
+	},
+	
+	toplistDataCallback : function(data){
+		Toplist.data = data;
+		$(document.body).trigger('data:toplist', data);
+	},
+	
+	initToplist : function(event, data){
+		var pagehtml = [];
+		$.each(data.Group, function(index, group){
+			
+			var titleClass = Recom.titleClass[index%5],
+				listhtml =[];
+			
+			$.each(group.List ,function(i, item){
+				item.RecName = item.RecName.decodeBase();
+				item.listen = M.makeListenStr(item.SubNum);
+				var songlist = [];
+				
+				$.each(item.songlist, function(j, song){
+					song.index = (j+1);
+					song.songname = song.songname.decodeBase();
+					song.singername = song.singername.decodeBase();
+					
+					songlist.push(Toplist.tpl.songItem.jstpl_format(song));
+				});
+				
+				
+				item.list = songlist.join('');
+				
+				item.PicUrl = M.addMaxage(item.PicUrl);
+				
+				listhtml.push(Toplist.tpl.topItem.jstpl_format(item));
+			});
+			
+			
+			group.GroupName = group.GroupName.decodeBase();
+			
+			pagehtml.push(Toplist.tpl.topBox.jstpl_format({
+				title : group.GroupName,
+				titleClass : titleClass,
+				listhtml : listhtml.join('')
+			}));
+		});
+		
+		$(Ipad.viewCache['toplistpage']).html(pagehtml.join(''));
+		
+		var s = Toplist.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&7='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		
+	},
+	
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	init : function(){
+		
+		if( !$('section', Ipad.viewCache['toplistpage']).length ){
+			$(document).on('data:toplist', Toplist.initToplist);
+			this.speed.pageStart = (+ new Date());
+			this.getToplistData();
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/toplist.html');
+		}, 1000);
+	}
+	
+}
+
+Taoge = {
+	
+	firstInit : true,
+	
+	tagsData : null,
+	
+	taogeListData : {},
+	
+	hotTagsData : null,
+	
+	currentId : 10000000,
+	
+	tpl : {
+		
+		hotTagItem : '<a href="javascript:;" class="jumpclick %(itemclass) tagitem" id="hottag_%(categoryType)_%(categoryId)" categoryid="%(categoryId)" categorytype="%(categoryType)"  page="playlist" hotclick="hottabitem">%(categoryName)</a>',
+		
+		tagItem : '<li class="jumpclick tagitem" id="tag_%(categoryType)_%(categoryId)" categoryid="%(categoryId)" categorytype="%(categoryType)" page="playlist" hotclick="tagitem"><a href="javascript:;">%(categoryName)</a></li>',
+		
+		tagBox : [
+			'<h2 class="mod_tit c_bd_l_green">%(categoryGroupName)</h2>',
+            '<ul class="ul_sort">',
+			'	%(list)',
+			'</ul>'
+		].join(''),
+		
+		taogeBox : [
+			'<section categoryid="%(categoryId)">',
+			'	<header class="sort_header">',
+			'		<h2 class="mod_tit c_bd_l_green">%(categoryName) · %(sortName)</h2>',
+			'		<a href="javascript:;"  categoryid="%(categoryId)" sortid="%(sortId)" class="more_btn jumpclick taogemore" page="playlist" hotclick="more">更多<i>&gt;</i></a>',
+			'	</header>',
+			'	<div class="mod_album_list" style="height: 212px;">',
+			'		<ul class="width_item_148">',
+			'				%(listhtml)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		taogeItem : [
+			'<li class="jumpclick" page="playlist" hotclick="taogeitem" recordtype="10014" recordid="%(dissid)"  reportstr="2,294">',
+			'	<div class="mod_cover size_148 imgcut" style="background-image:url(%(imgurl))">',
+			'		%(dj)',
+			'	</div>',
+			'	<h3 class="album_tit">%(dissname)</h3>',
+			'	<p class="singer">%(singer)%(vip)</p>',
+			'	<p class="count">%(listen)人听</p>',
+			'</li>'
+		].join('')
+		
+	},
+	
+	getTagsData : function(){
+		M.get('taoge.tagsdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Taoge.tagsDataCallback(data);
+				}
+			}
+		});
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/fav/fcgi-bin/3g_get_diss_tag_conf?cid=297&ct=18';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('taoge.tagsdata', JSON.stringify(data), function(ret){});
+					Taoge.tagsDataCallback(data);
+				}
+			});
+		});
+	},
+	
+	tagsDataCallback : function(data){
+		Taoge.tagsData = data;
+		$(document.body).trigger('data:tagsdata', Taoge.tagsData);
+	},
+	
+	initTags : function(event, data){
+		
+		var pagehtml = [];
+		pagehtml.push('<a href="javascript:;"  page="playlist" hotclick="tagitem" id="tag_1_10000000" class="all_sort jumpclick tagitem"  categoryid="10000000" categorytype="1">全部</a>');
+		$.each(data.categories, function(index, group){
+			
+			var listhtml = [];
+			$.each(group.items, function(i, item){
+				if(item.categoryId == 10000000){
+					return;
+				}
+				item.categoryName = item.categoryName.decodeBase();
+				listhtml.push(Taoge.tpl.tagItem.jstpl_format(item));
+			
+			});
+			if(listhtml.length){
+				group.list = listhtml.join('');
+				group.categoryGroupName = group.categoryGroupName.decodeBase();
+				pagehtml.push(Taoge.tpl.tagBox.jstpl_format(group));
+			}
+		});
+		
+		
+		$('.scroll').html(pagehtml.join(''));
+		
+	},
+	
+	getTaogeData : function(categoryid){
+		
+		
+		var categoryid = categoryid || 10000000;
+		
+		M.get('taoge.taogedata.'+categoryid, function(ret){
+			if(ret.code == 0){
+				var data = "";
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Taoge.taogeDataCallback(data);
+				}
+			}
+			
+		});
+		
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/fav/fcgi-bin/3g_get_comb_diss_by_tag?cid=346&ct=18&categoryId='+ categoryid +'&sin=0&ein=5&from=2';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					if(data.categoryId == 10000000 ){
+						M.set('taoge.taogedata.'+data.categoryId, JSON.stringify(data), function(ret){});
+					}
+					Taoge.taogeDataCallback(data);
+				}
+			});
+		});
+	
+	},
+	
+	taogeDataCallback : function(data){
+		Taoge.taogeListData['category_'+ data.categoryId ] = data;
+		$(document.body).trigger('data:taogedata', data);
+	},
+	
+	tagsClick : function(){
+		Taoge.showTags();
+	},
+	
+	showTags : function(){
+		$('#taogemask').show();
+		$('.mod_dropdown_wrap').show();
+		Taoge.updateCurTag();
+	},
+	
+	hideTags : function(){
+		$('#taogemask').hide();
+		$('.mod_dropdown_wrap').hide();
+	},
+	
+	updateCurTag : function(){
+		$('.tagitem.current').removeClass('current');
+		$('#tag_1_'+Taoge.currentId).addClass('current');
+		$('#hottag_1_'+Taoge.currentId).addClass('current');
+	},
+	
+	initTaoge : function(event, data){
+		
+		Taoge.currentId = data.categoryId;
+		
+		Taoge.updateCurTag();
+		
+		var pagehtml = [];
+		
+		$.each(data.data, function(index, group){
+			
+			var listhtml = [];
+			$.each(group.list, function(i, item){
+				
+				item.dissname = item.dissname.decodeBase();
+				item.singer = item.creator.name.decodeBase();
+				item.listen = M.makeListenStr(item.listennum);
+				item.imgurl = M.addMaxage(item.imgurl);
+				
+				if( item.version == 7 ){
+					item.dj = '<span>DJ节目</span>';
+				}
+				if( item.creator.isVip ){
+					item.vip = '<i class="identification_icon"></i>';
+				}
+				
+				listhtml.push(Taoge.tpl.taogeItem.jstpl_format(item));
+				
+			});
+			group.sortName = group.sortName.decodeBase();
+			group.listhtml = listhtml.join('');
+			group.categoryId = data.categoryId;
+			group.categoryName = data.categoryName.decodeBase();
+			
+			pagehtml.push(Taoge.tpl.taogeBox.jstpl_format(group));
+		});
+		
+		$('section', Ipad.viewCache['taogepage']).remove();
+		$(Ipad.viewCache['taogepage']).append($(pagehtml.join('')));
+		
+		var s = Taoge.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed( '&flag3=50&8='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		
+	},
+	
+	getHotTags : function(){
+	
+		M.get('taoge.hottagsdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Taoge.hotTagsDataCallback(data);
+				}
+			};
+			
+		});
+		
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/fav/fcgi-bin/3g_get_diss_tag_conf?cid=297&ct=18&onlyhot=1';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('taoge.hottagsdata', JSON.stringify(data), function(ret){});
+					Taoge.hotTagsDataCallback(data);
+				}
+			});
+		});
+		
+	},
+	
+	hotTagsDataCallback : function(data){
+		Taoge.hotTagsData = data;
+		$(document.body).trigger('data:hottagsdata', data);
+	},
+	
+	initHotTags : function(event, data){
+		var listhtml = [];
+		
+		if(data && data.categories && data.categories[0] && data.categories[0].items ){
+			$.each(data.categories[0].items, function(index, item){
+				item.categoryName = item.categoryName.decodeBase();
+				if(item.categoryId == 10000000){
+					item.itemclass = "current";
+				}else{
+					item.itemclass = "";
+				}
+				listhtml.push(Taoge.tpl.hotTagItem.jstpl_format(item));
+			});
+		}
+		
+		$('.mod_tabs_nav', Ipad.viewCache['taogepage']).html(listhtml.join(''));
+		setTimeout(function(){
+			Taoge.updateCurTag();
+		}, 1000);
+	},
+	
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	
+	init : function(){
+		if( this.firstInit ){
+			$(document).on('data:tagsdata', Taoge.initTags);
+			$(document).on('data:hottagsdata', Taoge.initHotTags);
+			$(document).on('data:taogedata', Taoge.initTaoge);
+			this.firstInit = false;
+			this.speed.pageStart = (+ new Date());
+		}
+		
+		if( !this.tagsData ){
+			setTimeout(function(){
+				Taoge.getTagsData();
+			}, 500);
+		}
+		
+		if( !$('section', Ipad.viewCache['taogepage']).length ){
+			this.getTaogeData();
+		}
+				
+		if(!this.hotTagsData){
+			setTimeout(function(){
+				Taoge.getHotTags();
+			}, 100);
+		}
+		
+		setTimeout(function(){
+			M.doPv('/ipad/playlist.html');
+		}, 1000);
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+	Ipad.init();
+	if( !/qqmusic/ig.test(navigator.userAgent)){
+		Recom.init();
+	}
+	
+}, false);
+
+document.addEventListener('WebViewJavascriptBridgeReady', function(e){
+	Recom.init();
+});
+
+</script>
+</div>
+</body>
+</html>

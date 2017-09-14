@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion>
+  <applied-converters>
+    <converter id="android-module-to-java-module" />
+    <converter id="android-proguard-options" />
+    <converter id="android-sdk-library" />
+    <converter id="groovy-modules-to-facets" />
+    <converter id="groovy-script-run-configurations" />
+  </applied-converters>
+  <project-files>
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/compiler.xml" timestamp="1474551836000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/copyright/profiles_settings.xml" timestamp="1474551836000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/encodings.xml" timestamp="1474551836000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/gradle.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/animated_vector_drawable_24_2_0.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/appcompat_v7_24_2_0.xml" timestamp="1477365627000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/hamcrest_core_1_3.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/junit_4_12.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_annotations_24_2_0.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_compat_24_2_0.xml" timestamp="1477365627000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_core_ui_24_2_0.xml" timestamp="1477365627000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_core_utils_24_2_0.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_fragment_24_2_0.xml" timestamp="1477365627000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_media_compat_24_2_0.xml" timestamp="1477365627000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_v4_24_2_0.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/libraries/support_vector_drawable_24_2_0.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/misc.xml" timestamp="1477365688000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/modules.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/runConfigurations.xml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/.idea/workspace.xml" timestamp="1477366167000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/MyService.iml" timestamp="1474551842000" />
+    <file path="/Users/apple/AndroidStudioProjects/MyService/app/app.iml" timestamp="1477365627000" />
+  </project-files>
+</conversion>
+

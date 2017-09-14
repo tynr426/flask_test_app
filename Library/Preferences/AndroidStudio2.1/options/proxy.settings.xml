@@ -1,0 +1,6 @@
+<application>
+  <component name="HttpConfigurable">
+    <option name="USE_PAC_URL" value="true" />
+    <option name="PAC_URL" value="http://blog.csdn.net/muier/article/details/45245395" />
+  </component>
+</application>

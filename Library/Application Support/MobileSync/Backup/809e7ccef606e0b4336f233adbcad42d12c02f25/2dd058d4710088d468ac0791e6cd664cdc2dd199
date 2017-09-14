@@ -1,0 +1,825 @@
+;(function(){
+	if (!window.debug) {
+		window.onerror = function(msg, url, line){
+			var stack='', ca=arguments.callee.caller;
+			if (ca) {
+				var b, e = [];
+				while (ca) {
+					b = ca;
+					e.push(b.toString().replace(/[\t\n\r]/g, "").substring(0, 100) + '...');
+					ca = ca.caller;
+				}
+				stack='; 堆栈：'+e.join(" --> ");
+			}
+
+			msg += stack.substring(0, 600);
+			var send=new Image();
+			send.src = "http://qm.music.qq.com/report_err?msg=" + encodeURIComponent(msg) + "&file=" + encodeURIComponent(url) + "&line=" + line;
+			send.onload=send.onerror=function () { send=null }
+			return true;
+		};
+	}
+})();
+
+;(function ($, window, document, undefined) {
+
+    function slideToucher(el, options) {
+        /*
+            Defiantly too many variables here. Need to find a way to reduce 'em
+        */
+        var plugin = this,
+			options = options||{};
+        plugin.el = el;
+        plugin.$el = $(el);
+		
+		var mX = mY = mT = sT = eT = sX = eX = sY = eY =0;
+		var sliding = 1;
+		var shareDate = options.shareDate||{}, bindNode = null;
+		
+		plugin.slideStart = function (event) {
+			
+			if( options.bindClass ){
+				bindNode = $(event.target).closest(options.bindClass, plugin.el);
+				if( !bindNode.length ){
+					return;
+				}
+			}else{
+				bindNode = plugin.el;
+			}
+			//console.log('slideStart');
+			if (event.changedTouches) {
+				sliding = 1;
+				sX = parseInt(event.changedTouches[0].pageX, 10);
+				sY = parseInt(event.changedTouches[0].pageY, 10);
+				sT = (+new Date());
+				if(typeof options.slideStartCb == 'function'){
+					options.slideStartCb(event, {
+						sX	: sX,
+						sY	: sY,
+						sT	: sT
+					}, bindNode, shareDate);
+				}
+			}
+			
+		};
+		
+		plugin.slide = function (event) {
+			
+			if( options.bindClass ){
+				bindNode = $(event.target).closest(options.bindClass, plugin.el);
+				if( !bindNode.length ){
+					return;
+				}
+			}else{
+				bindNode = plugin.el;
+			}
+			
+			if (event.changedTouches) { // 移动事件 用于卡片跟随
+				mX = parseInt(event.changedTouches[0].pageX, 10) - sX;
+				mY = parseInt(event.changedTouches[0].pageY, 10) - sY;
+				if(sliding == 1){
+					if( Math.abs(mX) > Math.abs(mY) ){ // 横滑
+						sliding = 2;
+					}else{
+						sliding = 3;
+					}
+				}
+				
+				var data = {
+					sliding : sliding,
+					mX 	: mX,
+					mY 	: mY,
+					mT 	: mT,
+					sX	: sX,
+					sY	: sY,
+					sT	: sT,
+					eX	: eX,
+					eY	: eY,
+					eT	: eT
+				};
+				
+				if(sliding == 2){ // 横滑
+					event.preventDefault();
+					event.stopPropagation();
+					data.isX = true
+				}else{ // 竖滑 
+					data.isX = false;
+				}
+				if(typeof options.slideCb == 'function'){
+					options.slideCb(event, data, bindNode, shareDate);
+				}
+			}
+		};
+		
+		plugin.slideEnd = function (event) {
+			
+			if( options.bindClass ){
+				bindNode = $(event.target).closest(options.bindClass, plugin.el);
+				if( !bindNode.length ){
+					return;
+				}
+			}else{
+				bindNode = plugin.el;
+			}
+			if (event.changedTouches) {
+				eX = parseInt(event.changedTouches[0].pageX, 10);
+				eY = parseInt(event.changedTouches[0].pageY, 10);
+				eT = (+new Date());
+				mX = eX - sX;
+				mY = eY - sY;
+				mT = eT - sT;
+			}
+			
+			if(Math.abs(mX)<20 && Math.abs(mY)<20 && mT<300 ){ // 触发点击事件
+				if(typeof options.clickCb == 'function'){
+					options.clickCb(event, bindNode, shareDate);
+				}
+			}else{
+				if(sliding == 2){
+					
+					if(typeof options.slideEndCb == 'function'){
+						options.slideEndCb(event, {
+							mX : mX,
+							mY : mY,
+							mT : mT
+						}, bindNode, shareDate);
+					}
+				}else{
+					
+				}
+			}
+			
+			if(typeof options.touchEndCb == 'function'){
+				options.touchEndCb(event, {
+					mX : mX,
+					mY : mY,
+					mT : mT
+				}, bindNode, shareDate);
+			}
+		};
+		
+		plugin.bindEvents = function () {
+			
+			plugin.$el.on('touchstart', plugin.slideStart);
+			plugin.$el.on('touchmove', plugin.slide);
+			plugin.$el.on('touchend', plugin.slideEnd);
+		
+		};
+		
+		plugin.init = function () {
+			plugin.bindEvents();
+		};
+		
+        plugin.init();
+    }
+
+    $.fn.slideToucher = function (options) {
+        return this.each(function () {
+            new slideToucher(this, options)
+        });
+    };
+	
+})($, window, document);
+
+;(function($){
+	$.extend($.fn,
+		{
+			checkOrientation : function(){
+				var _ = window;
+				
+				if(_.innerWidth < _.innerHeight){
+					_.isVertically = true;
+				}else{
+					_.isVertically = false;
+				}
+				
+				return _.isVertically;
+				
+			},
+			initImg : function(){
+				$(this).each(function(index, item){
+					var $e = $(item),
+						src = $e.attr('imgsrc');
+					if(src){
+						$e.html( '<img src="'+ $e.attr('imgsrc') +'">' ).attr('imgsrc','');
+					}
+				});
+			},
+			
+			nextSiblings : function(){
+				//var parent = $();
+				var _ = this,
+					$childrens = _.parent().children(),
+					_nextSibling = null,
+					_index = 0,
+					cur = this[0];
+				$childrens.each(function(index, item){
+					if( item == cur ){
+						_index = index+1;
+						return false;
+					}
+				});
+				return $childrens.slice(_index);
+			}
+	});
+})($);
+
+;(function(){
+
+	String.prototype.jstpl_format = function(ns){
+		function fn(w, g) {
+			if (g in ns){
+				return ns[g];
+			}else{
+				return '';
+			}
+		};
+		return this.replace(/%\(([A-Za-z0-9_|.]+)\)/g, fn);
+	};
+	
+	String.prototype.unescapeHTML= function() {
+		var div = document.createElement('div');
+		div.innerHTML = this;
+		return div.innerText || div.textNode || '';
+	};
+
+	String.prototype.decodeBase = function(){
+		return g_coder.Base64.decode(this);
+	};
+	
+	window.g_coder = (function(){
+		var _this=this;
+		var Base64={
+			_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(input){
+				var output="";
+				var chr1,chr2,chr3,enc1,enc2,enc3,enc4;
+				var i=0;
+				input=Base64._utf8_encode(input);
+				while(i<input.length){
+					chr1=input.charCodeAt(i++);
+					chr2=input.charCodeAt(i++);
+					chr3=input.charCodeAt(i++);
+					enc1=chr1>>2;
+					enc2=((chr1&3)<<4)|(chr2>>4);
+					enc3=((chr2&15)<<2)|(chr3>>6);
+					enc4=chr3&63;
+					if(isNaN(chr2)){
+						enc3=enc4=64;
+					}
+					else if(isNaN(chr3)){
+						enc4=64;
+					}
+					output=output+
+					Base64._keyStr.charAt(enc1)+Base64._keyStr.charAt(enc2)+
+					Base64._keyStr.charAt(enc3)+Base64._keyStr.charAt(enc4);
+				}
+				return output;
+			}
+			,decode:function(input){
+				var output="";
+				var chr1,chr2,chr3;
+				var enc1,enc2,enc3,enc4;
+				var i=0;
+				input=input.replace(/[^A-Za-z0-9\+\/\=]/g,"");
+				while(i<input.length){
+					enc1=Base64._keyStr.indexOf(input.charAt(i++));
+					enc2=Base64._keyStr.indexOf(input.charAt(i++));
+					enc3=Base64._keyStr.indexOf(input.charAt(i++));
+					enc4=Base64._keyStr.indexOf(input.charAt(i++));
+					chr1=(enc1<<2)|(enc2>>4);
+					chr2=((enc2&15)<<4)|(enc3>>2);
+					chr3=((enc3&3)<<6)|enc4;
+					output=output+String.fromCharCode(chr1);
+					if(enc3!=64){
+						output=output+String.fromCharCode(chr2);
+					}
+					if(enc4!=64){
+						output=output+String.fromCharCode(chr3);
+					}
+					
+				}
+				output=Base64._utf8_decode(output);
+				return output;
+			}
+			,_utf8_encode:function(string){
+				string=string.replace(/\r\n/g,"\n");
+				var utftext="";
+				for(var n=0;
+				n<string.length;
+				n++){
+					var c=string.charCodeAt(n);
+					if(c<128){
+						utftext+=String.fromCharCode(c);
+					}
+					else if((c>127)&&(c<2048)){
+						utftext+=String.fromCharCode((c>>6)|192);
+						utftext+=String.fromCharCode((c&63)|128);
+					}
+					else{
+						utftext+=String.fromCharCode((c>>12)|224);
+						utftext+=String.fromCharCode(((c>>6)&63)|128);
+						utftext+=String.fromCharCode((c&63)|128);
+					}
+					
+				}
+				return utftext;
+			}
+			,_utf8_decode:function(utftext){
+				var string="";
+				var i=0;
+				var c=c1=c2=0;
+				while(i<utftext.length){
+					c=utftext.charCodeAt(i);
+					if(c<128){
+						string+=String.fromCharCode(c);
+						i++;
+					}
+					else if((c>191)&&(c<224)){
+						c2=utftext.charCodeAt(i+1);
+						string+=String.fromCharCode(((c&31)<<6)|(c2&63));
+						i+=2;
+					}
+					else{
+						c2=utftext.charCodeAt(i+1);
+						c3=utftext.charCodeAt(i+2);
+						string+=String.fromCharCode(((c&15)<<12)|((c2&63)<<6)|(c3&63));
+						i+=3;
+					}
+					
+				}
+				return string;
+			}
+			
+		};
+		return{
+			Base64:Base64
+		};
+	})();
+	
+})();
+
+;(function(){
+	
+	window.M = {
+
+		bridge : {},
+		
+		makeListenStr : function(num){
+			var num = parseInt(num)||0;
+			if(num>10000){
+				var wan = parseInt(num/10000);
+				var qian = parseInt((num%10000)/1000);
+				if(qian>0){
+					num = wan + '.' + qian + '万';
+				}else{
+					num = wan + '万';
+				}
+			}
+			return num;
+		},
+		
+		jump : function(recordtype, recordid, reportstr, tj_tjreport){
+			// console.log('recordtype: '+ recordtype +'; recordid:'+recordid);
+			if(typeof M.bridge.callHandler != 'function' ){
+				//alert('No M.bridge.callHandler');
+				//console.log('No M.bridge.callHandler');
+				if(recordtype == 2001){
+					window.location.href = 'http://y.qq.com/ipad/first.html';
+				}else if(recordtype == 10017){
+					window.location.href = 'http://y.qq.com/ipad/mvtopic.html';
+				}
+				return ;
+			}
+			
+			var reportstr = reportstr || '';
+			var tj_tjreport = tj_tjreport || '';
+			
+			switch(recordtype){
+				case 2001:
+					M.goBigPage('http://y.qq.com/ipad/first.html?_bid=243', reportstr);
+					break;
+				
+				case 10017:
+					
+					M.goBigPage('http://y.qq.com/ipad/mvtopic.html?_bid=243', reportstr);
+					break;
+				
+				case 10001: 
+					M.goSongFirst(recordid, reportstr);
+					break;
+				case 10014: 
+					M.goTaoge(recordid, reportstr, tj_tjreport);
+					break;
+				
+				case 10005:
+					M.goToplist(recordid, reportstr);
+					break;
+					
+				case 10002: 
+					M.goAlbum(recordid, reportstr, tj_tjreport);
+					break;
+					
+				case 10004: 
+				case 10006: 
+					M.playRadio(recordid, reportstr, tj_tjreport);
+					break;
+					
+				case 10012: 
+					M.goMv(recordid, "mv", "QQ音乐", reportstr);
+					break;
+					
+				case 10016: 
+					M.goPage(recordid, reportstr);
+					break;
+					
+				case 10013: 
+					M.goSinger(recordid, reportstr);
+					break;
+					
+				// MV 
+				case 10009: // mv 首发 
+					M.goMvFirst(recordid, reportstr);
+					break;
+				case 10010: // mv 榜
+					M.goMvToplist(recordid, reportstr);
+					break;
+				case 10011: // mv 专题
+					M.goMvTopic(recordid, reportstr);
+					break;
+				
+			}
+		},
+		
+		goMvPackge : function(id){
+			this.bridge.callHandler('playmvpackge', {
+				k1 : parseInt(id)
+			}, function(ret){
+				
+			});
+		},
+		
+		goSongFirst : function(type, reportstr){
+			this.bridge.callHandler('7', {
+				'k1'	: type,
+				'k4'	: 10001,
+				'reportstr' : reportstr
+			});
+		},
+		
+		goMvFirst : function(mvtypeid, reportstr){
+			this.bridge.callHandler('18', {
+				'k1'	: mvtypeid,
+				'k4'	: 10009,
+				'reportstr' : reportstr
+			});
+		},
+		
+		goMvToplist : function(recordid, reportstr){
+			this.bridge.callHandler('17', {
+				'k1'	: recordid || 201,
+				'k4'	: 10010,
+				'reportstr' : reportstr
+			});
+		},
+		
+		goMvTopic : function(mvtopicid, reportstr){
+			this.bridge.callHandler('15', {
+				'k1'	: mvtopicid,
+				'k4'	: 10011,
+				'reportstr' : reportstr
+			});
+		},
+		
+		goSinger : function(singerid, reportstr){
+			this.bridge.callHandler('8', {
+				'k1'	: singerid,
+				'reportstr' : reportstr
+			});
+		},
+		
+		goAlbum : function(albumid, reportstr, tj_tjreport){
+			var dataUrl = 'http://y.qq.com/v3/static/album/'+parseInt(albumid%100)+'/album_'+parseInt(albumid)+'_0.json.z';
+			this.bridge.callHandler('6', {
+				'k1'	: albumid,
+				'k2'	: dataUrl,
+				'reportstr' : reportstr,
+				'tj_tjreport'	: tj_tjreport
+			});
+		},
+
+		goTaoge : function(taogeid, reportstr, tj_tjreport){
+			this.bridge.callHandler('22', {
+				'k1'	: taogeid,
+				'reportstr' : reportstr,
+				'tj_tjreport'	: tj_tjreport
+			});
+		},
+
+		goMv : function(vid, name, singer, reportstr){
+
+			
+
+			var name = g_coder.Base64.encode(name||'mv');
+
+			var singer = g_coder.Base64.encode(singer||'QQ音乐');
+
+			this.bridge.callHandler('19', {
+				'k2'	: vid,
+				'k3'	: name,
+				'k7'	: singer
+			});
+		},
+
+		goUser : function(uin, reportstr){
+			this.bridge.callHandler('21', {
+				'k1'	: uin,
+				'reportstr' : reportstr
+			});
+		},
+		
+		goToplist : function(topid, reportstr){
+			this.bridge.callHandler('4', {
+				'k1'	: topid,
+				'reportstr' : reportstr
+			});
+		},
+
+		goPage : function(pageurl){
+			this.bridge.callHandler('12', {
+				'k2'	: encodeURIComponent(pageurl)
+			});
+		},
+		
+		goBigPage : function(pageurl){
+			this.bridge.callHandler('ipadpage', {
+				'k2'	: encodeURIComponent(pageurl)
+			});
+		},
+		
+		playList : function(songidList, index){
+			if(typeof index == 'undefined'){
+				var index=0;
+			}
+			this.bridge.callHandler('23', {
+				'k1'	: index,
+				'k2'	: songidList
+			});
+		},	
+		playRadio : function(radioid, reportstr, tj_tjreport){
+			this.bridge.callHandler('playradio', {
+				'k1'	: radioid,
+				'reportstr' : reportstr,
+				'tj_tjreport'	: tj_tjreport
+			});
+		},
+		
+		playNetUrl : function(neturl){
+			this.bridge.callHandler('music_playdatalist', {
+				'k2'	: neturl
+			});
+		},
+		
+		pause : function(cb){
+			this.bridge.callHandler('music_pause', null, cb);
+		},
+		
+		resume : function(cb){
+			this.bridge.callHandler('music_resume', null, cb);
+		},
+
+		playPre : function(cb){
+			this.bridge.callHandler('music_playpre', null, cb);
+		},
+
+		playNext : function(cb){
+			this.bridge.callHandler('music_playnext', null, cb);
+		},
+
+		querySong : function(cb){
+			this.bridge.callHandler('query_songinfo', null, cb);
+		},
+
+		queryList : function(cb){
+			this.bridge.callHandler('query_songlist', null, cb);
+		},
+		
+		queryRadio : function(cb){
+			this.bridge.callHandler('query_radio', null, cb);
+		},
+		
+		onSongStateChange : function(cb){
+			if( this.bridge && typeof this.bridge.onAPP == 'function' ){
+				this.bridge.onAPP('register_musicstate', cb);
+			}
+		},
+		
+		offSongStateChange : function(cb){
+			this.bridge.offApp('register_musicstate');
+		},
+		
+		getUserInfo : function(cb){
+			this.bridge.callHandler('JS_CMD_GET_PROPERTY', ['UIN', 'AUTHST'], cb);
+		},
+
+		login : function(cb){
+			this.bridge.callHandler('JS_CMD_DO_LOGIN', null, cb);
+		},
+		
+		sharePage : function(data, cb){
+			
+			/*
+			{
+				'img_url'	: '',
+				'link'		: '',
+				'desc'		: '',
+				'title'		: ''
+			}
+			*/
+			this.bridge.callHandler('callshare', data, cb);
+		},
+		
+		set : function(key, value, cb){
+			if(typeof this.bridge.callHandler == 'function'){
+				this.bridge.callHandler('data_set', {
+					key 	: key,
+					vaule	: value
+				}, cb);
+			}
+		},
+		
+		get : function(key, cb){
+			if(typeof this.bridge.callHandler == 'function'){
+				this.bridge.callHandler('data_get', {
+					key 	: key
+				}, cb);
+			}
+			
+		},
+
+		delet : function(key, cb){
+			this.bridge.callHandler('data_get', {
+				key 	: key
+			}, cb);
+		},
+		
+		clear : function(cb){
+			this.bridge.callHandler('data_clear', null, cb);
+		},
+		
+		size : function(cb){
+			this.bridge.callHandler('data_size', null, cb);
+		},
+		
+		alert : function(data, cb){
+			/* data :
+				{
+					title 	: value1,
+					message : value2,
+					buttons : [value3]
+				}
+				
+				{
+					title 	: value1,
+					message : value2,
+					buttons : [value3, value4] 
+				}
+			*/
+			this.bridge.callHandler('JS_CMD_ALERT', data, cb);
+		},
+
+		getParam : function(name, url){
+			var url = url || location.href,
+				name = name||'';
+			var r = new RegExp('(\\?|#|&)' + name + '=([^&#\\?]*)(&|#|$|\\?)');
+			var m = url.match(r);
+			if ((!m || m == ''))
+				m = top.location.href.match(r);
+			return (!m ? '' : m[2]);
+		},
+		
+		addMaxage : function(img_url){
+			if( !/\?/.test(img_url) && !/#/.test(img_url) ){
+				img_url = img_url + '?max_age=2592000';
+			}else if( /\?/.test(img_url) && !/#/.test(img_url) ){
+				img_url = img_url + '&max_age=2592000';
+			}else if( !/\?/.test(img_url) && /#/.test(img_url) ){
+				img_url = img_url.replace('#', '?max_age=2592000#');
+			}else{
+				img_url = img_url.replace('?', '?max_age=2592000&');
+			}
+			return img_url;
+		},
+		
+		showLoading : function(dom){
+			var dom = dom || document.body;
+			if( $('.loading' , dom).length ){
+				$('.loading', dom).show();
+			}else{
+				$(dom).append('<div class="loading" style="display:block;padding-bottom:20px;"><i class="loading_icon"></i>正在载入更多...</div>');
+			}
+		},
+		
+		hideLoading : function(dom){
+			var dom = dom || document.body;
+			$('.loading', dom).hide();
+		},
+		
+		updateViewport : function(){
+			$('meta[name=viewport]').attr('content', 'width='+window.innerWidth+',initial-scale=1,maximum-scale=1,user-scalable=no');
+		},
+		
+		doPv : function( virtualURL ){
+		
+			if( !$('#ping').length ){
+				var e = document.createElement("script");
+				e.setAttribute("type", "text/javascript");
+				e.setAttribute("id","ping");
+				e.setAttribute("charset","utf-8");
+				e.setAttribute("src","http://imgcache.qq.com/music/js/mobile/ping.js?max_age=31536000&_bid=243");
+				e.onload = function(){
+					M.doPv(virtualURL);
+				};
+				$(document.head).append(e);
+			}else{
+				if(typeof(pgvMain) == 'function') {
+					var params = {
+						"virtualURL"		: virtualURL,
+						"virtualDomain"		: 'y.qq.com',
+						"useRefUrl"			: true,
+						"repeat"			: true,
+						"careSameDomainRef" : true,
+						"tagParamName"		: "ADTAG"
+					};
+					pgvMain("", params);
+				}
+			}
+		},
+		
+		hotClick : function(hottag){
+			if(typeof pgvSendClick == "function"){
+				pgvSendClick({
+					"hottag" 		: hottag,
+					"virtualDomain" : 'y.qq.com'
+				});
+			}
+		},
+		
+		doSpeed : function(param){
+			(new Image()).src = 'http://isdspeed.qq.com/cgi-bin/r.cgi?flag1=170&flag2=111'+param;
+		}
+	};
+	
+	M.reCode = {
+		/*
+			M.reCode.report({
+				domain : 'y.qq.com',
+				rate : 1,
+				uin : 570192171,
+				type : 1,
+				code : 0,
+				time : 300,
+				cgi : 'testrecode_qq_com'
+			});
+			
+			domain : 域名
+			rate : 采样率 例如 1/1000 则rate为1000
+			uin  : 用户uin
+			type : 1 成功；2 失败；3 逻辑失败
+			code : 后台返回码
+			time : CGI延迟
+			cgi	 : CGI名称
+		
+		*/
+		report : function(opt){
+			var opt = opt || {};
+			if( typeof opt.cgi == 'undefined' || typeof opt.type == 'undefined' || typeof opt.code == 'undefined' || typeof opt.time=='undefined' ){
+				return;
+			}
+			
+			opt.domain = opt.domain || 'y.qq.com';
+			opt.rate = opt.rate || 1;
+			
+			url = 'http://c.isdspeed.qq.com/code.cgi?' + $.param(opt);
+			
+			(new Image()).src = url;
+		}
+	};
+	
+	;(function(){
+		window.QQMusicBridgeReady = function(){
+			M.bridge = WebViewJavascriptBridge;
+			M.bridge.init();
+			// 自定义初始化
+		};
+
+		if(typeof WebViewJavascriptBridge=='object'){
+			QQMusicBridgeReady();
+		}else{
+			document.addEventListener('WebViewJavascriptBridgeReady', function(e){
+				QQMusicBridgeReady();
+			});
+		}
+	})();
+	
+})();
+

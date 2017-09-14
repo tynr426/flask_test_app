@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>_age</key>
+	<integer>0</integer>
+	<key>_certType</key>
+	<integer>0</integer>
+	<key>_isInitialized</key>
+	<true/>
+	<key>_lastAppListTime</key>
+	<integer>1476955890731</integer>
+	<key>_lastProecessTime</key>
+	<integer>1476955890728</integer>
+	<key>_lastSendTokenTime</key>
+	<integer>0</integer>
+	<key>_sessionDuration</key>
+	<integer>199</integer>
+	<key>_sessionEndTime</key>
+	<integer>1476956089785</integer>
+	<key>_sessionId</key>
+	<string>FD88AF2B-86E7-494D-9AE3-0A92222A4472</string>
+</dict>
+</plist>

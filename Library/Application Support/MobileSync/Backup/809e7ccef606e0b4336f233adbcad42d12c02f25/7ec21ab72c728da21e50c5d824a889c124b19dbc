@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>新歌首发</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<!--link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/premiere.css"-->
+
+<style>
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}a,img{-webkit-touch-callout:none}body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td{margin:0;padding:0}li{list-style:none}table{border-collapse:collapse;border-spacing:0}input:focus,textarea:focus,button:focus{outline:none}body{font:12px/1.5 "hiragino sans gb",arial;color:#808080;-webkit-user-select:none}a{text-decoration:none;color:#000}.c_text_normal{color:#808080}.c_text_strong{color:#000}.c_text_reverse{color:#fff}.c_text_tap{color:#10a54f}.c_text_warning{color:#ea583f}.c_bd_b_strong{border-bottom-color:#d1d5d8}.c_bd_b_normal{border-bottom-color:#dfe3e6}.c_bd_b_weak{border-bottom-color:#eef2f4}.ellipsis{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mgb{margin-bottom:20px}.mgt{margin-top:20px}.main{margin:0 62px 40px;padding-top:50px;overflow-x:hidden}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){.main{margin:0 20px 40px}}.mod_back_bar{position:fixed;width:100%;height:50px;text-align:center;z-index:100;border-bottom:solid 1px #d1d5d8;background-color:#fff}.mod_back_bar h1{display:inline-block;height:50px;line-height:50px;font-size:14px;font-weight:normal;color:#000}.mod_back_bar h1 em{width:18px;text-align:center;margin:0 7px 0 4px;font-size:18px;font-weight:bold}.mod_back_bar .back_btn{position:absolute;left:20px;line-height:50px;font-size:14px;color:#000}.mod_back_bar .back_btn i{width:8px;height:15px;margin-right:10px;text-indent:-999em;display:inline-block;vertical-align:text-top;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_backBar_l@1x.png?_bid=243&max_age=259200);background:-webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_backBar_l@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/arrow_backBar_l@2x.png?_bid=243&max_age=259200) 2x);background-size:100%}h1{font-size:20px}h2{font-size:16px}h3{font-size:14px}h4{font-size:12px}h1,h2,h3,h4{color:#000;font-weight:normal}h1 small,h2 small,h3 small,h4 small{font-size:75%;color:#808080}.mod_tit{height:16px;line-height:16px;overflow:hidden;margin:30px 0 20px}.c_bd_l_green,.c_bd_l_blue,.c_bd_l_orange,.c_bd_l_pink,.c_bd_l_yellow{padding-left:10px;border-left-style:solid;border-left-width:3px}.c_bd_l_green{border-left-color:#10a54f}.c_bd_l_blue{border-left-color:#00a0e9}.c_bd_l_orange{border-left-color:#eb6100}.c_bd_l_pink{border-left-color:#f96082}.c_bd_l_yellow{border-left-color:#e49a00}.mod_cover{display:block;position:relative;background-color:#d0ede9;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@1x.png?_bid=243&max_age=259200);background:#d0ede9 -webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/cover_default@2x.png?_bid=243&max_age=259200) 2x);background-position:center center;background-repeat:no-repeat}.mod_cover img{display:block;width:100%;height:100%}.mod_cover:after{content:"";position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;border:solid 1px rgba(0,0,0,.05);-webkit-box-sizing:border-box}.mod_cover:active:before{content:"";position:absolute;top:0;left:0;z-index:1;width:100%;height:100%;background:rgba(0,0,0,.2)}.mod_cover ins{position:absolute;bottom:0;width:100%;height:22px;line-height:22px;text-decoration:none;text-indent:5px;color:#fff;background-color:rgba(0,0,0,.5)}.mod_cover span{position:absolute;right:0;bottom:0;display:inline-block;width:46px;height:18px;line-height:18px;text-align:center;font-size:12px;color:#fff;background-color:#ea583f}.identification_icon{display:inline-block;width:10px;height:12px;margin-left:4px;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/img/identification_icon@2x.png?_bid=243&max_age=259200);background:-webkit-image-set(url(//imgcache.qq.com/mediastyle/mobile/ipad/img/identification_icon@1x.png?_bid=243&max_age=259200) 1x,url(//imgcache.qq.com/mediastyle/mobile/ipad/img/identification_icon@2x.png?_bid=243&max_age=259200) 2x);background-size:100%}.size_84{width:84px;height:84px}.size_148{width:148px;height:148px}.size_148_84{width:148px;height:84px}.size_232_131{width:232px;height:131px}.size_232_109{width:232px;height:109px}.layout_column_2{overflow:hidden}.layout_column_2 .grid{float:left;-webkit-box-sizing:border-box;width:50%}.layout_column_2 .grid:nth-child(odd){padding-right:10px}.layout_column_2 .grid:nth-child(even){padding-left:10px}.layout_column_2.multi_row .grid{margin-bottom:20px}.layout_column_2.multi_row .grid:last-child,.layout_column_2.multi_row .grid:nth-child(odd):nth-last-child(2){margin-bottom:0}.mod_media{position:relative;height:84px;padding-right:20px;-webkit-box-sizing:border-box;background-color:#f6f6f8}.mod_media:active:before{content:"";position:absolute;top:0;left:0;z-index:1;width:100%;height:100%;background:rgba(0,0,0,.2)}.mod_media .mod_cover{float:left;margin-right:20px}.mod_media .media_body{overflow:hidden}.mod_media .media_heading{margin:8px 0 5px}.mod_media .media_paragraph{line-height:20px}.mod_media .media_time{display:block;margin-top:5px}.mod_media .mod_ranks_list{margin-top:8px}.mod_media .media_paragraph .song{display:inline-block;max-width:66%}.mod_media .media_paragraph .singer{vertical-align:top;margin-left:5px;display:inline-block;max-width:30%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mod_media .size_84.imgcut{background-position:center top;background-size:cover;background-repeat:no-repeat}.mod_album_list{width:400%;overflow:hidden}.mod_album_list li{float:left;margin-right:20px}.multi_row li:nth-child(5n + 5){margin-right:0}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){.multi_row li:nth-child(5n + 5){margin-right:20px}.multi_row li:nth-child(4n + 4){margin-right:0}}.multi_row{width:100%}.mod_album_list.multi_row li{margin-bottom:20px}.mod_album_list .album_tit,.mod_album_list .singer{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.mod_album_list .album_tit{margin-top:10px}.mod_album_list .count{margin-bottom:-3px}.mod_album_list ul.width_item_148 li{width:148px}.mod_album_list .size_148.imgcut{background-position:center top;background-size:cover;background-repeat:no-repeat}.mod_slider{position:relative;width:100%;overflow:hidden}.mod_slider header{position:relative;height:66px;overflow:hidden}.mod_slider .slider_ctrl{position:absolute;top:38px;right:-10px}.mod_slider .slider_ctrl i{float:left;width:7px;height:7px;margin-right:10px;-webkit-border-radius:7px;background-color:#e1e5e8}.mod_slider .slider_ctrl .current{background-color:#89949b}.mod_slider .mod_album_list ul{width:100%;overflow:hidden}.mod_slider .mod_album_list li:nth-child(5n + 5){margin-right:20px}@media only screen and (max-device-width:1024px) and (min-device-width:768px) and (orientation:portrait){.mod_slider .mod_album_list li:nth-child(4n + 4){margin-right:20px}}.mod_loading{position:relative;margin:10px 0;height:36px;line-height:36px;text-align:center}.mod_loading .icon_loading{display:inline-block;position:relative;top:4px;width:14px;height:18px}.mod_loading .text_loading{margin-left:5px;font-size:14px;color:#4b4b4b}.blockG{position:absolute;background-color:#FFF;width:2px;height:6px;-webkit-border-radius:2px 2px 0 0;-webkit-transform:scale(0.4);-webkit-animation-name:fadeG;-webkit-animation-duration:1.04s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear}#rotateG_01{left:0;top:7px;-webkit-animation-delay:.39s;-webkit-transform:rotate(-90deg)}#rotateG_02{left:2px;top:2px;-webkit-animation-delay:.52s;-webkit-transform:rotate(-45deg)}#rotateG_03{left:6px;top:1px;-webkit-animation-delay:.65s;-webkit-transform:rotate(0deg)}#rotateG_04{right:2px;top:2px;-webkit-animation-delay:.78s;-webkit-transform:rotate(45deg)}#rotateG_05{right:0;top:7px;-webkit-animation-delay:.9099999999999999s;-webkit-transform:rotate(90deg)}#rotateG_06{right:2px;bottom:2px;-webkit-animation-delay:1.04s;-webkit-transform:rotate(135deg)}#rotateG_07{bottom:0;left:6px;-webkit-animation-delay:1.1700000000000002s;-webkit-transform:rotate(180deg)}#rotateG_08{left:2px;bottom:2px;-webkit-animation-delay:1.3s;-webkit-transform:rotate(-135deg)}@-webkit-keyframes fadeG{0%{background-color:#000}100%{background-color:#FFF}}.loading{width:100%;height:36px;line-height:36px;text-align:center;font-size:14px;color:#4b4b4b}.loading_icon{display:inline-block;width:30px;height:30px;vertical-align:middle;margin-right:2px;background-image:url(//imgcache.qq.com/mediastyle/mobile/ipad/base64/loading.gif?_bid=243&max_age=259200);background-size:100%}.mod_media .media_paragraph{line-height:16px}.main{padding-top:0}
+#CssGaga{content:"140729113221,jag,326"}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+	<!--header class="mod_back_bar">
+        <h1>新歌首发</h1>
+        <a href="javascript:;" class="back_btn"><i> &lt; </i>返回</a>
+	</header-->
+    <div class="main">
+        
+    </div>
+</div>
+<script src="http://y.qq.com/ipad/js/zepto.js?_bid=243"></script>
+<script src="http://y.qq.com/ipad/js/core.js?_bid=243"></script>
+<script>
+
+Ipad = {
+	
+	viewCache : {},
+	
+	updateLi : function(node){
+		var $e = $(node),
+			cp = parseInt($e.attr('cp'))||0,
+			pagew = parseInt($e.attr('pagew'))||0,
+			page = Math.abs(parseInt($e.attr('page'))||1),
+			prex = 0;
+		
+		if( cp >= (page-1) ){
+			cp = page-1;
+		}else if(cp<0){
+			cp = 0;
+		}
+		prex = cp*pagew;
+		$('.slider_ctrl i', $e.parent()).removeClass('current').eq(cp).addClass('current');
+		$e.css('-webkit-transform', 'translate3d(-'+prex+'px, 0, 0)');
+		if(isVertically){
+			$('div.size_148', $e).slice(cp*4,(cp+1)*4).initImg();
+		}else{
+			$('div.size_148', $e).slice(cp*5,(cp+1)*5).initImg();
+		}
+	},
+	
+	// 初始化横向列表的状态
+	onRientationChange : function(){
+		
+		$.fn.checkOrientation();
+		
+		$('.album_slider_album_list').each(function(index, item){
+			var list = $('li', item),
+				$e = $(item);
+			if(list.length){
+				var page =0, pagew=0, pagemax=0;
+				if(window.isVertically){
+					page = Math.ceil(list.length/4);
+					pagew = 168*4;
+					pagemax = -168*3;
+				}else{
+					page = Math.ceil(list.length/5);
+					pagew = 168*5;
+					pagemax = -168*4;
+				}
+				
+				$e.attr({
+					page : page,
+					pagew : pagew,
+					pagemax : pagemax
+				}).css('width', (page*100+40)+'%');
+			}
+			var ihtml = [];
+			for(var i=0; i<page; i++){
+				ihtml.push('<i></i>');
+			}
+			if(page==1){
+				$('.slider_ctrl', $e.parent()).html('');
+			}else{
+				$('.slider_ctrl', $e.parent()).html(ihtml.join(''));
+			}
+			Ipad.updateLi($e);
+		});
+		
+	},
+	
+	init : function(){
+		
+		
+		$(window).on('orientationchange', function(){
+			Ipad.onRientationChange();
+			M.updateViewport();
+		});
+		
+		$(document.body).slideToucher({
+			bindClass : '.jumpclick',
+			clickCb : function(event, bindNode, shareDate){
+				var recordtype  = parseInt($(bindNode).attr('recordtype')),
+					recordid	= $(bindNode).attr('recordid'),
+					hotpage = $(bindNode).attr('page')||'defualt',
+					hottype = $(bindNode).attr('hotclick')||'defualt';
+				
+				var reportstr = $(bindNode).attr('reportstr')||'';
+				M.hotClick('ipad.'+hotpage+'.'+hottype);
+				if( recordtype && recordid ){
+					M.jump(recordtype, recordid, reportstr);
+				}
+			}
+		});
+		
+		// 初始化列表滚动touch + 初始化横向列表的状态
+		;(function(){
+			
+			Ipad.onRientationChange();
+			M.updateViewport();
+			
+			$(document.body).slideToucher({
+				
+				bindClass : '.album_slider_album_list',
+				
+				slideStartCb : function(event, data, bindNode, shareDate){
+					$(bindNode).css('-webkit-transition','');
+					var s = $(bindNode).css('-webkit-transform'),
+					prex = parseInt(s.split('translate3d(')[1]) || 0;
+					$(bindNode).attr('prex', prex);
+					shareDate.prex = prex;
+					shareDate.pagew = $(bindNode).attr('pagew');
+					shareDate.page = $(bindNode).attr('page');
+					shareDate.max = - (shareDate.page-1)*shareDate.pagew;
+				},
+				
+				slideCb 	: function(event, data, bindNode, shareDate){
+					
+					if(data.isX){
+						var newx = shareDate.prex+data.mX;
+						
+						if(newx > 0 && data.mX != 0){
+							newx = shareDate.prex + data.mX/3;
+							
+						}else if( newx < shareDate.max && data.mX != 0 ){
+							newx = shareDate.prex + data.mX/3;
+						}
+						
+						$(bindNode).css('-webkit-transform', 'translate3d('+ newx +'px, 0, 0)');
+					}
+					
+				},
+				
+				slideEndCb	: function(event, data, bindNode, shareDate){
+					
+					var $e = $(bindNode),
+						//s = $e.css('-webkit-transform'),
+						prex = shareDate.prex,
+						page = parseInt((parseInt($e.css('width'))/100)) || 1;
+						
+					$e.css('-webkit-transition','all 350ms ease-out');
+					
+					var li = 0, max=0;
+					
+					if(window.isVertically){
+						li = 168*4;
+						max = (-li)*(page-1);
+					}else{
+						li = 168*5;
+						max = (-li)*(page-1);
+					}
+					
+					var mX = data.mX,
+						mT = data.mT,
+						speed = ( mX /mT ),
+						cp = 0;
+					if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+						
+						if( mX >0 ){ // 触发向右滑动
+							cp = parseInt(prex/li)+2;
+
+						}else{ // 触发向左滑动
+							cp = parseInt(prex/li)-2;
+						}
+					}else{
+						if( mX >0 ){ // 触发向右滑动
+							cp = (parseInt(prex/li)+1);
+						}else{ // 触发向左滑动
+							cp = (parseInt(prex/li)-1);
+						}
+					}
+					prex = cp*li;
+					
+					if(prex>0){
+						$e.css('-webkit-transition','all 350ms ease-out');
+						prex = 0;
+						cp = 0;
+					}else if( prex < max ){
+						$e.css('-webkit-transition','all 350ms ease-out');
+						prex = max;
+						cp = page-1;
+					}
+					
+					$e.css('-webkit-transform', 'translate3d('+prex+'px, 0, 0)');
+					$e.attr({
+						prex	: prex,
+						cp 		: Math.abs(cp)
+					});
+					setTimeout(function(){
+						Ipad.updateLi(bindNode);
+					});
+				}
+			});
+			
+			
+			
+		
+		})();
+		
+	
+	}
+	
+};
+
+First = {
+	
+	showNum : 3,
+	
+	total : 0,
+	
+	addNum : 3,
+	
+	titleClass : ['c_bd_l_green', 'c_bd_l_blue', 'c_bd_l_orange', 'c_bd_l_pink', 'c_bd_l_yellow'],
+	
+	fistData : null,
+	
+	moreAlbumList : {},
+	
+	loadingData : false,
+	
+	tpl : {
+		
+		newSongBox : [
+			'<section>',
+			'	<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'	<div class="layout_column_2 multi_row" id="firstnewsongbox">',
+			'		%(list)',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		songItem : [
+			'<div class="grid jumpclick" page="first" hotclick="newsong" recordtype="%(type)" recordid="%(id)" reportstr="2,200,20">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84">',
+			'			<img src="%(picurl)" />',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<h3 class="media_heading">%(title)</h3>',
+			'			<p class="media_paragraph"><span class="song ellipsis">%(songname_0)</span><span class="singer">- %(singername_0)</span></p>',
+			'			<p class="media_paragraph"><span class="song ellipsis">%(songname_1)</span><span class="singer">- %(singername_1)</span></p>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		albumBox : [
+			'<section class="mod_slider">',
+			'	<header>',
+			'		<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'		<div class="slider_ctrl"></div>',
+			'	</header>',
+			'	<div class="mod_album_list album_slider_album_list">',
+			'		<ul class="width_item_148" id="firstalbumbox_%(index)">',
+			'			%(list)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		albumItem : [
+			'<li class="jumpclick" page="first" hotclick="album" page="first" hotclick="album" recordtype="%(type)" recordid="%(id)"  reportstr="2,200,20">',
+			'	<div class="mod_cover size_148">',
+			'		<img src="%(picurl)">',
+			'	</div>',
+			'	<h3 class="album_tit">%(title)</h3>',
+			'	<p class="singer">%(subtitle)</p>',
+			'	<p class="count">%(publictime)</p>',
+			'</li>'
+		].join(''),
+		
+		hideAlbumItem : [
+			'<li class="jumpclick" recordtype="%(type)" recordid="%(id)" reportstr="2,200,20">',
+			'	<div class="mod_cover size_148" imgsrc="%(picurl)">',
+			'	</div>',
+			'	<h3 class="album_tit">%(title)</h3>',
+			'	<p class="singer">%(subtitle)</p>',
+			'	<p class="count">%(publictime)</p>',
+			'</li>'
+		].join(''),
+		
+		moreAlbumBox : [
+			'<section class="mod_slider">',
+			'	<header>',
+			'		<h2 class="mod_tit c_bd_l_green">%(week)周<small>/%(year)</small></h2>',
+			'		<div class="slider_ctrl"></div>',
+			'	</header>',
+			'	<div class="mod_album_list album_slider_album_list" style="height: 212px;width:240%">',
+			'		<ul class="width_item_148">',
+			'			%(list)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join('')
+		
+	},
+	
+
+	getMoreAlbumData : function( useCache ){
+		
+		if(this.loadingData){
+			return;
+		}else{
+			this.loadingData = true;
+		}
+		
+		if( this.showNum >= this.total || this.showNum >= 20 ){
+			this.loadingData = true;
+			M.hideLoading();
+			return;
+		}else{
+			M.showLoading();
+			var url = 'http://proxy.music.qq.com/3gmusic/fcgi-bin/shoufa_cache.fcg?rettype=1&typeid=2001&itemid=1&sin='+this.showNum+'&cid=284&ct=18';
+			this.loadingData = true;
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					
+					First.loadingData = false;
+					
+					$.each(data.List, function(i, item){
+						First.moreAlbumList['album_' + (( (First.total+2)-First.showNum )-i)  ] = item;
+					});
+					$(document.body).trigger('data:albumdata', data);
+					
+				}
+			});
+				
+		}
+	},
+	
+	getFirstData : function(){
+		M.get('first.firstdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					if( !First.fistData ){
+						First.fistDataCallback(data);
+					}
+				}
+			}
+		});
+		
+		setTimeout(function(){
+			var url = 'http://proxy.music.qq.com/3gmusic/fcgi-bin/shoufa_cache.fcg?rettype=1&typeid=2001&itemid=1&sin=0&cid=284&ct=18&onlymv=0';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('first.firstdata', JSON.stringify(data), function(ret){});
+					First.fistDataCallback(data);
+				}
+			});
+		});
+	},
+	
+	fistDataCallback : function(data){
+		First.fistData = data;
+		First.total = data.totalnum;
+		$(document.body).trigger('data:firstdata', data);
+	},
+	
+	initFirst : function(event, data){
+		
+		var pagehtml = [];
+		
+		$.each(data.List, function(index, group){
+			var titleClass = First.titleClass[index%5],
+				listhtml = [];
+
+			if(index == 0){ // 新歌首发
+				
+				$.each(group.item, function(i, item){
+					item.title = item.title.decodeBase();
+					item.songname_1 = item.songname_1.decodeBase();
+					item.songname_0 = item.songname_0.decodeBase();
+					item.singername_0 = item.singername_0.decodeBase();
+					item.singername_1 = item.singername_1.decodeBase();
+					listhtml.push(First.tpl.songItem.jstpl_format(item));
+				});
+				if( !$('#firstnewsongbox').length ){
+					pagehtml.push(First.tpl.newSongBox.jstpl_format({
+						title : group.title.decodeBase(),
+						titleClass : titleClass,
+						list : listhtml.join('')
+					}));
+				}else{
+					$('#firstnewsongbox').html(listhtml.join(''));
+				}
+			
+			}else{ // 最新专辑
+				
+				First.moreAlbumList['album_'+First.total] = group.item;
+				
+				$.each(group.item, function( i, item){
+
+					item.title = item.title.decodeBase();
+					item.publictime = item.publictime.decodeBase();
+					item.subtitle = item.subtitle.decodeBase();
+					item.picurl = 'http://imgcache.qq.com/music/photo/album_300/'+(item.id)%100+'/300_albumpic_'+item.id+'_0.jpg?max_age=31536000';
+					if(i<6){
+						listhtml.push(First.tpl.albumItem.jstpl_format(item));
+					}else{
+						listhtml.push(First.tpl.hideAlbumItem.jstpl_format(item));
+					}
+				});
+				
+				var title = group.title.decodeBase();
+				if(!title){
+					if(index == 1){
+						title = '最新专辑';
+					}else{
+						title = group.week+'周<small>/'+group.year+'</small>';
+					}
+				}
+				
+				if( !$('#firstalbumbox_'+index).length ){
+					pagehtml.push(First.tpl.albumBox.jstpl_format({
+						title : title,
+						titleClass : titleClass,
+						list : listhtml.join(''),
+						index : index
+					}));
+				}else{
+					!$('#firstalbumbox_'+index).html(listhtml.join(''));
+				}
+			}
+		});
+		
+		if( !$('#firstnewsongbox').length ){
+			$('.main').append(pagehtml.join(''));
+		}
+		var s = First.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&9='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		setTimeout(function(){
+			Ipad.onRientationChange();
+			First.getMoreAlbumData(true);
+		}, 500);
+	},
+	
+	initMoreAlbum : function(event, data){
+		var pagehtml = []
+		//	titleClass = First.titleClass[4];
+		$.each(data.List, function(index, group){
+		
+			var listhtml = [],
+				titleClass = 'c_bd_l_yellow';
+			
+			$.each(group.item, function( i, item){
+				//if(i<20){
+					item.title = item.title.decodeBase();
+					item.publictime = item.publictime.decodeBase();
+					item.subtitle = item.subtitle.decodeBase();
+					item.picurl = 'http://imgcache.qq.com/music/photo/album_300/'+(item.id)%100+'/300_albumpic_'+item.id+'_0.jpg?max_age=31536000';
+					if(i<6){
+						listhtml.push(First.tpl.albumItem.jstpl_format(item));
+					}else{
+						listhtml.push(First.tpl.hideAlbumItem.jstpl_format(item));		
+					}
+					
+				//}
+			});
+			
+			pagehtml.push(First.tpl.moreAlbumBox.jstpl_format({
+				week 		: group.week,
+				year		: group.year,
+				titleClass 	: titleClass,
+				list 		: listhtml.join('')
+			}));
+			
+			First.showNum++;
+		});
+		if( $('.mod_loading').length ){
+			$('.mod_loading').before(pagehtml.join(''));
+		}else{
+			$('.main').append(pagehtml.join(''));
+		}
+		
+		setTimeout(function(){
+			Ipad.onRientationChange();
+		}, 500);
+	},
+	
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	init : function(){
+		
+		this.speed.pageStart = (+ new Date());
+		
+		$(document).on('data:firstdata', First.initFirst);
+		
+		$(document).on('data:albumdata', First.initMoreAlbum);
+		
+		$(document).on('scroll', function(){
+			var bodyHeight = document.body.clientHeight,
+				clientHeight = window.innerHeight,
+				maxScroll = bodyHeight-clientHeight,
+				scrollTop = document.body.scrollTop;
+			if( scrollTop >= maxScroll-100 && !First.loadingData ){
+				First.getMoreAlbumData();
+			}
+		}, false);
+		
+		setTimeout(function(){
+			First.getFirstData();
+		});
+		
+		setTimeout(function(){
+			M.doPv('/ipad/first.html');
+		}, 1000);
+	}
+};
+
+document.addEventListener("DOMContentLoaded", function(){
+
+	Ipad.init();
+	First.init();
+
+}, false);
+
+</script>
+</body>
+</html>

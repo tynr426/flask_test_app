@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>osUpdates</key>
+	<dict>
+		<key>031-70458</key>
+		<dict>
+			<key>abortCode</key>
+			<integer>0</integer>
+			<key>productKey</key>
+			<string>031-70458</string>
+			<key>shouldInstall</key>
+			<true/>
+		</dict>
+		<key>zzzz031-77681</key>
+		<dict>
+			<key>abortCode</key>
+			<integer>0</integer>
+			<key>productKey</key>
+			<string>zzzz031-77681</string>
+			<key>shouldInstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>runDate</key>
+	<date>2016-10-25T17:33:10Z</date>
+</dict>
+</plist>

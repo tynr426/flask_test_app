@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PANELS>
+<THISVERSION>1.2.14</THISVERSION>
+<PANEL>
+<BLOCK TYPE="2" SUBTYPE="0" ID="37" LAYOUT="0" COLOR="0" ISLOCK="NO">
+    <BRANDIMAGE>http://image.namigo.net/upload_image/1317519202_96.png</BRANDIMAGE>
+    <PRODUCTIMAGE>http://image.namigo.net/upload_image/1403166404_3.png</PRODUCTIMAGE>
+    <NAME>阿迪达斯</NAME>
+</BLOCK>
+<BLOCK TYPE="2" SUBTYPE="0" ID="36" LAYOUT="1" COLOR="0" ISLOCK="NO">
+    <BRANDIMAGE>http://image.namigo.net/upload_image/1317521290_7.png</BRANDIMAGE>
+    <PRODUCTIMAGE>http://image.namigo.net/upload_image/1403168303_8.png</PRODUCTIMAGE>
+    <NAME>耐克</NAME>
+</BLOCK>
+<BLOCK TYPE="2" SUBTYPE="0" ID="2" LAYOUT="2" COLOR="0" ISLOCK="NO">
+    <BRANDIMAGE>http://image.namigo.net/upload_image/1317520655_10.png</BRANDIMAGE>
+    <PRODUCTIMAGE>http://image.namigo.net/upload_image/1398225304_49.png</PRODUCTIMAGE>
+    <NAME>ONLY</NAME>
+</BLOCK>
+<BLOCK TYPE="2" SUBTYPE="0" ID="5" LAYOUT="3" COLOR="0" ISLOCK="NO">
+    <BRANDIMAGE>http://image.namigo.net/upload_image/1317520704_16.png</BRANDIMAGE>
+    <PRODUCTIMAGE>http://image.namigo.net/upload_image/1398239819_4.png</PRODUCTIMAGE>
+    <NAME>韩都衣舍</NAME>
+</BLOCK>
+<BLOCK TYPE="1" SUBTYPE="5" ID="-1" LAYOUT="4" COLOR="0" ISLOCK="YES">
+    <BRANDIMAGE></BRANDIMAGE>
+    <PRODUCTIMAGE></PRODUCTIMAGE>
+    <NAME> </NAME>
+</BLOCK>
+</PANEL>
+</PANELS>

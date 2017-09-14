@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>MV</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<!--link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/mv_premiere.css"-->
+<link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/mv_premiere.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="main">
+        <section class="mod_premiere">
+        <header class="sort">
+            <!--Tabs导航-->
+            <nav class="mod_tabs_nav">
+				<a id="tab_nd" href="javascript:;" class="current js_mvtab">内地</a>
+				<a id="tab_gt" href="javascript:;" class="js_mvtab">港台</a>
+				<a id="tab_eu" href="javascript:;" class="js_mvtab">欧美</a>
+				<a id="tab_j" href="javascript:;" class="js_mvtab">日本</a>
+				<a id="tab_k" href="javascript:;" class="js_mvtab">韩国</a>
+            </nav>
+
+        </header>
+            <div class="mod_mv_list">
+                <ul id="mv_list"></ul>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="http://y.qq.com/ipad/js/zepto.js?_bid=243"></script>
+<script src="http://y.qq.com/ipad/js/core.js?_bid=243"></script>
+<script>
+
+Mvnew = {
+
+	ishot : false,
+
+	data : null,
+
+	tpl : {
+		mvitem : [
+			'<li class="jumpclick" recordtype="10012" recordid="%(vid)" page="%(page)" hotclick="mvitem"  data-name="%(name)" data-singer="%(singer)">',
+				'<a href="javascript:;" class="mod_mv_list__itembox">',
+					'<div class="mod_inner_box">',
+						'<div class="mod_cover"><img src="%(img)"></div>',
+						'<h3 class="mv_tit">%(name)</h3>',
+						'<p class="mv_info">%(singer)</p>',
+						'<p><span class="date">%(date)</span><span class="count" style="float: right;">%(count)</span></p>',
+					'</div>',
+				'</a>',
+			'</li>'
+		].join('')
+	},
+
+	getMvData : function(){
+		window['H5RecomMvJsonCallback'] = Mvnew.getMvDataCb;
+		window['H5HotMvJsonCallback'] = Mvnew.getMvDataCb;
+
+		var key = 'mvnewpage.newdata';
+
+		if(Mvnew.ishot){
+			key = 'mvnewpage.hotdata';
+		}
+
+		M.get(key, function(ret){
+			if(ret.code == 0){
+				var data = "";
+
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+
+				if(data){
+					if(Mvnew.data != null){
+						return;
+					}
+					Mvnew.getMvDataCb(data);
+				}
+			}
+		});
+		var url = 'http://music.qq.com/newframe/static/first/h5_recom_mv.json';
+		if(this.ishot){
+			url = 'http://music.qq.com/newframe/static/first/h5_hot_mv.json';
+		}
+		$.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'jsonp',
+			success: function(data){
+
+			},
+			error: function(xhr, type){
+
+			}
+		});
+	},
+
+	getMvDataCb : function(data){
+		Mvnew.data = data;
+		var key = 'mvnewpage.newdata';
+		if(Mvnew.ishot){
+			key = 'mvnewpage.hotdata';
+		}
+		if(typeof data =='object'){
+			M.set(key, JSON.stringify(data), function(ret){});
+		}
+
+		$(document.body).trigger('data:mvdata', [data, 'nd']);
+	},
+
+	renderList : function(event, data, type){
+		var mvlist=[],
+			tpl = Mvnew.tpl.mvitem,
+			list = [];
+		var page = 'mvnew', temp=null;
+		if(Mvnew.ishot){
+			page = 'mvhot';
+			temp = data.ml;
+			list = temp[type];
+		}else{
+			temp = data.ml;
+			list = temp[type];
+		}
+
+		$.each(list, function(index, item){
+			var count = '';
+			if(item.count>0){
+				count = M.makeListenStr( item.count );
+			}else{
+				count = '最新上线';
+			}
+
+			var date = item.date.split(' ')[0];
+
+			mvlist.push(tpl.jstpl_format({
+				img 	: M.addMaxage(item.Fpic),
+				name 	: item.Fmv_title+' '+item.Fsinger_name,
+				singer 	: item.Fmv_desc_s,
+				vid		: item.Fvid,
+				count	: count,
+				page	: page,
+				date	: date
+			}));
+		});
+
+		$('#mv_list').html(mvlist.join(''));
+		var s = Mvnew.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&14='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+	},
+
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+
+	init : function(){
+		this.speed.pageStart = (+ new Date());
+
+		var type = M.getParam('type');
+
+		$(document).on('data:mvdata', Mvnew.renderList);
+
+		$(document.body).slideToucher({
+			bindClass : '.jumpclick',
+			clickCb : function(event, bindNode, shareDate){
+
+				var recordtype  = parseInt($(bindNode).attr('recordtype')),
+					recordid	= $(bindNode).attr('recordid'),
+					hotpage = $(bindNode).attr('page')||'defualt',
+					hottype = $(bindNode).attr('hotclick')||'defualt';
+
+				M.hotClick('ipad.'+hotpage+'.'+hottype);
+
+				if( recordtype == 10012 ){
+					var name = $(bindNode).attr('data-name') || 'mv',
+						singer = $(bindNode).attr('data-singer') || 'QQ音乐';
+
+					M.goMv( recordid, name , singer );
+
+				}else if( recordtype && recordid ){
+
+					 M.jump(recordtype, recordid);
+				}
+			}
+		});
+
+		$(document.body).on('click', '.mod_tabs_nav', function(event){
+			var $target = $(event.target).closest('.js_mvtab');
+			if($target.length){
+
+				if( $target.hasClass('current') ){
+					return;
+				}
+
+				var dom = $target[0],
+					id = dom.id,
+					type = id.split('tab_')[1];
+
+				if(Mvnew.data){
+
+					$(document.body).trigger('data:mvdata', [Mvnew.data, type]);
+					$('.js_mvtab.current').removeClass('current');
+					$target.addClass('current');
+					var page = 'mvnew';
+					if(Mvnew.ishot){
+						page = 'mvhot';
+					}
+					M.hotClick('ipad.'+page+'.mv_tab');
+
+				}
+			}
+		});
+
+		if(type=='new'){
+			this.ishot = false;
+			document.title = 'MV首播';
+		}else{
+			this.ishot = true;
+			document.title = 'MV热播';
+		}
+
+		this.getMvData();
+
+		setTimeout(function(){
+
+			if(Mvnew.ishot){
+				M.doPv('/ipad/mvhot.html');
+			}else{
+				M.doPv('/ipad/mvnew.html');
+			}
+
+		}, 1000);
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+	if( !/qqmusic/ig.test(navigator.userAgent)){
+		Mvnew.init();
+	}
+
+}, false);
+
+document.addEventListener('WebViewJavascriptBridgeReady', function(e){
+	Mvnew.init();
+});
+</script>
+</body>
+</html>

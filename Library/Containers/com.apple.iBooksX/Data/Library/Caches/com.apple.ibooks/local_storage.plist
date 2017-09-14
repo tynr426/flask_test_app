@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>its.sf.Metrics.Events.Page.pageHistory</key>
+	<string>["Genre_170776"]</string>
+	<key>itsMetricsEventQueue</key>
+	<string>{"version":"2","events":[{"pageLoadTime":3874,"eventType":"page","eventVersion":1,"topic":"xp_its_main","eventTime":1477124414942,"storeFrontHeader":"143465-19,22 ab:WJ6jMoo0","language":"19","platformId":"22","platformName":"MacBookStore","storeFront":"143465","environmentDataCenter":"NWK","pageType":"Genre","pageId":"170776","pageDetails":"eBooks_170776","page":"Genre_170776","serverInstance":"1009005","xpPostFrequency":60000,"baseVersion":1,"resourceRevNum":"d0cf036","timezoneOffset":-480,"appVersion":"1.4","osVersion":"10.11.2","dsId":"1762876947","pageUrl":"https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=cn&amp;id=170776&amp;mt=11","userAgent":"iBooks/2.1 (Macintosh; OS X 10.11.2; 15C50) AppleWebKit/1601.3.9","screenWidth":1280,"screenHeight":800,"pixelRatio":2,"windowInnerWidth":1024,"windowInnerHeight":664,"windowOuterWidth":1024,"windowOuterHeight":720,"browserEngineType":"AppleWebKit","browserType":"iTunes","browserVersion":"1.4","xpSendMethod":"javascript"}]}</string>
+	<key>lastPostIntervalStartTime</key>
+	<string>1477124782915</string>
+</dict>
+</plist>

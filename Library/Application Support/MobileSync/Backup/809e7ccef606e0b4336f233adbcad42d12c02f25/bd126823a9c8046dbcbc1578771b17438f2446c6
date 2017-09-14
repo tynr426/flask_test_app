@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CoatingDisplay</key>
+	<integer>0</integer>
+	<key>ComparisonTime</key>
+	<date>2016-09-11T19:07:04Z</date>
+	<key>IpadDevice</key>
+	<string>4.5</string>
+	<key>SeveralTimes</key>
+	<integer>2</integer>
+</dict>
+</plist>

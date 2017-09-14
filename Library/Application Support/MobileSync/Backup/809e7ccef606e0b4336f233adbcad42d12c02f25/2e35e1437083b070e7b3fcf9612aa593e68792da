@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>QQ音乐</title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" /> 
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/ipad/music_room.css">
+
+</head>
+<body>
+<div class="wrap" style="position:relative;">
+	<header class="nav_bar">
+		<nav class="main_nav">
+			<a href="javascript:;" id="recom" class="current">推荐</a><a id="toplist" href="javascript:;">排行榜</a><a href="javascript:;" id="taoge">歌单广场</a><a href="javascript:;"  id="radio">电台</a><a href="javascript:;"  id="first">新歌首发</a>
+		</nav>
+	</header>
+	
+	<div id="recompage" class="main currentpage recommend" style="position: absolute;-webkit-transition: all 350ms ease-out;left: 0;right:0;padding-bottom:40px;translate3d(0px, 0px, 0px);">
+		<section class="focus">
+			<div class="stage" id="stage" style="-webkit-transform-style:preserve-3d;-webkit-perspective: 1000px;">
+				<ul  id="imgul">
+					
+				</ul>
+			</div>
+		</section>
+	</div>
+	
+	<div id="toplistpage" class="main rank" style="display:none;"></div>
+	
+	<div id="radiopage" class="main radio" style="display:none;">
+		<nav class="mod_tabs_nav"></nav>
+		<section class="mgt"></section>
+	</div>
+	
+	<div id="taogepage" class="main song_list" style="display:none;">
+		<header class="sort">
+			<nav class="mod_tabs_nav"></nav>
+			<div class="mod_dropdown_menu">
+				<button class="btn_sort jumpclick alltags" page="playlist" hotclick="alltags" id="showcurrenttag" >全部分类<i></i></button>
+			</div>
+		</header>
+	</div>
+	
+	<div id="firstpage" class="main first" style="display:none;"></div>
+	
+<div class="mod_dropdown_wrap" style="display:none;">
+    <div class="over_mask jumpclick" id="taogemask" page="playlist" hotclick="mask"></div>
+    <div class="sort_list">
+        <div class="scroll" style="-webkit-overflow-scrolling: touch;overflow-x: hidden;overflow-y: auto;-webkit-transform: translate3d(0,0,0);">
+        </div>
+    </div>
+</div>
+
+<script src="http://y.qq.com/ipad/js/zepto.js?_bid=243"></script>
+<script src="http://y.qq.com/ipad/js/core.js?_bid=243"></script>
+<script>
+
+var Slide = {
+	
+	isInited : false,
+	
+	isTouch : false,
+	
+	style : {
+		x 		: 350,
+		y 		: 50,
+		z		: -220,
+		outx 	: 250,
+		outy 	: 50,
+		ox		: 600,
+		oy		: 100
+	},
+	
+	/*
+	style : {
+		x 		: 350,
+		y 		: 0,
+		z		: -220,
+		outx 	: 250,
+		outy 	: 50,
+		ox		: 600,
+		oy		: 50
+	},*/
+	
+	fixX : 0,
+	
+	conf : null,
+	
+	slideDom : null,
+	
+	tplCache : {},
+	
+	cns : ['licenter', 'liright', 'lirightout', 'lileft', 'lileftout'],
+	
+	getTpl : function( data, noCache){
+
+		var className 	= data.className||'',
+			attr		= data.attr||{},
+			img			= data.img||'',
+			noCache		= noCache||false;
+		/*
+		if(this.tplCache[className+'_'+attr.dindex] && !noCache){
+			return this.tplCache[className+'_'+attr.dindex];
+		}
+		*/
+		
+		var attrStr = '';
+		for(var i in attr){
+			attrStr += '' +i+ '="' +attr[i]+ '"';
+		}
+		
+		var tpl = [
+			'<li style="-webkit-transition: all 200ms ease;-webkit-transform:'+this.cssMap[className]+'" class="'+className+'" '+attrStr+' >',
+			'       <a href="javascript:;">',
+			'			<img src="'+ img +'"/>',
+			'       </a>',
+			'</li>'].join('');
+		this.tplCache[className+'_'+attr.dindex] = tpl;
+		return tpl;
+	},
+
+	appendDom : function(data, noCache){
+		if( !$('.'+data.className).length ){
+			$( this.getTpl(data, noCache) ).appendTo( this.conf.ulDom );
+		}
+	},
+	
+	getData : function(addToRight, className){
+		var list = this.conf.list,
+			len = list.length,
+			addToRight = addToRight,
+			className = className;
+		var index = 0;
+		if(addToRight){
+			index = ( parseInt($('.'+(className||'liright') ).attr('dindex')) + 1 )%len;
+		}else{
+			index =  parseInt($('.'+(className||'lileft' ) ).attr('dindex')) - 1;
+			if(index <= 0){
+				index = ( index + len )%len;
+			}
+		}
+		return list[index];
+	},
+	
+	changeState : function(isRight){
+		
+		if(isRight){
+			$('.lirightout').remove();
+			$('.liright').removeClass().addClass('lirightout');
+			$('.licenter').removeClass().addClass('liright');
+			$('.lileft').removeClass().addClass('licenter');
+			$('.lileftout').removeClass().addClass('lileft');
+			var data = this.getData(false);
+		}else{
+			$('.lileftout').remove();
+			$('.lileft').removeClass().addClass('lileftout');
+			$('.licenter').removeClass().addClass('lileft');
+			$('.liright').removeClass().addClass('licenter');
+			$('.lirightout').removeClass().addClass('liright');
+			var data = this.getData(true);
+		}
+		if(data){
+			if(isRight){
+				data.className = 'lileftout';
+			}else{
+				data.className = 'lirightout';
+			}
+			this.appendDom(data);
+		}
+	},
+	
+	removeLeft : function(){
+		Slide.fixX = 0;
+		$('.lileftout').remove();
+		var cssMap = this.cssMap;
+		
+		$('.lileft').removeClass().addClass('lileftout').css('-webkit-transform', cssMap['lileftout']);
+		$('.licenter').removeClass().addClass('lileft').css('-webkit-transform', cssMap['lileft']);
+		$('.liright').removeClass().addClass('licenter').css('-webkit-transform', cssMap['licenter']);
+		$('.lirightout').removeClass().addClass('liright').css('-webkit-transform', cssMap['liright']);
+		
+		var data = this.getData(true);
+		if(data){
+			data.className = 'lirightout';
+			this.appendDom(data);
+		}
+	
+	},
+	
+	removeRight : function(){
+		Slide.fixX = 0;
+		$('.lirightout').remove();
+
+		var cssMap = this.cssMap;
+		$('.liright').removeClass().addClass('lirightout').css('-webkit-transform',cssMap['lirightout']);
+		$('.licenter').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+		$('.lileft').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+		$('.lileftout').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+		
+		var data = this.getData(false);
+		if(data){
+			data.className = 'lileftout';
+			this.appendDom(data);
+		}
+		
+	},
+	
+	getCssText : function(x, y, z){
+		return 'translate3d('+x+'px, 0, '+z+'px) rotateY('+y+'deg);';
+	},
+	
+	slideMove : function(event, data, bindNode){
+		var isX = data.isX,
+			moveX = data.mX;
+		if(isX){
+			var moveX = moveX-Slide.fixX;
+			var _ = Slide,
+				style = _.style;
+			var xrate = ( moveX / style.x ) || 0;
+	
+			var	cx = xrate*style.x,
+				cy = xrate*style.y,
+				cz = Math.abs(xrate)*style.z,
+				
+				ocx = xrate*style.outx,
+				ocy = xrate*style.outy;
+				
+			var licenterCss 	= _.getCssText(cx, -cy, cz),
+			
+				lirightOutCss	= _.getCssText((style.ox+ocx), (-style.oy-ocy), style.z),
+				lileftOutCss	= _.getCssText((-style.ox+ocx), (style.oy-ocy), style.z),
+				
+				lirightCss		= '',
+				lileftCss		= ''; 
+				
+			if(moveX>0){
+				lirightCss		=  _.getCssText((style.x+ocx), (-style.y-ocy) , style.z);
+				lileftCss		= _.getCssText((-style.x+cx), (style.y-cy), (style.z-cz));
+			}else{
+				lirightCss		=  _.getCssText((style.x+cx), (-style.y-cy), (style.z-cz));
+				lileftCss		= _.getCssText((-style.x+ocx), (style.y-ocy) , style.z);
+			}
+			
+			$('.lileftout').css('-webkit-transform', lileftOutCss);
+			$('.lileft').css('-webkit-transform', lileftCss);
+			$('.licenter').css('-webkit-transform', licenterCss);
+			$('.liright').css('-webkit-transform', lirightCss);
+			$('.lirightout').css('-webkit-transform', lirightOutCss);
+			
+			
+			if( cx >=style.x ){
+				Slide.fixX += moveX;
+				Slide.changeState(true);
+			}else if( cx <= -style.x ){
+				Slide.fixX += moveX;
+				Slide.changeState(false);
+			}
+		}
+	},
+	
+	liClick : function(event, bindNode){
+		M.hotClick('ipad.index.focus');
+		var dom = $(event.target).closest('li', bindNode)[0];
+		if(dom){
+			var index = $(dom).attr('dindex');
+			var itemdata = Recom.imgJumpdata[index];
+			//alert(JSON.stringify(itemdata));
+			if(itemdata.type == 3001){
+				M.goPage(itemdata.jmpurl);
+				return
+			}else if( itemdata.type == 10012 ){
+				M.goMv(itemdata.mvid, itemdata.mvtitle.decodeBase(), itemdata.singername.decodeBase());
+				return;
+			}
+			var  reportstr = '2,200,41';
+			if(itemdata && itemdata.type && typeof itemdata.id !='undefined'){
+				M.jump(itemdata.type, itemdata.id , reportstr);
+			}
+		}
+	},
+	
+	slideEnd : function(event, data, bindNode){
+		
+		var mX = data.mX,
+			mT = data.mT,
+			speed = (mX /mT );
+		
+		if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+			
+			if( mX >0 ){ // 触发向右滑动
+				Slide.moveTo(2, true);
+			}else{ // 触发向左滑动
+				Slide.moveTo(2, false);
+			}
+		}else{
+			if( mX >0 ){ // 触发向右滑动
+				Slide.removeRight();
+			}else{ // 触发向左滑动
+				Slide.removeLeft();
+			}
+		}
+		$('.rubish').remove();
+	},
+	
+	moveTo : function(page, isRight){
+		Slide.fixX = 0;
+		var cssMap = this.cssMap;
+		$('.rubish').remove();
+		
+		if(isRight){
+			var data = this.getData(false, 'lileftout');
+			if(data){
+				data.className = 'lileftout1';
+				this.appendDom(data);
+			}
+			$('#imgul li').css('-webkit-transition','all 400ms ease-out');
+			$('.lirightout').remove();
+			$('.liright').removeClass().addClass('rubish').css('-webkit-transform',cssMap['lirightout']);
+			$('.licenter').removeClass().addClass('lirightout').css('-webkit-transform',cssMap['lirightout']);
+			$('.lileft').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+			$('.lileftout').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+			$('.lileftout1').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+			var data = this.getData(false);
+			if(data){
+				data.className = 'lileftout';
+				this.appendDom(data);
+			}
+		}else{
+			var data = this.getData(true, 'lirightout');
+			if(data){
+				data.className = 'lirightout1';
+				this.appendDom(data);
+			}
+			$('#imgul li').css('-webkit-transition','all 400ms ease-out');
+			$('.lileftout').remove();
+			$('.lileft').removeClass().addClass('rubish').css('-webkit-transform',cssMap['lileftout']);
+			$('.licenter').removeClass().addClass('lileftout').css('-webkit-transform',cssMap['lileftout']);
+			$('.liright').removeClass().addClass('lileft').css('-webkit-transform',cssMap['lileft']);
+			$('.lirightout').removeClass().addClass('licenter').css('-webkit-transform',cssMap['licenter']);
+			$('.lirightout1').removeClass().addClass('liright').css('-webkit-transform',cssMap['liright']);
+			var data = this.getData(true);
+			if(data){
+				data.className = 'lirightout';
+				this.appendDom(data);
+			}
+		}
+	},
+	
+	autoMoveTimer : 0,
+	
+	autoMove : function(){
+		Slide.autoMoveTimer = setTimeout(function(){
+			if(!Slide.isTouch){
+				Slide.removeLeft();
+			}
+			Slide.autoMove();
+		}, 5000);
+	},
+	
+	resetAuto : function(){
+		clearTimeout(Slide.autoMoveTimer);
+		this.autoMove();
+	},
+	
+	initDom : function(list){
+		var conf = this.conf;
+		
+		if(typeof list =='object' && list.length){
+			conf.list = list;
+			
+		}
+		
+		$(conf.list).each(function(index, item){
+			item.attr = item.attr||{};
+			item.attr.dindex = index;
+		});
+		
+		$(conf.ulDom).html('');
+		
+		$.each(this.cns, function(i, cn){
+			var j = 0, len = conf.list.length;
+			if(len > 0){
+				if( i<3 ){
+					j = i%len;
+				}else{
+					i = i-2;
+					j = len -i;
+					if(j<0){
+						j=0;
+					}
+				}
+				var item = conf.list[j];
+				if(item){
+					item.className = cn;
+					Slide.appendDom(item);
+				}
+			}
+		});
+		
+	},
+	
+	init : function(conf){
+		
+		if( !this.isInited ){
+			this.conf = conf;
+			this.slideDom = conf.slideDom;
+			var style = this.style;
+			
+			this.cssMap = {
+				lileft 			: this.getCssText(-style.x, style.y, style.z),
+				liright			: this.getCssText(style.x, -style.y, style.z),
+				licenter		: this.getCssText(0, 0, 0),
+				lileftout		: this.getCssText(-style.ox, style.oy, style.z),
+				lileftout1		: this.getCssText(-style.ox, style.oy, style.z),
+				lirightout		: this.getCssText(style.ox, -style.oy, style.z),
+				lirightout1		: this.getCssText(style.ox, -style.oy, style.z)
+			}
+			
+			$(document.body).slideToucher({
+				bindClass : '.focus',
+				slideStartCb : function(event, data, bindNode){
+					$('#imgul li').css('-webkit-transition','none');
+					Slide.isTouch = true;
+					Slide.resetAuto();
+				},
+				slideCb 	: Slide.slideMove,
+				clickCb		: Slide.liClick,
+				slideEndCb	: Slide.slideEnd,
+				touchEndCb  : function(event, data, bindNode){
+					$('li', bindNode).css('-webkit-transition','all 200ms ease');
+					Slide.resetAuto();
+					Slide.isTouch = false;
+				}
+			});
+		}
+		
+		this.initDom(conf.list);
+		
+		if( !this.isInited ){
+			Slide.autoMove();
+		}
+		this.isInited = true;
+	}
+
+};
+
+Ipad = {
+	
+	viewCache : {},
+	ulwidth : 0,
+	liwidth : 0,
+	num : 0,
+	
+	updateLi : function(node){
+		var $e = $(node),
+			cp = parseInt($e.attr('cp'))||0,
+			pagew = parseInt($e.attr('pagew'))||0,
+			page = Math.abs(parseInt($e.attr('page'))||1),
+			prex = 0;
+		
+		if( cp >= (page-1) ){
+			cp = page-1;
+		}else if(cp<0){
+			cp = 0;
+		}
+		prex = cp*pagew;
+		$('.slider_ctrl i', $e.parent().parent()).removeClass('current').eq(cp).addClass('current');
+		// $e.css('-webkit-transform', 'translate3d(-'+prex+'px, 0, 0)');
+		$e.css('-webkit-transform', 'translate3d(-'+Math.abs(cp)*100+'%, 0, 0)');
+		//console.log(cp);
+		if(isVertically){
+			$('div.size_148', $e).slice(cp*4,(cp+1)*4).initImg();
+		}else{
+			$('div.size_148', $e).slice(cp*5,(cp+1)*5).initImg();
+		}
+	},
+	
+	// 初始化横向列表的状态
+	onRientationChange : function(){
+		
+		$.fn.checkOrientation();
+
+		var ulwidth=0,liwidth=0,num=0;
+
+
+		if($('.mod_album_list_slide').length){
+				Ipad.ulwidth = parseInt($('.mod_album_list_slide').parent().css("width"),10);
+				Ipad.liwidth = parseInt($('.mod_album_list_slide li').css("width"),10);
+
+				Ipad.num = Math.ceil(Ipad.ulwidth/Ipad.liwidth);
+
+			}
+		
+		$('.mod_album_list_slide').each(function(index, item){
+			var list = $('li', item),
+				$e = $(item);
+			if(list.length){
+				var page =0, pagew=0, pagemax=0;
+				// if(window.isVertically){
+				// 	page = Math.ceil(list.length/4);
+				// 	pagew = 168*4;
+				// 	pagemax = -168*3;
+				// }else{
+				// 	page = Math.ceil(list.length/5);
+				// 	pagew = 168*5;
+				// 	pagemax = -168*4;
+				// }
+
+					page = Math.ceil(list.length/Ipad.num);
+					pagew = liwidth*Ipad.num;
+					pagemax = -liwidth*(Ipad.num-1);
+				
+				 $e.attr({
+				 	page : page,
+				 	pagew : pagew,
+				 	pagemax : pagemax
+				 });
+				 // }).css('width', (page*100+40)+'%');
+			}
+			var ihtml = [];
+			for(var i=0; i<page; i++){
+				ihtml.push('<i></i>');
+			}
+			if(page==1){
+				$('.slider_ctrl', $e.parent().parent()).html('');
+			}else{
+				$('.slider_ctrl', $e.parent().parent()).html(ihtml.join(''));
+			}
+			Ipad.updateLi($e);
+		});
+	},
+	
+	init : function(){
+		
+		// 绝对定位4个子页面
+		$(window).on('orientationchange', function(){
+		
+			Ipad.onRientationChange();
+			M.updateViewport();
+			
+		});
+		
+		// 绝对定位4个子页面
+		$('.main').each(function(index, item){
+			if( !$(item).hasClass('currentpage')){
+				$(item).hide();
+				Ipad.viewCache[item.id] = item;
+				$(item).remove();
+			}else{
+				Ipad.viewCache[item.id] = item;
+			}
+		}).on('webkitTransitionEnd', function(e){
+			// 子页面切换完成后 保留当前展现页面dom 其余的删除
+			var target = e.target,
+				$target = $(target);
+			if( $target.hasClass('main') ){
+				if( !$target.hasClass('currentpage') ){
+					$target.remove();
+				}else{
+					Ipad.onRientationChange();
+					if( target.id == 'recompage' ){ // 焦点图点击问题修复
+						target.style.cssText = 'display:;position: absolute;left: 0;right: 0;-webkit-transition: all 350ms ease-out;padding-bottom:40px;';
+					}
+				}
+			}
+		}).each(function(index, item){
+			if( !$(item).hasClass('currentpage') ){
+				$(item).remove();
+			}
+		});
+		
+		// 初始化导航栏的touch事件
+		$(document.body).slideToucher({
+			bindClass : '.main_nav',
+			
+			shareDate : {
+				isMoving : false
+			},
+			
+			clickCb : function(event, bindNode, shareDate){
+
+				var target = event.target,
+					$target = $(target);
+				
+				if(!target.id){
+					return;
+				}
+					
+				if(target.id == 'testpage'){
+					window.location.href = 'http://y.qq.com/ipad/ipadtest.html?p='+( + new Date() );
+					return;
+				}else if(target.id == 'flash'){
+					location.reload();
+					return;
+				}
+				
+				if( !$target.hasClass('current') ){
+					
+					$target.siblings().removeClass('current');
+					$target.addClass('current');
+					
+					$('.main', document.body).remove();
+					
+					var id = target.id+'page',
+						showPage = $('#'+id),
+						curPage = $('.main.current'),
+						showPageStartCss = '',
+						hidePageEndCss = '';
+						
+					if(id == 'radiopage'){
+						Radio.init();
+					}else if( id == 'toplistpage' ){
+						
+						Toplist.init();
+						
+					}else if( id=='taogepage' ){
+						Taoge.init();
+					}else if( id =='recompage' ){
+						Recom.init();
+					}else if( id =='firstpage' ){
+						First.init();
+					}
+					
+					M.hotClick('ipad.index.topnav.'+id);
+					
+					showPage = Ipad.viewCache[id];
+					
+					$(showPage).addClass('currentpage').css({
+						'display' 			: 'none',
+						'-webkit-transform'	: 'translate3d(0px, 0px, 0px)'
+					}).addClass('showing');
+					$('.wrap').append(showPage);
+					setTimeout(function(){
+						$('.main.showing').show().removeClass('showing')
+					},10);
+				}
+			}
+		});
+		
+		$(document.body).slideToucher({
+			bindClass : '.jumpclick',
+			
+			slideStartCb : function(event, data, bindNode, shareDate){
+				if($(bindNode).hasClass('over_mask')){
+					event.preventDefault();
+					event.stopPropagation();
+				}
+			},
+			
+			clickCb : function(event, bindNode, shareDate){
+				
+				var $bindNode = $(bindNode),
+					recordtype  = parseInt($bindNode.attr('recordtype')),
+					recordid	= $bindNode.attr('recordid'),
+					hotpage = $bindNode.attr('page')||'defualt',
+					hottype = $bindNode.attr('hotclick')||'defualt';
+					
+				var reportstr = $bindNode.attr('reportstr')||'';
+					
+				M.hotClick('ipad.'+hotpage+'.'+hottype);
+					
+				if( recordtype && recordid ){
+					var tj_tjreport = $bindNode.attr('tj_tjreport')||'';
+					
+					if( recordtype == 10004 ){ // 电台点击后需要同步状态
+						
+						Radio.radioClick(bindNode, recordtype, recordid, reportstr, tj_tjreport);
+					}else{
+						M.jump(recordtype, recordid, reportstr, tj_tjreport);
+					}
+					
+				}else if( $bindNode.hasClass('radiotab') ){
+					
+					if($bindNode.hasClass('current')){
+						return;
+					}
+					
+					var groupid = parseInt( $bindNode.attr('groupid') );
+					$('.radiotab').removeClass('current');
+					$bindNode.addClass('current');
+					var data = Radio.radioMap['group_'+groupid];
+					$(document.body).trigger('data:radio', data);
+					
+				}else if( $bindNode.hasClass('taogemore') ){
+				
+					var categoryid = $bindNode.attr('categoryid'),
+						sortid = $bindNode.attr('sortid');
+					if(sortid && categoryid){
+						var url = 'http://y.qq.com/ipad/taogelist.html?_bid=243#sortid=' + sortid + '&categoryid=' + categoryid;
+						if( typeof M.bridge.callHandler == 'function' ){
+							M.goBigPage( url );
+						}else{
+							window.location.href = url;
+						}
+					}
+					
+				}else if( $bindNode.hasClass('tagitem') ){
+
+					if($bindNode.hasClass('current')){
+						return;
+					}
+					
+					var categoryid = $bindNode.attr('categoryid'),
+						categorytype = $bindNode.attr('categorytype');
+					Taoge.hideTags();
+					// alert(categoryid);
+					$("#showcurrenttag").text($bindNode.attr('data-name')?$bindNode.attr('data-name'):"全部分类");
+					Taoge.getTaogeData(categoryid);
+					
+				}else if( $bindNode.hasClass('over_mask') ){
+					Taoge.hideTags();
+				}else if( $bindNode.hasClass('alltags') ){
+					Taoge.tagsClick();
+				}
+			}
+		});
+		
+		// 初始化列表滚动touch + 初始化横向列表的状态
+		;(function(){
+		
+			Ipad.onRientationChange();
+			
+			M.updateViewport();
+			
+			$(document.body).slideToucher({
+				bindClass : '.js_mod_album_list_slide',
+				slideStartCb : function(event, data, bindNode, shareDate){
+					var $e = $(bindNode).children(".mod_album_list_slide");
+					$e.css('-webkit-transition','');
+					var s = $e.css('-webkit-transform'),
+					prex = parseInt(s.split('translate3d(')[1]) || 0;
+					$e.attr('prex', prex);
+					
+					shareDate.prex = prex;
+					// shareDate.pagew = $e.attr('pagew');
+					shareDate.pagew = parseInt($e.css("width"));
+					shareDate.page = $e.attr('page');
+					shareDate.max = - (shareDate.page-1)*shareDate.pagew;
+					// alert();
+				},
+				
+				slideCb : function(event, data, bindNode, shareDate){
+					var $e = $(bindNode).children(".mod_album_list_slide");
+
+					if(data.isX){
+						var newx = (shareDate.prex/100)*shareDate.pagew+data.mX;
+						
+						if(newx > 0 && data.mX != 0){
+							newx = (shareDate.prex/100)*shareDate.pagew + data.mX/3;
+							
+						}else if( newx < shareDate.max && data.mX != 0 ){
+							newx = (shareDate.prex/100)*shareDate.pagew + data.mX/3;
+						}
+						
+						$e.css('-webkit-transform', 'translate3d('+ newx +'px, 0, 0)');
+					}
+				},
+				
+				/*
+				clickCb		: function(event, bindNode, shareDate){
+					 alert(event.target.tagName+' click');
+				},
+				*/
+				
+				slideEndCb	: function(event, data, bindNode, shareDate){
+					
+					var $e = $(bindNode).children(".mod_album_list_slide"),
+						s = $e.css('-webkit-transform'),
+						// prex = shareDate.prex,
+						prex = (shareDate.prex/100)*shareDate.pagew;
+						// page = parseInt((parseInt($e.css('width'))/100)) || 1;
+						page = parseInt($e.attr("page"));
+					$e.css('-webkit-transition','all 400ms ease-out');
+					
+					var li = parseInt($e.parent().css("width")), max=0;
+					// alert(li);
+					
+					// if(window.isVertically){
+					// 	// li = 168*4;
+					// 	max = (-li)*(page-1);
+					// }else{
+					// 	li = 168*5;
+					// 	max = (-li)*(page-1);
+					// }
+					max = (-li)*(page-1);
+					
+					var mX = data.mX,
+						mT = data.mT,
+						speed = ( mX /mT ),
+						cp = 0;
+
+
+					if( Math.abs(speed) >=2 && mT<200 && Math.abs(mX)>250 ){
+						
+						if( mX >0 ){ // 触发向右滑动
+							cp = parseInt(prex/li)+2;
+
+						}else{ // 触发向左滑动
+							cp = parseInt(prex/li)-2;
+						}
+					}else{
+						if( mX >0 ){ // 触发向右滑动
+							cp = (parseInt(prex/li)+1);
+						}else{ // 触发向左滑动
+							cp = (parseInt(prex/li)-1);
+						}
+					}
+
+					prex = cp*li;
+					if(prex>0){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = 0;
+						cp = 0;
+					}else if( prex < max ){
+						$e.css('-webkit-transition','all 300ms ease-out');
+						prex = max;
+						cp = page-1;
+					}
+					
+					// $e.css('-webkit-transform', 'translate3d('+prex+'px, 0, 0)');
+					$e.css('-webkit-transform', 'translate3d(-'+Math.abs(cp)*100+'%, 0, 0)');
+					$e.attr({
+						prex	: '-'+Math.abs(cp)*100+'%',
+						cp 		: Math.abs(cp),
+					});
+					Ipad.updateLi($e);
+				}
+			});
+		})();
+		
+	
+	}
+	
+};
+
+Recom = {
+	
+	tpl : {
+		newBox : [
+			'<section>',
+			'	<h2 class="mod_tit %(titleClass)">%(title)<small>%(subtitle)</small></h2>',
+			'	<div class="layout_column_2">',
+			'		%(listHtml)',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		taogeBox : [
+			'<section class="mod_slider">',
+			'	<header>',
+			'		<h2 class="mod_tit %(titleClass)">%(title)%(subtitle)</h2>',
+			'		<div class="slider_ctrl"></div>',
+			'	</header>',
+			'	<div class="mod_album_list js_mod_album_list_slide">',
+			'		<ul class="width_item_148 mod_album_list_slide">',
+			'			%(listHtml)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		newItem : [
+			'<div class="grid jumpclick" page="index" hotclick="newsongtab" recordtype="%(recordtype)" recordid="%(recordid)">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84">',
+			'			<img src="%(imgurl)">',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<h3 class="media_heading">%(title)</h3>',
+			'			<p class="media_paragraph">%(subtitle)</p>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		toplistItem : [
+			'<div class="grid jumpclick"  tj_tjreport="%(tj_tjreport)" page="index" hotclick="toplisttab" recordtype="%(recordtype)" recordid="%(recordid)" reportstr="2,200">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84">',
+			'			<img src="%(imgurl)">',
+			'			<ins>%(listen)人听</ins>',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<ol class="mod_ranks_list">',
+			'			%(songlist)',
+			'			</ol>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		topSongItem : [
+			'<li>',
+				'<em>%(index)</em>',
+				'<span class="song">%(song)</span>',
+				'<span class="singer">－%(singer)</span>',
+			'</li>'
+		].join(''),
+		
+		taogeItem : [
+			'<li class="jumpclick"  page="index" hotclick="playlist" recordtype="%(recordtype)" recordid="%(recordid)" reportstr="%(reportstr)" tj_tjreport="%(tj_tjreport)">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148 imgcut" style="background-image:url(%(imgurl))">',
+				//'		<img src="%(imgurl)">',
+				'		%(dj)',
+				'	</div>',
+				'	<h3 class="album_tit">%(title)</h3>',
+				'	<p class="singer">%(username)%(vip)</p>',
+				'	<p class="count">%(listen)人听</p>',
+				'</a>',
+			'</li>'
+		].join(''),
+		
+		tuijianItem : [
+			'<li class="jumpclick tjitem"  page="index" hotclick="playlist" recordtype="%(recordtype)" recordid="%(recordid)" tj_tjreport="%(tj_tjreport)" reportstr="2,200,403">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148 imgcut" style="background-image:url(%(imgurl))">',
+				'		%(dj)',
+				'	</div>',
+				'	<h3 class="album_tit">%(title)</h3>',
+				'	<p class="singer">%(username)</p>',
+				'	<p class="count">%(line3)</p>',
+				'</a>',
+			'</li>'
+		].join(''),
+		tuijianRadioItem : [
+			'<li class="jumpclick tjitem js_tjradio" id="radio_99" page="index" hotclick="playlist" recordtype="%(recordtype)" recordid="%(recordid)" tj_tjreport="%(tj_tjreport)" reportstr="2,200,403">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148 imgcut" style="background-image:url(%(imgurl))">',
+				'	<div class="mask">',
+				'		<b class="wave">',
+				'			<i></i>',
+				'			<i></i>',
+				'			<i></i>',
+				'			<i></i>',
+				'		</b>',
+				'	</div>',
+				'		%(dj)',
+				'	</div>',
+				'	<h3 class="album_tit">%(title)</h3>',
+				'	<p class="singer">%(username)</p>',
+				'	<p class="count">%(line3)</p>',
+				'</a>',
+			'</li>'
+		].join('')
+		
+	},
+	
+	titleClass : ['c_bd_l_green', 'c_bd_l_blue', 'c_bd_l_orange', 'c_bd_l_pink', 'c_bd_l_yellow'],
+	
+	hasInit : false,
+	
+	firstInit : true,
+	
+	imgData : null,
+	
+	imgJumpdata : [],
+	
+	listData : null,
+	
+	imgDataCallback : function(data){
+		var dataList = [], data = data;
+		Recom.imgJumpdata = [];
+		$.each(data.item, function(index, item){
+			
+			item.picUrl = M.addMaxage(item.picUrl);
+			
+			dataList.push({
+				img 	: item.picUrl,
+				attr 	: {
+					index : index
+				},
+				itemdata:item
+			});
+			Recom.imgJumpdata.push(item);
+		});
+		
+		Recom.imgData = {
+			list : dataList
+		};
+		$(document.body).trigger('data:recomimg', Recom.imgData);
+	},
+	
+	imgNativeData : null,
+	
+	getImgData : function(){
+		Recom.speed.imgStart = (+ new Date());
+		M.get('recom.imgdata', function(ret){
+			Recom.speed.imgEnd = (+ new Date());
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Recom.imgNativeData = data;
+					Recom.imgDataCallback(data);
+				}
+			}
+		});
+		
+		setTimeout(function(){
+			Recom.speed.imgCGIStart = (+ new Date());
+			//var url = 'http://y.qq.com/v3/static/focus/focus_v3.9.5.json';
+			var url = 'http://y.qq.com/v3/static/focus/focus_ipad.json';
+
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'json',
+				success	: function(data){
+					Recom.speed.imgCGIEnd = (+ new Date());
+					
+					if(Recom.imgNativeData && Recom.imgNativeData.versionTime){
+							if( Recom.imgNativeData.versionTime == data.versionTime){
+							setTimeout(function(){
+								var p = '&flag3=50&15=1000';
+								M.doSpeed(p);
+							}, 1500);
+							return;
+						}else{
+							setTimeout(function(){
+								var p = '&flag3=50&16=1000';
+								M.doSpeed(p);
+							}, 1500);
+						}
+					}
+					M.set('recom.imgdata', JSON.stringify(data), function(ret){});
+					Recom.imgDataCallback(data);
+				}
+			});
+		});
+		
+	},
+	
+	getListData : function(){
+		Recom.speed.recomStart = (+ new Date());
+		M.get('recom.listdata_v2', function(ret){
+			Recom.speed.recomEnd = (+ new Date());
+			if(ret.code == 0){
+				var data = "";
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Recom.listDataCallback(data);
+				}
+			}
+			
+		});	
+		
+		setTimeout(function(){
+			Recom.speed.recomCGIStart = (+ new Date());
+			var url = 'http://proxy.music.qq.com/3gmusic/fcgi-bin/3g_musichall_tuijian?cid=345&ct=18&cgiver=2';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					Recom.speed.recomCGIEnd = (+ new Date());
+					M.set('recom.listdata_v2', JSON.stringify(data), function(ret){});
+					Recom.listDataCallback(data);
+					
+					setTimeout(function(){
+						var s = Recom.speed;
+						if(typeof M.reCode == 'object'){
+							M.reCode.report({
+								domain : 'proxy.music.qq.com',
+								rate : 1,
+								type : data.code==0?1:2,
+								code : data.code,
+								time : (s.recomCGIEnd - s.recomCGIStart),
+								cgi : '3g_musichall_tuijian'
+							});
+						}
+					});
+					
+					setTimeout(function(){
+						var s = Recom.speed;
+						if(s.imgEnd && s.recomEnd && s.imgCGIEnd && s.recomCGIEnd && s.pageEnd ){
+							var p = '&flag3=50&1='+ 
+								(s.imgEnd - s.imgStart) +
+								'&2='+(s.recomEnd - s.recomStart)+
+								'&3='+(s.pageEnd - s.pageStart)+
+								'&4='+(s.imgCGIEnd - s.imgCGIStart)+
+								'&5='+(s.recomCGIEnd - s.recomCGIStart);
+							M.doSpeed(p);
+						}
+					}, 1500);
+				},
+				error : function(xhr, errorType, error){
+					Recom.speed.recomCGIEnd = (+ new Date());
+					setTimeout(function(){
+						if(typeof M.reCode == 'object'){
+							var s = Recom.speed;
+							M.reCode.report({
+								domain : 'proxy.music.qq.com',
+								rate : 1,
+								type : 2,
+								code : 500,
+								time : (s.recomCGIEnd - s.recomCGIStart),
+								cgi : '3g_musichall_tuijian'
+							});
+						}
+					});
+				}
+			});
+		});
+	},
+	
+	listDataCallback : function(data){
+		Recom.listData = data;
+		$.each(data.groups, function(index, group){
+			if(!group.title){
+				return;
+			}
+			group.title = group.title.decodeBase();
+			if(group.subtitle){
+				group.subtitle = group.subtitle.decodeBase();
+			}
+			$.each(group.contents, function(i, item){
+				if(item.subtitle){
+					item.subtitle = item.subtitle.decodeBase();
+				}
+				if(item.subtitle2){
+					item.subtitle2 = item.subtitle2.decodeBase();
+				}
+				if(item.subtitle3){
+					item.subtitle3 = item.subtitle3.decodeBase();
+				}
+				if(item.title){
+					item.title = item.title.decodeBase();
+				}
+				if(item.title2){
+					item.title2 = item.title2.decodeBase();
+				}
+				if(item.title3){
+					item.title3 = item.title3.decodeBase();
+				}
+				if(item.singername){
+					item.singername = item.singername.decodeBase();
+				}
+				if(item.username){
+					item.username = item.username.decodeBase();
+				}
+			});
+		});
+		$(document.body).trigger('data:recomlist', data);
+	},
+	
+	// 初始化焦点图
+	initImg : function(event, data){
+
+		Slide.init({
+			ulDom 		: $('#imgul'),
+			slideDom 	: $('.focus'),
+			list 		: data.list
+		});
+	},
+	
+	initList : function(event, data){
+		
+		var pagehtml = [];
+		
+		$.each(data.groups, function(index, group){
+			if(!group.title || !group.contents || !(group.contents.length>0) ){
+				return;
+			}
+			var titleClass = Recom.titleClass[index%5],
+				listHtml = [];
+				
+			if( group.grouptype == 1 ){
+				$.each(group.contents, function(i, item){
+					if(i<2){
+						listHtml.push(Recom.tpl.newItem.jstpl_format(item));
+					}
+				});
+				pagehtml.push(Recom.tpl.newBox.jstpl_format({
+					title 		: group.title,
+					titleClass	: titleClass,
+					listHtml	: listHtml.join('')
+				}));
+			}else if(  group.grouptype == 2  ){
+				$.each(group.contents, function(i, item){
+					var songlist = [];
+					songlist.push(Recom.tpl.topSongItem.jstpl_format({
+						index 	: 1,
+						song 	: item.title,
+						singer 	: item.subtitle
+					}));
+					songlist.push(Recom.tpl.topSongItem.jstpl_format({
+						index 	: 2,
+						song 	: item.title2,
+						singer 	: item.subtitle2
+					}));
+					songlist.push(Recom.tpl.topSongItem.jstpl_format({
+						index 	: 3,
+						song 	: item.title3,
+						singer 	: item.subtitle3
+					}));
+					item.songlist = songlist.join('');
+					
+					item.listen = M.makeListenStr(item.listennum);
+					item.tj_tjreport = item.tj_tjreport || '';
+					listHtml.push(Recom.tpl.toplistItem.jstpl_format(item));
+				});
+				pagehtml.push(Recom.tpl.newBox.jstpl_format({
+					title 		: group.title,
+					subtitle	: group.subtitle,
+					titleClass	: titleClass,
+					listHtml	: listHtml.join('')
+				}));
+			 }else if( group.grouptype == 3 ){ // 为你推荐
+				$.each(group.contents, function(i, item){
+					
+					// item.listen = M.makeListenStr(item.listennum);
+					
+					item.imgurl = M.addMaxage(item.imgurl );
+					
+					if( item.isvip ){
+						item.vip = '<i class="identification_icon"></i>';
+					}
+					
+					if(item.line3){
+						item.line3 = item.line3.decodeBase();
+					}else{
+						item.line3 = '';
+					}
+					/*
+					if(!item.singername && item.username){
+						item.singername = item.username;
+					}
+					*/
+					
+					if(item.isdj == 4){
+						item.dj = '<span>电台</span>';
+						listHtml.push(Recom.tpl.tuijianRadioItem.jstpl_format(item));
+					}else{
+						if( item.isdj == 1 ){
+							item.dj = '<span>DJ节目</span>';
+						}else if( item.isdj == 2 ){
+							item.dj = '<span>专辑</span>';	
+						}else if( item.isdj == 3 ){
+							item.dj = '<span>歌单</span>';
+						}
+						listHtml.push(Recom.tpl.tuijianItem.jstpl_format(item));
+					}
+					
+				});
+				if(listHtml.length){
+					var subtitle = '';
+					if(group.subtitle){
+						subtitle = '<small>'+ group.subtitle +'</small>';
+					}
+					pagehtml.push(Recom.tpl.taogeBox.jstpl_format({
+						title 		: group.title,
+						titleClass	: titleClass,
+						subtitle	: subtitle,
+						listHtml	: listHtml.join('')
+					}));
+				}
+			}else{
+				
+				$.each(group.contents, function(i, item){
+					if( item.recordtype != 10014 ){ // 不是歌单 
+						return false;
+					}
+					
+					item.listen = M.makeListenStr(item.listennum);
+					item.imgurl = M.addMaxage(item.imgurl );
+					if( item.isdj ){
+						item.dj = '<span>DJ节目</span>';
+					}
+					if( item.isvip ){
+						item.vip = '<i class="identification_icon"></i>';
+					}
+					
+					if(group.title == '热门歌单'){
+						
+						item.reportstr = '2,200,404';
+					}else{
+						item.reportstr = '2,200';
+					}
+					
+					if(!item.tj_tjreport){
+						item.tj_tjreport = '';
+					}
+					
+					listHtml.push(Recom.tpl.taogeItem.jstpl_format(item));
+					
+					
+				});
+				if(listHtml.length){
+					pagehtml.push(Recom.tpl.taogeBox.jstpl_format({
+						title 		: group.title,
+						titleClass	: titleClass,
+						listHtml	: listHtml.join('')
+					}));
+				}
+			}
+			
+		});
+		
+		$('section', Ipad.viewCache['recompage']).each(function(i, item){
+			if( !$(item).hasClass('focus') ){
+				$(item).remove();
+			}
+		});
+		
+		$(Ipad.viewCache['recompage']).append(pagehtml.join(''));
+		
+		Recom.speed.pageEnd = (+ new Date());
+		
+		setTimeout(function(){
+			Ipad.onRientationChange();
+		}, 500);
+	},
+	
+	speed : {
+		pageStart : 0,
+		imgStart : 0,
+		imgEnd : 0,
+		recomStart : 0,
+		recomEnd : 0,
+		
+		imgCGIStart : 0,
+		imgCGIEnd : 0,
+		recomCGIStart : 0,
+		recomCGIEnd : 0,
+		pageEnd : 0
+	},
+	
+	init : function(){
+		if( this.firstInit ){
+			this.speed.pageStart = (+ new Date());
+			$(document).on('data:recomimg', Recom.initImg);
+			$(document).on('data:recomlist', Recom.initList);
+			this.firstInit = false;
+			this.getImgData();
+			this.getListData();
+			setTimeout(function(){
+				M.onSongStateChange(function(data){
+					if( $('#recompage').hasClass('currentpage') ){
+						Radio.initCurRadio();
+					}
+				});
+			},800);
+		}else{
+			setTimeout(function(){
+				Radio.initCurRadio();
+			}, 500);
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/index.html');
+		}, 1000);
+	}
+};
+
+Radio = {
+	
+	firstInit : true,
+	
+	tpl : {
+	
+		radioNavItem : '<a class="jumpclick radiotab %(current)"  page="radio" hotclick="radionav" href="javascript:;" groupid="%(type)" id="group_%(type)">%(name)</a>',
+		
+		radioBox : [
+			'	<div class="mod_album_list multi_row">',
+			'		<ul class="width_item_148">',
+			'		%(listhtml)',
+			'		</ul>',
+			'	</div>'
+		].join(''),
+		
+		redioItem : [
+			'<li class="jumpclick radioitem" recordid="%(radioId)" page="radio" hotclick="radioitem" id="radio_%(radioId)" recordtype="10004"  reportstr="2,295">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148">',
+				'		<div class="mask">',
+				'			<b class="wave">',
+				'				<i></i>',
+				'				<i></i>',
+				'				<i></i>',
+				'				<i></i>',
+				'			</b>',
+				'		</div>',
+				'		<img src="%(radioImg)">',
+				'	</div>',
+				'	<h3 class="album_tit">%(radioName)</h3>',
+				'	<p class="count">%(listenNum)</p>',
+				'</a>',
+			'</li>'
+		].join('')
+		
+	},
+	
+	cgroupid : null,
+	
+	radioMap : {},
+	htmlDecode:function(str){
+        var div = document.createElement('div');
+        div.innerHTML = str + "";
+        return div.innerText || div.textNode || '';
+    },
+    htmlEncode:function(str){
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/\'/g,'&#39;').replace(/\//g,'&#47;').replace(/\n/g,'<br/>');
+    },
+	getRadioData : function(){
+		
+		M.get('radio.radiolistdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Radio.radioDataCallback(data);
+				}
+			}
+		});
+		setTimeout(function(){
+			// var url = 'http://i.y.qq.com/musicradio/fcgi-bin/get_radiolist?cid=294&ct=18';
+
+			var url = 'http://i.y.qq.com/v8/fcg-bin/fcg_v8_radiolist.fcg?channel=radio&format=jsonp&page=index';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'jsonpCallback',
+				jsonpCallback: 'iRadioJsonCallBack',
+				success	: function(data){
+					M.set('radio.radiolistdata', JSON.stringify(data), function(ret){});
+					Radio.radioDataCallback(data);
+				}
+			});
+		});
+	},
+	
+	radioDataCallback : function(data){
+		// $.each(data.Group ,function(i, group){
+		// 	if(i==0){
+		// 		Radio.cgroupid = group.GroupID;
+		// 	}
+		// 	Radio.radioMap['group_'+ group.GroupID] = group;
+		// });
+		// $(document.body).trigger('data:navlist', data);
+		// $(document.body).trigger('data:radio', Radio.radioMap['group_'+Radio.cgroupid]);
+		// $('#group_'+Radio.cgroupid).addClass('current');
+		$.each(data.data.data.groupList,function(i, group){
+			if(i==0){
+				Radio.cgroupid = group.type;
+			}
+			Radio.radioMap['group_'+ group.type] = group;
+		});
+		$(document.body).trigger('data:navlist', data.data.data);
+		$(document.body).trigger('data:radio', Radio.radioMap['group_'+Radio.cgroupid]);
+		$('#group_'+Radio.cgroupid).addClass('current');
+	},
+	
+	radioClick : function(node, recordtype, recordid, reportstr, tj_tjreport){
+		
+		M.queryRadio(function(ret){
+			
+			if(ret.code == 0){ // 有电台在播放
+				
+				if( ret.id == recordid ){
+					
+					if( ret.state == 'playing'){
+						M.pause();
+						$('.radioitem .playing').removeClass('playing');
+					}else{
+						M.resume();
+						if(recordid != 99){
+							$('.mod_cover', node).addClass('playing');
+						}
+					}
+					
+					return;
+				}
+			}
+			if(recordid != 99){
+				$('.radioitem .playing').removeClass('playing');
+				$('.mod_cover', node).addClass('playing');
+			}
+			if(!tj_tjreport){
+				M.jump(recordtype, recordid, reportstr);
+			}else{
+				M.jump(recordtype, recordid, reportstr, tj_tjreport);
+			}
+		});
+	},
+	
+	selectItem : function(groupid){
+		if(groupid == Radio.cgroupid){		
+			return;
+		}
+		var data = Radio.radioMap[groupid];
+		if(data){
+			$(document.body).trigger('data:radio', data);
+		}
+	},
+	
+	initNavList : function(event, data){
+		var listhtml = [];
+		
+		// $.each(data.Group ,function(i, item){
+		// 	item.GroupName = item.GroupName.decodeBase();
+		// 	if(item.GroupID == 24){
+		// 		item.current = 'current';
+		// 	}
+		// 	listhtml.push(Radio.tpl.radioNavItem.jstpl_format(item));
+		// });
+		$.each(data.groupList ,function(i, item){
+			item.name = Radio.htmlEncode(Radio.htmlDecode(item.name));
+
+			// item.GroupName = item.GroupName.decodeBase();
+			if(item.type == 24){
+				item.current = 'current';
+			}
+			listhtml.push(Radio.tpl.radioNavItem.jstpl_format(item));
+		});
+		$('.mod_tabs_nav' ,Ipad.viewCache['radiopage']).html(listhtml.join(''));
+		
+	},
+	
+	initRadioList : function(event, data){
+		if(typeof data.listhtml == 'undefined'){
+			var listhtml = [];
+			var listenNum = 0;
+			$.each(data.radioList ,function(i, item){
+				item.radioName = Radio.htmlEncode(Radio.htmlDecode(item.radioName));
+				// item.RecName = item.RecName.decodeBase();
+				// item.OrderNumStr = item.OrderNumStr.decodeBase();
+				listenNum = parseInt(Radio.htmlEncode(Radio.htmlDecode(item.listenNum)));
+				item.listenNum = (listenNum>10000?((listenNum/10000).toFixed(1)+"万"):listenNum)+"人听";
+				item.PicUrl = M.addMaxage(item.PicUrl);
+				
+				listhtml.push(Radio.tpl.redioItem.jstpl_format(item));
+			});
+			data.listhtml = listhtml.join('');
+		}
+		$('section' ,Ipad.viewCache['radiopage']).html(Radio.tpl.radioBox.jstpl_format(data));
+		var s = Radio.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&6='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		setTimeout(function(){
+			Radio.initCurRadio();
+		}, 500);
+	},
+	
+	initCurRadio : function(){
+		
+		M.queryRadio(function(ret){
+			$('.radioitem .playing').removeClass('playing');
+			if(ret.code == 0){ // 有电台在播放
+				var radioid = ret.id;
+				if( ret.state == 'playing'){
+					$('.mod_cover', '#radio_'+radioid).addClass('playing');
+				}else{
+					$('.mod_cover', '#radio_'+radioid).removeClass('playing');
+				}
+				
+			}else{
+				$('.mod_cover.playing').removeClass('playing');
+				
+			}
+		});
+		
+	},
+	
+	speed : {
+		pageStart : 0,
+		pageEnd : 0
+	},
+	
+	init : function(){
+		if( this.firstInit ){
+			this.speed.pageStart = (+ new Date());
+			$(document).on('data:radio', Radio.initRadioList);
+			$(document).on('data:navlist', Radio.initNavList);
+			this.firstInit = false;
+			setTimeout(function(){
+				M.onSongStateChange(function(data){
+					if( $('#radiopage').hasClass('currentpage') ){
+						Radio.initCurRadio();
+					}
+				});
+			},300);
+		}
+		if( !$('li', Ipad.viewCache['radiopage']).length ){
+			this.getRadioData();
+		}else{
+			setTimeout(function(){
+				Radio.initCurRadio();
+			}, 500);
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/radio.html');
+		}, 1000);
+	}
+};
+
+Toplist = {
+	
+	tpl : {
+		topItem : [
+			'<div class="grid jumpclick" page="toplist" hotclick="topitem" recordid="%(RecID)" recordtype="%(RecType)" reportstr="2,296">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84 imgcut" style="background-image:url(%(PicUrl))">',
+			//'			<img src="%(PicUrl)">',
+			'			<ins>%(listen)人听</ins>',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<ol class="mod_ranks_list">',
+			'				%(list)',
+			'			</ol>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		topBox : [
+			'<section %(sectionClass)>',
+			'	<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'	<div class="layout_column_2 multi_row">',
+			'		%(listhtml)',
+			'	</div>',
+			'<section>'
+		].join(''),
+		
+		songItem : [
+			'<li>',
+			'	<em>%(index)</em>',
+			'	<span class="song">%(songname)</span>',
+			'	<span class="singer">%(singername)</span>',
+			'</li>'
+		].join('')
+	},
+	
+	getToplistData : function(){
+		M.get('toplist.toplistdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Toplist.toplistDataCallback(data);
+				}
+			}
+		});
+		
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/toplist/fcgi-bin/get_toplist?cid=293&ct=18';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('toplist.toplistdata', JSON.stringify(data), function(ret){});
+					Toplist.toplistDataCallback(data);
+				}
+			});
+		});
+
+	},
+	
+	toplistDataCallback : function(data){
+		Toplist.data = data;
+		$(document.body).trigger('data:toplist', data);
+	},
+	
+	initToplist : function(event, data){
+		var pagehtml = [];
+		$.each(data.Group, function(index, group){
+			
+			var titleClass = Recom.titleClass[index%5],
+				listhtml =[];
+			
+			$.each(group.List ,function(i, item){
+				item.RecName = item.RecName.decodeBase();
+				item.listen = M.makeListenStr(item.SubNum);
+				var songlist = [];
+				
+				if(index < 2){
+					$.each(item.songlist, function(j, song){
+						song.index = (j+1);
+						song.songname = song.songname.decodeBase();
+						song.singername = "- "+song.singername.decodeBase();
+						
+						songlist.push(Toplist.tpl.songItem.jstpl_format(song));
+
+					});
+				}else if(index == 2){
+						var title = {};
+						title.index = "";
+						title.songname = item.RecName;
+						title.singername = "";
+						songlist.push(Toplist.tpl.songItem.jstpl_format(title));
+					$.each(item.songlist.slice(0,2), function(j, song){
+						song.index = (j+1);
+						song.songname = song.songname.decodeBase();
+						song.singername = "- "+song.singername.decodeBase();
+						
+						songlist.push(Toplist.tpl.songItem.jstpl_format(song));
+					});
+					
+				}
+				
+				
+				item.list = songlist.join('');
+
+
+				item.PicUrl = "http://imgcache.qq.com/music/photo_new/"+Toplist.htmlEncode(Toplist.htmlDecode(item.picinfo.type+"R"+item.picinfo.size[0]+item.picinfo.m+item.picinfo.mid))+".jpg";
+				item.defualtUrl = M.addMaxage("http://imgcache.gtimg.cn/mediastyle/mobile/app/share/extra/upload_default.jpg");
+				
+				item.PicUrl = M.addMaxage(item.PicUrl);
+				
+				listhtml.push(Toplist.tpl.topItem.jstpl_format(item));
+			});
+			
+			
+			group.GroupName = group.GroupName.decodeBase();
+			
+			pagehtml.push(Toplist.tpl.topBox.jstpl_format({
+				sectionClass : index==2?'class="world_rank"':'',
+				title : group.GroupName,
+				titleClass : titleClass,
+				listhtml : listhtml.join('')
+			}));
+		});
+		
+		$(Ipad.viewCache['toplistpage']).html(pagehtml.join(''));
+		
+		var s = Toplist.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&7='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		
+	},
+	htmlDecode:function(str){
+        var div = document.createElement('div');
+        div.innerHTML = str + "";
+        return div.innerText || div.textNode || '';
+    },
+    htmlEncode:function(str){
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/\'/g,'&#39;').replace(/\//g,'&#47;').replace(/\n/g,'<br/>');
+    },
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	init : function(){
+		
+		if( !$('section', Ipad.viewCache['toplistpage']).length ){
+			$(document).on('data:toplist', Toplist.initToplist);
+			this.speed.pageStart = (+ new Date());
+			this.getToplistData();
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/toplist.html');
+		}, 1000);
+	}
+	
+}
+
+Taoge = {
+	
+	firstInit : true,
+	
+	tagsData : null,
+	
+	taogeListData : {},
+	
+	hotTagsData : null,
+	
+	currentId : 10000000,
+	
+	tpl : {
+		
+		hotTagItem : '<a href="javascript:;" class="jumpclick %(itemclass) tagitem" id="hottag_%(categoryType)_%(categoryId)" data-name="%(categoryName)" categoryid="%(categoryId)" categorytype="%(categoryType)"  page="playlist" hotclick="hottabitem">%(categoryName)</a>',
+		
+		tagItem : '<li class="jumpclick tagitem" id="tag_%(categoryType)_%(categoryId)" categoryid="%(categoryId)" categorytype="%(categoryType)" page="playlist" hotclick="tagitem" data-name="%(categoryName)"><a href="javascript:;">%(categoryName)</a></li>',
+		
+		tagBox : [
+			'<h2 class="mod_tit c_bd_l_green">%(categoryGroupName)</h2>',
+            '<ul class="ul_sort">',
+			'	%(list)',
+			'</ul>'
+		].join(''),
+		
+		taogeBox : [
+			'<section categoryid="%(categoryId)">',
+			'	<header class="sort_header">',
+			'		<h2 class="mod_tit c_bd_l_green">%(categoryName) · %(sortName)</h2>',
+			'		<a href="javascript:;"  categoryid="%(categoryId)" sortid="%(sortId)" class="more_btn jumpclick taogemore" page="playlist" hotclick="more">更多<i>&gt;</i></a>',
+			'	</header>',
+			'	<div class="mod_album_list">',
+			'		<ul class="width_item_148">',
+			'				%(listhtml)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		taogeItem : [
+			'<li class="jumpclick" page="playlist" hotclick="taogeitem" recordtype="10014" recordid="%(dissid)"  reportstr="2,294">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148 imgcut" style="background-image:url(%(imgurl))">',
+				'		%(dj)',
+				'	</div>',
+				'	<h3 class="album_tit">%(dissname)</h3>',
+				'	<p class="singer">%(singer)%(vip)</p>',
+				'	<p class="count">%(listen)人听</p>',
+				'</a>',
+			'</li>'
+		].join('')
+		
+	},
+	
+	getTagsData : function(){
+		M.get('taoge.tagsdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Taoge.tagsDataCallback(data);
+				}
+			}
+		});
+		setTimeout(function(){
+			// var url = 'http://i.y.qq.com/fav/fcgi-bin/3g_get_diss_tag_conf?cid=297&ct=18';
+			var url = 'http://i.y.qq.com/s.plcloud/fcgi-bin/fcg_get_diss_tag_conf.fcg?g_tk=5381&format=jsonp&inCharset=GB2312&outCharset=utf-8&notice=0&platform=ipadgedan&needNewCode=0';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				// jsonp 	: 'callback',
+				jsonp 	: 'jsonpCallback',
+				jsonpCallback:'iTotalTagsJsonCallback',
+				success	: function(data){
+					M.set('taoge.tagsdata', JSON.stringify(data), function(ret){});
+					Taoge.tagsDataCallback(data);
+				}
+			});
+		});
+	},
+	
+	tagsDataCallback : function(data){
+		Taoge.tagsData = data;
+		$(document.body).trigger('data:tagsdata', Taoge.tagsData);
+	},
+	
+	initTags : function(event, data){
+		
+		var pagehtml = [];
+		pagehtml.push('<a href="javascript:;"  page="playlist" hotclick="tagitem" id="tag_1_10000000" class="all_sort jumpclick tagitem"  categoryid="10000000" categorytype="1">全部</a>');
+		$.each(data.data.categories, function(index, group){
+			
+			var listhtml = [];
+			$.each(group.items, function(i, item){
+				if(item.categoryId == 10000000){
+					return;
+				}
+				item.categoryName = Taoge.htmlEncode(Taoge.htmlDecode(item.categoryName));
+				// item.categoryName = item.categoryName.decodeBase();
+				listhtml.push(Taoge.tpl.tagItem.jstpl_format(item));
+			
+			});
+			if(listhtml.length){
+				group.list = listhtml.join('');
+				group.categoryGroupName = Taoge.htmlEncode(Taoge.htmlDecode(group.categoryGroupName));
+				// group.categoryGroupName = group.categoryGroupName.decodeBase();
+				pagehtml.push(Taoge.tpl.tagBox.jstpl_format(group));
+			}
+		});
+		
+		
+		$('.scroll').html(pagehtml.join(''));
+		
+	},
+	
+	getTaogeData : function(categoryid){
+		
+		
+		var categoryid = categoryid || 10000000;
+		
+		M.get('taoge.taogedata.'+categoryid, function(ret){
+			if(ret.code == 0){
+				var data = "";
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Taoge.taogeDataCallback(data);
+				}
+			}
+			
+		});
+		
+		setTimeout(function(){
+			var url = 'http://i.y.qq.com/fav/fcgi-bin/3g_get_comb_diss_by_tag?cid=346&ct=18&categoryId='+ categoryid +'&sin=0&ein=5&from=2';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					if(data.categoryId == 10000000 ){
+						M.set('taoge.taogedata.'+data.categoryId, JSON.stringify(data), function(ret){});
+					}
+					Taoge.taogeDataCallback(data);
+				}
+			});
+		});
+	
+	},
+	
+	taogeDataCallback : function(data){
+		Taoge.taogeListData['category_'+ data.categoryId ] = data;
+		$(document.body).trigger('data:taogedata', data);
+	},
+	
+	tagsClick : function(){
+		Taoge.showTags();
+	},
+	
+	showTags : function(){
+		$('#taogemask').show();
+		$('.mod_dropdown_wrap').show();
+		Taoge.updateCurTag();
+	},
+	
+	hideTags : function(){
+		$('#taogemask').hide();
+		$('.mod_dropdown_wrap').hide();
+	},
+	
+	updateCurTag : function(){
+		$('.tagitem.current').removeClass('current');
+		$('#tag_1_'+Taoge.currentId).addClass('current');
+		$('#hottag_1_'+Taoge.currentId).addClass('current');
+	},
+	htmlDecode:function(str){
+        var div = document.createElement('div');
+        div.innerHTML = str + "";
+        return div.innerText || div.textNode || '';
+    },
+    htmlEncode:function(str){
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/\'/g,'&#39;').replace(/\//g,'&#47;').replace(/\n/g,'<br/>');
+    },
+	
+	initTaoge : function(event, data){
+		
+		Taoge.currentId = data.categoryId;
+		
+		Taoge.updateCurTag();
+		
+		var pagehtml = [];
+		
+		$.each(data.data, function(index, group){
+			
+			var listhtml = [];
+			$.each(group.list, function(i, item){
+				
+				item.dissname = item.dissname.decodeBase();
+				item.singer = item.creator.name.decodeBase();
+				item.listen = M.makeListenStr(item.listennum);
+				item.imgurl = M.addMaxage(item.imgurl);
+				
+				if( item.version == 7 ){
+					item.dj = '<span>DJ节目</span>';
+				}
+				if( item.creator.isVip ){
+					item.vip = '<i class="identification_icon"></i>';
+				}
+				
+				listhtml.push(Taoge.tpl.taogeItem.jstpl_format(item));
+				
+			});
+			group.sortName = group.sortName.decodeBase();
+			group.listhtml = listhtml.join('');
+			group.categoryId = data.categoryId;
+			group.categoryName = data.categoryName.decodeBase();
+			
+			pagehtml.push(Taoge.tpl.taogeBox.jstpl_format(group));
+		});
+		
+		$('section', Ipad.viewCache['taogepage']).remove();
+		$(Ipad.viewCache['taogepage']).append($(pagehtml.join('')));
+		
+		var s = Taoge.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed( '&flag3=50&8='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		
+	},
+	
+	getHotTags : function(){
+	
+		M.get('taoge.hottagsdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					Taoge.hotTagsDataCallback(data);
+				}
+			};
+			
+		});
+		
+		setTimeout(function(){
+			// var url = 'http://i.y.qq.com/fav/fcgi-bin/3g_get_diss_tag_conf?cid=297&ct=18&onlyhot=1';
+			var url = 'http://i.y.qq.com/s.plcloud/fcgi-bin/fcg_get_diss_tag_conf.fcg?g_tk=5381&format=jsonp&inCharset=GB2312&outCharset=utf-8&notice=0&platform=ipadgedan&needNewCode=0&hottags=1';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'jsonpCallback',
+				jsonpCallback:'iHotTagsJsonCallback',
+				success	: function(data){
+					M.set('taoge.hottagsdata', JSON.stringify(data), function(ret){});
+					Taoge.hotTagsDataCallback(data);
+				}
+			});
+		});
+		
+	},
+	
+	hotTagsDataCallback : function(data){
+		Taoge.hotTagsData = data;
+		$(document.body).trigger('data:hottagsdata', data);
+	},
+	
+	initHotTags : function(event, data){
+		var listhtml = [];
+		
+		if(data.data && data.data.hottags){
+			$.each(data.data.hottags, function(index, item){
+				// item.categoryName = item.categoryName.decodeBase();
+				item.categoryName = Taoge.htmlEncode(Taoge.htmlDecode(item.categoryName));
+				if(item.categoryId == 10000000){
+					item.itemclass = "current";
+				}else{
+					item.itemclass = "";
+				}
+				listhtml.push(Taoge.tpl.hotTagItem.jstpl_format(item));
+			});
+		}
+		
+		$('.mod_tabs_nav', Ipad.viewCache['taogepage']).html(listhtml.join(''));
+		setTimeout(function(){
+			Taoge.updateCurTag();
+		}, 1000);
+	},
+	
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	
+	init : function(){
+	
+		if( this.firstInit ){
+			$(document).on('data:tagsdata', Taoge.initTags);
+			$(document).on('data:hottagsdata', Taoge.initHotTags);
+			$(document).on('data:taogedata', Taoge.initTaoge);
+			this.firstInit = false;
+			this.speed.pageStart = (+ new Date());
+		}
+		
+		if( !this.tagsData ){
+			setTimeout(function(){
+				Taoge.getTagsData();
+			}, 500);
+		}
+		
+		if( !$('section', Ipad.viewCache['taogepage']).length ){
+			this.getTaogeData();
+		}
+				
+		if(!this.hotTagsData){
+			setTimeout(function(){
+				Taoge.getHotTags();
+			}, 100);
+		}
+		
+		setTimeout(function(){
+			M.doPv('/ipad/playlist.html');
+		}, 1000);
+	}
+}
+
+
+
+First = {
+	
+	firstInit : true,
+	
+	showNum : 3,
+	
+	total : 0,
+	
+	addNum : 3,
+	
+	titleClass : ['c_bd_l_green', 'c_bd_l_blue', 'c_bd_l_orange', 'c_bd_l_pink', 'c_bd_l_yellow'],
+	
+	fistData : null,
+	
+	moreAlbumList : {},
+	
+	loadingData : false,
+	
+	tpl : {
+		
+		newSongBox : [
+			'<section>',
+			'	<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'	<div class="layout_column_2 multi_row" id="firstnewsongbox">',
+			'		%(list)',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		songItem : [
+			'<div class="grid jumpclick" page="first" hotclick="newsong" recordtype="%(type)" recordid="%(id)" reportstr="2,200,20">',
+			'	<div class="mod_media">',
+			'		<div class="mod_cover size_84">',
+			'			<img src="%(picurl)" />',
+			'		</div>',
+			'		<div class="media_body">',
+			'			<h3 class="media_heading">%(title)</h3>',
+			'			<p class="media_paragraph"><span class="song ellipsis">%(songname_0)</span><span class="singer">- %(singername_0)</span></p>',
+			'			<p class="media_paragraph"><span class="song ellipsis">%(songname_1)</span><span class="singer">- %(singername_1)</span></p>',
+			'		</div>',
+			'	</div>',
+			'</div>'
+		].join(''),
+		
+		albumBox : [
+			'<section class="mod_slider">',
+			'	<header>',
+			'		<h2 class="mod_tit %(titleClass)">%(title)</h2>',
+			'		<div class="slider_ctrl"></div>',
+			'	</header>',
+			'	<div class="mod_album_list js_mod_album_list_slide">',
+			'		<ul class="width_item_148 mod_album_list_slide" id="firstalbumbox_%(index)">',
+			'			%(list)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join(''),
+		
+		albumItem : [
+			'<li class="jumpclick" page="first" hotclick="album" page="first" hotclick="album" recordtype="%(type)" recordid="%(id)"  reportstr="2,200,20">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148">',
+				'		<img src="%(picurl)">',
+				'	</div>',
+				'	<h3 class="album_tit">%(title)</h3>',
+				'	<p class="singer">%(subtitle)</p>',
+				'	<p class="count">%(publictime)</p>',
+				'</a>',
+			'</li>'
+		].join(''),
+		
+		hideAlbumItem : [
+			'<li class="jumpclick" recordtype="%(type)" recordid="%(id)" reportstr="2,200,20">',
+				'<a href="javascript:;" class="mod_album_list__itembox">',
+				'	<div class="mod_cover size_148" imgsrc="%(picurl)">',
+				'	</div>',
+				'	<h3 class="album_tit">%(title)</h3>',
+				'	<p class="singer">%(subtitle)</p>',
+				'	<p class="count">%(publictime)</p>',
+				'</a>',
+			'</li>'
+		].join(''),
+		
+		moreAlbumBox : [
+			'<section class="mod_slider">',
+			'	<header>',
+			'		<h2 class="mod_tit c_bd_l_green">%(week)周<small>/%(year)</small></h2>',
+			'		<div class="slider_ctrl"></div>',
+			'	</header>',
+			'	<div class="mod_album_list js_mod_album_list_slide">',
+			'		<ul class="width_item_148 mod_album_list_slide">',	
+			'		%(list)',
+			'		</ul>',
+			'	</div>',
+			'</section>'
+		].join('')
+		
+	},
+	
+
+	getMoreAlbumData : function( useCache ){
+		
+		if(this.loadingData){
+			return;
+		}else{
+			this.loadingData = true;
+		}
+		
+		if( this.showNum >= this.total || this.showNum >= 20 ){
+			this.loadingData = true;
+			M.hideLoading();
+			return;
+		}else{
+			M.showLoading();
+			var url = 'http://proxy.music.qq.com/3gmusic/fcgi-bin/shoufa_cache.fcg?rettype=1&typeid=2001&itemid=1&sin='+this.showNum+'&cid=284&ct=18';
+			this.loadingData = true;
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					
+					First.loadingData = false;
+					
+					$.each(data.List, function(i, item){
+						First.moreAlbumList['album_' + (( (First.total+2)-First.showNum )-i)  ] = item;
+					});
+					$(document.body).trigger('data:albumdata', data);
+					
+				}
+			});
+				
+		}
+	},
+	
+	getFirstData : function(){
+		M.get('first.firstdata', function(ret){
+			if(ret.code == 0){
+				var data = "";
+				
+				try{
+					data = JSON.parse( ret.value );
+				}catch(e){
+					data = null;
+				}
+				if(data){
+					if( !First.fistData ){
+						First.fistDataCallback(data);
+					}
+				}
+			}
+		});
+		
+		setTimeout(function(){
+			var url = 'http://proxy.music.qq.com/3gmusic/fcgi-bin/shoufa_cache.fcg?rettype=1&typeid=2001&itemid=1&sin=0&cid=284&ct=18&onlymv=0';
+			$.ajax({
+				type	: 'get',
+				url 	: url,
+				dataType: 'jsonp',
+				jsonp 	: 'callback',
+				success	: function(data){
+					M.set('first.firstdata', JSON.stringify(data), function(ret){});
+					First.fistDataCallback(data);
+				}
+			});
+		});
+	},
+	
+	fistDataCallback : function(data){
+		First.fistData = data;
+		First.total = data.totalnum;
+		$(document.body).trigger('data:firstdata', data);
+	},
+	
+	initFirst : function(event, data){
+		
+		var pagehtml = [];
+		
+		$.each(data.List, function(index, group){
+			var titleClass = First.titleClass[index%5],
+				listhtml = [];
+
+
+			if(index == 0){ // 新歌首发
+				
+				$.each(group.item, function(i, item){
+					item.title = item.title.decodeBase();
+					item.songname_1 = item.songname_1.decodeBase();
+					item.songname_0 = item.songname_0.decodeBase();
+					item.singername_0 = item.singername_0.decodeBase();
+					item.singername_1 = item.singername_1.decodeBase();
+					listhtml.push(First.tpl.songItem.jstpl_format(item));
+				});
+				if( !$('#firstnewsongbox').length ){
+					pagehtml.push(First.tpl.newSongBox.jstpl_format({
+						title : group.title.decodeBase(),
+						titleClass : titleClass,
+						list : listhtml.join('')
+					}));
+				}else{
+					$('#firstnewsongbox', Ipad.viewCache['firstpage']).html(listhtml.join(''));
+				}
+			
+			}else{ // 最新专辑
+				
+				First.moreAlbumList['album_'+First.total] = group.item;
+				
+				$.each(group.item, function( i, item){
+
+					item.title = item.title.decodeBase();
+					item.publictime = item.publictime.decodeBase();
+					item.subtitle = item.subtitle.decodeBase();
+					item.picurl = 'http://imgcache.qq.com/music/photo/album_300/'+(item.id)%100+'/300_albumpic_'+item.id+'_0.jpg?max_age=31536000';
+				if(i<6){
+					listhtml.push(First.tpl.albumItem.jstpl_format(item));
+				}else{
+					listhtml.push(First.tpl.hideAlbumItem.jstpl_format(item));
+				}
+
+					
+
+					
+
+				});
+				
+				var title = group.title.decodeBase();
+				if(!title){
+					if(index == 1){
+						title = '最新专辑';
+					}else{
+						title = group.week+'周<small>/'+group.year+'</small>';
+					}
+				}
+				
+				if( !$('#firstalbumbox_'+index).length ){
+					pagehtml.push(First.tpl.albumBox.jstpl_format({
+						title : title,
+						titleClass : titleClass,
+						list : listhtml.join(''),
+						index : index
+					}));
+				}else{
+					!$('#firstalbumbox_'+index, Ipad.viewCache['firstpage']).html(listhtml.join(''));
+				}
+			}
+		});
+		
+		if( !$('#firstnewsongbox').length ){
+			$(Ipad.viewCache['firstpage']).append(pagehtml.join(''));
+		}
+		var s = First.speed;
+		if( !s.pageEnd ){
+			s.pageEnd = (+ new Date());
+			setTimeout(function(){
+				M.doSpeed('&flag3=50&9='+ (s.pageEnd - s.pageStart) );
+			});
+		}
+		setTimeout(function(){
+			Ipad.onRientationChange();
+			// First.getMoreAlbumData(true);
+		}, 500);
+	},
+	
+	initMoreAlbum : function(event, data){
+		var pagehtml = []
+		//	titleClass = First.titleClass[4];
+		$.each(data.List, function(index, group){
+		
+			var listhtml = [],
+				titleClass = 'c_bd_l_yellow';
+			$.each(group.item, function( i, item){
+				//if(i<20){
+					item.title = item.title.decodeBase();
+					item.publictime = item.publictime.decodeBase();
+					item.subtitle = item.subtitle.decodeBase();
+					item.picurl = 'http://imgcache.qq.com/music/photo/album_300/'+(item.id)%100+'/300_albumpic_'+item.id+'_0.jpg?max_age=31536000';
+					if(i<6){
+						listhtml.push(First.tpl.albumItem.jstpl_format(item));
+					}else{
+						listhtml.push(First.tpl.hideAlbumItem.jstpl_format(item));		
+					}
+
+			});
+
+
+			
+			pagehtml.push(First.tpl.moreAlbumBox.jstpl_format({
+				week 		: group.week,
+				year		: group.year,
+				titleClass 	: titleClass,
+
+				list 		: listhtml.join('')
+			}));
+			
+			First.showNum++;
+		});
+		if( $('.mod_loading').length ){
+			$('.mod_loading').before(pagehtml.join(''));
+		}else{
+			$(Ipad.viewCache['firstpage']).append(pagehtml.join(''));
+		}
+		
+		setTimeout(function(){
+			Ipad.onRientationChange();
+		}, 500);
+	},
+	
+	speed : {
+		pageEnd : 0,
+		pageStart : 0
+	},
+	
+	init : function(){
+		
+		if(this.firstInit){
+			this.firstInit = false;
+			this.speed.pageStart = (+ new Date());
+			
+			$(document).on('data:firstdata', First.initFirst);
+			
+			$(document).on('data:albumdata', First.initMoreAlbum);
+			
+			$(document).on('scroll', function(){
+				var bodyHeight = document.body.clientHeight,
+					clientHeight = window.innerHeight,
+					maxScroll = bodyHeight-clientHeight,
+					scrollTop = document.body.scrollTop;
+				if( scrollTop >= maxScroll-100 && !First.loadingData ){
+					First.getMoreAlbumData();
+				}
+			}, false);
+			
+			setTimeout(function(){
+				First.getFirstData();
+			});
+		}
+		setTimeout(function(){
+			M.doPv('/ipad/first.html');
+		}, 1000);
+	}
+};
+
+document.addEventListener("DOMContentLoaded", function(){
+	Ipad.init();
+	if( !/qqmusic/ig.test(navigator.userAgent)){
+		Recom.init();
+	}
+	
+}, false);
+
+document.addEventListener('WebViewJavascriptBridgeReady', function(e){
+	Recom.init();
+});
+
+</script>
+</div>
+</body>
+</html>

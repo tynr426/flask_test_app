@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cfg</key>
+	<dict>
+		<key>actionAge</key>
+		<integer>600</integer>
+		<key>actions</key>
+		<integer>600</integer>
+		<key>betaOn</key>
+		<integer>1</integer>
+		<key>crashTrails</key>
+		<integer>20</integer>
+		<key>dnsconn</key>
+		<false/>
+		<key>enableErrTrace</key>
+		<true/>
+		<key>errRspSize</key>
+		<integer>1024</integer>
+		<key>errs</key>
+		<integer>10</integer>
+		<key>features</key>
+		<integer>55</integer>
+		<key>interval</key>
+		<integer>60</integer>
+		<key>intervalOnIdle</key>
+		<integer>480</integer>
+		<key>slowInteractionThreshold</key>
+		<integer>4000</integer>
+		<key>stackDepth</key>
+		<integer>50</integer>
+		<key>uiTraceRetries</key>
+		<integer>1</integer>
+		<key>uiTraceSize</key>
+		<integer>65535</integer>
+		<key>uiTraceThreshold</key>
+		<integer>300</integer>
+		<key>uiTraces</key>
+		<integer>1</integer>
+		<key>urlFilterMode</key>
+		<integer>2</integer>
+		<key>urlRules</key>
+		<array>
+			<dict>
+				<key>matchMode</key>
+				<integer>0</integer>
+				<key>rule</key>
+				<string>www.googleadservices.com</string>
+			</dict>
+		</array>
+	</dict>
+	<key>did</key>
+	<string>1256793718</string>
+	<key>disabledTimeout</key>
+	<integer>0</integer>
+	<key>enabled</key>
+	<integer>1</integer>
+	<key>sleepBefore</key>
+	<integer>1465125194</integer>
+	<key>token</key>
+	<string>UgTjnKcXNDj3nqhWf907</string>
+	<key>tyId</key>
+	<string>E4-Llbq4QfY</string>
+</dict>
+</plist>

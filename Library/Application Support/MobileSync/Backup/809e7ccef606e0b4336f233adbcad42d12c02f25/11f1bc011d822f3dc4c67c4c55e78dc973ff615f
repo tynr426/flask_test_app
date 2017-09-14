@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Mama-App</key>
+	<string>bigmama/6.0.1.1 (iPad; iOS 8.4.1; Scale/2.00) mmq/6.0.1</string>
+	<key>User-Agent</key>
+	<string>mmq/6.0.1 (iPhone; iOS 8.4.1; Scale/2.00; iPad);mmqWXPay/V6.0.1</string>
+</dict>
+</plist>

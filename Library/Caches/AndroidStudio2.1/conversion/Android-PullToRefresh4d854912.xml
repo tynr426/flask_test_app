@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion>
+  <applied-converters>
+    <converter id="android-module-to-java-module" />
+    <converter id="android-proguard-options" />
+    <converter id="android-sdk-library" />
+    <converter id="groovy-modules-to-facets" />
+    <converter id="groovy-script-run-configurations" />
+  </applied-converters>
+  <project-files>
+    <file path="/Users/apple/Android-PullToRefresh/.idea/compiler.xml" timestamp="1477995589000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/copyright/profiles_settings.xml" timestamp="1477995589000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/encodings.xml" timestamp="1477995589000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/libraries/android_support_v4.xml" timestamp="1477995592000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/libraries/android_support_v41.xml" timestamp="1477995592000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/libraries/android_support_v42.xml" timestamp="1477995592000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/misc.xml" timestamp="1477995706000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/modules.xml" timestamp="1477995592000" />
+    <file path="/Users/apple/Android-PullToRefresh/.idea/workspace.xml" timestamp="1477995956000" />
+    <file path="/Users/apple/Android-PullToRefresh/extras/PullToRefreshListFragment/PullToRefreshListFragment.iml" timestamp="1477995594000" />
+    <file path="/Users/apple/Android-PullToRefresh/extras/PullToRefreshViewPager/PullToRefreshViewPager.iml" timestamp="1477995706000" />
+    <file path="/Users/apple/Android-PullToRefresh/library/library.iml" timestamp="1477995706000" />
+    <file path="/Users/apple/Android-PullToRefresh/sample/sample.iml" timestamp="1477995706000" />
+  </project-files>
+</conversion>
+

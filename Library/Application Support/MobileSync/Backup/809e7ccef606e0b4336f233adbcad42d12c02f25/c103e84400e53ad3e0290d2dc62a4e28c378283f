@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>pT1NhadfBMDeojEQGBALGPsa</string>
+	<key>PRODUCTION_MODE</key>
+	<true/>
+	<key>device_token</key>
+	<string>8b6136d08c493f287a3ab8db30ea9574bf3476565eb031a2c17ede1d3c006595</string>
+	<key>stats_switch</key>
+	<string>YES</string>
+</dict>
+</plist>

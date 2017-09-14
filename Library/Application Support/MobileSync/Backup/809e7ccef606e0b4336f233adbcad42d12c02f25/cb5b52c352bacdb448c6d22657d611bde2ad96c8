@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>app</key>
+		<string>0x5000201</string>
+		<key>log</key>
+		<array>
+			<dict>
+				<key>cmd</key>
+				<string>0x810</string>
+				<key>conn</key>
+				<string>1</string>
+				<key>ip</key>
+				<string>101.227.130.77</string>
+				<key>net</key>
+				<string>2</string>
+				<key>port</key>
+				<string>443</string>
+				<key>rlen</key>
+				<string>745</string>
+				<key>rst2</key>
+				<string>0</string>
+				<key>slen</key>
+				<string>652</string>
+				<key>sub</key>
+				<string>0xf</string>
+				<key>used</key>
+				<string>11115</string>
+				<key>wap</key>
+				<string>0</string>
+			</dict>
+		</array>
+		<key>oper</key>
+		<string>Unknown</string>
+		<key>rst1</key>
+		<string>0</string>
+		<key>rst2</key>
+		<string>0</string>
+		<key>start</key>
+		<string>1468162740</string>
+		<key>subapp</key>
+		<string>0x1</string>
+		<key>trlen</key>
+		<string>745</string>
+		<key>tslen</key>
+		<string>652</string>
+		<key>type</key>
+		<string>exchg</string>
+		<key>uin</key>
+		<string>121347419</string>
+		<key>used</key>
+		<string>11144</string>
+	</dict>
+</array>
+</plist>
