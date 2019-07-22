@@ -1,0 +1,1 @@
+/Users/apple/Documents/rust/Test001/target/debug/Test001.dSYM: /Users/apple/Documents/rust/Test001/src/circle_d.rs /Users/apple/Documents/rust/Test001/src/enum_c.rs /Users/apple/Documents/rust/Test001/src/main.rs /Users/apple/Documents/rust/Test001/src/user.rs
